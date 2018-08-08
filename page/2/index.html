@@ -60,14 +60,9 @@
           </li>
         </ul>
         <div class="article-content">
-          <p>I have directories that <a href="http://www.chiark.greenend.org.uk/~sgtatham/agedu/">agedu</a> shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.</p>
-
-<p>A quick find will sort that</p>
-
-<pre><code class="language-find"></code></pre>
-
-<p>Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.</p>
-
+          I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
+A quick find will sort that
+find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' | sort -nr &gt; bigfiles.txt  Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.
         </div>
         <div class="article-readmore"><a href="/2016/11/20/finding-large-files-in-a-directory/">Read more...</a></div>
         <div class="article-floatclear"></div>

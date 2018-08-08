@@ -18,13 +18,13 @@
   <meta name="twitter:title" content="Finding large files in a directory - Kabads - musings, mutterings and …" />
   <meta name="description" content="I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
 A quick find will sort that
- Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.">
+find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk &#39;{print $5,$9}&#39; | sort -nr &gt; bigfiles.txt  Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.">
   <meta property="og:description" content="I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
 A quick find will sort that
- Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.">
+find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk &#39;{print $5,$9}&#39; | sort -nr &gt; bigfiles.txt  Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.">
   <meta name="twitter:description" content="I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
 A quick find will sort that
- Run this, and you will have a file called …">
+find . -maxdepth 1 -type f -exec …">
   <meta name="author" content=""/>
   <meta property="og:site_name" content="Kabads - musings, mutterings and murmerings" />
   <meta property="og:url" content="/2016/11/20/finding-large-files-in-a-directory/" />
@@ -71,7 +71,8 @@ A quick find will sort that
 
 <p>A quick find will sort that</p>
 
-<pre><code class="language-find"></code></pre>
+<pre><code>find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' | sort -nr &gt;  bigfiles.txt
+</code></pre>
 
 <p>Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.</p>
 
