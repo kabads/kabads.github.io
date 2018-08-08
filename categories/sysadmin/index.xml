@@ -61,15 +61,6 @@ There are some things you should know before you start this tutorial. You should
     </item>
     
     <item>
-      <title>Setting up SSL Certificates with Lets Encrypt and certbot</title>
-      <link>https://kabads.monkeez.org/2017/01/29/setting-up-lets-encrypt-with-certauto/</link>
-      <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://kabads.monkeez.org/2017/01/29/setting-up-lets-encrypt-with-certauto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Running EC2 Instance</title>
       <link>https://kabads.monkeez.org/2016/12/10/running-ec2-instance/</link>
       <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
