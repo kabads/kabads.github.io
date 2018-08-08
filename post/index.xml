@@ -1092,5 +1092,14 @@ So, for a while - goodbye spotify and hello google music.</description>
       <description>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</description>
     </item>
     
+    <item>
+      <title>Working with Terraform</title>
+      <link>https://kabads.monkeez.org/post/2018-08-04-working-with-terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kabads.monkeez.org/post/2018-08-04-working-with-terraform/</guid>
+      <description>Terraform is a cloud orchestration scripting language. This allows the capturing of cloud infrastructure. Instead of relying on your network and resources to be sat whilst you work on other projects, by using terraform, you can tear-down your infrastructure and then create it again from where you left of (saving money on the infrastructure that would be incurring a cost).</description>
+    </item>
+    
   </channel>
 </rss>
