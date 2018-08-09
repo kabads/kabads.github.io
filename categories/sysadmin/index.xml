@@ -61,16 +61,6 @@ There are some things you should know before you start this tutorial. You should
     </item>
     
     <item>
-      <title>Running EC2 Instance</title>
-      <link>https://kabads.monkeez.org/2016/12/10/running-ec2-instance/</link>
-      <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://kabads.monkeez.org/2016/12/10/running-ec2-instance/</guid>
-      <description>Amazon have provided a pretty neat infrastructure with Amazon Web Services (AWS). By using this as a platform, you can quickly scale up and down provisioned resources. At times, you may experience peak demand, and AWS will allow you to respond with this. At other times, you can scale your resources down.
-The first step in learning about this platform, is running an EC2 instance. This is the &amp;lsquo;machine&amp;rsquo; behind your service.</description>
-    </item>
-    
-    <item>
       <title>Finding large files in a directory</title>
       <link>https://kabads.monkeez.org/2016/11/20/finding-large-files-in-a-directory/</link>
       <pubDate>Sun, 20 Nov 2016 00:00:00 +0000</pubDate>

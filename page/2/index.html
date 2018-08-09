@@ -46,28 +46,6 @@
   <div class="main" role="main">
     <section class="list home-list">
       <article class="article">
-        <a href="/2016/11/20/finding-large-files-in-a-directory/" class="article-titles">
-          <h2 class="article-title">Finding large files in a directory</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>November 20, 2016</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/sysadmin/">
-              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
-              sysadmin
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
-A quick find will sort that
-find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' | sort -nr &gt; bigfiles.txt  Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.
-        </div>
-        <div class="article-readmore"><a href="/2016/11/20/finding-large-files-in-a-directory/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
         <a href="/2016/08/25/downloading-newspaper-using-calibre/" class="article-titles">
           <h2 class="article-title">How to download newspapers with Calibre and deliver to your Kindle</h2>
           
@@ -254,6 +232,28 @@ Steps for setting up LUKS Setting up the drive Firstly you should have a partiti
           Two factor authentication provides another layer of security to any sign in for services you use. By enabling 2 factor authentication, you are using another layer of security when signing in. However, this extra layer of security is a physical one, not necessarily digital. The 2 factor authentication requires a particular object which cannot be replicated. This can be the form of a USB key or a mobile phone. Banks have used this before with card readers which produce a particular code.
         </div>
         <div class="article-readmore"><a href="/2015/10/31/how-and-why-2-factor-authentication/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/2015/10/18/groups-explained/" class="article-titles">
+          <h2 class="article-title">Linux group explained</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 18, 2015</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          Users on a linux system belong to at least one group. Groups allow a systems administrator to create parts of the filesystem where a group of users can share files. They also allow a group of users to access particular commands or resources on the system, that other users might not be able to access.
+Groups are defined in the /etc/group file, which is only root writeable.
+To create a group, the groupadd command is used.
+        </div>
+        <div class="article-readmore"><a href="/2015/10/18/groups-explained/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

@@ -237,12 +237,12 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/2016/12/10/running-ec2-instance/" class="article-titles">
-          <h2 class="article-title">Running EC2 Instance</h2>
+        <a href="/2016/11/20/finding-large-files-in-a-directory/" class="article-titles">
+          <h2 class="article-title">Finding large files in a directory</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>December 10, 2016</time></li>
+          <li class="article-meta-date"><time>November 20, 2016</time></li>
           <li class="article-meta-categories">
             <a href="/categories/sysadmin/">
               <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
@@ -251,10 +251,11 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
           </li>
         </ul>
         <div class="article-content">
-          Amazon have provided a pretty neat infrastructure with Amazon Web Services (AWS). By using this as a platform, you can quickly scale up and down provisioned resources. At times, you may experience peak demand, and AWS will allow you to respond with this. At other times, you can scale your resources down.
-The first step in learning about this platform, is running an EC2 instance. This is the &lsquo;machine&rsquo; behind your service.
+          I have directories that agedu shows as having large files. However, agedu doesn&rsquo;t tell me what the names of the files are.
+A quick find will sort that
+find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' | sort -nr &gt; bigfiles.txt  Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.
         </div>
-        <div class="article-readmore"><a href="/2016/12/10/running-ec2-instance/">Read more...</a></div>
+        <div class="article-readmore"><a href="/2016/11/20/finding-large-files-in-a-directory/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>
