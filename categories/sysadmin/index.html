@@ -49,6 +49,26 @@
   <div class="main" role="main">
     <section class="list taxonomy-list">
       <article class="article">
+        <a href="/post/2018-08-11-configure-autofs/" class="article-titles">
+          <h2 class="article-title">Configure Autofs on Arch Linux</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>August 11, 2018</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          What is Autofs? It mounts a filesystem that is not always connected (e.g. network or device). Once a connection is made to that device, then autofs will handle the mounting of that device. It can also handle unmounting of a device, if it becomes unavailable. /etc/fstab automatically tries to mount during boot - however, it won&rsquo;t try to mount once a device is connected after boot. You may boot whilst you have no network access - this means that you won&rsquo;t be able to mount that device.
+        </div>
+        <div class="article-readmore"><a href="/post/2018-08-11-configure-autofs/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
         <a href="/sync-google-calendar-with-org-agenda/" class="article-titles">
           <h2 class="article-title">Sync Google Calendar With Org Agenda</h2>
           
@@ -244,26 +264,6 @@ Admins can apply rules according to what access they would like - these rules in
 Modern firewalls are based on Application Layer Firewalls and are aware of the kinds of applications and protocols that the connection is using.
         </div>
         <div class="article-readmore"><a href="/2015/12/24/setting-up-firewall/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/2015/12/22/how-to-enable-disk-quotas-linux/" class="article-titles">
-          <h2 class="article-title">How to enable disk quotas for users</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>December 22, 2015</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/sysadmin/">
-              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
-              sysadmin
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          Uses Linux allows setting quotas on a filesystem. This will prevent users from using more diskspace than they are allowed. This can also be used to manage group allowances to enforce the allowance for a collection of users. Stopping users from filling up a diskspace can be an important on a shared system as filling up a physical disk drive can bring a system down, or make it unstable.
-        </div>
-        <div class="article-readmore"><a href="/2015/12/22/how-to-enable-disk-quotas-linux/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

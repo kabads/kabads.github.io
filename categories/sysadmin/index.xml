@@ -6,10 +6,19 @@
     <description>Recent content in Sysadmin on Kabads - musings, mutterings and murmerings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Mar 2018 13:02:55 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Aug 2018 10:07:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kabads.monkeez.org/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Configure Autofs on Arch Linux</title>
+      <link>https://kabads.monkeez.org/post/2018-08-11-configure-autofs/</link>
+      <pubDate>Sat, 11 Aug 2018 10:07:00 +0000</pubDate>
+      
+      <guid>https://kabads.monkeez.org/post/2018-08-11-configure-autofs/</guid>
+      <description>What is Autofs? It mounts a filesystem that is not always connected (e.g. network or device). Once a connection is made to that device, then autofs will handle the mounting of that device. It can also handle unmounting of a device, if it becomes unavailable. /etc/fstab automatically tries to mount during boot - however, it won&amp;rsquo;t try to mount once a device is connected after boot. You may boot whilst you have no network access - this means that you won&amp;rsquo;t be able to mount that device.</description>
+    </item>
     
     <item>
       <title>Sync Google Calendar With Org Agenda</title>
