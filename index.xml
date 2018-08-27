@@ -6,10 +6,20 @@
     <description>Recent content on Kabads - musings, mutterings and murmerings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Aug 2018 10:07:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Aug 2018 12:32:30 +0000</lastBuildDate>
     
 	<atom:link href="https://kabads.monkeez.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting Up MySQL Replication as a back-up solution</title>
+      <link>https://kabads.monkeez.org/post/2018-08-27-setting-up-mysql-replication/</link>
+      <pubDate>Mon, 27 Aug 2018 12:32:30 +0000</pubDate>
+      
+      <guid>https://kabads.monkeez.org/post/2018-08-27-setting-up-mysql-replication/</guid>
+      <description>Introduction MySQL servers can be a single point of failure if you have not set up a good back-up infrastructure. It is difficult to get a good back-up infrastructure in place, without some time spent out of service. However, a MySQL replication server avoids this downtime.
+One server will act as the master, and the other will act as slave. The slave will be paused and then backed up.</description>
+    </item>
     
     <item>
       <title>Configure Autofs on Arch Linux</title>

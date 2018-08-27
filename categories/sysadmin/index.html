@@ -49,6 +49,27 @@
   <div class="main" role="main">
     <section class="list taxonomy-list">
       <article class="article">
+        <a href="/post/2018-08-27-setting-up-mysql-replication/" class="article-titles">
+          <h2 class="article-title">Setting Up MySQL Replication as a back-up solution</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>August 27, 2018</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          Introduction MySQL servers can be a single point of failure if you have not set up a good back-up infrastructure. It is difficult to get a good back-up infrastructure in place, without some time spent out of service. However, a MySQL replication server avoids this downtime.
+One server will act as the master, and the other will act as slave. The slave will be paused and then backed up.
+        </div>
+        <div class="article-readmore"><a href="/post/2018-08-27-setting-up-mysql-replication/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
         <a href="/post/2018-08-11-configure-autofs/" class="article-titles">
           <h2 class="article-title">Configure Autofs on Arch Linux</h2>
           
@@ -242,28 +263,6 @@ A basic use would look like this:
 $ find . -name &quot;*&quot; -type f -size +10M -exec rm {} \;  Let&rsquo;s break this down.
         </div>
         <div class="article-readmore"><a href="/2016/01/24/bash-find-command/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/2015/12/24/setting-up-firewall/" class="article-titles">
-          <h2 class="article-title">Setting up a firewall on Linux Ubuntu 14.04</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>December 24, 2015</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/sysadmin/">
-              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
-              sysadmin
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          Uses Firewalls allow only particular access to particular network ports and paths. You can remove access to a port or a specific IP address or a range of IP addresses.
-Admins can apply rules according to what access they would like - these rules include both outgoing and incoming network traffic. This allows admins to build barriers of trust across machines.
-Modern firewalls are based on Application Layer Firewalls and are aware of the kinds of applications and protocols that the connection is using.
-        </div>
-        <div class="article-readmore"><a href="/2015/12/24/setting-up-firewall/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>
