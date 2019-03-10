@@ -21,7 +21,7 @@
   <meta property="og:url" content="/post/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -48,6 +48,22 @@
   </div>
   <div class="main" role="main">
     <section class="list section-list">
+      <article class="article">
+        <a href="/2015/09/10/using-git-as-content-manager/" class="article-titles">
+          <h2 class="article-title">Using Git as a content manager system</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>September 10, 2015</time></li>
+        </ul>
+        <div class="article-content">
+          Not familiar with git? Start with an online book or Version Control with Git.
+Git is an open sourced source control software system. It allows coders to manage large projects remotely and on their own machine. Each contributor will hold their own version of the code on their machine and can manipulate that however they wish. Eventually, they can push back their contributions to a remote repository.
+This workflow design can also be great for managing content, although that content does have to be in text format - git will allow binary files to be uploaded and managed, but doesn&rsquo;t allow for differences between files to be shown - this can only be done with plain text files.
+        </div>
+        <div class="article-readmore"><a href="/2015/09/10/using-git-as-content-manager/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/2015/08/27/how-to-set-up-raid-drives-linux/" class="article-titles">
           <h2 class="article-title">How to set-up RAID on Linux</h2>
@@ -203,35 +219,17 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         <div class="article-readmore"><a href="/2015/07/25/ban-encryption/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
-      <article class="article">
-        <a href="/2015/07/23/ran-over-600-km/" class="article-titles">
-          <h2 class="article-title"></h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>July 23, 2015</time></li>
-        </ul>
-        <div class="article-content">
-          <p>So, I&rsquo;ve set myself a target of running 1000km this year. I realised a couple of months ago that I&rsquo;ve run quite a lot this year. I got to June and had run more than any other year before. So, the idea is to keep running and get to 1000km (621 miles) by December.</p>
-
-<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/19761324618/in/datetaken-public/" title="running-graph-2015"><img src="https://farm1.staticflickr.com/507/19761324618_0c0f3c1fa0_z.jpg" width="519" height="287" alt="running-graph-2015"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-        </div>
-        <div class="article-readmore"><a href="/2015/07/23/ran-over-600-km/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
     </section>
     
 
 <ul class="pagination">
     
-    <li>
-        <a href="/post/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/post/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    >
-    <a href="/post/page/2/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="/post/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -243,8 +241,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li
-    ><a href="/post/">1</a></li>
+    <li class="page-item"><a class="page-link" href="/post/">1</a></li>
     
     
     
@@ -255,8 +252,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li
-    ><a href="/post/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/2/">2</a></li>
     
     
     
@@ -267,8 +263,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li
-    class="active"><a href="/post/page/3/">3</a></li>
+    <li class="page-item active"><a class="page-link" href="/post/page/3/">3</a></li>
     
     
     
@@ -279,8 +274,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li
-    ><a href="/post/page/4/">4</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/4/">4</a></li>
     
     
     
@@ -291,16 +285,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -356,17 +341,24 @@ I am interested in how secure this keeps our country. What evidence exists to sh
         
     
     
-    <li
-    ><a href="/post/page/12/">12</a></li>
     
     
-    <li
-    >
-    <a href="/post/page/4/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/post/page/12/">12</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/post/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/post/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/post/page/12/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

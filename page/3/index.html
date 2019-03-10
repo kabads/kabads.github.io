@@ -21,7 +21,7 @@
   <meta property="og:url" content="/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -45,6 +45,28 @@
 
   <div class="main" role="main">
     <section class="list home-list">
+      <article class="article">
+        <a href="/2015/12/05/encrypt-a-partition/" class="article-titles">
+          <h2 class="article-title">Encrypt a partition on Linux</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>December 5, 2015</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          Introduction An encrypted partition can add a layer of security to your system. When initialized, it will ask for the passphrase which, if unavailable, will not allow proper mounting. This renders the information on the drive as unreadable.
+Most systems use the Linux Unified Key Setup (LUKS for short) format for encryption and this can be a standard install for most distribution.
+Steps for setting up LUKS Setting up the drive Firstly you should have a partition drive that is unmounted and unformatted (no filesystem).
+        </div>
+        <div class="article-readmore"><a href="/2015/12/05/encrypt-a-partition/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/2015/10/31/how-and-why-2-factor-authentication/" class="article-titles">
           <h2 class="article-title">How and why you should be using 2 factor authentication</h2>
@@ -212,35 +234,17 @@ The web interface immediately pushed me to their playlists, which this service s
         <div class="article-readmore"><a href="/2015/07/29/amazon-prime-music-review/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
-      <article class="article">
-        <a href="/2015/07/28/bread/" class="article-titles">
-          <h2 class="article-title"></h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>July 28, 2015</time></li>
-        </ul>
-        <div class="article-content">
-          <p>I&rsquo;ve been baking bread for over 6 months now and have experimented with what works well. This is today&rsquo;s effort.</p>
-
-<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/20085109785/in/datetaken-public/" title="P1040756"><img src="https://farm1.staticflickr.com/479/20085109785_662a45dc79_z.jpg" width="640" height="480" alt="P1040756"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-        </div>
-        <div class="article-readmore"><a href="/2015/07/28/bread/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
     </section>
     
 
 <ul class="pagination">
     
-    <li>
-        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    >
-    <a href="/page/2/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -252,8 +256,7 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li
-    ><a href="/">1</a></li>
+    <li class="page-item"><a class="page-link" href="/">1</a></li>
     
     
     
@@ -264,8 +267,7 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li
-    ><a href="/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
     
     
     
@@ -276,8 +278,7 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li
-    class="active"><a href="/page/3/">3</a></li>
+    <li class="page-item active"><a class="page-link" href="/page/3/">3</a></li>
     
     
     
@@ -288,8 +289,7 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li
-    ><a href="/page/4/">4</a></li>
+    <li class="page-item"><a class="page-link" href="/page/4/">4</a></li>
     
     
     
@@ -300,16 +300,7 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -365,17 +356,24 @@ The web interface immediately pushed me to their playlists, which this service s
         
     
     
-    <li
-    ><a href="/page/12/">12</a></li>
     
     
-    <li
-    >
-    <a href="/page/4/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/12/">12</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/page/12/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

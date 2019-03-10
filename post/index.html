@@ -21,7 +21,7 @@
   <meta property="og:url" content="/post/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -48,6 +48,27 @@
   </div>
   <div class="main" role="main">
     <section class="list section-list">
+      <article class="article">
+        <a href="/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/" class="article-titles">
+          <h2 class="article-title">Setting Up Fujitsu Snapscan S1300i on Arch Linux</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>March 10, 2019</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          I have bought a Fujitsu Snapscan S1300i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I&rsquo;m pleased with it, but the initial thought when I got it home was, &lsquo;how am I going to get it working with Arch Linux?&rsquo;
+Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.
+        </div>
+        <div class="article-readmore"><a href="/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/post/2018-08-27-setting-up-mysql-replication/" class="article-titles">
           <h2 class="article-title">Setting Up MySQL Replication as a back-up solution</h2>
@@ -238,39 +259,17 @@ find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' 
         <div class="article-readmore"><a href="/2016/11/20/finding-large-files-in-a-directory/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
-      <article class="article">
-        <a href="/2016/08/25/downloading-newspaper-using-calibre/" class="article-titles">
-          <h2 class="article-title">How to download newspapers with Calibre and deliver to your Kindle</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>August 25, 2016</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/reading/">
-              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
-              reading
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          So, I have read a few pages which outline how to do this, but none seem to sum all of it. I&rsquo;ve set up my Raspberry to download a newspaper and then deliver it daily to my Kindle. I paid for a subscription (in fact, I pay for more than one subscription) so I feel entitled to do this, as I&rsquo;m supporting the journalists financially.
-Firstly, you will need to install Calibre.
-        </div>
-        <div class="article-readmore"><a href="/2016/08/25/downloading-newspaper-using-calibre/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
     </section>
     
 
 <ul class="pagination">
     
-    <li>
-        <a href="/post/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/post/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    class="disabled">
-    <a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -282,8 +281,7 @@ Firstly, you will need to install Calibre.
         
     
     
-    <li
-    class="active"><a href="/post/">1</a></li>
+    <li class="page-item active"><a class="page-link" href="/post/">1</a></li>
     
     
     
@@ -294,8 +292,7 @@ Firstly, you will need to install Calibre.
         
     
     
-    <li
-    ><a href="/post/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/2/">2</a></li>
     
     
     
@@ -306,8 +303,7 @@ Firstly, you will need to install Calibre.
         
     
     
-    <li
-    ><a href="/post/page/3/">3</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/3/">3</a></li>
     
     
     
@@ -318,16 +314,7 @@ Firstly, you will need to install Calibre.
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -392,17 +379,24 @@ Firstly, you will need to install Calibre.
         
     
     
-    <li
-    ><a href="/post/page/12/">12</a></li>
     
     
-    <li
-    >
-    <a href="/post/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/post/page/12/">12</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/post/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/post/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/post/page/12/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

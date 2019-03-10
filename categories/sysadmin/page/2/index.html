@@ -21,7 +21,7 @@
   <meta property="og:url" content="/categories/sysadmin/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link href="/categories/sysadmin/index.xml" rel="alternate" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link href="/categories/sysadmin/index.xml" rel="feed" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -48,6 +48,28 @@
   </div>
   <div class="main" role="main">
     <section class="list taxonomy-list">
+      <article class="article">
+        <a href="/2016/01/24/bash-find-command/" class="article-titles">
+          <h2 class="article-title">Bash find command</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 24, 2016</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          Find command I&rsquo;ve been using the find command simply since I can remember, but I&rsquo;ve never really got to see the true power of this command. Combined with the -exec flag this command can throw up a lot of different uses. -exec allows you to work with other bash commands and operate on them.
+A basic use would look like this:
+$ find . -name &quot;*&quot; -type f -size +10M -exec rm {} \;  Let&rsquo;s break this down.
+        </div>
+        <div class="article-readmore"><a href="/2016/01/24/bash-find-command/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/2015/12/24/setting-up-firewall/" class="article-titles">
           <h2 class="article-title">Setting up a firewall on Linux Ubuntu 14.04</h2>
@@ -203,13 +225,12 @@ There is a small disadvantage when using LVM - there is an overhead when reading
 
 <ul class="pagination">
     
-    <li>
-        <a href="/categories/sysadmin/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/categories/sysadmin/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    >
-    <a href="/categories/sysadmin/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="/categories/sysadmin/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -221,8 +242,7 @@ There is a small disadvantage when using LVM - there is an overhead when reading
         
     
     
-    <li
-    ><a href="/categories/sysadmin/">1</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/sysadmin/">1</a></li>
     
     
     
@@ -233,17 +253,15 @@ There is a small disadvantage when using LVM - there is an overhead when reading
         
     
     
-    <li
-    class="active"><a href="/categories/sysadmin/page/2/">2</a></li>
+    <li class="page-item active"><a class="page-link" href="/categories/sysadmin/page/2/">2</a></li>
     
     
-    <li
-    class="disabled">
-    <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/categories/sysadmin/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/categories/sysadmin/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

@@ -6,10 +6,20 @@
     <description>Recent content in Sysadmin on Kabads - musings, mutterings and murmerings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Aug 2018 12:32:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 18:15:30 +0000</lastBuildDate>
     
 	<atom:link href="https://kabads.monkeez.org/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting Up Fujitsu Snapscan S1300i on Arch Linux</title>
+      <link>https://kabads.monkeez.org/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/</link>
+      <pubDate>Sun, 10 Mar 2019 18:15:30 +0000</pubDate>
+      
+      <guid>https://kabads.monkeez.org/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/</guid>
+      <description>I have bought a Fujitsu Snapscan S1300i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I&amp;rsquo;m pleased with it, but the initial thought when I got it home was, &amp;lsquo;how am I going to get it working with Arch Linux?&amp;rsquo;
+Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.</description>
+    </item>
     
     <item>
       <title>Setting Up MySQL Replication as a back-up solution</title>

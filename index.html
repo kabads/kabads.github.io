@@ -21,7 +21,7 @@
   <meta property="og:url" content="/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.42.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="Kabads - musings, mutterings and murmerings" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
@@ -45,6 +45,27 @@
 
   <div class="main" role="main">
     <section class="list home-list">
+      <article class="article">
+        <a href="/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/" class="article-titles">
+          <h2 class="article-title">Setting Up Fujitsu Snapscan S1300i on Arch Linux</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>March 10, 2019</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/sysadmin/">
+              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
+              sysadmin
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          I have bought a Fujitsu Snapscan S1300i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I&rsquo;m pleased with it, but the initial thought when I got it home was, &lsquo;how am I going to get it working with Arch Linux?&rsquo;
+Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.
+        </div>
+        <div class="article-readmore"><a href="/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
       <article class="article">
         <a href="/post/2018-08-27-setting-up-mysql-replication/" class="article-titles">
           <h2 class="article-title">Setting Up MySQL Replication as a back-up solution</h2>
@@ -235,39 +256,17 @@ The walk started out with us meeting at Swindon having lunch. There seemed to be
         <div class="article-readmore"><a href="/2017/07/02/swindon-to-goring-walk/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
-      <article class="article">
-        <a href="/2017/06/10/how-to-install-lineageos-wileyfox-swift/" class="article-titles">
-          <h2 class="article-title">How to install LineageOS on Wileyfox Swift</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>June 10, 2017</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/tech/">
-              <svg class="icon"><use xlink:href="/images/fa-solid.svg#folder"></use></svg>
-              tech
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          With the demise of Cyanogenmod and CyanogenOS people who like to keep a cheaper phone up to date will have to familiarise themselves with LineageOS. This is the fork of the latest version where CyanogenMod left off. As the company shutdown, users are left with no updates. LineageOS will resolve this for you.
-It had been a while (8 months) since installing a new custom ROM, so I wasn&rsquo;t so familiar with the TWRP recovery boot process.
-        </div>
-        <div class="article-readmore"><a href="/2017/06/10/how-to-install-lineageos-wileyfox-swift/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
     </section>
     
 
 <ul class="pagination">
     
-    <li>
-        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    class="disabled">
-    <a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -279,8 +278,7 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         
     
     
-    <li
-    class="active"><a href="/">1</a></li>
+    <li class="page-item active"><a class="page-link" href="/">1</a></li>
     
     
     
@@ -291,8 +289,7 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         
     
     
-    <li
-    ><a href="/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
     
     
     
@@ -303,8 +300,7 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         
     
     
-    <li
-    ><a href="/page/3/">3</a></li>
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
     
     
     
@@ -315,16 +311,7 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -389,17 +376,24 @@ It had been a while (8 months) since installing a new custom ROM, so I wasn&rsqu
         
     
     
-    <li
-    ><a href="/page/12/">12</a></li>
     
     
-    <li
-    >
-    <a href="/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/12/">12</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/page/12/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

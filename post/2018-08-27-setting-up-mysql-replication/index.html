@@ -26,7 +26,7 @@ One server will act as the master, and the other will act as slave. The slave wi
   <meta property="og:url" content="/post/2018-08-27-setting-up-mysql-replication/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.46" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
   <link rel="stylesheet" href="/css/custom.css" media="all" />
@@ -161,7 +161,7 @@ START SLAVE;
 
 <h3 id="carry-out-the-backup">Carry out the backup</h3>
 
-<p>Now that we have a slave, we can take point in time back-ups by stopping the slove and pausing transactions (although transactions are still ongoing on the master server).</p>
+<p>Now that we have a slave, we can take point in time back-ups by stopping the slave and pausing transactions (although transactions are still ongoing on the master server).</p>
 
 <ol>
 <li><p>Shut down the server <code>sudo service mysql-server stop</code></p></li>
@@ -203,7 +203,9 @@ START SLAVE;
 </ul>
 
     <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-newer">
+          <a href="/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/" data-toggle="tooltip" data-placement="top" title="Setting Up Fujitsu Snapscan S1300i on Arch Linux">&lt; Newer</a>
+      </li>
       <li class="pager-older">
         <a href="/post/2018-08-11-configure-autofs/" data-toggle="tooltip" data-placement="top" title="Configure Autofs on Arch Linux">Older &gt;</a>
       </li>

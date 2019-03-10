@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Kabads - musings, mutterings and murmerings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Aug 2018 12:32:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 18:15:30 +0000</lastBuildDate>
     
 	<atom:link href="https://kabads.monkeez.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting Up Fujitsu Snapscan S1300i on Arch Linux</title>
+      <link>https://kabads.monkeez.org/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/</link>
+      <pubDate>Sun, 10 Mar 2019 18:15:30 +0000</pubDate>
+      
+      <guid>https://kabads.monkeez.org/post/2019-03-10-using-fujitsu-snapscan-s1300i-on-arch/</guid>
+      <description>I have bought a Fujitsu Snapscan S1300i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I&amp;rsquo;m pleased with it, but the initial thought when I got it home was, &amp;lsquo;how am I going to get it working with Arch Linux?&amp;rsquo;
+Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.</description>
+    </item>
     
     <item>
       <title>Setting Up MySQL Replication as a back-up solution</title>
@@ -335,7 +345,7 @@ I am interested in how secure this keeps our country. What evidence exists to sh
       <pubDate>Thu, 16 Apr 2015 09:26:29 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2015/04/16/never-punt-again/</guid>
-      <description>
+      <description> 
 The only person who didn&#39;t punt during this trip was Trugnug. </description>
     </item>
     
@@ -345,7 +355,7 @@ The only person who didn&#39;t punt during this trip was Trugnug. </description>
       <pubDate>Tue, 15 Jul 2014 19:25:33 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2014/07/15/p1030835/</guid>
-      <description> See it here: http://flic.kr/p/okHqnk
+      <description>  See it here: http://flic.kr/p/okHqnk
   </description>
     </item>
     
@@ -355,7 +365,7 @@ The only person who didn&#39;t punt during this trip was Trugnug. </description>
       <pubDate>Tue, 15 Jul 2014 19:25:11 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2014/07/15/p1030839/</guid>
-      <description> See it here: http://flic.kr/p/o4dzkD
+      <description>  See it here: http://flic.kr/p/o4dzkD
   </description>
     </item>
     
@@ -365,7 +375,7 @@ The only person who didn&#39;t punt during this trip was Trugnug. </description>
       <pubDate>Sun, 06 Jul 2014 09:57:23 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2014/07/06/img_3782/</guid>
-      <description>   </description>
+      <description>    </description>
     </item>
     
     <item>
@@ -432,7 +442,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Mon, 10 Jun 2013 06:48:31 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/06/10/caught-in-a-privacy-recursion-loop-with-dwarves/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -441,7 +451,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Sun, 02 Jun 2013 13:36:40 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/06/02/bath-and-longleat/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -450,7 +460,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Sun, 12 May 2013 19:06:03 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/05/12/happy-birthday-pewter-reilly/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -459,7 +469,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Sun, 05 May 2013 13:08:48 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/05/05/o2-arena-for-british-music-experience-3/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -468,7 +478,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Fri, 03 May 2013 18:35:11 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/05/03/the-boys-are-asking-for-bitcoins-for-pocket-money-what-do-you-think-they-are-up-to/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -477,7 +487,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Thu, 02 May 2013 21:40:59 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/05/02/full-on-day-doctors-worked-through-lunch-for-paper-work-meet-eat-drove-to-rugby-club-worked-watched-mad-men-voted-looked-at-jupiter-in-the-night-sky/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -486,7 +496,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Thu, 02 May 2013 06:33:44 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/05/02/six-thirty-in-the-morning-is-always-the-best-time-for-haloumi/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -504,7 +514,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Sun, 21 Apr 2013 07:50:50 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/04/21/this-guy-is-noisy-when-he-wakes-up/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -513,7 +523,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Sat, 13 Apr 2013 14:12:02 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/04/13/happy-birthday-anne/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -531,7 +541,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Tue, 09 Apr 2013 11:45:09 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/04/09/the-castle/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -648,7 +658,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       <pubDate>Tue, 02 Apr 2013 13:18:23 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2013/04/02/watford-gap-services/</guid>
-      <description>  </description>
+      <description>   </description>
     </item>
     
     <item>
@@ -658,7 +668,7 @@ Cory Doctorow has written a good piece about why you should be worried about pri
       
       <guid>https://kabads.monkeez.org/2012/12/30/happy-new-year-dave/</guid>
       <description>Dave&#39;s latest message, http://cur.lv/e3wr which is frighteningly reassuring, gives us the message that &#39;we&#39;re doing the right thing&#39; - this is a global race, that we must keep up with.
-However, you need to delve behind what he&#39;s saying. Basically, this is a global race and we need to keep up with other countries. These countries being China and India. However, our economies are completely different from these manufacturing countries. China&#39;s economy has been fueled by becoming the world&#39;s manufacturing centre - we gave this industry up some 20 years ago instead favouring an information driven economy.</description>
+However, you need to delve behind what he&#39;s saying. Basically, this is a global race and we need to keep up with other countries. These countries being China and India. However, our economies are completely different from these manufacturing countries.</description>
     </item>
     
     <item>
@@ -866,7 +876,7 @@ via A radical manifesto for teaching computing | Education | The Observer.</desc
       <pubDate>Wed, 28 Mar 2012 16:58:51 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/28/after-work-refreshments/</guid>
-      <description> </description>
+      <description>  </description>
     </item>
     
     <item>
@@ -886,7 +896,7 @@ via A radical manifesto for teaching computing | Education | The Observer.</desc
       
       <guid>https://kabads.monkeez.org/2012/03/26/cameron-and-the-massive-redistribution-of-power-yeah-right/</guid>
       <description>Back in 2009 Cameron vowed to open government to the masses (&#34;We will begin a massive redistribution of power in our country, from the powerful to the powerless, from the political elite to the man and the woman in the street.&#34; - http://news.bbc.co.uk/1/hi/uk_politics/8067505.stm) and yet he refuses to disclose which big donors have been for dinner - (http://www.bbc.co.uk/news/uk-politics-17508271).
-Is this really the &#34;massive redistribution of power&#34; that we were expecting? Do we really now feel this redistribution of power?</description>
+Is this really the &#34;massive redistribution of power&#34; that we were expecting?</description>
     </item>
     
     <item>
@@ -895,7 +905,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Sun, 25 Mar 2012 16:34:24 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/25/rugby-hamlet-tournament/</guid>
-      <description> </description>
+      <description>  </description>
     </item>
     
     <item>
@@ -913,7 +923,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Fri, 16 Mar 2012 14:25:15 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/yha-here-we-come/</guid>
-      <description>We&amp;#39;ve joined the Youth Hostel Association and are planning some trips over the Easter Holiday. We&amp;#39;re off to a Bristol and then off to the Brecons to see some mountains. Pretty cheap accommodation and nice locations - feeling quite excited about it already.  </description>
+      <description> We&amp;#39;ve joined the Youth Hostel Association and are planning some trips over the Easter Holiday. We&amp;#39;re off to a Bristol and then off to the Brecons to see some mountains. Pretty cheap accommodation and nice locations - feeling quite excited about it already.  </description>
     </item>
     
     <item>
@@ -922,7 +932,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Fri, 16 Mar 2012 14:24:49 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/happy-birthday-paula/</guid>
-      <description>   </description>
+      <description>    </description>
     </item>
     
     <item>
@@ -931,7 +941,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Fri, 16 Mar 2012 14:23:23 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/happy-birthday-joy/</guid>
-      <description>   </description>
+      <description>    </description>
     </item>
     
     <item>
@@ -940,7 +950,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Fri, 16 Mar 2012 14:20:47 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/visit-to-historic-dockyards/</guid>
-      <description>We visited HMS Warrior (first Ironclad ship in Navy), Action Stations and enjoyed a nice boat ride around the harbour.
+      <description> We visited HMS Warrior (first Ironclad ship in Navy), Action Stations and enjoyed a nice boat ride around the harbour.
   </description>
     </item>
     
@@ -950,7 +960,7 @@ Is this really the &#34;massive redistribution of power&#34; that we were expect
       <pubDate>Fri, 16 Mar 2012 14:19:41 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/a-walk-in-the-icy-forest/</guid>
-      <description>It was really cold this afternoon walking around the forest - the boys really enjoyed skating around on thin ice.  
+      <description> It was really cold this afternoon walking around the forest - the boys really enjoyed skating around on thin ice.  
      See the full gallery on Posterous   </description>
     </item>
     
@@ -970,7 +980,7 @@ I put up a video on youtube of the video to show people what it looks like when 
       <pubDate>Fri, 16 Mar 2012 14:17:15 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/headspace/</guid>
-      <description>I&#39;m on day 3 of the Take10 series </description>
+      <description> I&#39;m on day 3 of the Take10 series </description>
     </item>
     
     <item>
@@ -979,7 +989,7 @@ I put up a video on youtube of the video to show people what it looks like when 
       <pubDate>Fri, 16 Mar 2012 14:15:22 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/then-this-fellow-pops-up/</guid>
-      <description>and Joe went outside and took a couple.      See the full gallery on Posterous   </description>
+      <description> and Joe went outside and took a couple.      See the full gallery on Posterous   </description>
     </item>
     
     <item>
@@ -988,7 +998,7 @@ I put up a video on youtube of the video to show people what it looks like when 
       <pubDate>Fri, 16 Mar 2012 14:14:41 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/this-is-more-like-it/</guid>
-      <description>Taken a bit later, with a fully recharged battery and from where I am sitting!   See the full gallery on Posterous   </description>
+      <description> Taken a bit later, with a fully recharged battery and from where I am sitting!   See the full gallery on Posterous   </description>
     </item>
     
     <item>
@@ -1007,7 +1017,7 @@ However, e-books are being subjected to this, so that instead of paper being pus
       <pubDate>Fri, 16 Mar 2012 14:13:45 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/visitors-in-our-garden/</guid>
-      <description>Took a couple of shots this frosty morning and then the battery ran out. I&amp;#39;ll have to take some more once it&amp;#39;s recharged. The birdfeeders are a lot more active now, so I should get some more active shots.   See the full gallery on Posterous   </description>
+      <description> Took a couple of shots this frosty morning and then the battery ran out. I&amp;#39;ll have to take some more once it&amp;#39;s recharged. The birdfeeders are a lot more active now, so I should get some more active shots.   See the full gallery on Posterous   </description>
     </item>
     
     <item>
@@ -1025,7 +1035,7 @@ However, e-books are being subjected to this, so that instead of paper being pus
       <pubDate>Fri, 16 Mar 2012 13:47:03 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/i-love-scenery-like-this/</guid>
-      <description>  stopped on my way home to take this shot
+      <description>   stopped on my way home to take this shot
 I wish I&#39;d taken longer to take it, but it was on a narrow road. It captures the sense of what I wanted. I&#39;ll see if I can get a more please shot another day.&amp;nbsp;
  </description>
     </item>
@@ -1036,7 +1046,7 @@ I wish I&#39;d taken longer to take it, but it was on a narrow road. It captures
       <pubDate>Fri, 16 Mar 2012 13:45:05 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/drinking-a-toast-to-dad/</guid>
-      <description>and this beer tastes mighty fine.&amp;nbsp;
+      <description> and this beer tastes mighty fine.&amp;nbsp;
  </description>
     </item>
     
@@ -1046,7 +1056,7 @@ I wish I&#39;d taken longer to take it, but it was on a narrow road. It captures
       <pubDate>Fri, 16 Mar 2012 13:18:56 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/happy-birthday-bill/</guid>
-      <description>   Round the Reilly Ranch.
+      <description>    Round the Reilly Ranch.
  </description>
     </item>
     
@@ -1056,7 +1066,7 @@ I wish I&#39;d taken longer to take it, but it was on a narrow road. It captures
       <pubDate>Fri, 16 Mar 2012 13:16:50 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/report-easy/</guid>
-      <description>I&#39;ve been working on a little side project to learn programming (this is the year of coding apparently).&amp;nbsp;
+      <description> I&#39;ve been working on a little side project to learn programming (this is the year of coding apparently).&amp;nbsp;
 http://www.reporteasy.co.uk
 This is a little application that assists with writing pupil reports for teachers - it automates a lot of the text entry that often takes a long time.&amp;nbsp;
 
@@ -1069,7 +1079,7 @@ This is a little application that assists with writing pupil reports for teacher
       <pubDate>Fri, 16 Mar 2012 13:11:37 +0000</pubDate>
       
       <guid>https://kabads.monkeez.org/2012/03/16/posterous/</guid>
-      <description>Peeps! Who should I be following on posterous? </description>
+      <description> Peeps! Who should I be following on posterous? </description>
     </item>
     
     <item>
