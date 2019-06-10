@@ -25,7 +25,7 @@ github_username:  kabads
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-slate
 plugins:
   - jekyll-feed
 
