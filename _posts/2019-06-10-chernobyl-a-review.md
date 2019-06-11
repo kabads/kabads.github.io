@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Chernobyl - A Reviewq"
+title: "Chernobyl - A Review"
 date: 2019-06-11T18:52:22Z
-draft: true
 categories:
 ---
 
