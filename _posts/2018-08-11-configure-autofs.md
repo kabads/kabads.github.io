@@ -2,7 +2,8 @@
 layout: post
 title: "Configure Autofs on Arch Linux"
 date: 2018-08-11T10:07:00Z
-categories: ["sysadmin"]
+categories: 
+- sysadmin
 ---
 
 Autofs is a way of auto-mounting devices to a running system. Theses steps will walk through enabling it on an Archlinux system. 

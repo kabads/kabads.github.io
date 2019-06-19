@@ -16,6 +16,13 @@ layout: default
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
+
+    {{ if post.categories }}
+      {{ for category in site.categories }}
+        {{ site.categories[0] }}
+      {{ endfor }}
+    {{ endif }}
+
     {{ content }}
   </div>
 
