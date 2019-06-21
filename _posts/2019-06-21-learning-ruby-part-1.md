@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-06-16
-categories: Ruby
+categories: ruby
 title: Learning Ruby - First Impressions 
 ---
 Chef is used in my place of work, and so as a result I started learning [Ruby programming language](https://www.ruby-lang.org). <img src="https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg" width="180" height="156" alt="ruby-icon">
