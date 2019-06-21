@@ -2,7 +2,6 @@
 title: Categories
 layout: categories
 ---
-
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
@@ -16,33 +15,44 @@ layout: categories
     <div class="wrapper">
 
 
-<div class="home">
+
+
+
+
+        <div class="home">
     {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h4 class="page-heading">{{ page.title }}</h4>
     {%- endif -%}
 
     <p>
         {%- for category in site.categories -%}
-        <a href="{{ category.title | downcase}}.html">{{ category.title }}</a> |&nbsp
+        <a href="{{category.title | downcase}}.html">{{ category.title }}</a> |&nbsp
         {%- endfor -%}
     </p>
-
+            <!-- This variable is needed for the comparison -->
+            {% assign category = page.title|downcase %}
+            <!-- Now we can loop through -->
+        {% for post in site.posts %}
+        {% if post.categories contains {{category}}  %}
+            <li><a href="{{post.url}}">{{ post.title }}</a></li>
+        {% endif %}
+        {% endfor %}
 
 
     {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    <h4 class="post-list-heading">{{ page.list_title }}</h4>
     <ul class="post-list">
         {%- for post in paginator.posts -%}
         <li>
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             <span class="post-meta">{{ post.date | date: date_format }}</span>
-            <h3>
+            <h5>
                 <a class="post-link" href="{{ post.url | relative_url }}">
                     {{ post.title | escape }}
                     {{ post.category }}
 
                 </a>
-            </h3>
+            </h5>
             {%- if site.show_excerpts -%}
             {{ post.excerpt }}
             {%- endif -%}
