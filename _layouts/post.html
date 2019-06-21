@@ -15,7 +15,13 @@ layout: default
       {%- endif -%}</p>
   </header>
 
+
   <div class="post-content e-content" itemprop="articleBody">
+
+    {% for category in page.categories %}
+    <p>Category: <a href="{{ site.url }}/categories/{{ category }}.html">{{ category }}</a></p>
+    {% endfor %}
+
     {{ content }}
   </div>
 
