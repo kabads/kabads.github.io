@@ -46,3 +46,13 @@ show_excerpts: true
 paginate_path: "/page:num/"
 paginate: 5
 
+collections:
+  categories:
+    output: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: categories
+    values:
+      layout: "categories"

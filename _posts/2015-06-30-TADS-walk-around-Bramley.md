@@ -2,6 +2,8 @@
 layout: post
 date: 2015-06-30T00:00:00Z
 url: /2015/06/30/TADS-walk-around-Bramley/
+categories:
+- exercise
 ---
 
 Went for a walk with **T**eresa, **A**dam, **D**ave and **S**hep (TADS) around the village of Bramley, and Silchester. Saw some deer on the way.
