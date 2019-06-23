@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Strings in Ruby"
+title: "Strings in Ruby - Learning Ruby 2"
 date: 2019-06-21
 draft: true
 categories:
