@@ -94,4 +94,20 @@ You cannot do the same thing with ```-```.
 
 #### Converting Strings to Integers 
 
+Sometimes you will have a string such as ```1```, but want to add this to an integer variable ```2```. If you try this: 
+
+    a = '1'
+    b = 2 
+    p a + b 
+
+you will find that you will have a problem as the string does not add easily to the integer. You will see the error: 
+
+    TypeError (no implicit conversion of Integer into String)
+
+To get around this, you need to cast the ```a``` variable to an intger: 
+
+    a = '1'.to_i
+
+The ```.to_i``` converts the variable to an integer and the addition will work.
+
 

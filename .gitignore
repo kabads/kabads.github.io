@@ -1,7 +1,12 @@
 _site
 .sass-cache
 .jekyll-metadata
+<<<<<<< Updated upstream
 .idea
 misc.xml
 modules.xml
 vcs.xml
+=======
+Gemfile
+vendor
+>>>>>>> Stashed changes
