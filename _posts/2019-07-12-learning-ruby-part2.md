@@ -56,7 +56,7 @@ This is potentially the most useful way of working with strings when outputting 
 
 There are a whole host of methods for strings. You can see them all with: 
 
-    ```"".methods```
+    "".methods
    
 This will display all the methods that are available for a string. One of the most important ones is ```.chomp```. 
 
