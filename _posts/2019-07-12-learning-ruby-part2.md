@@ -56,7 +56,7 @@ This is potentially the most useful way of working with strings when outputting 
 
 There are a whole host of methods for strings. You can see them all with: 
 
-   "".methods
+    "".methods
    
 This will display all the methods that are available for a string. One of the most important ones is ```.chomp```. 
 
@@ -94,7 +94,7 @@ You cannot do the same thing with ```-```.
 
 #### Converting Strings to Integers 
 
-Sometimes you will have a string such as ```1```, but want to add this to an integer variable ```2```. If you try this: 
+Sometimes you will have a string such as ```'1'```, but want to add this to an integer variable ```2```. If you try this: 
 
     a = '1'
     b = 2 
@@ -106,7 +106,13 @@ you will find that you will have a problem as the string does not add easily to 
 
 To get around this, you need to cast the ```a``` variable to an intger: 
 
+    a = '1'
+    a.to_i
+
+or to do this more succinctly:
+
     a = '1'.to_i
+
 
 The ```.to_i``` converts the variable to an integer and the addition will work.
 
