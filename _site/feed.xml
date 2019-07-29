@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-18T14:26:56+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kabads. Musings, mutterings and murmerings.</title><subtitle>I worked in education for 20 years and always had a hand in Technology.  I create cloud automation solutions with Infrastructure as Code.</subtitle><entry><title type="html">Learning Ruby - First Impressions</title><link href="http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1.html" rel="alternate" type="text/html" title="Learning Ruby - First Impressions" /><published>2019-06-16T00:00:00+01:00</published><updated>2019-06-16T00:00:00+01:00</updated><id>http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1</id><content type="html" xml:base="http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1.html">&lt;p&gt;Chef is used in my place of work, and so as a result I started learning &lt;a href=&quot;https://www.ruby-lang.org&quot;&gt;Ruby programming language&lt;/a&gt;. &lt;img src=&quot;https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg&quot; width=&quot;180&quot; height=&quot;156&quot; alt=&quot;ruby-icon&quot; /&gt;&lt;/p&gt;
+=======
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-28T16:57:59+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kabads. Musings, mutterings and murmerings.</title><subtitle>I worked in education for 20 years and always had a hand in Technology.  I create cloud automation solutions with Infrastructure as Code.</subtitle><entry><title type="html">Learning Ruby - First Impressions</title><link href="http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1.html" rel="alternate" type="text/html" title="Learning Ruby - First Impressions" /><published>2019-06-16T00:00:00+01:00</published><updated>2019-06-16T00:00:00+01:00</updated><id>http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1</id><content type="html" xml:base="http://localhost:4000/ruby/2019/06/16/learning-ruby-part-1.html">&lt;p&gt;Chef is used in my place of work, and so as a result I started learning &lt;a href=&quot;https://www.ruby-lang.org&quot;&gt;Ruby programming language&lt;/a&gt;. &lt;img src=&quot;https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg&quot; width=&quot;180&quot; height=&quot;156&quot; alt=&quot;ruby-icon&quot; /&gt;&lt;/p&gt;
+>>>>>>> 9b5298d8d8e8f51dc1b7c460bc094dca4697005c
 
 &lt;p&gt;I know some python (enough to get me by) but thought that knowing some Ruby would be a good development in my learning. This is an attempt an my first impressions of what is good for a beginner and what is not so good (from the perspective of someone coming from Python).&lt;/p&gt;
 
@@ -276,6 +280,59 @@ chkconfig httpd on
 aws s3 &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;s3://your-bucket-name/ /var/www/html &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;This will run once it has started the EC2 instance. It will update the machine to ensure that all packages are at the latest release, then install Apache, then start Apache, then ensure that apache starts by default if this instance is restarted for some reason, and then the files are pulled down from the S3 bucket and put in to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/html&lt;/code&gt;. You will need to have created a bucket and put the files in there that you require.&lt;/p&gt;</content><author><name></name></author><summary type="html">Amazon Web Services allows you to spin up instances very quickly. This how to will show you how to upload your content to a S3 bucket and then launch an instance that pulls that content in and starts Apache to serve that content.</summary></entry><entry><title type="html">AWS - How to Create A VPC</title><link href="http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html" rel="alternate" type="text/html" title="AWS - How to Create A VPC" /><published>2017-09-20T01:00:00+01:00</published><updated>2017-09-20T01:00:00+01:00</updated><id>http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc</id><content type="html" xml:base="http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html">&lt;p&gt;AWS allows you to create your own virtual private cloud (or &lt;a href=&quot;https://en.wikipedia.org/wiki/Virtual_private_cloud&quot;&gt;VPC&lt;/a&gt;). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups.&lt;/p&gt;
+&lt;p&gt;This will run once it has started the EC2 instance. It will update the machine to ensure that all packages are at the latest release, then install Apache, then start Apache, then ensure that apache starts by default if this instance is restarted for some reason, and then the files are pulled down from the S3 bucket and put in to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/html&lt;/code&gt;. You will need to have created a bucket and put the files in there that you require.&lt;/p&gt;</content><author><name></name></author><summary type="html">Amazon Web Services allows you to spin up instances very quickly. This how to will show you how to upload your content to a S3 bucket and then launch an instance that pulls that content in and starts Apache to serve that content.</summary></entry><entry><title type="html">AWS - How to Serve Traffic from a Load Balancer</title><link href="http://localhost:4000/sysadmin/2017/09/20/AWS-how-to-serve-traffic-from-load-balancer.html" rel="alternate" type="text/html" title="AWS - How to Serve Traffic from a Load Balancer" /><published>2017-09-20T01:00:00+01:00</published><updated>2017-09-20T01:00:00+01:00</updated><id>http://localhost:4000/sysadmin/2017/09/20/AWS-how-to-serve-traffic-from-load-balancer</id><content type="html" xml:base="http://localhost:4000/sysadmin/2017/09/20/AWS-how-to-serve-traffic-from-load-balancer.html">&lt;p&gt;&lt;a href=&quot;http://aws.amazon.com&quot;&gt;Amazon Web Services&lt;/a&gt; (AWS) allows you to serve private network traffic from behind a public load balancer. This offers extra security benefits as it detects DDOS traffic and other exploits and offers a layer of protection.&lt;/p&gt;
 
-&lt;p&gt;Network Access Control lists allow particular traffic in and outbound, but are stateless; that is, if you allow traffic in, it doesn’t necessarily mean that traffic will leave the network. This can cause problems for services that use ephemeral ports (e.g. SSH over port 22 - the incoming port is always port 22, but not always outbound on port 22).&lt;/p&gt;</content><author><name></name></author><summary type="html">AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups.</summary></entry></feed>
+&lt;p&gt;There are some things you should know before you start this tutorial. You should know:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;How to create a &lt;a href=&quot;https://en.wikipedia.org/wiki/Virtual_private_cloud&quot;&gt;VPC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;How to configure &lt;a href=&quot;https://en.wikipedia.org/wiki/Subnetwork&quot;&gt;subnets&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;How to create an EC2 instance&lt;/li&gt;
+  &lt;li&gt;How to ensure an EC2 instance is within an particular subnet&lt;/li&gt;
+  &lt;li&gt;How to ssh to an EC2 instance&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You will create a new VPC. You can use your default VPC, but this isn’t recommended. Default VPCs are for legacy ec2-classic instances. You should identify a CIDR block range for your VPC (e.g. 10.0.0.0/16).&lt;/p&gt;
+
+&lt;p&gt;Then, create two new subnets under the new VPC. One will be private and one will be public. The load balancer will use the public subnet and the EC2 instance will use the private subnet. Each subnet will have a different route table, one allowing traffic in and the other not. The first subnet should have a CIDR block range of 10.0.1.0/24. Next create your private subnet with a CIDR of 10.0.2.0/24 - this can be in the same availibility zone as the first subnet.&lt;/p&gt;
+
+&lt;p&gt;For high availability, it is a good idea to place your next elastic load balancer in a different availability zone. When you configure your load balancer you will need to choose two subnets. Therefore we have to create another public subnet that has a different availability zone. This has a CIDR range of 10.0.3.0/24 and is belongs in a different availability zone.&lt;/p&gt;
+
+&lt;p&gt;You should have three subnets as this image shows.&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/KFrjH&quot;&gt;&lt;a href=&quot;//imgur.com/KFrjH&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Next you need to create an Internet Gateway and attach it to the public subnet. This is what makes the load balancer  world accessible. Click on Internet Gateway, then create an internet gateway, with a name tag. Then, attach it to the VPC that you have created (only one Internet Gateway can be attached to a VPC). Click the Attach to VPC button and then choose the new VPC that you created earlier. This means you will be able to access the EC2 instance for the time being.&lt;/p&gt;
+
+&lt;p&gt;Next add a route table. Create a Route Table and add a route of 0.0.0.0/0 and choose the target of your new Internet Gateway. This means you can now access your EC2 instance.&lt;/p&gt;
+
+&lt;p&gt;This route table is associated with all of the subnets, which means they are all now public. We will later make the private subnet private.&lt;/p&gt;
+
+&lt;p&gt;Now, create your EC2 instance. Launch it in the private subnet (even though it is still public at the moment).&lt;/p&gt;
+
+&lt;p&gt;When you create your EC2 instance create a rule that allows port 80 for HTTP.&lt;/p&gt;
+
+&lt;p&gt;Now create a load balancer. This will be a classic type of load balancer. Do not create an internal load balancer, as that will only be accessible from within the VPC. We want traffic from anywhere. Listen on port 80. Now we select the two public subnets that we created earlier. One of them has to be in the same availability zone as the EC2 instance (which it is). The other one can be in a different availibility zone. Assign the security group that was created when you created the VPC.&lt;/p&gt;
+
+&lt;p&gt;With load balancers you have to configure the health check. This is best done over TCP protocol on port 22. Then you add an EC2 instance to the load balancer. Use the one that we created earlier. Add tags, review and launch.&lt;/p&gt;
+
+&lt;p&gt;Now we need to SSH in to the instance and install a httpd server. ssh in using your key, ssh -i pem-key.pem ec2-user@34.3.124.41 - do not forget that your pem key file must have permissions of 400 or less.&lt;/p&gt;
+
+&lt;p&gt;Start the httpd service - sudo service start httpd&lt;/p&gt;
+
+&lt;p&gt;Check using the public ip address of the EC2 instance. You’ll notice that this works as the EC2 instance is still in a public route table.&lt;/p&gt;
+
+&lt;p&gt;Let’s fix that by creating a new route table. The new route table must only have a route that allows the local traffic (i.e. no 0.0.0.0/0). Then go to the private subnet and then change the route for the subnet to the new route table that doesn’t have a public route.&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/CzkdB&quot;&gt;&lt;a href=&quot;//imgur.com/CzkdB&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You can test if your load balancer is still forwarding the traffic by clicking on load balancer link, selecting the active load balancer and then using the DNS information&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/mPIkP&quot;&gt;&lt;a href=&quot;//imgur.com/mPIkP&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Copy and paste that link into your browser. You should be forwarded to the HTTP welcome page that the private EC2 instance is server.&lt;/p&gt;
+
+&lt;p&gt;If you have any comments, please post them in the disqus below.&lt;/p&gt;</content><author><name></name></author><summary type="html">Amazon Web Services (AWS) allows you to serve private network traffic from behind a public load balancer. This offers extra security benefits as it detects DDOS traffic and other exploits and offers a layer of protection.</summary></entry></feed>
