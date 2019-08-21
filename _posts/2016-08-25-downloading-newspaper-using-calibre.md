@@ -19,6 +19,6 @@ You can change the filenames so that it suits your particular situation. Once th
 
 Calibre will also allow you to email the file to your Kindle (this is one of the good features that Amazon have built in to the Kindle). If you have a Kobo or other e-reader, you can connect a cable and put it on your device. If you have a different way of uploading this file on to your device, please let me know in the comments below. It is possible to run Calibre as a web service, so you could browse this server from your e-reader (if it has a browser) and then download it that way.
 
-    /usr/bin/calibre-stmp from@email.com to@email.com "Sent from" -r smtp.gmail.com -u user@gmail.com -a newspaper.epub -p password -e TLS --port 587 
+    /usr/bin/calibre-smtp from@email.com to@email.com "Sent from" -r smtp.gmail.com -u user@gmail.com -a newspaper.epub -p password -e TLS --port 587 
 
 This command can be put in to a script file and then called from cron. 
