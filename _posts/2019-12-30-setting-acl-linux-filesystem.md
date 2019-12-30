@@ -2,7 +2,8 @@
 layout: post
 title: Setting Filesystem ACLs on Linux
 date: 2019-12-30
-categories: sysadmin
+categories: 
+- sysadmin
 ---
 
 ACLs are a method for defining access to files and directories on a system. These can be set at the user level, group level, or via the effective rights mask.
@@ -29,9 +30,14 @@ To remove access from a file:
 
 Note that this will remove all extended permissions from that file.
 
+To remove just one access control use the ```-``` character:
+
+   setfacl -m u:lisa:r-x filename
+
 By adding an ```-R``` flag, an ACL is applied recursively (i.e. to directories and files below the path specified). 
 
     setfacl -R -m u:lisa:rwx directory_name
 
 This will provide read, write and execute to the directory ```directory_name``` and any files within that directory.
+
 
