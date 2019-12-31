@@ -32,7 +32,7 @@ Note that this will remove all extended permissions from that file.
 
 To remove just one access control use the ```-``` character:
 
-   setfacl -m u:lisa:r-x filename
+    setfacl -m u:lisa:r-x filename
 
 By adding an ```-R``` flag, an ACL is applied recursively (i.e. to directories and files below the path specified). 
 
