@@ -2,7 +2,7 @@
 title: SELinux Users, Roles, and Types
 categories:
 - sysadmin
-date: 2019-12-31
+date: 2020-01-03
 layout: post
 ---
 SELinux contexts follow the SELinux user:role:type:level syntax.
