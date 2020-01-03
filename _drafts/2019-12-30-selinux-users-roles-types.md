@@ -29,7 +29,7 @@ In SELinux labels assigned to a process is also called a ```domain```. An exampl
 
 ### Conclusion
 
-This table represents the structure of a label:
+This table represents the structure of a label and type association:
 
 ```system_u:object_r:lib_t``` associates with an actor ```user_u:user_r:user_t``` in the following way:
 
