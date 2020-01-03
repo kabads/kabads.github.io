@@ -17,7 +17,17 @@ This will show the list of SELinux users, and is mapped to Linux users. If a Lin
 
 ### Roles
 
-Role based access control is a go-between from the user to the domain. By assigning roles, a user can access particular domains. This determines which domains can be accessed by the SELinux user. 
+Role based access control is a go-between from the user to the domain. By assigning roles, a user can access particular domains. This determines which domains can be accessed by the SELinux user. The role dictates what domains (types, or contexts) it is possible to be in. 
+
+To find out which domains (roles) a user is approved for: 
+
+    seinfo -ruser_r -x 
+
+Users can switch roles if they want. However, they can only do this if their SELinux is allowed to be in that role. You can check if this is allowed with: 
+
+    semanage user -l
+
+This will list a user and the roles that they are allowed to switch to. Obviously for this to work, the Linux user has to have the corresponding SELinux username when they issue ```id -Z```. 
 
 ### Type 
 
@@ -29,7 +39,7 @@ In SELinux labels assigned to a process is also called a ```domain```. An exampl
 
 ### Conclusion
 
-This table represents the structure of a label and type association:
+This table represents the structure of a label:
 
 ```system_u:object_r:lib_t``` associates with an actor ```user_u:user_r:user_t``` in the following way:
 
