@@ -33,8 +33,9 @@ This table represents the structure of a label:
 
 ```system_u:object_r:lib_t``` associates with an actor ```user_u:user_r:user_t``` in the following way:
 
-| ```system_u``` | ```object_r``` | ```lib_t``` |
+
+| ```system_u``` |:| ```object_r```|:| ```lib_t``` |
 |------------------------------------------------
-| SELinux User | SELinux Role | SELinux Type
+| SELinux User|:| SELinux Role|:| SELinux Type
 |--------------------------------------------
-| ```user_u``` | ```user_r``` | ```user_t``` 
+| ```user_u``` |:| ```user_r```|:| ```user_t``` 
