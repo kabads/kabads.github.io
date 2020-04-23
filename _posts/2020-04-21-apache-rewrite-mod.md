@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-04-21 14:00:00
+date: 2020-04-23 14:05:00
 title: Apache Rewrite Mod
 ---
 
@@ -50,4 +50,17 @@ The above rule only applies to the directory named `subddirectory`.
 | [ ]       | A character class - matches one of the characters                                             | c[uoa]t matches cut, cot, cat                                          |
 | [^ ]      | Negative character class - matches any character not specified                                | c[^/] matches cat or c=t but not c/t                                   |
 
-### mod_rewrite Log Level
+### mod_rewrite Log Level for < v2.4
+
+The `mod_rewrite` will write to the usual apache log files.
+
+For previous versions (pre Apache 2.4) the directive `RewriteLogLevel` will set the level of logging written, ranging in values from 0-9 with 0 being no logging and 0 being the most verbose. Logs will appear as `pass through` lines in the file.
+
+
+### mod_rewrite Log Level for v2.4
+
+With the current version of Apache (2.4), `mod_rewrite`, the older methods of controlling logging have now been replaced by a new per-module logging method:
+
+```
+LogLevel alert rewrite:trace3
+```
