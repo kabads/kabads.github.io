@@ -35,7 +35,13 @@ These rules can be embedded within a particular directory, using the `<Directory
 
 The above rule only applies to the directory named `subddirectory`.
 
-### Regular Expressions and mod_rewrite
+#### Rewrite Flags
+
+At the end of each `RewriteRule` is a set of flags that determines what should be done - these are enclosed in a set of square brackets. One of the most common is `[R]` which is a redirect, carried out at the browser level (issued by the webserver).
+
+A full list of flags is documented at [https://httpd.apache.org/docs/2.4/rewrite/flags.html](https://httpd.apache.org/docs/2.4/rewrite/flags.html).
+
+#### Regular Expressions and mod_rewrite
 
 | Character | Meaning                                                                                       | Example                                                                |
 | --------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
