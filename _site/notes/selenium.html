@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-30 Mon 08:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Selenium</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Adam C" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Selenium</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5b7c058">1. Environmental Setup</a></li>
+<li><a href="#org7a82f79">2. Automation Fundamentals</a></li>
+<li><a href="#org62a49d3">3. Professional Browser Automation</a></li>
+<li><a href="#orge277e30">4. Virtual Environment</a></li>
+<li><a href="#org70f0b1c">5. What is Selenium?</a></li>
+<li><a href="#org4c3b061">6. First Automation</a></li>
+<li><a href="#org1d92891">7. Finding Elements on the Page</a>
+<ul>
+<li><a href="#org66ba5cc">7.1. Commands</a></li>
+</ul>
+</li>
+<li><a href="#org371fc99">8. Selenium Utility Belt</a>
+<ul>
+<li><a href="#orgf3fad70">8.1. Action Chains</a></li>
+<li><a href="#org15f93b4">8.2. Alert</a></li>
+<li><a href="#org2655496">8.3. Keys</a></li>
+<li><a href="#org1467a50">8.4. Touch Actions</a></li>
+<li><a href="#org38b49ea">8.5. Expected Conditions</a></li>
+<li><a href="#orgd301f0c">8.6. Wait</a></li>
+<li><a href="#org8ad25ea">8.7. Drop Down</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5b7c058" class="outline-2">
+<h2 id="org5b7c058"><span class="section-number-2">1</span> Environmental Setup</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Python 
+Selenium
+Browser
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a82f79" class="outline-2">
+<h2 id="org7a82f79"><span class="section-number-2">2</span> Automation Fundamentals</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Finding Elements
+Automating the Browser
+Selenium Tools
+</p>
+</div>
+</div>
+
+<div id="outline-container-org62a49d3" class="outline-2">
+<h2 id="org62a49d3"><span class="section-number-2">3</span> Professional Browser Automation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Page Objects 
+Code re-use
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge277e30" class="outline-2">
+<h2 id="orge277e30"><span class="section-number-2">4</span> Virtual Environment</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<code>python38.exec -m venv c:\Users\adamc\selenium\venv</code>
+<code>cd</code> to that directory.
+<code>activate.bat</code> which activates that directory. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70f0b1c" class="outline-2">
+<h2 id="org70f0b1c"><span class="section-number-2">5</span> What is Selenium?</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Selenium Web Driver. This is logic that talks to browsers.
+Selenium Grid. Send it out to other computers. 
+Selenium IDE. Ui for recording and playing back.
+</p>
+
+<p>
+This focusses on the Web Driver. 
+</p>
+
+<p>
+Python can't talk to browsers directly. If we install Selenium, it still can't talk to the browser. We have a webdriver. 
+</p>
+
+<p>
+You have to download the webdriver yourself. 
+</p>
+
+<p>
+Install the webdriver. Configure selenium code to look for driver. 
+</p>
+
+<p>
+Put the webdriver in the path, and then restart any programs that need that path. Then:
+</p>
+<pre class="example">
+from selenium import webdriver
+driver = webdriver.Chrome()
+</pre>
+<p>
+and a browser should open. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c3b061" class="outline-2">
+<h2 id="org4c3b061"><span class="section-number-2">6</span> First Automation</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+&gt;&gt;&gt; from selenium import webdriver
+&gt;&gt;&gt; browser = webdriver.Chrome()
+
+DevTools listening on ws://127.0.0.1:53900/devtools/browser/650f1e9f-ccd1-4092-94cb-630c1890302f
+[21100:6184:1129/110006.896:ERROR:device_event_log_impl.cc(211)] [11:00:06.895] USB: usb_device_handle_win.cc:1020 Failed to r[21100:6184:1129/110006.896:ERROR:device_event_log_impl.cc(211)] [11:00:06.895] USB: usb_device_handle_win.cc:1020 Failed to r
+ead descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+&gt;&gt;&gt; browser.get('https://techstepacademy.com/training-ground')
+&gt;&gt;&gt;
+</pre>
+
+<p>
+What is automation? Finding elements on a page and then manipulating them. How do we do that? Everything on a page is an element. Input fields are elements. Buttons are elements. How do we do anything with the elements? Find the element, and then manipulate it. How do we find elements? Selenium can do that. 
+There is an element on the page - I want you to find that element and let me use it. 
+</p>
+
+<p>
+We can do this using a <code>css-selector</code>. There are different ways. There is a handy way of referencing these elements. We inspect elements on the browser and find the name of it. 
+</p>
+
+<p>
+The type of element is type <code>input</code>.
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; browser.get('https://techstepacademy.com/training-ground')
+&gt;&gt;&gt; input_element = browser.find_element_by_css_selector('input[id="ipt1"]')
+&gt;&gt;&gt; input_elemnt
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'input_elemnt' is not defined
+&gt;&gt;&gt; input_element
+&lt;selenium.webdriver.remote.webelement.WebElement (session="6dbd4af2f5122f86a24922690b9f3f4e", element="88b5af1b-5171-4c8c-9453-f
+7d9516069d8")&gt;
+&gt;&gt;&gt; input_element.send_keys('My first automation')
+</pre>
+
+<p>
+Now we will click a button.
+</p>
+<pre class="example">
+&gt;&gt;&gt; button_element = browser.find_element_by_css_selector('button[name="butn1"]')
+&gt;&gt;&gt; button_element.click()
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1d92891" class="outline-2">
+<h2 id="org1d92891"><span class="section-number-2">7</span> Finding Elements on the Page</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org66ba5cc" class="outline-3">
+<h3 id="org66ba5cc"><span class="section-number-3">7.1</span> Commands</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Browser Dev Tools Console Commands - Finding Elements
+</p>
+<ol class="org-ol">
+<li>Find using an XPATH: $x("//div[@value='note the single quotes']")</li>
+<li>Find using a CSS Selector: $$("div[value='note the single quotes']")</li>
+</ol>
+
+<p>
+A quicker way to validate your locators.
+</p>
+
+<p>
+Use the console. Use Xpath. This has a different syntax, but it will be the same. We will find the input field. 
+</p>
+<pre class="example">
+&lt;input name="Input 1" id="ipt1" wtx-context="EEADB74D-2E41-49C7-B51B-1890D5C200F5"&gt;
+</pre>
+
+<p>
+ipt1 is the key thing here. The console is the secret sauce. 
+</p>
+
+<p>
+Use a css selector in the console. 
+</p>
+
+<pre class="example">
+$$("input[id='ipt2']")
+</pre>
+
+<p>
+To use <code>xpath</code>, use <code>$x()</code>. 
+</p>
+
+<p>
+<code>$$</code> is a css selector. <code>$x</code> is an xpath selector. 
+</p>
+
+<p>
+For xpath you need to tell it where to start. 
+</p>
+
+<p>
+<code>$x("//button")</code> will return all buttons.
+</p>
+
+<p>
+The <code>//</code> says search the whole page. You cannot pass the <code>id=</code> to xpath. You have to use <code>@id=''</code>.
+</p>
+
+<p>
+The full syntax for a proper xpath call is: 
+</p>
+<pre class="example">
+$x("//button[@id='b4']")
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org371fc99" class="outline-2">
+<h2 id="org371fc99"><span class="section-number-2">8</span> Selenium Utility Belt</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>selenium documentation via python api</li>
+</ul>
+<p>
+<a href="https://www.selenium.dev/selenium/docs/api/py/api.html">https://www.selenium.dev/selenium/docs/api/py/api.html</a>
+</p>
+</div>
+<div id="outline-container-orgf3fad70" class="outline-3">
+<h3 id="orgf3fad70"><span class="section-number-3">8.1</span> Action Chains</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+You need to do things with the mouse. Right click, etc. You can chain actions together. You can find submenus and then click on them. You write several steps in one. 
+</p>
+
+<p>
+<code>context_click</code> is right click. 
+</p>
+
+<p>
+<code>drag_and_drop</code> as it says. 
+</p>
+
+<p>
+<code>key_down</code> - alt-f5 etc.
+</p>
+
+<p>
+<code>key_up</code> is the opposite. 
+</p>
+
+<p>
+<code>send_keys</code> can go in the action chain. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15f93b4" class="outline-3">
+<h3 id="org15f93b4"><span class="section-number-3">8.2</span> Alert</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+You get an alert to pop up. You need to move to the right focussed window, which is too complicated. Just create an alert object and then <code>accept</code> it. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2655496" class="outline-3">
+<h3 id="org2655496"><span class="section-number-3">8.3</span> Keys</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+These are codified ways of pressing particular key objects. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1467a50" class="outline-3">
+<h3 id="org1467a50"><span class="section-number-3">8.4</span> Touch Actions</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+This is for something on a touch-screen. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org38b49ea" class="outline-3">
+<h3 id="org38b49ea"><span class="section-number-3">8.5</span> Expected Conditions</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+This goes hand-in-hand with <code>wait</code>. We can wait on events, rather than a specified amount of time. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd301f0c" class="outline-3">
+<h3 id="orgd301f0c"><span class="section-number-3">8.6</span> Wait</h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+Page loads slowly? Backend calls etc. Network. <code>wait</code> is the answer. <code>wait</code> can act on an event. You need to import the <code>WebDriverWait</code>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8ad25ea" class="outline-3">
+<h3 id="org8ad25ea"><span class="section-number-3">8.7</span> Drop Down</h3>
+<div class="outline-text-3" id="text-8-7">
+<p>
+We use the <code>Select</code> class for this. We can get the options here. We can deselect by value. 
+</p>
+
+<p>
+You pass in a web element to a <code>Select</code> object. You will have searched for the web element before the call. 
+</p>
+
+<pre class="example">
+from selenium.webdriver.support.select import Select 
+# ...
+sel = browser.find_element_by_id('sel1')
+my_select = Select(sel)
+my_select.options
+# ^ should return a string
+[elem.text for elem in my_select.options]
+# ^ will take us through the elements
+</pre>
+
+<p>
+Then you can select by visible text:
+</p>
+<pre class="example">
+my_select.select_by_visible_text('Battlestar Galactica')
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adam C</p>
+<p class="date">Created: 2020-11-30 Mon 08:26</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
