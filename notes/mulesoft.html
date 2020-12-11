@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 17:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mulesoft Training</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Adam C" />
+<!-- 2020-12-11 Fri 07:36 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Adam C" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -53,127 +46,30 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -190,7 +86,6 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <script type="text/javascript">
@@ -198,7 +93,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -247,117 +142,332 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd12f299">1. Anypoint Platform</a>
+<li><a href="#sec-1">1. Why design with APIs?</a>
 <ul>
-<li><a href="#orgf94efe6">1.1. Components</a>
+<li><a href="#sec-1-1">1.1. Benefits?</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Application Network</a></li>
+<li><a href="#sec-3">3. Deconstructing APIs</a></li>
+<li><a href="#sec-4">4. REST</a>
 <ul>
-<li><a href="#orgea78f87">1.1.1. API Designer</a></li>
-<li><a href="#org7335f2d">1.1.2. Mocking Service</a></li>
-<li><a href="#orgf3f34d9">1.1.3. API Console</a></li>
-<li><a href="#org7aea1c8">1.1.4. API Portal</a></li>
-<li><a href="#org2be8b93">1.1.5. Exchange</a></li>
-<li><a href="#org51af387">1.1.6. API Notebook</a></li>
-<li><a href="#org2be40b0">1.1.7. Output RAML</a></li>
-<li><a href="#org0f802de">1.1.8. API Manager</a></li>
-<li><a href="#org12fd900">1.1.9. Visualizer</a></li>
-<li><a href="#org20d61d0">1.1.10. Runtime Manager</a></li>
-<li><a href="#orgccd4166">1.1.11. API Analytics</a></li>
+<li><a href="#sec-4-1">4.1. Learning About APIs</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. API documentation</a></li>
+<li><a href="#sec-4-1-2">4.1.2. API portals</a></li>
+<li><a href="#sec-4-1-3">4.1.3. Discover APIs in API directories and marketplaces</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org054ee4d">2. Design Centre</a>
+<li><a href="#sec-5">5. Calling RESTful API service</a></li>
+<li><a href="#sec-6">6. Producers Make Assests Easy to Find</a></li>
+<li><a href="#sec-7">7. API Development Cycle</a></li>
+<li><a href="#sec-8">8. Anypoint Platform</a>
 <ul>
-<li><a href="#org92f99c7">2.1. Flow Designer</a>
+<li><a href="#sec-8-1">8.1. Components</a>
 <ul>
-<li><a href="#org725abe0">2.1.1. <span class="todo TODO">TODO</span> Anypoint Platform: Flow Design course</a></li>
+<li><a href="#sec-8-1-1">8.1.1. API Designer</a></li>
+<li><a href="#sec-8-1-2">8.1.2. Mocking Service</a></li>
+<li><a href="#sec-8-1-3">8.1.3. API Console</a></li>
+<li><a href="#sec-8-1-4">8.1.4. API Portal</a></li>
+<li><a href="#sec-8-1-5">8.1.5. Exchange</a></li>
+<li><a href="#sec-8-1-6">8.1.6. API Notebook</a></li>
+<li><a href="#sec-8-1-7">8.1.7. Output RAML</a></li>
+<li><a href="#sec-8-1-8">8.1.8. API Manager</a></li>
+<li><a href="#sec-8-1-9">8.1.9. Visualizer</a></li>
+<li><a href="#sec-8-1-10">8.1.10. Runtime Manager</a></li>
+<li><a href="#sec-8-1-11">8.1.11. API Analytics</a></li>
 </ul>
 </li>
-<li><a href="#org6a37f4b">2.2. API Designer</a>
-<ul>
-<li><a href="#org0139690">2.2.1. <span class="todo TODO">TODO</span> Anypoint Platform: API Design course</a></li>
+<li><a href="#sec-8-2">8.2. Benefits of Each Layer</a></li>
+<li><a href="#sec-8-3">8.3. Achieving Success</a></li>
+<li><a href="#sec-8-4">8.4. Blueprint to Follow</a></li>
+<li><a href="#sec-8-5">8.5. Tools for API Specification phase</a></li>
+<li><a href="#sec-8-6">8.6. API Implementation</a></li>
+<li><a href="#sec-8-7">8.7. API Management Phase</a></li>
 </ul>
 </li>
-<li><a href="#org55f0430">2.3. Anypoint Studio</a></li>
-<li><a href="#orgddb8797">2.4. Create a New Project and Application</a>
+<li><a href="#sec-9">9. Design Centre</a>
 <ul>
-<li><a href="#org3ad7ef7">2.4.1. Create HTTP Trigger</a></li>
-<li><a href="#orgfeb1a30">2.4.2. Add a Logger</a></li>
-<li><a href="#org0bdc052">2.4.3. Run the Application</a></li>
-<li><a href="#org84374c6">2.4.4. Test in a Remote Client (Advanced REST Client)</a></li>
+<li><a href="#sec-9-1">9.1. Flow Designer</a>
+<ul>
+<li><a href="#sec-9-1-1">9.1.1. <span class="todo TODO">TODO</span> Anypoint Platform: Flow Design course</a></li>
+</ul>
+</li>
+<li><a href="#sec-9-2">9.2. API Designer</a>
+<ul>
+<li><a href="#sec-9-2-1">9.2.1. <span class="todo TODO">TODO</span> Anypoint Platform: API Design course</a></li>
+</ul>
+</li>
+<li><a href="#sec-9-3">9.3. Anypoint Studio</a></li>
+<li><a href="#sec-9-4">9.4. Create a New Project and Application</a>
+<ul>
+<li><a href="#sec-9-4-1">9.4.1. Create HTTP Trigger</a></li>
+<li><a href="#sec-9-4-2">9.4.2. Add a Logger</a></li>
+<li><a href="#sec-9-4-3">9.4.3. Run the Application</a></li>
+<li><a href="#sec-9-4-4">9.4.4. Test in a Remote Client (Advanced REST Client)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2e71733">3. Application Triggered</a></li>
-<li><a href="#org426fdb3">4. Dataweave</a></li>
-<li><a href="#org871530b">5. Designing an API using API Designer</a>
+<li><a href="#sec-10">10. Application Triggered</a></li>
+<li><a href="#sec-11">11. Dataweave</a></li>
+<li><a href="#sec-12">12. Designing an API using API Designer</a>
 <ul>
-<li><a href="#orge97af20">5.1. Add a resource</a></li>
-<li><a href="#org21221af">5.2. Add a nested resource</a></li>
-<li><a href="#orgdc1a00c">5.3. Add a key</a></li>
+<li><a href="#sec-12-1">12.1. Add a resource</a></li>
+<li><a href="#sec-12-2">12.2. Add a nested resource</a></li>
+<li><a href="#sec-12-3">12.3. Add a key</a></li>
 </ul>
 </li>
-<li><a href="#orgc24b833">6. Use the Mocking Service to Test an API</a>
+<li><a href="#sec-13">13. Use the Mocking Service to Test an API</a>
 <ul>
-<li><a href="#org0c0e323">6.1. Test the nested resource</a></li>
+<li><a href="#sec-13-1">13.1. Test the nested resource</a></li>
 </ul>
 </li>
-<li><a href="#orgcc6cc38">7. Add request and response details</a></li>
-<li><a href="#org7eb715b">8. Specify the /{ID}:get method to return a particuluar object</a></li>
-<li><a href="#org61146ec">9. Add a exchange dependency</a></li>
-<li><a href="#org386e590">10. Define an example response for a get method</a></li>
-<li><a href="#org58bdf67">11. Import a file to the Design Center</a></li>
-<li><a href="#orgcc137b0">12. Define an example request body for a post method</a></li>
-<li><a href="#org7a7871c">13. Specify an example response for a post method</a></li>
-<li><a href="#org63bb2bd">14. Share An API</a></li>
-<li><a href="#orgcf8836b">15. The Public Portal can be customized</a></li>
-<li><a href="#org89465a9">16. Building An API</a>
+<li><a href="#sec-14">14. Add request and response details</a></li>
+<li><a href="#sec-15">15. Specify the /{ID}:get method to return a particuluar object</a></li>
+<li><a href="#sec-16">16. Add a exchange dependency</a></li>
+<li><a href="#sec-17">17. Define an example response for a get method</a></li>
+<li><a href="#sec-18">18. Import a file to the Design Center</a></li>
+<li><a href="#sec-19">19. Define an example request body for a post method</a></li>
+<li><a href="#sec-20">20. Specify an example response for a post method</a></li>
+<li><a href="#sec-21">21. Share An API</a></li>
+<li><a href="#sec-22">22. The Public Portal can be customized</a></li>
+<li><a href="#sec-23">23. Building An API</a>
 <ul>
-<li><a href="#org1e972f7">16.1. Mule Application and Flows</a></li>
-<li><a href="#orga160cee">16.2. Mule Event</a>
+<li><a href="#sec-23-1">23.1. Mule Application and Flows</a></li>
+<li><a href="#sec-23-2">23.2. Mule Event</a>
 <ul>
-<li><a href="#org7f0dcf1">16.2.1. Mule Message</a></li>
-<li><a href="#org2695102">16.2.2. Variables</a></li>
+<li><a href="#sec-23-2-1">23.2.1. Mule Message</a></li>
+<li><a href="#sec-23-2-2">23.2.2. Variables</a></li>
 </ul>
 </li>
-<li><a href="#org549b852">16.3. Anypoint Studio</a>
+<li><a href="#sec-23-3">23.3. Anypoint Studio</a>
 <ul>
-<li><a href="#orgb27f3dc">16.3.1. Creating a Mule application with Anypoint Sudio</a></li>
-<li><a href="#org15d8305">16.3.2. Create an HTTP connector enpoint to receive requests</a></li>
-<li><a href="#org8c41f61">16.3.3. Running the Application</a></li>
-<li><a href="#org941d569">16.3.4. Test with ARC</a></li>
-<li><a href="#orgaf2d95f">16.3.5. Stopping the Application</a></li>
-<li><a href="#org8033bb7">16.3.6. Connect to a Database</a></li>
-<li><a href="#org4a15f78">16.3.7. Write a query to return data</a></li>
-<li><a href="#org94d0f0a">16.3.8. Test again by running the application and testing with ARC</a></li>
-<li><a href="#orgcf6ee72">16.3.9. Transform Data</a></li>
+<li><a href="#sec-23-3-1">23.3.1. Creating a Mule application with Anypoint Sudio</a></li>
+<li><a href="#sec-23-3-2">23.3.2. Create an HTTP connector enpoint to receive requests</a></li>
+<li><a href="#sec-23-3-3">23.3.3. Running the Application</a></li>
+<li><a href="#sec-23-3-4">23.3.4. Test with ARC</a></li>
+<li><a href="#sec-23-3-5">23.3.5. Stopping the Application</a></li>
+<li><a href="#sec-23-3-6">23.3.6. Connect to a Database</a></li>
+<li><a href="#sec-23-3-7">23.3.7. Write a query to return data</a></li>
+<li><a href="#sec-23-3-8">23.3.8. Test again by running the application and testing with ARC</a></li>
+<li><a href="#sec-23-3-9">23.3.9. Transform Data</a></li>
 </ul>
 </li>
-<li><a href="#org28c734d">16.4. Create RESTful Interface for a Mule Application</a>
+<li><a href="#sec-23-4">23.4. Create RESTful Interface for a Mule Application</a>
 <ul>
-<li><a href="#orgc47f68d">16.4.1. Restrict Method calls to GET</a></li>
-<li><a href="#org6c489d9">16.4.2. Make a new Flow to handle post requests</a></li>
+<li><a href="#sec-23-4-1">23.4.1. Restrict Method calls to GET</a></li>
+<li><a href="#sec-23-4-2">23.4.2. Make a new Flow to handle post requests</a></li>
 </ul>
 </li>
-<li><a href="#org65d861e">16.5. Create a RESTful interface automatically using APIkit</a>
+<li><a href="#sec-23-5">23.5. Create a RESTful interface automatically using APIkit</a>
 <ul>
-<li><a href="#orge302222">16.5.1. Add Anypoint Platform Credentials to Anypoint Studio</a></li>
-<li><a href="#org5e42ff2">16.5.2. Add an API from Exchange to the Anypoint Studio project</a></li>
-<li><a href="#org1929805">16.5.3. Delete HTTP listeners provided with Anypoint Studio (in preparation to listen with APIkit</a></li>
-<li><a href="#org6fa52eb">16.5.4. Test the web service usi APIkit console</a></li>
+<li><a href="#sec-23-5-1">23.5.1. Add Anypoint Platform Credentials to Anypoint Studio</a></li>
+<li><a href="#sec-23-5-2">23.5.2. Add an API from Exchange to the Anypoint Studio project</a></li>
+<li><a href="#sec-23-5-3">23.5.3. Delete HTTP listeners provided with Anypoint Studio (in preparation to listen with APIkit</a></li>
+<li><a href="#sec-23-5-4">23.5.4. Test the web service usi APIkit console</a></li>
 </ul>
 </li>
-<li><a href="#org1fe196d">16.6. Implement a RESTful webb service</a>
+<li><a href="#sec-23-6">23.6. Implement a RESTful webb service</a>
 <ul>
-<li><a href="#org6ac4baf">16.6.1. Rename the Configuration files</a></li>
+<li><a href="#sec-23-6-1">23.6.1. Rename the Configuration files</a></li>
 </ul>
 </li>
-<li><a href="#org821c787">16.7. API Sync</a>
+<li><a href="#sec-23-7">23.7. API Sync</a>
 <ul>
-<li><a href="#org79eb852">16.7.1. To edit an RAML File</a></li>
-<li><a href="#org9600b55">16.7.2. To Sync the changes in the Exchange with your project</a></li>
+<li><a href="#sec-23-7-1">23.7.1. To edit an RAML File</a></li>
+<li><a href="#sec-23-7-2">23.7.2. To Sync the changes in the Exchange with your project</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-24">24. Deploying and Managing APIs</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Why design with APIs?</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+It allows the application design to change more rapidly (as required). By stripping out the application into APIs things become less tightly coupled. 
+</p>
+
+<p>
+Several layers of design are suggested:
+</p>
+<ul class="org-ul">
+<li>system APIs
+</li>
+<li>Process APIs
+</li>
+<li>Experience APIs
+</li>
+</ul>
+
+<p>
+Sysetm APIs might be salesforce, ordering, SAP customers. Generally, anything considered to be backend. 
+</p>
+
+<p>
+Process APIs are those things that look after transactions with the system API. This is ordering, customers, transactions etc. 
+</p>
+
+<p>
+Experience APIs are those things that users see. This is the front end and is what humans will interact with.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Benefits?</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+If a new experience is introduced (e.g. Mobile) then this API can make calls.
+</p>
+
+<p>
+Not only that, but other APIs can be added at the other levels. Shipping status can be added in the process APIs level, making calls on the other API services. This can interface with other backend APIs (such as 3rd party APIs to update the customer). 
+</p>
+
+<p>
+Central IT - need to unlock assets and decentralize access. 
+</p>
+
+<p>
+Line of Business IT - Process APIs discover, reuse assets and compose information
+</p>
+
+<p>
+Developers -  discover, self-serve, reuse and consume the other APIs and build the experience API. 
+</p>
+
+<p>
+Centre for Enablement group drives the adoption. This is a cross-functional team, ensuring that new assets are built using existing assets where possible. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Application Network</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Nodes can be added, and increase connections. Each node adds value. 
+By default apps are siloed. They are one monolith to themselves. 
+</p>
+
+<p>
+This means that applications are built from bottom-up - it emerges. APIs are easily discoverable, with security in mind with every API node being managed by central IT. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Deconstructing APIs</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Application Programming Interface. 
+</p>
+
+<p>
+It provides the info for how to communicate with a software component, defining: 
+</p>
+<ul class="org-ul">
+<li>operations (what to call)
+</li>
+<li>inputs (what to send with a call)
+</li>
+<li>outputs (what you get back from a call)
+</li>
+<li>underlying data types 
+</li>
+</ul>
+
+<p>
+It defines functionalities independent of implementations. 
+</p>
+<ul class="org-ul">
+<li>You can change what's going on behind the scenes without changing how people call it. 
+</li>
+</ul>
+
+<p>
+An API can be any of the following:
+</p>
+<ol class="org-ol">
+<li>An API Interface Definition file (specification)
+</li>
+<li>A web service 
+</li>
+<li>An API proxy
+</li>
+</ol>
+
+<p>
+What is a web service? 
+</p>
+
+<p>
+Different software systems often need to exchange data with each other. Bridging protocols, platforms, programming languages, and hardware architectures. 
+</p>
+
+<p>
+A web service is a method of communication that allows two software systems to exchange data over the internet. 
+</p>
+
+<p>
+Systems interact with the web service in a manner prescribed by some defined rules of communication. How one system can request data from another system, what parameters are required, the structure of the return data, and more. 
+</p>
+
+<p>
+Parts of a web service:
+</p>
+<ul class="org-ul">
+<li>The web service API
+<ul class="org-ul">
+<li>describes how you interact with the web service 
+</li>
+<li>it may or may not (though it should) be explicitly defined in a file
+</li>
+<li>it could be any sort of text in any type of file but ideally should implement some standard API description language (or specification)
+</li>
+</ul>
+</li>
+<li>The web service interface implementing the API 
+<ul class="org-ul">
+<li>is the code providing the structure to the application so it implements the API 
+</li>
+<li>this may be combined with the actual implementation code
+</li>
+</ul>
+</li>
+<li>The web service implementation itself
+<ul class="org-ul">
+<li>is the actual code and application
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Two main types of web services:
+</p>
+<ul class="org-ul">
+<li>SOAP web services 
+<ul class="org-ul">
+<li>traditional, more complex type
+</li>
+<li>the communication rules are defined in an XML-based WSDL (Web services description language) file 
+</li>
+</ul>
+</li>
+<li>RESTful Web Services 
+<ul class="org-ul">
+<li>recent, simpler type
+</li>
+<li>using the existing HTTP communication protocol
 </li>
 </ul>
 </li>
@@ -365,123 +475,425 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd12f299" class="outline-2">
-<h2 id="orgd12f299"><span class="section-number-2">1</span> Anypoint Platform</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> REST</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Representational State Transfer 
+</p>
+<ul class="org-ul">
+<li>an architectural style where clients and servers exchange representations of resources using standard HTTP protocol 
+</li>
+</ul>
+
+<p>
+Other systems interact with the web service using the HTTP protocol. 
+</p>
+
+<p>
+The HTTP request method indicates which operation should be performed on the object identified by the URL. 
+</p>
+<ul class="org-ul">
+<li>post 
+</li>
+<li>get 
+</li>
+<li>delete
+</li>
+<li>put 
+</li>
+</ul>
+
+<p>
+Data and resources are represented using URIs. 
+Resources are accessed or changed using a fixed set of operations. 
+</p>
+
+<ul class="org-ul">
+<li>GET/companies
+</li>
+<li>GET/companies?country=France
+</li>
+<li>GET/companies/3
+</li>
+<li>POST/companies with JSON/XML in HTTP body 
+</li>
+<li>DELETE/companies/3
+</li>
+<li>PUT/companies/3 with JSON/XML in HTTP body
+</li>
+
+<li>GET retrieves the current state of a resource in some representation
+</li>
+<li>POST creates a new resource
+</li>
+<li>DELETE deletes a resource
+</li>
+<li>PUT replaces a resource completely 
+<ul class="org-ul">
+<li>if the resource doesn't exist a new one is created
+</li>
+</ul>
+</li>
+<li>PATCH partially updates a resource 
+<ul class="org-ul">
+<li>just submitted data
+</li>
+</ul>
+</li>
+</ul>
 </div>
-<div id="outline-container-orgf94efe6" class="outline-3">
-<h3 id="orgf94efe6"><span class="section-number-3">1.1</span> Components</h3>
-<div class="outline-text-3" id="text-1-1">
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Learning About APIs</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> API documentation</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+Should include the list of all possible resources, how to get access to the API, and more 
+</p>
 </div>
-<div id="outline-container-orgea78f87" class="outline-4">
-<h4 id="orgea78f87"><span class="section-number-4">1.1.1</span> API Designer</h4>
-<div class="outline-text-4" id="text-1-1-1">
+</div>
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2"><span class="section-number-4">4.1.2</span> API portals</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+Accelerate onboarding by providing developers a centralized place for discovering all the tools they need to successfully use the API, which could include:
+</p>
+<ul class="org-ul">
+<li>documentation, tutorials, code snippets and examples
+</li>
+<li>a way to register application to get access to the API
+</li>
+<li>a way to provide feedback and make requests
+</li>
+<li>a way to test the API by making calls to it 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4-1-3" class="outline-4">
+<h4 id="sec-4-1-3"><span class="section-number-4">4.1.3</span> Discover APIs in API directories and marketplaces</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+For example, ProgrammableWeb, which has 19,000 APIs.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Calling RESTful API service</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Unsecured APIs are public and call be called with no credentials. 
+</p>
+
+<p>
+Secured APIs needs authentication. 
+You may need to provide credentials and/or a token.
+Often a proxy is created to govern access to an API.
+We will call and then later create an API secured by credentials. 
+You can also secure an API with other authentication protocols such as OAuth, SAML, JWT and more. 
+</p>
+
+<p>
+RESTful webservices return an HTTP status code with the response.
+The status code provides the client feedback for the outcome of the operation (succeeded, failed, updated). 
+</p>
+
+<p>
+There are 55 status codes divided in to 5 groups. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Producers Make Assests Easy to Find</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Take an API design-first approach. Get the API design right. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> API Development Cycle</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>design 
+</li>
+<li>simulate
+</li>
+<li>feedback
+</li>
+<li>validate
+</li>
+<li>API spec
+</li>
+<li>Test
+</li>
+<li>Version 
+</li>
+<li>Secure
+</li>
+<li>Deploy and Register 
+</li>
+<li>Monitor
+</li>
+<li>Analyze
+</li>
+<li>Troubleshoot
+</li>
+<li>Scale
+</li>
+<li>Respond 
+</li>
+</ul>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Anypoint Platform</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> Components</h3>
+<div class="outline-text-3" id="text-8-1">
+</div><div id="outline-container-sec-8-1-1" class="outline-4">
+<h4 id="sec-8-1-1"><span class="section-number-4">8.1.1</span> API Designer</h4>
+<div class="outline-text-4" id="text-8-1-1">
 <p>
 Is where you create the API
 </p>
 </div>
 </div>
-<div id="outline-container-org7335f2d" class="outline-4">
-<h4 id="org7335f2d"><span class="section-number-4">1.1.2</span> Mocking Service</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-sec-8-1-2" class="outline-4">
+<h4 id="sec-8-1-2"><span class="section-number-4">8.1.2</span> Mocking Service</h4>
+<div class="outline-text-4" id="text-8-1-2">
 <p>
 Allows you to test the API with dummy data
 </p>
 </div>
 </div>
-<div id="outline-container-orgf3f34d9" class="outline-4">
-<h4 id="orgf3f34d9"><span class="section-number-4">1.1.3</span> API Console</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-sec-8-1-3" class="outline-4">
+<h4 id="sec-8-1-3"><span class="section-number-4">8.1.3</span> API Console</h4>
+<div class="outline-text-4" id="text-8-1-3">
 <p>
 Interact with and simulate the API. 
 </p>
 </div>
 </div>
-<div id="outline-container-org7aea1c8" class="outline-4">
-<h4 id="org7aea1c8"><span class="section-number-4">1.1.4</span> API Portal</h4>
+<div id="outline-container-sec-8-1-4" class="outline-4">
+<h4 id="sec-8-1-4"><span class="section-number-4">8.1.4</span> API Portal</h4>
 </div>
 
-<div id="outline-container-org2be8b93" class="outline-4">
-<h4 id="org2be8b93"><span class="section-number-4">1.1.5</span> Exchange</h4>
-<div class="outline-text-4" id="text-1-1-5">
+<div id="outline-container-sec-8-1-5" class="outline-4">
+<h4 id="sec-8-1-5"><span class="section-number-4">8.1.5</span> Exchange</h4>
+<div class="outline-text-4" id="text-8-1-5">
 <p>
-Share the API. 
+Share the API, collaboration, and self-service.  
 </p>
 </div>
 </div>
-<div id="outline-container-org51af387" class="outline-4">
-<h4 id="org51af387"><span class="section-number-4">1.1.6</span> API Notebook</h4>
-<div class="outline-text-4" id="text-1-1-6">
+<div id="outline-container-sec-8-1-6" class="outline-4">
+<h4 id="sec-8-1-6"><span class="section-number-4">8.1.6</span> API Notebook</h4>
+<div class="outline-text-4" id="text-8-1-6">
 <p>
 Can be added to the portal to show use cases. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2be40b0" class="outline-4">
-<h4 id="org2be40b0"><span class="section-number-4">1.1.7</span> Output RAML</h4>
-<div class="outline-text-4" id="text-1-1-7">
+<div id="outline-container-sec-8-1-7" class="outline-4">
+<h4 id="sec-8-1-7"><span class="section-number-4">8.1.7</span> Output RAML</h4>
+<div class="outline-text-4" id="text-8-1-7">
 <p>
 Once you have the RAML, you can move on to implementation phase. This is where you get to test. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0f802de" class="outline-4">
-<h4 id="org0f802de"><span class="section-number-4">1.1.8</span> API Manager</h4>
-<div class="outline-text-4" id="text-1-1-8">
+<div id="outline-container-sec-8-1-8" class="outline-4">
+<h4 id="sec-8-1-8"><span class="section-number-4">8.1.8</span> API Manager</h4>
+<div class="outline-text-4" id="text-8-1-8">
 <p>
 Secures the API
 </p>
 </div>
 </div>
 
-<div id="outline-container-org12fd900" class="outline-4">
-<h4 id="org12fd900"><span class="section-number-4">1.1.9</span> Visualizer</h4>
+<div id="outline-container-sec-8-1-9" class="outline-4">
+<h4 id="sec-8-1-9"><span class="section-number-4">8.1.9</span> Visualizer</h4>
 </div>
 
-<div id="outline-container-org20d61d0" class="outline-4">
-<h4 id="org20d61d0"><span class="section-number-4">1.1.10</span> Runtime Manager</h4>
+<div id="outline-container-sec-8-1-10" class="outline-4">
+<h4 id="sec-8-1-10"><span class="section-number-4">8.1.10</span> Runtime Manager</h4>
 </div>
 
-<div id="outline-container-orgccd4166" class="outline-4">
-<h4 id="orgccd4166"><span class="section-number-4">1.1.11</span> API Analytics</h4>
+<div id="outline-container-sec-8-1-11" class="outline-4">
+<h4 id="sec-8-1-11"><span class="section-number-4">8.1.11</span> API Analytics</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> Benefits of Each Layer</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>speed of delivery
+</li>
+<li>actionable visibility
+</li>
+<li>secure by design 
+</li>
+<li>future proof architecture
+</li>
+<li>intentional self-service
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> Achieving Success</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+<a href="https://catalyst.mulesoft.com">https://catalyst.mulesoft.com</a>
+</p>
+
+<p>
+Business outcomes -&gt; Organisation Enablement -&gt; Technology delivery 
+</p>
+
+<ol class="org-ol">
+<li>Define outcomes with clear KPIs and align stakeholders
+</li>
+<li>Ensure your organisation is read to use and adopt the anypoint platform 
+</li>
+<li>Get up and running with anypoint platform and start building APIs and integrations
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-8-4" class="outline-3">
+<h3 id="sec-8-4"><span class="section-number-3">8.4</span> Blueprint to Follow</h3>
+</div>
+
+<div id="outline-container-sec-8-5" class="outline-3">
+<h3 id="sec-8-5"><span class="section-number-3">8.5</span> Tools for API Specification phase</h3>
+<div class="outline-text-3" id="text-8-5">
+<ul class="org-ul">
+<li>API Designer
+</li>
+<li>Mocking service
+</li>
+<li>API Console
+</li>
+<li>API Portal 
+</li>
+<li>Exchange
+</li>
+<li>API Notebook
+</li>
+<li>API Spec (RAML)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8-6" class="outline-3">
+<h3 id="sec-8-6"><span class="section-number-3">8.6</span> API Implementation</h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+Now you have the RAML, you can:
+</p>
+<ul class="org-ul">
+<li>Build
+</li>
+<li>Test
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8-7" class="outline-3">
+<h3 id="sec-8-7"><span class="section-number-3">8.7</span> API Management Phase</h3>
+<div class="outline-text-3" id="text-8-7">
+<ul class="org-ul">
+<li>Version 
+</li>
+<li>Secure
+</li>
+<li>Deploy &amp; Register 
+</li>
+<li>Monitor
+</li>
+<li>Analyze 
+</li>
+<li>Troubleshoot
+</li>
+<li>Scale
+</li>
+<li>Respond
+</li>
+</ul>
+<p>
+output is a Webservice with API. 
+</p>
+
+<p>
+Tools:
+</p>
+<ul class="org-ul">
+<li>API Manager
+</li>
+<li>Visualizer
+</li>
+<li>Runtime Manager 
+</li>
+</ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org054ee4d" class="outline-2">
-<h2 id="org054ee4d"><span class="section-number-2">2</span> Design Centre</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org92f99c7" class="outline-3">
-<h3 id="org92f99c7"><span class="section-number-3">2.1</span> Flow Designer</h3>
-<div class="outline-text-3" id="text-2-1">
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Design Centre</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1"><span class="section-number-3">9.1</span> Flow Designer</h3>
+<div class="outline-text-3" id="text-9-1">
 <p>
 Web app for building integration apps that connect systems and consume APIs. 
 </p>
 </div>
 
-<div id="outline-container-org725abe0" class="outline-4">
-<h4 id="org725abe0"><span class="section-number-4">2.1.1</span> <span class="todo TODO">TODO</span> Anypoint Platform: Flow Design course</h4>
+<div id="outline-container-sec-9-1-1" class="outline-4">
+<h4 id="sec-9-1-1"><span class="section-number-4">9.1.1</span> <span class="todo TODO">TODO</span> Anypoint Platform: Flow Design course</h4>
 </div>
 </div>
 
-<div id="outline-container-org6a37f4b" class="outline-3">
-<h3 id="org6a37f4b"><span class="section-number-3">2.2</span> API Designer</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec-9-2" class="outline-3">
+<h3 id="sec-9-2"><span class="section-number-3">9.2</span> API Designer</h3>
+<div class="outline-text-3" id="text-9-2">
 <p>
 Web app for designing, documenting and mocking APIs
 </p>
 </div>
 
-<div id="outline-container-org0139690" class="outline-4">
-<h4 id="org0139690"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> Anypoint Platform: API Design course</h4>
+<div id="outline-container-sec-9-2-1" class="outline-4">
+<h4 id="sec-9-2-1"><span class="section-number-4">9.2.1</span> <span class="todo TODO">TODO</span> Anypoint Platform: API Design course</h4>
 </div>
 </div>
-<div id="outline-container-org55f0430" class="outline-3">
-<h3 id="org55f0430"><span class="section-number-3">2.3</span> Anypoint Studio</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-sec-9-3" class="outline-3">
+<h3 id="sec-9-3"><span class="section-number-3">9.3</span> Anypoint Studio</h3>
+<div class="outline-text-3" id="text-9-3">
 <p>
 Desktop IDE for implementing APIs and building integration appliaction. 
 </p>
@@ -489,89 +901,115 @@ Desktop IDE for implementing APIs and building integration appliaction.
 </div>
 
 
-<div id="outline-container-orgddb8797" class="outline-3">
-<h3 id="orgddb8797"><span class="section-number-3">2.4</span> Create a New Project and Application</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-sec-9-4" class="outline-3">
+<h3 id="sec-9-4"><span class="section-number-3">9.4</span> Create a New Project and Application</h3>
+<div class="outline-text-3" id="text-9-4">
 <ul class="org-ul">
-<li>click on side menu</li>
-<li>click <b>Design Center</b></li>
-<li>click <b>new</b></li>
-<li>go to the canvas</li>
-<li>click on New Flow (the one you didn't give a name to earlier)</li>
-<li>click the 3 buttons and rename</li>
+<li>click on side menu
+</li>
+<li>click <b>Design Center</b>
+</li>
+<li>click <b>new</b>
+</li>
+<li>go to the canvas
+</li>
+<li>click on New Flow (the one you didn't give a name to earlier) 
+</li>
+<li>click the 3 buttons and rename
+</li>
 </ul>
 </div>
 
-<div id="outline-container-org3ad7ef7" class="outline-4">
-<h4 id="org3ad7ef7"><span class="section-number-4">2.4.1</span> Create HTTP Trigger</h4>
-<div class="outline-text-4" id="text-2-4-1">
+<div id="outline-container-sec-9-4-1" class="outline-4">
+<h4 id="sec-9-4-1"><span class="section-number-4">9.4.1</span> Create HTTP Trigger</h4>
+<div class="outline-text-4" id="text-9-4-1">
 <ul class="org-ul">
-<li>click the trigger card in the canvas</li>
-<li>select HTTP listener</li>
-<li>set a path for the listener</li>
-<li>locate the CloudHub HTTP configuration in the project explorer</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgfeb1a30" class="outline-4">
-<h4 id="orgfeb1a30"><span class="section-number-4">2.4.2</span> Add a Logger</h4>
-<div class="outline-text-4" id="text-2-4-2">
-<ul class="org-ul">
-<li>click the <b>+</b> button next to the previous trigger (card)</li>
-<li>in the component box, select <b>Logger</b></li>
-<li>set the message in the dialogue box</li>
-<li>set the message</li>
-<li>close the card</li>
+<li>click the trigger card in the canvas
+</li>
+<li>select HTTP listener
+</li>
+<li>set a path for the listener
+</li>
+<li>locate the CloudHub HTTP configuration in the project explorer
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0bdc052" class="outline-4">
-<h4 id="org0bdc052"><span class="section-number-4">2.4.3</span> Run the Application</h4>
-<div class="outline-text-4" id="text-2-4-3">
+<div id="outline-container-sec-9-4-2" class="outline-4">
+<h4 id="sec-9-4-2"><span class="section-number-4">9.4.2</span> Add a Logger</h4>
+<div class="outline-text-4" id="text-9-4-2">
 <ul class="org-ul">
-<li>click the <b>Test</b> button</li>
-<li>check <b>Log</b> panel for any activity</li>
-<li>stop the <b>Test</b></li>
+<li>click the <b>+</b> button next to the previous trigger (card)
+</li>
+<li>in the component box, select <b>Logger</b>
+</li>
+<li>set the message in the dialogue box
+</li>
+<li>set the message 
+</li>
+<li>close the card
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org84374c6" class="outline-4">
-<h4 id="org84374c6"><span class="section-number-4">2.4.4</span> Test in a Remote Client (Advanced REST Client)</h4>
-<div class="outline-text-4" id="text-2-4-4">
+<div id="outline-container-sec-9-4-3" class="outline-4">
+<h4 id="sec-9-4-3"><span class="section-number-4">9.4.3</span> Run the Application</h4>
+<div class="outline-text-4" id="text-9-4-3">
 <ul class="org-ul">
-<li>locate theh generated URL for the application</li>
-<li>paste in the URL and prepend with <a href="http://">http://</a></li>
-<li>add any endpoint to the URL</li>
-<li>check your logs in the <b>Runtime Manager</b> (optional)</li>
+<li>click the <b>Test</b> button
+</li>
+<li>check <b>Log</b> panel for any activity 
+</li>
+<li>stop the <b>Test</b> 
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-9-4-4" class="outline-4">
+<h4 id="sec-9-4-4"><span class="section-number-4">9.4.4</span> Test in a Remote Client (Advanced REST Client)</h4>
+<div class="outline-text-4" id="text-9-4-4">
+<ul class="org-ul">
+<li>locate theh generated URL for the application
+</li>
+<li>paste in the URL and prepend with <a href="http://">http://</a>
+</li>
+<li>add any endpoint to the URL
+</li>
+<li>check your logs in the <b>Runtime Manager</b> (optional)
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2e71733" class="outline-2">
-<h2 id="org2e71733"><span class="section-number-2">3</span> Application Triggered</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Application Triggered</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 Data structure is created - a mule event. 
 </p>
 <ul class="org-ul">
 <li>Message
 <ul class="org-ul">
-<li>Attributes</li>
-<li>Paysoald</li>
-</ul></li>
-<li>Variables</li>
+<li>Attributes
+</li>
+<li>Paysoald
+</li>
+</ul>
+</li>
+<li>Variables
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org426fdb3" class="outline-2">
-<h2 id="org426fdb3"><span class="section-number-2">4</span> Dataweave</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> Dataweave</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 Dataweave is for accessing, querying and transforming Mule 4 event data.
 </p>
@@ -579,89 +1017,121 @@ Dataweave is for accessing, querying and transforming Mule 4 event data.
 </div>
 
 
-<div id="outline-container-org871530b" class="outline-2">
-<h2 id="org871530b"><span class="section-number-2">5</span> Designing an API using API Designer</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> Designing an API using API Designer</h2>
+<div class="outline-text-2" id="text-12">
 <ul class="org-ul">
-<li>go to design centre</li>
-<li>choose <b>Create API specification</b></li>
-<li>ensure <b>Text Editor</b> is selected and click <b>Create Specification</b></li>
-<li>API Designer should open</li>
+<li>go to design centre 
+</li>
+<li>choose <b>Create API specification</b>
+</li>
+<li>ensure <b>Text Editor</b> is selected and click <b>Create Specification</b>
+</li>
+<li>API Designer should open
+</li>
 </ul>
 </div>
 
-<div id="outline-container-orge97af20" class="outline-3">
-<h3 id="orge97af20"><span class="section-number-3">5.1</span> Add a resource</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-sec-12-1" class="outline-3">
+<h3 id="sec-12-1"><span class="section-number-3">12.1</span> Add a resource</h3>
+<div class="outline-text-3" id="text-12-1">
 <ul class="org-ul">
 <li>add a resource
 <ul class="org-ul">
-<li>a resource will be something that will be queried (e.g. /flights:)</li>
-</ul></li>
-<li>the API console will reflect the new resource</li>
-<li>add a <b>RAML</b> method by indenting under the resource and entering the method (e.g. post: or get:)</li>
+<li>a resource will be something that will be queried (e.g. /flights:)
+</li>
+</ul>
+</li>
+<li>the API console will reflect the new resource 
+</li>
+<li>add a <b>RAML</b> method by indenting under the resource and entering the method (e.g. post: or get:) 
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org21221af" class="outline-3">
-<h3 id="org21221af"><span class="section-number-3">5.2</span> Add a nested resource</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-sec-12-2" class="outline-3">
+<h3 id="sec-12-2"><span class="section-number-3">12.2</span> Add a nested resource</h3>
+<div class="outline-text-3" id="text-12-2">
 <ul class="org-ul">
-<li>add a nested resourced (e.g. /{ID})</li>
-<li>add a method to the new nested resource (e.g. get:)</li>
-<li>the changes are reflected in the API console</li>
+<li>add a nested resourced (e.g. /{ID})
+</li>
+<li>add a method to the new nested resource (e.g. get:)
+</li>
+<li>the changes are reflected in the API console
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc1a00c" class="outline-3">
-<h3 id="orgdc1a00c"><span class="section-number-3">5.3</span> Add a key</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-sec-12-3" class="outline-3">
+<h3 id="sec-12-3"><span class="section-number-3">12.3</span> Add a key</h3>
+<div class="outline-text-3" id="text-12-3">
 <ul class="org-ul">
-<li>under the resource method type (indented) <i>queryParameters:</i> (although more are available from the picker</li>
-<li>then provide the name for the query parameter, again indented (e.g. <i>destination:</i></li>
-<li>check if this is a required parameter (in the <b>shelf</b>) with true or false</li>
-<li>then add <i>enum:</i></li>
-<li>then add options as a list (<i>- option 1</i>, <i>- option 2</i>, <i>- option 3</i>, all on new lines indented underneath <i>enum:</i></li>
-<li>click the GET method for the /example method resource in the API console</li>
-<li>add /method-name to the <b>Request URL</b> to get a return</li>
+<li>under the resource method type (indented) <i>queryParameters:</i> (although more are available from the picker
+</li>
+<li>then provide the name for the query parameter, again indented (e.g. <i>destination:</i>
+</li>
+<li>check if this is a required parameter (in the <b>shelf</b>) with true or false
+</li>
+<li>then add <i>enum:</i>
+</li>
+<li>then add options as a list (<i>- option 1</i>, <i>- option 2</i>, <i>- option 3</i>, all on new lines indented underneath <i>enum:</i>
+</li>
+<li>click the GET method for the /example method resource in the API console
+</li>
+<li>add /method-name to the <b>Request URL</b> to get a return
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc24b833" class="outline-2">
-<h2 id="orgc24b833"><span class="section-number-2">6</span> Use the Mocking Service to Test an API</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> Use the Mocking Service to Test an API</h2>
+<div class="outline-text-2" id="text-13">
 <ul class="org-ul">
-<li>turn on the <b>mocking service</b></li>
-<li>look at the base API added to the RAML header</li>
-<li>in the <b>API Console</b> click back to the docs button</li>
-<li>click the <b>Try</b> button for the resource method (e.g. GET) and then click the <b>Send</b> button. This should return 200 status code</li>
-<li>select the <b>Show optional parameters</b> checkbox</li>
-<li>in the dropdown for the resource, choose the option that was provided before</li>
-<li>click <b>Send</b> and you should get a 200 status response</li>
+<li>turn on the <b>mocking service</b>
+</li>
+<li>look at the base API added to the RAML header
+</li>
+<li>in the <b>API Console</b> click back to the docs button
+</li>
+<li>click the <b>Try</b> button for the resource method (e.g. GET) and then click the <b>Send</b> button. This should return 200 status code
+</li>
+<li>select the <b>Show optional parameters</b> checkbox
+</li>
+<li>in the dropdown for the resource, choose the option that was provided before 
+</li>
+<li>click <b>Send</b> and you should get a 200 status response
+</li>
 </ul>
 </div>
 
-<div id="outline-container-org0c0e323" class="outline-3">
-<h3 id="org0c0e323"><span class="section-number-3">6.1</span> Test the nested resource</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-sec-13-1" class="outline-3">
+<h3 id="sec-13-1"><span class="section-number-3">13.1</span> Test the nested resource</h3>
+<div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
-<li>click the menu button located in upper-left of the API console and select Summary to return to the resource list</li>
-<li>click the <b>GET</b> method for the /{Nested-Resource}</li>
-<li>click <b>Try it</b> - it should be an invalid request URL</li>
+<li>click the menu button located in upper-left of the API console and select Summary to return to the resource list
+</li>
+<li>click the <b>GET</b> method for the /{Nested-Resource} 
+</li>
+<li>click <b>Try it</b> - it should be an invalid request URL 
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orgcc6cc38" class="outline-2">
-<h2 id="orgcc6cc38"><span class="section-number-2">7</span> Add request and response details</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> Add request and response details</h2>
+<div class="outline-text-2" id="text-14">
 <ul class="org-ul">
-<li>in the editor go to a new line after type declaration</li>
-<li>the shelf will have examples</li>
-<li>add a key called output</li>
-<li>add theh !include keyword and paste the path to the file (an example follows):</li>
+<li>in the editor go to a new line after type declaration
+</li>
+<li>the shelf will have examples 
+</li>
+<li>add a key called output
+</li>
+<li>add theh !include keyword and paste the path to the file (an example follows):
+</li>
 </ul>
 <pre class="example">
 responses:
@@ -675,69 +1145,92 @@ responses:
 </div>
 </div>
 
-<div id="outline-container-org7eb715b" class="outline-2">
-<h2 id="org7eb715b"><span class="section-number-2">8</span> Specify the /{ID}:get method to return a particuluar object</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> Specify the /{ID}:get method to return a particuluar object</h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
-<li>in the editor create a new line under the get method</li>
-<li>in the shelf, click responses &gt; 200 &gt; body &gt; application/json &gt; YourType</li>
+<li>in the editor create a new line under the get method
+</li>
+<li>in the shelf, click responses &gt; 200 &gt; body &gt; application/json &gt; YourType
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org61146ec" class="outline-2">
-<h2 id="org61146ec"><span class="section-number-2">9</span> Add a exchange dependency</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> Add a exchange dependency</h2>
+<div class="outline-text-2" id="text-16">
 <ul class="org-ul">
-<li>in <b>Design Center</b> click <b>Exchange Dependencies</b></li>
-<li>click the <b>Add</b> button</li>
-<li>choose the Api that is a dependency</li>
-<li>choose your RAML file</li>
-<li>add a types: declaration</li>
+<li>in <b>Design Center</b> click <b>Exchange Dependencies</b> 
+</li>
+<li>click the <b>Add</b> button
+</li>
+<li>choose the Api that is a dependency 
+</li>
+<li>choose your RAML file 
+</li>
+<li>add a types: declaration
+</li>
 <li>add the type followed by an inculde with a path to the file: 
 <ul class="org-ul">
 <li>types: 
 <ul class="org-ul">
-<li>YourType: !include directory/files.raml</li>
-</ul></li>
-</ul></li>
+<li>YourType: !include directory/files.raml 
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org386e590" class="outline-2">
-<h2 id="org386e590"><span class="section-number-2">10</span> Define an example response for a get method</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> Define an example response for a get method</h2>
+<div class="outline-text-2" id="text-17">
 <ul class="org-ul">
-<li>import a file as detailed below</li>
-<li>in the editor go to a new line after the type declaration</li>
-<li>in the shelf, click examples</li>
-<li>add a key called output</li>
-<li>add an include statement and put the path to the example raml file</li>
+<li>import a file as detailed below
+</li>
+<li>in the editor go to a new line after the type declaration
+</li>
+<li>in the shelf, click examples
+</li>
+<li>add a key called output
+</li>
+<li>add an include statement and put the path to the example raml file
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org58bdf67" class="outline-2">
-<h2 id="org58bdf67"><span class="section-number-2">11</span> Import a file to the Design Center</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18"><span class="section-number-2">18</span> Import a file to the Design Center</h2>
+<div class="outline-text-2" id="text-18">
 <ul class="org-ul">
-<li>in the file browser, click the add button</li>
-<li>in the add new folder dialogue, set the name for the folder</li>
-<li>select import</li>
-<li>import the file or zip file and click the 'choose' file button</li>
-<li>navigate to the files on your computer and click 'open'</li>
-<li>the new file should appear in the API Designer</li>
+<li>in the file browser, click the add button
+</li>
+<li>in the add new folder dialogue, set the name for the folder
+</li>
+<li>select import
+</li>
+<li>import the file or zip file and click the 'choose' file button
+</li>
+<li>navigate to the files on your computer and click 'open'
+</li>
+<li>the new file should appear in the API Designer
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcc137b0" class="outline-2">
-<h2 id="orgcc137b0"><span class="section-number-2">12</span> Define an example request body for a post method</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19"><span class="section-number-2">19</span> Define an example request body for a post method</h2>
+<div class="outline-text-2" id="text-19">
 <ul class="org-ul">
-<li>import a file as detailed earlier <a href="#org58bdf67">11</a></li>
-<li>under the post type declaration add the following code:</li>
+<li>import a file as detailed earlier <a href="#sec-18">18</a>
+</li>
+<li>under the post type declaration add the following code:
+</li>
 </ul>
 <pre class="example">
 body:
@@ -749,43 +1242,51 @@ body:
 </div>
 </div>
 
-<div id="outline-container-org7a7871c" class="outline-2">
-<h2 id="org7a7871c"><span class="section-number-2">13</span> Specify an example response for a post method</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-sec-20" class="outline-2">
+<h2 id="sec-20"><span class="section-number-2">20</span> Specify an example response for a post method</h2>
+<div class="outline-text-2" id="text-20">
 <ul class="org-ul">
-<li>under the type declaration enter the following code:</li>
+<li>under the type declaration enter the following code:
+</li>
 </ul>
 <pre class="example">
 responses:
   201: 
     body:
       application/json:
-	example: 
+        example: 
 	  message: Your message here
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org63bb2bd" class="outline-2">
-<h2 id="org63bb2bd"><span class="section-number-2">14</span> Share An API</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-sec-21" class="outline-2">
+<h2 id="sec-21"><span class="section-number-2">21</span> Share An API</h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
-<li>go to the API exchange</li>
-<li>click on the API and then click share</li>
-<li>this can be shared publicly, or just with your organisation</li>
+<li>go to the API exchange
+</li>
+<li>click on the API and then click share 
+</li>
+<li>this can be shared publicly, or just with your organisation
+</li>
 <li>to create a public API 
 <ul class="org-ul">
-<li>click on the share dialogue</li>
-<li>choose the public tab</li>
-<li>select which version of the API you wish to share</li>
-</ul></li>
+<li>click on the share dialogue
+</li>
+<li>choose the public tab
+</li>
+<li>select which version of the API you wish to share
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcf8836b" class="outline-2">
-<h2 id="orgcf8836b"><span class="section-number-2">15</span> The Public Portal can be customized</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-sec-22" class="outline-2">
+<h2 id="sec-22"><span class="section-number-2">22</span> The Public Portal can be customized</h2>
+<div class="outline-text-2" id="text-22">
 <p>
 You can change the text and the graphics. 
 </p>
@@ -793,13 +1294,12 @@ You can change the text and the graphics.
 </div>
 
 
-<div id="outline-container-org89465a9" class="outline-2">
-<h2 id="org89465a9"><span class="section-number-2">16</span> Building An API</h2>
-<div class="outline-text-2" id="text-16">
-</div>
-<div id="outline-container-org1e972f7" class="outline-3">
-<h3 id="org1e972f7"><span class="section-number-3">16.1</span> Mule Application and Flows</h3>
-<div class="outline-text-3" id="text-16-1">
+<div id="outline-container-sec-23" class="outline-2">
+<h2 id="sec-23"><span class="section-number-2">23</span> Building An API</h2>
+<div class="outline-text-2" id="text-23">
+</div><div id="outline-container-sec-23-1" class="outline-3">
+<h3 id="sec-23-1"><span class="section-number-3">23.1</span> Mule Application and Flows</h3>
+<div class="outline-text-3" id="text-23-1">
 <p>
 Mule applications receive events, process them, and route them to other endpoints.
 </p>
@@ -808,55 +1308,57 @@ Mule applications receive events, process them, and route them to other endpoint
 Mule applications accept and process a Mule event through a series of Mule event processors plugged together in a flow with: 
 </p>
 <ul class="org-ul">
-<li>a mule event source that initiates the execution of the flow</li>
-<li>mule event processors that transform, filter, enrich and process the event and its message</li>
+<li>a mule event source that initiates the execution of the flow
+</li>
+<li>mule event processors that transform, filter, enrich and process the event and its message 
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga160cee" class="outline-3">
-<h3 id="orga160cee"><span class="section-number-3">16.2</span> Mule Event</h3>
-<div class="outline-text-3" id="text-16-2">
+<div id="outline-container-sec-23-2" class="outline-3">
+<h3 id="sec-23-2"><span class="section-number-3">23.2</span> Mule Event</h3>
+<div class="outline-text-3" id="text-23-2">
 <p>
 Mule events are made up of:
 </p>
 <ul class="org-ul">
 <li>mule message
 <ul class="org-ul">
-<li>attributes</li>
-<li>payload</li>
-</ul></li>
-<li>variables</li>
+<li>attributes
+</li>
+<li>payload
+</li>
+</ul>
+</li>
+<li>variables
+</li>
 </ul>
 </div>
 
-<div id="outline-container-org7f0dcf1" class="outline-4">
-<h4 id="org7f0dcf1"><span class="section-number-4">16.2.1</span> Mule Message</h4>
-<div class="outline-text-4" id="text-16-2-1">
+<div id="outline-container-sec-23-2-1" class="outline-4">
+<h4 id="sec-23-2-1"><span class="section-number-4">23.2.1</span> Mule Message</h4>
+<div class="outline-text-4" id="text-23-2-1">
 <p>
 Is the data that passes through flows in the app. 
 </p>
 </div>
-<ol class="org-ol">
-<li><a id="orgc661efa"></a>Attributes<br />
-<div class="outline-text-5" id="text-16-2-1-1">
+<ol class="org-ol"><li><a id="sec-23-2-1-1" name="sec-23-2-1-1"></a>Attributes<br  /><div class="outline-text-5" id="text-23-2-1-1">
 <p>
 Metadata contained in the message header.
 </p>
 </div>
 </li>
-<li><a id="org0246ad4"></a>Payload<br />
-<div class="outline-text-5" id="text-16-2-1-2">
+<li><a id="sec-23-2-1-2" name="sec-23-2-1-2"></a>Payload<br  /><div class="outline-text-5" id="text-23-2-1-2">
 <p>
 The core info of the message - the data the app processes
 </p>
 </div>
-</li>
-</ol>
+</li></ol>
 </div>
-<div id="outline-container-org2695102" class="outline-4">
-<h4 id="org2695102"><span class="section-number-4">16.2.2</span> Variables</h4>
-<div class="outline-text-4" id="text-16-2-2">
+<div id="outline-container-sec-23-2-2" class="outline-4">
+<h4 id="sec-23-2-2"><span class="section-number-4">23.2.2</span> Variables</h4>
+<div class="outline-text-4" id="text-23-2-2">
 <p>
 Metadata for the mule event - can be defined and referenced in the app processing the event.
 </p>
@@ -864,15 +1366,17 @@ Metadata for the mule event - can be defined and referenced in the app processin
 </div>
 </div>
 
-<div id="outline-container-org549b852" class="outline-3">
-<h3 id="org549b852"><span class="section-number-3">16.3</span> Anypoint Studio</h3>
-<div class="outline-text-3" id="text-16-3">
+<div id="outline-container-sec-23-3" class="outline-3">
+<h3 id="sec-23-3"><span class="section-number-3">23.3</span> Anypoint Studio</h3>
+<div class="outline-text-3" id="text-23-3">
 <p>
 There are two perspectives: 
 </p>
 <ul class="org-ul">
-<li>debugging</li>
-<li>design</li>
+<li>debugging
+</li>
+<li>design
+</li>
 </ul>
 
 <p>
@@ -881,39 +1385,54 @@ They are customizable.
 </div>
 
 
-<div id="outline-container-orgb27f3dc" class="outline-4">
-<h4 id="orgb27f3dc"><span class="section-number-4">16.3.1</span> Creating a Mule application with Anypoint Sudio</h4>
-<div class="outline-text-4" id="text-16-3-1">
+<div id="outline-container-sec-23-3-1" class="outline-4">
+<h4 id="sec-23-3-1"><span class="section-number-4">23.3.1</span> Creating a Mule application with Anypoint Sudio</h4>
+<div class="outline-text-4" id="text-23-3-1">
 <ul class="org-ul">
-<li>click on create a Mule Project</li>
-<li>provide a project name and select mule runtime version</li>
-<li>click finish</li>
+<li>click on create a Mule Project
+</li>
+<li>provide a project name and select mule runtime version
+</li>
+<li>click finish
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org15d8305" class="outline-4">
-<h4 id="org15d8305"><span class="section-number-4">16.3.2</span> Create an HTTP connector enpoint to receive requests</h4>
-<div class="outline-text-4" id="text-16-3-2">
+<div id="outline-container-sec-23-3-2" class="outline-4">
+<h4 id="sec-23-3-2"><span class="section-number-4">23.3.2</span> Create an HTTP connector enpoint to receive requests</h4>
+<div class="outline-text-4" id="text-23-3-2">
 <ul class="org-ul">
-<li>in the mule palette, select the HTTP module</li>
-<li>drag the listener operation from the mule palette to the canvas</li>
-<li>in the listener properties view that opens at the bottom of the window, click the <b>+</b> which is to the right of <b>Connector configuration</b></li>
-<li>enter 0.0.0.0 as the host and 8081 as the port</li>
-<li>click <b>ok</b></li>
-<li>in the listener properties add a path (e.g. /yourendpoint)</li>
-<li>click the <b>Apply Changes</b> button to save the file</li>
-<li>to review, select the <b>Global Elements</b> tab at the bottom of the canvas</li>
-<li>to display the data, in the mule palette select <b>Core</b></li>
-<li>under <b>Transformers</b> drag <b>Set Payload</b> into the <b>process</b> section of the flow on the canvas</li>
-<li>In the <b>Set Payload</b> properties view, click the <b>Switch to literal mode</b> button for the value field</li>
-<li>to confirm the XML, press the <b>Configuration XML</b> tab at the bottom of the canvas</li>
+<li>in the mule palette, select the HTTP module
+</li>
+<li>drag the listener operation from the mule palette to the canvas
+</li>
+<li>in the listener properties view that opens at the bottom of the window, click the <b>+</b> which is to the right of <b>Connector configuration</b>
+</li>
+<li>enter 0.0.0.0 as the host and 8081 as the port
+</li>
+<li>click <b>ok</b>
+</li>
+<li>in the listener properties add a path (e.g. /yourendpoint)
+</li>
+<li>click the <b>Apply Changes</b> button to save the file
+</li>
+<li>to review, select the <b>Global Elements</b> tab at the bottom of the canvas
+</li>
+<li>to display the data, in the mule palette select <b>Core</b>
+</li>
+<li>under <b>Transformers</b> drag <b>Set Payload</b> into the <b>process</b> section of the flow on the canvas
+</li>
+<li>In the <b>Set Payload</b> properties view, click the <b>Switch to literal mode</b> button for the value field
+</li>
+<li>to confirm the XML, press the <b>Configuration XML</b> tab at the bottom of the canvas
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8c41f61" class="outline-4">
-<h4 id="org8c41f61"><span class="section-number-4">16.3.3</span> Running the Application</h4>
-<div class="outline-text-4" id="text-16-3-3">
+<div id="outline-container-sec-23-3-3" class="outline-4">
+<h4 id="sec-23-3-3"><span class="section-number-4">23.3.3</span> Running the Application</h4>
+<div class="outline-text-4" id="text-23-3-3">
 <p>
 Right click on the canvas and press <b>Run project</b>. 
 </p>
@@ -925,176 +1444,230 @@ This launches a JVM with Mule running.
 </div>
 
 
-<div id="outline-container-org941d569" class="outline-4">
-<h4 id="org941d569"><span class="section-number-4">16.3.4</span> Test with ARC</h4>
-<div class="outline-text-4" id="text-16-3-4">
+<div id="outline-container-sec-23-3-4" class="outline-4">
+<h4 id="sec-23-3-4"><span class="section-number-4">23.3.4</span> Test with ARC</h4>
+<div class="outline-text-4" id="text-23-3-4">
 <ul class="org-ul">
-<li>enter the request to <a href="http://localhost:8081/yourendpoint">http://localhost:8081/yourendpoint</a></li>
-<li>press send</li>
-<li>you should receive a 200 status response</li>
+<li>enter the request to <a href="http://localhost:8081/yourendpoint">http://localhost:8081/yourendpoint</a> 
+</li>
+<li>press send
+</li>
+<li>you should receive a 200 status response
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaf2d95f" class="outline-4">
-<h4 id="orgaf2d95f"><span class="section-number-4">16.3.5</span> Stopping the Application</h4>
-<div class="outline-text-4" id="text-16-3-5">
+<div id="outline-container-sec-23-3-5" class="outline-4">
+<h4 id="sec-23-3-5"><span class="section-number-4">23.3.5</span> Stopping the Application</h4>
+<div class="outline-text-4" id="text-23-3-5">
 <ul class="org-ul">
-<li>right click in the canvas</li>
-<li>select stop project</li>
+<li>right click in the canvas
+</li>
+<li>select stop project
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8033bb7" class="outline-4">
-<h4 id="org8033bb7"><span class="section-number-4">16.3.6</span> Connect to a Database</h4>
-<div class="outline-text-4" id="text-16-3-6">
+<div id="outline-container-sec-23-3-6" class="outline-4">
+<h4 id="sec-23-3-6"><span class="section-number-4">23.3.6</span> Connect to a Database</h4>
+<div class="outline-text-4" id="text-23-3-6">
 <p>
 It would be best to create a global configuration as this will be used widely through the application. 
 </p>
 
 <ul class="org-ul">
-<li>click <b>Add Modules</b> in the <b>Mule Palette</b></li>
-<li>choose <b>Database</b></li>
-<li>drag it to the right side of the pallete</li>
-<li>drop the operation required in to the process setion of the canvas</li>
-<li>click the config in the properties panel for database</li>
-<li>click the <b>+</b> to add a <b>Connector Configuration</b></li>
-<li>choose the type of connection according to the DB that you are using</li>
-<li>enter the host, port and any authentication details</li>
-<li>click <b>Configure</b> next to the MySQL JDBC Driver</li>
-<li>select <b>Add Maven dependency</b></li>
-<li>in the <b>Maven dependency</b> dialogue box locate the <b>Search Maven Central</b> text field</li>
-<li>enter mysql- (or the related DB string)</li>
-<li>choose <b>mysql:mysql-connector-java</b> in the results</li>
-<li>click <b>Edit selected</b></li>
-<li>change the version to 8.0.16</li>
-<li>click finish</li>
-<li>in the <b>Global Elements Properties</b> dialogue box, click the <b>Test Connection</b></li>
+<li>click <b>Add Modules</b> in the <b>Mule Palette</b>
+</li>
+<li>choose <b>Database</b>
+</li>
+<li>drag it to the right side of the pallete
+</li>
+<li>drop the operation required in to the process setion of the canvas
+</li>
+<li>click the config in the properties panel for database
+</li>
+<li>click the <b>+</b> to add a <b>Connector Configuration</b>
+</li>
+<li>choose the type of connection according to the DB that you are using
+</li>
+<li>enter the host, port and any authentication details
+</li>
+<li>click <b>Configure</b> next to the MySQL JDBC Driver
+</li>
+<li>select <b>Add Maven dependency</b>
+</li>
+<li>in the <b>Maven dependency</b> dialogue box locate the <b>Search Maven Central</b> text field
+</li>
+<li>enter mysql- (or the related DB string)
+</li>
+<li>choose <b>mysql:mysql-connector-java</b> in the results
+</li>
+<li>click <b>Edit selected</b> 
+</li>
+<li>change the version to 8.0.16
+</li>
+<li>click finish
+</li>
+<li>in the <b>Global Elements Properties</b> dialogue box, click the <b>Test Connection</b> 
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4a15f78" class="outline-4">
-<h4 id="org4a15f78"><span class="section-number-4">16.3.7</span> Write a query to return data</h4>
-<div class="outline-text-4" id="text-16-3-7">
+<div id="outline-container-sec-23-3-7" class="outline-4">
+<h4 id="sec-23-3-7"><span class="section-number-4">23.3.7</span> Write a query to return data</h4>
+<div class="outline-text-4" id="text-23-3-7">
 <ul class="org-ul">
-<li>in the database operation properties view, add a query in the <b>SQL Query Text</b> box</li>
+<li>in the database operation properties view, add a query in the <b>SQL Query Text</b> box 
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org94d0f0a" class="outline-4">
-<h4 id="org94d0f0a"><span class="section-number-4">16.3.8</span> Test again by running the application and testing with ARC</h4>
-<div class="outline-text-4" id="text-16-3-8">
+<div id="outline-container-sec-23-3-8" class="outline-4">
+<h4 id="sec-23-3-8"><span class="section-number-4">23.3.8</span> Test again by running the application and testing with ARC</h4>
+<div class="outline-text-4" id="text-23-3-8">
 <ul class="org-ul">
-<li>right click in the project canvas and run the project</li>
-<li>with ARC, submit a GET request to localhost:8081/yourendpoint</li>
-<li>at this point, you will get an error as the data will need to be transformed (it is currently in a java format)</li>
+<li>right click in the project canvas and run the project
+</li>
+<li>with ARC, submit a GET request to localhost:8081/yourendpoint
+</li>
+<li>at this point, you will get an error as the data will need to be transformed (it is currently in a java format)
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcf6ee72" class="outline-4">
-<h4 id="orgcf6ee72"><span class="section-number-4">16.3.9</span> Transform Data</h4>
-<div class="outline-text-4" id="text-16-3-9">
+<div id="outline-container-sec-23-3-9" class="outline-4">
+<h4 id="sec-23-3-9"><span class="section-number-4">23.3.9</span> Transform Data</h4>
+<div class="outline-text-4" id="text-23-3-9">
 <p>
 This will use Dataweave to map the changes the response to a different JSON structure. 
 </p>
 </div>
 
-<ol class="org-ol">
-<li><a id="orgdd4c6b5"></a>Add a transform Message component<br />
-<div class="outline-text-5" id="text-16-3-9-1">
+<ol class="org-ol"><li><a id="sec-23-3-9-1" name="sec-23-3-9-1"></a>Add a transform Message component<br  /><div class="outline-text-5" id="text-23-3-9-1">
 <ul class="org-ul">
-<li>in the mule palette select <b>Core</b></li>
-<li>find <b>Transform Message</b> in the components window</li>
-<li>drag the <b>Transform Message</b> component and drop it after the process that needs transforming</li>
-<li>in the Transform message properties view, change the output type from application/java to application/json</li>
-<li>save the project</li>
-<li>in ARC send the same request - you should now get a 200 status response</li>
+<li>in the mule palette select <b>Core</b> 
+</li>
+<li>find <b>Transform Message</b> in the components window
+</li>
+<li>drag the <b>Transform Message</b> component and drop it after the process that needs transforming 
+</li>
+<li>in the Transform message properties view, change the output type from application/java to application/json
+</li>
+<li>save the project
+</li>
+<li>in ARC send the same request - you should now get a 200 status response
+</li>
 </ul>
 </div>
 </li>
 
-<li><a id="orga1ce0fc"></a>Define metadata for the data structure to be returned by the API<br />
-<div class="outline-text-5" id="text-16-3-9-2">
+<li><a id="sec-23-3-9-2" name="sec-23-3-9-2"></a>Define metadata for the data structure to be returned by the API<br  /><div class="outline-text-5" id="text-23-3-9-2">
 <ul class="org-ul">
-<li>in the canvas, choose the flow that you wish to transform</li>
-<li>in the properties view, select the <b>Metadata</b> tab</li>
-<li>click the <b>Add metadata</b> button</li>
-<li>select <b>Output: Payload</b> from the drop-down menu</li>
-<li>click the <b>edit</b> icon button</li>
-<li>in the <b>Select metadata type</b> dialogue click the <b>Add</b> button</li>
-<li>in the <b>Create new type</b> dialogue, enter the type id to the name required (no spaces, but underscores - e.g. <i>american<sub>flights</sub><sub>json</sub></i>)</li>
-<li>click <b>Create type</b></li>
-<li>back in the Select metadata type dialog box, set the first type to JSON</li>
-<li>change the schema selection to Example</li>
-<li>click the 'browse' button and select the example.json file</li>
-<li>once the file is chosen and loaded, the window will be populated with the structure and a confirmation that the file has been copied to the src/main/resources/examples folder</li>
-<li>click select</li>
-<li>in the properties box, you should now see output metadata in the output section of the <b>Transform Message</b> properties view</li>
+<li>in the canvas, choose the flow that you wish to transform
+</li>
+<li>in the properties view, select the <b>Metadata</b> tab
+</li>
+<li>click the <b>Add metadata</b> button
+</li>
+<li>select <b>Output: Payload</b> from the drop-down menu
+</li>
+<li>click the <b>edit</b> icon button 
+</li>
+<li>in the <b>Select metadata type</b> dialogue click the <b>Add</b> button
+</li>
+<li>in the <b>Create new type</b> dialogue, enter the type id to the name required (no spaces, but underscores - e.g. <i>american<sub>flights</sub><sub>json</sub></i>)
+</li>
+<li>click <b>Create type</b>
+</li>
+<li>back in the Select metadata type dialog box, set the first type to JSON
+</li>
+<li>change the schema selection to Example
+</li>
+<li>click the 'browse' button and select the example.json file 
+</li>
+<li>once the file is chosen and loaded, the window will be populated with the structure and a confirmation that the file has been copied to the src/main/resources/examples folder
+</li>
+<li>click select
+</li>
+<li>in the properties box, you should now see output metadata in the output section of the <b>Transform Message</b> properties view
+</li>
 </ul>
 </div>
 </li>
 
-<li><a id="orgdf6e3db"></a>Create the transformation<br />
-<div class="outline-text-5" id="text-16-3-9-3">
+<li><a id="sec-23-3-9-3" name="sec-23-3-9-3"></a>Create the transformation<br  /><div class="outline-text-5" id="text-23-3-9-3">
 <ul class="org-ul">
-<li>in the <b>Transform Message</b> properties section, map the fields, by dragging them from the input section and dropping them on the corresponding field in the output section</li>
-<li>it is possible to concatenate two fields in to one</li>
-<li>preview the data by clicking the <b>Preview</b> button in the <b>output</b> section</li>
-<li>click <b>Create required sample data to execute preview</b></li>
-<li>in the input section, replace any occurrences of ???? with sample values</li>
-<li>run the ARC client and check that the output is as required</li>
+<li>in the <b>Transform Message</b> properties section, map the fields, by dragging them from the input section and dropping them on the corresponding field in the output section
+</li>
+<li>it is possible to concatenate two fields in to one
+</li>
+<li>preview the data by clicking the <b>Preview</b> button in the <b>output</b> section
+</li>
+<li>click <b>Create required sample data to execute preview</b>
+</li>
+<li>in the input section, replace any occurrences of ???? with sample values
+</li>
+<li>run the ARC client and check that the output is as required
+</li>
 </ul>
 </div>
-</li>
-</ol>
+</li></ol>
 </div>
 </div>
 
-<div id="outline-container-org28c734d" class="outline-3">
-<h3 id="org28c734d"><span class="section-number-3">16.4</span> Create RESTful Interface for a Mule Application</h3>
-<div class="outline-text-3" id="text-16-4">
-</div>
-<div id="outline-container-orgc47f68d" class="outline-4">
-<h4 id="orgc47f68d"><span class="section-number-4">16.4.1</span> Restrict Method calls to GET</h4>
-<div class="outline-text-4" id="text-16-4-1">
+<div id="outline-container-sec-23-4" class="outline-3">
+<h3 id="sec-23-4"><span class="section-number-3">23.4</span> Create RESTful Interface for a Mule Application</h3>
+<div class="outline-text-3" id="text-23-4">
+</div><div id="outline-container-sec-23-4-1" class="outline-4">
+<h4 id="sec-23-4-1"><span class="section-number-4">23.4.1</span> Restrict Method calls to GET</h4>
+<div class="outline-text-4" id="text-23-4-1">
 <ul class="org-ul">
-<li>double-click the HTTP listener in the flow on the canvas</li>
-<li>in the left side navigation of the <b>Listener</b> properties view, select <b>Advanced</b></li>
-<li>set the allowed methods to <b>GET</b></li>
-<li>from the main menu bar, select <b>Edit</b> &gt; <b>Copy</b></li>
-<li>click underneath the flow and select <b>Edit</b> &gt; <b>Paste</b></li>
+<li>double-click the HTTP listener in the flow on the canvas
+</li>
+<li>in the left side navigation of the <b>Listener</b> properties view, select <b>Advanced</b>
+</li>
+<li>set the allowed methods to <b>GET</b>
+</li>
+<li>from the main menu bar, select <b>Edit</b> &gt; <b>Copy</b>
+</li>
+<li>click underneath the flow and select <b>Edit</b> &gt; <b>Paste</b>
+</li>
 </ul>
 </div>
-<ol class="org-ol">
-<li><a id="orge990520"></a>Rename the Flows<br />
-<div class="outline-text-5" id="text-16-4-1-1">
+<ol class="org-ol"><li><a id="sec-23-4-1-1" name="sec-23-4-1-1"></a>Rename the Flows<br  /><div class="outline-text-5" id="text-23-4-1-1">
 <ul class="org-ul">
-<li>double click the first flow</li>
-<li>change the name in the properties view</li>
-<li>do this for the copied flow</li>
+<li>double click the first flow
+</li>
+<li>change the name in the properties view
+</li>
+<li>do this for the copied flow
+</li>
 </ul>
 </div>
 </li>
-<li><a id="org6d0bd39"></a>Specify a URI Parameter for the new HTTP Listener endpoint<br />
-<div class="outline-text-5" id="text-16-4-1-2">
+<li><a id="sec-23-4-1-2" name="sec-23-4-1-2"></a>Specify a URI Parameter for the new HTTP Listener endpoint<br  /><div class="outline-text-5" id="text-23-4-1-2">
 <ul class="org-ul">
-<li>double click the copied HTTP listener</li>
-<li>modify the pathname to have the ID</li>
+<li>double click the copied HTTP listener
+</li>
+<li>modify the pathname to have the ID
+</li>
 </ul>
 <pre class="example">
 Path: /flights/{ID}
 </pre>
 </div>
 </li>
-<li><a id="orge88fbfb"></a>Modify the Database Endpoint<br />
-<div class="outline-text-5" id="text-16-4-1-3">
+<li><a id="sec-23-4-1-3" name="sec-23-4-1-3"></a>Modify the Database Endpoint<br  /><div class="outline-text-5" id="text-23-4-1-3">
 <ul class="org-ul">
-<li>double click the Select operation for the copied flow</li>
-<li>modify the query to the code required (e.g. adding a lookup, for example):</li>
+<li>double click the Select operation for the copied flow
+</li>
+<li>modify the query to the code required (e.g. adding a lookup, for example):
+</li>
 </ul>
 <pre class="example">
 SELECT * 
@@ -1104,131 +1677,172 @@ WHERE ID = 1
 </div>
 </li>
 
-<li><a id="org2aab54c"></a>Modify the database Query to use the URI parameter<br />
-<div class="outline-text-5" id="text-16-4-1-4">
+<li><a id="sec-23-4-1-4" name="sec-23-4-1-4"></a>Modify the database Query to use the URI parameter<br  /><div class="outline-text-5" id="text-23-4-1-4">
 <ul class="org-ul">
-<li>add this to the <b>Input Parameters</b> for the select statement</li>
+<li>add this to the <b>Input Parameters</b> for the select statement
+</li>
 </ul>
 <pre class="example">
 {'ID' : attributes.uriParams.ID}
 </pre>
 <ul class="org-ul">
-<li>then change the WHERE clause to look at the ID variable:</li>
+<li>then change the WHERE clause to look at the ID variable:
+</li>
 </ul>
 <pre class="example">
 WHERE ID = :ID
 </pre>
 <ul class="org-ul">
-<li><b>NOTE</b>: that when you copy a flow, the flow's metadata does not always copy and you may have to enter it again. Select the flow and then choose the metadata tab in the properties panel. Then choose the file and click edit as before.</li>
-<li>now when you make a get request to /resource/ID/3 you should only get the id that is requested</li>
-</ul>
-</div>
+<li><b>NOTE</b>: that when you copy a flow, the flow's metadata does not always copy and you may have to enter it again. Select the flow and then choose the metadata tab in the properties panel. Then choose the file and click edit as before. 
 </li>
-</ol>
+<li>now when you make a get request to /resource/ID/3 you should only get the id that is requested
+</li>
+</ul>
+</div>
+</li></ol>
 </div>
 
-<div id="outline-container-org6c489d9" class="outline-4">
-<h4 id="org6c489d9"><span class="section-number-4">16.4.2</span> Make a new Flow to handle post requests</h4>
-<div class="outline-text-4" id="text-16-4-2">
+<div id="outline-container-sec-23-4-2" class="outline-4">
+<h4 id="sec-23-4-2"><span class="section-number-4">23.4.2</span> Make a new Flow to handle post requests</h4>
+<div class="outline-text-4" id="text-23-4-2">
 <ul class="org-ul">
-<li>in the mule palette select HTTP</li>
-<li>drag listener from the Mule Palette and drop it in the canvas below the two existing flows</li>
-<li>change the name in the properties box to postYourResource</li>
-<li>set the path to the /resource</li>
-<li>in the left-hand side navigation of the Listener properties view, select <b>Advanced</b></li>
-<li>set the allowed methods to <b>POST</b></li>
-<li>drag set the payload transformer from the mule palette and drop it in the process section of the flow</li>
+<li>in the mule palette select HTTP
+</li>
+<li>drag listener from the Mule Palette and drop it in the canvas below the two existing flows
+</li>
+<li>change the name in the properties box to postYourResource
+</li>
+<li>set the path to the /resource
+</li>
+<li>in the left-hand side navigation of the Listener properties view, select <b>Advanced</b>
+</li>
+<li>set the allowed methods to <b>POST</b>
+</li>
+<li>drag set the payload transformer from the mule palette and drop it in the process section of the flow
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org65d861e" class="outline-3">
-<h3 id="org65d861e"><span class="section-number-3">16.5</span> Create a RESTful interface automatically using APIkit</h3>
-<div class="outline-text-3" id="text-16-5">
-</div>
-<div id="outline-container-orge302222" class="outline-4">
-<h4 id="orge302222"><span class="section-number-4">16.5.1</span> Add Anypoint Platform Credentials to Anypoint Studio</h4>
-<div class="outline-text-4" id="text-16-5-1">
+<div id="outline-container-sec-23-5" class="outline-3">
+<h3 id="sec-23-5"><span class="section-number-3">23.5</span> Create a RESTful interface automatically using APIkit</h3>
+<div class="outline-text-3" id="text-23-5">
+</div><div id="outline-container-sec-23-5-1" class="outline-4">
+<h4 id="sec-23-5-1"><span class="section-number-4">23.5.1</span> Add Anypoint Platform Credentials to Anypoint Studio</h4>
+<div class="outline-text-4" id="text-23-5-1">
 <ul class="org-ul">
-<li>in the package explorer, right click the project and select <b>Anypoint Platform</b> &gt; <b>Configure Credentials</b></li>
-<li>in the <b>Authentication</b> page of the <b>Preferences</b> dialogue box, click the <b>Add</b> button</li>
-<li>enter credentials and sign in</li>
-<li>click <b>Apply and close</b></li>
+<li>in the package explorer, right click the project and select <b>Anypoint Platform</b> &gt; <b>Configure Credentials</b>
+</li>
+<li>in the <b>Authentication</b> page of the <b>Preferences</b> dialogue box, click the <b>Add</b> button
+</li>
+<li>enter credentials and sign in
+</li>
+<li>click <b>Apply and close</b>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e42ff2" class="outline-4">
-<h4 id="org5e42ff2"><span class="section-number-4">16.5.2</span> Add an API from Exchange to the Anypoint Studio project</h4>
-<div class="outline-text-4" id="text-16-5-2">
+<div id="outline-container-sec-23-5-2" class="outline-4">
+<h4 id="sec-23-5-2"><span class="section-number-4">23.5.2</span> Add an API from Exchange to the Anypoint Studio project</h4>
+<div class="outline-text-4" id="text-23-5-2">
 <ul class="org-ul">
-<li>right click in the package Explorer the project you wish to add the API to</li>
-<li>click <b>Manage Dependencies</b></li>
-<li>choose <b>Manage APIs</b></li>
-<li>click the <b>+</b> button</li>
-<li>click <b>From Exchange</b></li>
-<li>type in the filter box the name of the project you want to use</li>
-<li>click the results from the Exchange search</li>
-<li>click <b>Add &gt;</b></li>
-<li>select the version of the API that you want to use</li>
-<li>click <b>Finish</b></li>
-<li>this wil then download the API to use in Anypoint Studio</li>
-<li>in the properties box click <b>Apply and close</b></li>
-<li>click <b>Yes</b> when prompted to scaffold the American Flights API Specification</li>
+<li>right click in the package Explorer the project you wish to add the API to
+</li>
+<li>click <b>Manage Dependencies</b>
+</li>
+<li>choose <b>Manage APIs</b>
+</li>
+<li>click the <b>+</b> button
+</li>
+<li>click <b>From Exchange</b>
+</li>
+<li>type in the filter box the name of the project you want to use
+</li>
+<li>click the results from the Exchange search
+</li>
+<li>click <b>Add &gt;</b>
+</li>
+<li>select the version of the API that you want to use
+</li>
+<li>click <b>Finish</b>
+</li>
+<li>this wil then download the API to use in Anypoint Studio
+</li>
+<li>in the properties box click <b>Apply and close</b>
+</li>
+<li>click <b>Yes</b> when prompted to scaffold the American Flights API Specification
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1929805" class="outline-4">
-<h4 id="org1929805"><span class="section-number-4">16.5.3</span> Delete HTTP listeners provided with Anypoint Studio (in preparation to listen with APIkit</h4>
-<div class="outline-text-4" id="text-16-5-3">
+<div id="outline-container-sec-23-5-3" class="outline-4">
+<h4 id="sec-23-5-3"><span class="section-number-4">23.5.3</span> Delete HTTP listeners provided with Anypoint Studio (in preparation to listen with APIkit</h4>
+<div class="outline-text-4" id="text-23-5-3">
 <ul class="org-ul">
-<li>in the flow view, right click on any HTTP listeners and delete</li>
-<li>save the files</li>
-<li>stop the project</li>
+<li>in the flow view, right click on any HTTP listeners and delete
+</li>
+<li>save the files
+</li>
+<li>stop the project
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6fa52eb" class="outline-4">
-<h4 id="org6fa52eb"><span class="section-number-4">16.5.4</span> Test the web service usi APIkit console</h4>
-<div class="outline-text-4" id="text-16-5-4">
+<div id="outline-container-sec-23-5-4" class="outline-4">
+<h4 id="sec-23-5-4"><span class="section-number-4">23.5.4</span> Test the web service usi APIkit console</h4>
+<div class="outline-text-4" id="text-23-5-4">
 <ul class="org-ul">
-<li>locate the new APIkit console view that is created and opened in Anypoint Studio and note that there is no data to display</li>
-<li>stop the project</li>
-<li>run the project and wait until Mule and the application restart</li>
-<li>verify that the APIkit console view is now populated</li>
-<li>click <b>Open Console</b> in the APIkit consoles tab and a web browser will open</li>
-<li>test with GET and POST requests (and pushing the <b>Try It</b> button</li>
-<li>note that the ARC client will now not work, as the URL has changed</li>
-<li>add <i>api</i> to the url to ARC to get it to work (<a href="http://localhost:8081/api/yourresource">http://localhost:8081/api/yourresource</a>).</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org1fe196d" class="outline-3">
-<h3 id="org1fe196d"><span class="section-number-3">16.6</span> Implement a RESTful webb service</h3>
-<div class="outline-text-3" id="text-16-6">
-</div>
-<div id="outline-container-org6ac4baf" class="outline-4">
-<h4 id="org6ac4baf"><span class="section-number-4">16.6.1</span> Rename the Configuration files</h4>
-<div class="outline-text-4" id="text-16-6-1">
-<ul class="org-ul">
-<li>in the package explorer you can refactor names of files by right-clicking and refactoring</li>
-<li>remove a <b>Transform Message</b> component and replace it with a new <b>Flow Reference</b> (dragging and dropping from the <b>Mule Palette</b> to the correct flow and resource combination</li>
-<li>in the flow reference properties view, use the same name as the method and resource name (e.g. <i>getFlights</i>)</li>
-<li>change the Display name to be the same</li>
-<li>save the file to redeploy</li>
-<li>test in ARC. You should now get all the data returned</li>
+<li>locate the new APIkit console view that is created and opened in Anypoint Studio and note that there is no data to display
+</li>
+<li>stop the project
+</li>
+<li>run the project and wait until Mule and the application restart 
+</li>
+<li>verify that the APIkit console view is now populated 
+</li>
+<li>click <b>Open Console</b> in the APIkit consoles tab and a web browser will open
+</li>
+<li>test with GET and POST requests (and pushing the <b>Try It</b> button
+</li>
+<li>note that the ARC client will now not work, as the URL has changed
+</li>
+<li>add <i>api</i> to the url to ARC to get it to work (<a href="http://localhost:8081/api/yourresource">http://localhost:8081/api/yourresource</a>).
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org821c787" class="outline-3">
-<h3 id="org821c787"><span class="section-number-3">16.7</span> API Sync</h3>
-<div class="outline-text-3" id="text-16-7">
+<div id="outline-container-sec-23-6" class="outline-3">
+<h3 id="sec-23-6"><span class="section-number-3">23.6</span> Implement a RESTful webb service</h3>
+<div class="outline-text-3" id="text-23-6">
+</div><div id="outline-container-sec-23-6-1" class="outline-4">
+<h4 id="sec-23-6-1"><span class="section-number-4">23.6.1</span> Rename the Configuration files</h4>
+<div class="outline-text-4" id="text-23-6-1">
+<ul class="org-ul">
+<li>in the package explorer you can refactor names of files by right-clicking and refactoring
+</li>
+<li>remove a <b>Transform Message</b> component and replace it with a new <b>Flow Reference</b> (dragging and dropping from the <b>Mule Palette</b> to the correct flow and resource combination
+</li>
+<li>in the flow reference properties view, use the same name as the method and resource name (e.g. <i>getFlights</i>)
+</li>
+<li>change the Display name to be the same
+</li>
+<li>save the file to redeploy
+</li>
+<li>test in ARC. You should now get all the data returned
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-23-7" class="outline-3">
+<h3 id="sec-23-7"><span class="section-number-3">23.7</span> API Sync</h3>
+<div class="outline-text-3" id="text-23-7">
 <p>
 Allows for offline editing. You can then push it back to <b>Design Center</b> to keep it in line. 
 </p>
@@ -1242,53 +1856,81 @@ You can get a conflict by simultaneous editing.
 </p>
 
 <ul class="org-ul">
-<li>if you try to edit code that you imported as a dependency, then you will not be able to edit it (the raml file, that is)</li>
+<li>if you try to edit code that you imported as a dependency, then you will not be able to edit it (the raml file, that is)
+</li>
 </ul>
 </div>
-<div id="outline-container-org79eb852" class="outline-4">
-<h4 id="org79eb852"><span class="section-number-4">16.7.1</span> To edit an RAML File</h4>
-<div class="outline-text-4" id="text-16-7-1">
+<div id="outline-container-sec-23-7-1" class="outline-4">
+<h4 id="sec-23-7-1"><span class="section-number-4">23.7.1</span> To edit an RAML File</h4>
+<div class="outline-text-4" id="text-23-7-1">
 <ul class="org-ul">
-<li>right click on the RAML file in Anypoint Studio</li>
-<li>scroll to the name of the API that you wish to edit</li>
-<li>click <b>Edit API specification</b></li>
-<li>an <b>Import API Specification</b> dialogue box will open</li>
-<li>click <b>Continue</b></li>
-<li>click <b>Yes</b> in the dialogue box which asks to switch perspective</li>
-<li>now you can edit the raml file locally</li>
-<li>a git staging dialogue box will open to show the changes that need to be made</li>
-<li>click the <b>Add select files</b> to the index (it looks like a plus sign</li>
-<li>the file will move to the staged changes window</li>
-<li>in the commit section add a description of the change</li>
-<li>click the <b>Commit and Push</b> button</li>
-<li>click close on the <b>Push results</b> dialogue box</li>
-<li>return to your API designer, the PUT method will appear</li>
-<li>in the package explorer right click the API project and select <b>Manage API Specification</b> &gt; <b>Publish to Exchange</b></li>
-<li>in the configuration dialogue box, notice that the last published version is the version that you were working on</li>
-<li>set the asset to a later version number</li>
-<li>click <b>Finish</b></li>
-<li>it will take some time to publish</li>
+<li>right click on the RAML file in Anypoint Studio
+</li>
+<li>scroll to the name of the API that you wish to edit
+</li>
+<li>click <b>Edit API specification</b> 
+</li>
+<li>an <b>Import API Specification</b> dialogue box will open
+</li>
+<li>click <b>Continue</b>
+</li>
+<li>click <b>Yes</b> in the dialogue box which asks to switch perspective
+</li>
+<li>now you can edit the raml file locally 
+</li>
+<li>a git staging dialogue box will open to show the changes that need to be made 
+</li>
+<li>click the <b>Add select files</b> to the index (it looks like a plus sign
+</li>
+<li>the file will move to the staged changes window
+</li>
+<li>in the commit section add a description of the change 
+</li>
+<li>click the <b>Commit and Push</b> button 
+</li>
+<li>click close on the <b>Push results</b> dialogue box
+</li>
+<li>return to your API designer, the PUT method will appear
+</li>
+<li>in the package explorer right click the API project and select <b>Manage API Specification</b> &gt; <b>Publish to Exchange</b>
+</li>
+<li>in the configuration dialogue box, notice that the last published version is the version that you were working on
+</li>
+<li>set the asset to a later version number 
+</li>
+<li>click <b>Finish</b>
+</li>
+<li>it will take some time to publish
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9600b55" class="outline-4">
-<h4 id="org9600b55"><span class="section-number-4">16.7.2</span> To Sync the changes in the Exchange with your project</h4>
-<div class="outline-text-4" id="text-16-7-2">
+<div id="outline-container-sec-23-7-2" class="outline-4">
+<h4 id="sec-23-7-2"><span class="section-number-4">23.7.2</span> To Sync the changes in the Exchange with your project</h4>
+<div class="outline-text-4" id="text-23-7-2">
 <ul class="org-ul">
-<li>to pull in dependencies, right click on the <b>package explorer</b>, choose the name of the API, and the click <b>Update Version</b></li>
-<li>choose the version you wish to update to</li>
-<li>click <b>Apply</b> and <b>Yes</b> to <b>scaffold</b></li>
-<li>then click <b>Apply and Close</b></li>
+<li>to pull in dependencies, right click on the <b>package explorer</b>, choose the name of the API, and the click <b>Update Version</b>
+</li>
+<li>choose the version you wish to update to
+</li>
+<li>click <b>Apply</b> and <b>Yes</b> to <b>scaffold</b> 
+</li>
+<li>then click <b>Apply and Close</b>
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+<div id="outline-container-sec-24" class="outline-2">
+<h2 id="sec-24"><span class="section-number-2">24</span> Deploying and Managing APIs</h2>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Adam C</p>
-<p class="date">Created: 2020-11-05 Thu 17:55</p>
+<p class="date">Created: 2020-12-11 Fri 07:36</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
