@@ -8,7 +8,7 @@ layout: post
 
 ### Problem
 
-You want to verify lots of files that have uploaded to Azure Blob Storage? Look no further.  
+You want to verify lots of files that have uploaded to Azure Blob Storage? Look no further. https://github.com/kabads/md5sum
 
 So, I had to upload a lot of media assets for work in a hurry as a server was being shut down. We had Azure, and as these were static files, that seemed like a good solution. I think in total, there was roughly 200,000 files. I wanted to md5sum them at each part of the stage. I did that for the huge 5Gb zip file I was given and asked my colleague who provided it to me to do the same. It was good. I could do this on all my machines, but not once the zip file was unzipped. 
 
