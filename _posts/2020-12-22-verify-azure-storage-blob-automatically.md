@@ -6,6 +6,8 @@ date: 2020-12-22
 layout: post
 ---
 
+This blog post outlines a problem I had whereby there were lots of files in Azure storage and I wanted to check that they had been uploaded correctly. 
+
 ### Problem
 
 You want to verify lots of files that have uploaded to Azure Blob Storage? Look no further. https://github.com/kabads/md5sum
