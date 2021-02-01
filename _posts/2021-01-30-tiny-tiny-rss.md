@@ -20,7 +20,7 @@ You can add feeds using the following dialogue:
 
 The output is really good to look at:
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/50891546277/in/dateposted/" title="ttrss1"><img src="https://live.staticflickr.com/65535/50891546277_90a54ae621_n.jpg" width="320" height="146" alt="ttrss1"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/50891546277/in/dateposted/" title="ttrss1"><img src="https://live.staticflickr.com/65535/50891546277_90a54ae621.jpg" width="500" height="229" alt="ttrss1"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 There is also an [app for your phone](https://play.google.com/store/apps/details?id=org.fox.ttrss) to hook up to your server, so you can read your articles on the go.
 
