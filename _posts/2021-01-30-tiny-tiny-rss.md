@@ -2,9 +2,9 @@
 layout: post
 title: Tiny Tiny RSS 
 date: 2021-02-01
----
 categories:
 - reading
+---
 
 [Tiny Tiny RSS](https://tt-rss.org) is a simple syndication application.  I've been using RSS syndication readers for a long time. I just don't have time to scour the web to check if a website had added new content. I started with [Google Reader](https://www.google.com/reader/about/) a long time ago (as did many of us), but was also sad that it went away. So, then I moved to [Newsblur](https://newsblur.com/). This suited me and helped me read my blog posts for another year or so. It also has (or had - I haven't checked recently) an open source model. However, with the pricing it was offering, I didn't need to host it myself as it was doing just a fine job, for the price that I paid. Then the price went up. For some reason, I felt that it was too much. I was probably hasty, but also ready for a change. 
 
