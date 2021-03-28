@@ -42,13 +42,15 @@
           
 
         </a>
-      </h3><p><a href="https://www.saleforce.com">Salesforce</a>, for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: <a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm">https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm</a>. This sets out the following steps:</p>
+      </h3><p><img style="vertical-align:middle;" src="https://jwt.io/img/pic_logo.svg" /></p>
+<div style="vertical-align:bottom; display:inline;">
+[Salesforce](https://www.saleforce.com), for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: [https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm). This sets out the following steps: 
+</div>
 
 <p>1) Create an OpenSSL certificate
 2) Create an app within the Salesforce Org that you want to authenticate to
 3) Upload your SSL certificate to that Org
-4) Authenticate with that certificate for the first time (manually)
-5) Authenticate using the SSL private key</p>
+4) Authenticate using the SSL private key</p>
 
 <h2 id="create-an-openssl-certificate">Create an OpenSSL certificate</h2>
 
@@ -60,16 +62,64 @@
 cd jwt
 </code></pre></div></div>
 
-<p>Generate a private key and store it in a file called <code class="highlighter-rouge">server.key</code>:
-    openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
-    openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key</p>
+<p>Generate a private key and store it in a file called <code class="highlighter-rouge">server.key</code>:</p>
 
-<p>Generate a certificate signing request (<code class="highlighter-rouge">.csr</code> file):
-    openssl req -new -key server.key -out server.csr</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
+openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key
+</code></pre></div></div>
 
-<p>Generate a self-signed digital certificate from the server request (<code class="highlighter-rouge">.csr</code> file) and private key (<code class="highlighter-rouge">server.key</code>):
-        openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt</p>
+<p>Generate a certificate signing request (<code class="highlighter-rouge">.csr</code> file):</p>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -new -key server.key -out server.csr
+</code></pre></div></div>
+
+<p>Generate a self-signed digital certificate from the server request (<code class="highlighter-rouge">.csr</code> file) and private key (<code class="highlighter-rouge">server.key</code>):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+</code></pre></div></div>
+
+<h2 id="connected-app-in-the-salesforce-org">Connected App in the Salesforce Org</h2>
+
+<h3 id="create-a-connected-app">Create a Connected App</h3>
+
+<p>This connected app is the place where the SSL certificate is held and allows you to connect. Go to Setup, and type ‘App’ in the quick find box. Then click on ‘App Manager’ link.</p>
+
+<p>Click the ‘New Connected App’ button in the right hand top corner. Give you app a name in the ‘Connected App Name’ field. You must provide an email address.</p>
+
+<p>Under the ‘API (Enable OAuth Settings)’ click the checkbox for ‘Enable OAuth Settings’. A dialogue box will appear. You need to add the settings ‘Access and manage your data’, ‘Full Access’, ‘Perform Requests on your behalf at any time (refresh_token, offline_access)’ and ‘Provide access to your data via the Web (web)’ in the Selected OAuth Scopes. If you need more permissions, add them (or create them in the first place.)</p>
+
+<p>Also click the ‘Use Digital Signatures’ checkbox. A ‘Browse File’ button will appear. Here you will need to upload your <code class="highlighter-rouge">server.crt</code> file that was created in the SSL stage.</p>
+
+<p>In the ‘Callback URL’ enter <code class="highlighter-rouge">https://test.salesforce.com/oauth2/token</code>. If you have a production org that you are connecting to, the <code class="highlighter-rouge">test</code> part should be replaced with <code class="highlighter-rouge">login</code>.</p>
+
+<p>Click the save button.</p>
+
+<p>You will see, on the newly created app page’ a <code class="highlighter-rouge">Consumer Key</code> - this is often called the <code class="highlighter-rouge">client_id</code> in the JWT specification. You will need this later on, so make a note of it.</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/51010452920/in/dateposted/" title="connected-app-01"><img src="https://live.staticflickr.com/65535/51010452920_64c13d64d8.jpg" width="500" height="240" alt="connected-app-01" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h3 id="manage-profiles-and-permission-sets-for-the-connected-app">Manage Profiles and Permission Sets for the Connected App</h3>
+
+<p>The page will load, with your changes saved, but you still need to add information to this app to allow JWT to authenticate.</p>
+
+<p>Click ‘Manage’ at the top of the connected app, then ‘Edit Policies’.</p>
+
+<p>In the ‘OAuth Policies’ section, choose ‘Admin approved users are pre-authorized’. A dialogue warning box will appear. Accept the warning. Click save at the bottom of the page.</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/51079734032/in/photostream/" title="connected-app-02PNG"><img src="https://live.staticflickr.com/65535/51079734032_2d160ef78f.jpg" width="500" height="127" alt="connected-app-02PNG" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Scroll down and click ‘Manage Profiles’. Choose a profile that suits the needs of your connection. Then, click on ‘Manage Permission Sets’ and choose a permission set to use with this profile (or create one if necessary).</p>
+
+<h2 id="authenticate-with-the-certificate">Authenticate with the certificate</h2>
+
+<p>Now that you have the app ready to accept connections, you need to authenticate initially using a browser, or an API tool like Postman or Advanced Rest Client. For simplicity, we are going to use the browser.</p>
+
+<p>Then, type in the command line</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ --jwtkeyfile=./server.key -u your-user@orgname-dedod.com
+</code></pre></div></div>
+
+<p>You will then be authenticated to your organisation and will be able to type in commands. This method allows for CI/CD pipelines to authenticate themselves.</p>
 </li><li><span class="post-meta">Feb 1, 2021</span>
       <h3>
         <a class="post-link" href="/reading/2021/02/01/tiny-tiny-rss.html">

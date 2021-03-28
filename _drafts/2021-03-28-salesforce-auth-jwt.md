@@ -6,13 +6,17 @@ categories:
 - sysadmin
 ---
 
+
+<img style='vertical-align:middle;' src='https://jwt.io/img/pic_logo.svg'>
+<div style='vertical-align:bottom; display:inline;'>
 [Salesforce](https://www.saleforce.com), for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: [https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm). This sets out the following steps: 
+</div>
+
 
 1) Create an OpenSSL certificate
 2) Create an app within the Salesforce Org that you want to authenticate to
 3) Upload your SSL certificate to that Org
-4) Authenticate with that certificate for the first time (manually)
-5) Authenticate using the SSL private key 
+4) Authenticate using the SSL private key 
 
 ## Create an OpenSSL certificate
 
@@ -54,7 +58,7 @@ Click the save button.
 
 You will see, on the newly created app page' a `Consumer Key` - this is often called the `client_id` in the JWT specification. You will need this later on, so make a note of it. 
 
-[URL here for connected app screenshot]
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/51010452920/in/dateposted/" title="connected-app-01"><img src="https://live.staticflickr.com/65535/51010452920_64c13d64d8.jpg" width="500" height="240" alt="connected-app-01"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 ### Manage Profiles and Permission Sets for the Connected App 
 
@@ -64,8 +68,16 @@ Click 'Manage' at the top of the connected app, then 'Edit Policies'.
 
 In the 'OAuth Policies' section, choose 'Admin approved users are pre-authorized'. A dialogue warning box will appear. Accept the warning. Click save at the bottom of the page. 
 
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/51079734032/in/photostream/" title="connected-app-02PNG"><img src="https://live.staticflickr.com/65535/51079734032_2d160ef78f.jpg" width="500" height="127" alt="connected-app-02PNG"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
 Scroll down and click 'Manage Profiles'. Choose a profile that suits the needs of your connection. Then, click on 'Manage Permission Sets' and choose a permission set to use with this profile (or create one if necessary). 
 
-## Authenticate with that certificate for the first time (manually)
+## Authenticate using the SSL private key 
 
-Now that you have the app ready to accept connections, you need to authenticate initially 
+Now that you have the app ready to accept connections, you need to authenticate initially using a browser, or an API tool like Postman or Advanced Rest Client. For simplicity, we are going to use the browser. 
+
+Then, type in the command line 
+
+    sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ --jwtkeyfile=./server.key -u your-user@orgname-dedod.com
+
+You will then be authenticated to your organisation and will be able to type in commands. This method allows for CI/CD pipelines to authenticate themselves. 
