@@ -81,6 +81,8 @@ Now that you have the app ready to accept connections, you need to authenticate 
 
 Then, type in the command line 
 
-    sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ --jwtkeyfile=./server.key -u your-user@orgname-dedod.com
+    sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ \ 
+    --jwtkeyfile=./server.key \
+    -u your-user@orgname-dedod.com
 
 You will then be authenticated to your organisation and will be able to type in commands. This method allows for CI/CD pipelines to authenticate themselves. 
