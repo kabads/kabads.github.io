@@ -36,7 +36,9 @@ Generate a self-signed digital certificate from the server request (`.csr` file)
 
         openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
 
-## Create a Connected App in the Salesforce Org
+## Connected App in the Salesforce Org
+
+### Create a Connected App
 
 This connected app is the place where the SSL certificate is held and allows you to connect. Go to Setup, and type 'App' in the quick find box. Then click on 'App Manager' link. 
 
@@ -46,8 +48,24 @@ Under the 'API (Enable OAuth Settings)' click the checkbox for 'Enable OAuth Set
 
 Also click the 'Use Digital Signatures' checkbox. A 'Browse File' button will appear. Here you will need to upload your `server.crt` file that was created in the SSL stage. 
 
-In the 'Callback URL' enter `https://test.salesforce.com/oauth2/token`. 
+In the 'Callback URL' enter `https://test.salesforce.com/oauth2/token`. If you have a production org that you are connecting to, the `test` part should be replaced with `login`. 
 
 Click the save button. 
 
+You will see, on the newly created app page' a `Consumer Key` - this is often called the `client_id` in the JWT specification. You will need this later on, so make a note of it. 
+
 [URL here for connected app screenshot]
+
+### Manage Profiles and Permission Sets for the Connected App 
+
+The page will load, with your changes saved, but you still need to add information to this app to allow JWT to authenticate. 
+
+Click 'Manage' at the top of the connected app, then 'Edit Policies'. 
+
+In the 'OAuth Policies' section, choose 'Admin approved users are pre-authorized'. A dialogue warning box will appear. Accept the warning. Click save at the bottom of the page. 
+
+Scroll down and click 'Manage Profiles'. Choose a profile that suits the needs of your connection. Then, click on 'Manage Permission Sets' and choose a permission set to use with this profile (or create one if necessary). 
+
+## Authenticate with that certificate for the first time (manually)
+
+Now that you have the app ready to accept connections, you need to authenticate initially 
