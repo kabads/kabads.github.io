@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 4 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 4 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/page3/" />
 <link rel="next" href="http://localhost:4000/page5/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page4/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page4/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,89 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Mar 10, 2019</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Jun 16, 2019</span>
+      <h3>
+        <a class="post-link" href="/ruby/2019/06/16/learning-ruby-part-1.html">
+          Learning Ruby - First Impressions
+          
+
+        </a>
+      </h3><p>Chef is used in my place of work, and so as a result I started learning <a href="https://www.ruby-lang.org">Ruby programming language</a>. <img src="https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg" width="180" height="156" alt="ruby-icon" /></p>
+
+<p>I know some python (enough to get me by) but thought that knowing some Ruby would be a good development in my learning. This is an attempt an my first impressions of what is good for a beginner and what is not so good (from the perspective of someone coming from Python).</p>
+
+<h4 id="good-points">Good Points</h4>
+
+<p>Ruby is super easy to pick up and get going. Declaring methods and passing variables just works. Casting from one type of variabl to another just seems to happen seemlessly. Some beginners have this problem in Python, but Ruby removes all this worry from the developer and it <em>just works</em> (I’m expecting Pythonistas to hate on me here, as it does work flawlessly in Python, but feels more complex to me). Also, the <a href="https://ruby-doc.org/core-2.6.3/Enumerable.html">.each</a> method is really nice. Being able to do this, just feels good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array.each do |item|
+   item.do_some_stuff
+end
+</code></pre></div></div>
+
+<p>This makes sense and does read really well.</p>
+
+<p>I really like the string interpolation - again, from a beginner’s perspective, this just works out of the box and makes sense:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name = "Alfie Spoons"
+puts "Hello #{name}."
+</code></pre></div></div>
+
+<p>The way this works so intuitively, helped me realise that this was designed with the developer in mind.</p>
+
+<p>I usually try to write a few simple programs before I make a judgement - these usually include a command line calcultor (which takes two numbers and an operator and then checks them and goes through the obligatory operator check to work out which function/method needs to receive the two numbers). Another one is a ‘guess the number’ game, where a random number is created andthen the user has to try and guess it with the fewest guesses (guesses being counted), whilst the only feedback is “You guessed too high/low”. For this I really liked the concept of:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win = false 
+until win do
+    ....
+end
+</code></pre></div></div>
+
+<p>Again, this feels intuitive. I know this can be done with a while, but the command until kind of makes sense.</p>
+
+<h4 id="quirks">Quirks</h4>
+
+<p>Not everything is that great - there is always a downside to a language. In this case it’s blocks. Now, I’m not sure if I understand code blocks at the moment, when compared to Python functions. I think they are similar to functions, and they work with the command yield (so they can be passed around), but they are not quite as intuitive as passing around a function in Python (where it really is that easy to pass a function in to code as though it’s a variable.</p>
+
+<p>Also, when working with a virtual environment (the equivalent of venv in Python), it doesn’t feel like you are in a new environment, when Python makes it clear that you have new environment variables. This is what made me give up on the blogging platform <a href="https://www.jekyllrb.com">Jekyll</a> as installing it became a pain with its dependencies that would mess up other applications that I used. However, since <a href="https://bundler.io">bundler</a> has been developed and introduced, it’s easier now to run different commands with a bundle of depenedencies.</p>
+
+</li><li><span class="post-meta">Jun 15, 2019</span>
+      <h3>
+        <a class="post-link" href="/2019/06/15/using-pycharm-for-devops.html">
+          Using Pycharm/RubyMine for Devops
+          
+
+        </a>
+      </h3><p>Jetbrains offer a range of products that allow you to write programs, with their offering being more like an IDE, rather than a text editor.</p>
+
+<p>This post reviews the usage of these products stand up in a DevOps role.</p>
+
+<p>Terraform is a must for most stacks that use AWS.</p>
+</li><li><span class="post-meta">Jun 11, 2019</span>
+      <h3>
+        <a class="post-link" href="/2019/06/11/chernobyl-a-review.html">
+          Chernobyl - A Review
+          
+
+        </a>
+      </h3><p>Chernobyl has screened on Sky Atlantic over the last few weeks. It represents a dramatic representation of the disaster back in 1986, which for a lot of people, is still in living memory.</p>
+
+<p>The people who staffed the reactor experienced an explosion during a test around 1:25am. They didn’t expect this to happen. The whole incident led to an explosion that devastated the surrounding areas with radioactive contamination. This acts as the backdrop for the drama written by Craig Mazin. The plot unfolds from a wide range of angles, from those who live nearby, to miners who are trucked in to stop the radiation leaking in to the ground under the reactor. Each story is driven with a personal narrative, and the desperation of the situation soon unfolds.</p>
+
+<p>For those people who were watching the news at the time, things did look bleak and uncertain as to what would happen. The film allows us to see things that we couldn’t see at the time due to the secret nature of the Soviet Union. The authorities at the time wanted to cover up the way the reactor had been engineered, which led to the disaster. All of this is beautifully, yet hauntingly revealed to us through the film. Paul Ritter does a sterling job of playing the part of Dyatlov, the engineer who was in denial early on that anything bad had happened, and ordered his colleague to go and have a look at the reactor to report back on how it looked.</p>
+
+<p>However well Ritter did in his role, he would not be able to surpass Jared Harris, who played the scientist Legasov called in to help deal with the clean up and the reporting of the problem. His personal anguish is evident as the nature of the events unfold.</p>
+
+<p>Teams of military are portrayed in the ‘most dangerous place on Earth’ as they clean up the debris on the roof of the exploded reactor building. Wild animals are ‘controlled’ as they…</p>
+
+<p>To top this, the direction and attention to detail, really pays this medium justice as it feels like you are really watching the events as they happened. This is a testament to those people who really were there. Had this drama been hammed up in any way, it would have disrespected their personal sacrifice. Unfortunately, this film had to be made, but hopefully the lessons from it will mean that as a species, we don’t have to face anything like this again.</p>
+</li><li><span class="post-meta">Mar 10, 2019</span>
       <h3>
         <a class="post-link" href="/sysadmin/2019/03/10/using-fujitsu-snapscan-s1300i-on-arch.html">
           Setting Up Fujitsu Snapscan S1300i on Arch Linux
@@ -44,6 +120,19 @@
 
         </a>
       </h3><p>I have bought a Fujitsu Snapscan S1301i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I’m pleased with it, but the initial thought when I got it home was, ‘how am I going to get it working with Arch Linux?’ <!--more--></p>
+
+<p>Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.nal - which is only available from installing the file on a windows machine. If you wish to download it, you can from this <a href="https://drive.google.com/open?id=1X7fUpu6cM4ow_D9QqAKVvHIGVWOmhvK7">GDrive link</a> - put that file in the directory /usr/share/sane/epjitsu (on Arch Linux).</p>
+
+<p>Now, edit the /etc/sane.d/epjitsu.conf file - you need to include the settings found at http://www.sane-project.org/cgi-bin/driver.pl?manu=fujitsu&amp;model=scansnap&amp;bus=any&amp;v=&amp;p= 0x04c5/0x128d -</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Fujitsu S1300i
+firmware /usr/share/sane/epjitsu/1300i_0D12.nal
+usb 0x04c5 0x128d
+</code></pre></div></div>
+
+<p>Once you’ve done this, you may need to test the config with superuser rights (sudo gscan2pdf).</p>
+
+<p>Running gscan2pdf will present you with a choice of scanners - for some reason gscan2pdf picks up my in built camera, which I change to the Fujitsu. To scan duplex you will need to change the settings to standard_tab &gt; scan source_dropdown= ADF- Duplex.</p>
 </li><li><span class="post-meta">Aug 27, 2018</span>
       <h3>
         <a class="post-link" href="/sysadmin/2018/08/27/setting-up-mysql-replication.html">
@@ -52,30 +141,97 @@
 
         </a>
       </h3><p>MySQL replication is a good thing to have. It provides greater resilience and removes a single point of failure. By following these steps, you will create a replica of a master server, acting as a permanent backup in the case of a DR scenario.</p>
-</li><li><span class="post-meta">Aug 11, 2018</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2018/08/11/configure-autofs.html">
-          Configure Autofs on Arch Linux
-          
 
-        </a>
-      </h3><p>Autofs is a way of auto-mounting devices to a running system. Theses steps will walk through enabling it on an Archlinux system.</p>
-</li><li><span class="post-meta">Aug 4, 2018</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2018/08/04/working-with-terraform.html">
-          Working with Terraform
-          
+<h3 id="introduction">Introduction</h3>
 
-        </a>
-      </h3><p>Terraform is a cloud orchestration scripting language. This allows the capturing of cloud infrastructure. Instead of relying on your network and resources to be sat whilst you work on other projects, by using terraform, you can tear-down your infrastructure and then create it again from where you left of (saving money on the infrastructure that would be incurring a cost).</p>
-</li><li><span class="post-meta">Mar 18, 2018</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/emacs/2018/03/18/sync-google-calendar-with-org-agenda.html">
-          Sync Google Calendar With Org Agenda
-          
+<p>MySQL servers can be a single point of failure if you have not set up a good back-up infrastructure. It is difficult to get a good back-up infrastructure in place, without some time spent out of service. However, a MySQL replication server avoids this downtime.</p>
 
-        </a>
-      </h3><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/40931410022/in/datetaken/" title="screen"><img src="https://farm1.staticflickr.com/790/40931410022_e1823676da.jpg" width="500" height="316" alt="screen" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p>One server will act as the master, and the other will act as slave. The slave will be paused and then backed up.</p>
+
+<h3 id="benefits-of-running-a-replicated-mysql-server">Benefits of running a replicated MySQL server:</h3>
+
+<ul>
+  <li>Remove single point of failure adding high availability</li>
+  <li>Improved performance if applications can use the read-only server (think data querying)</li>
+</ul>
+
+<p><img src="https://s3.eu-west-2.amazonaws.com/kabads.monkeez.org/images/mysql_replication.png" alt="Master/Slave Server diagram" /></p>
+
+<h3 id="conifgure-the-master-mysql-server">Conifgure the Master MySQL server</h3>
+<p>The master is the live database that is serving your users. To back this up on it’s own, you will have to stop transactions on the server and then carry out the backup. In a lot of high availability environments, this is not an option. However, you can prepare your master MySQL server to send those transactions to a different server.</p>
+
+<p>In <code class="highlighter-rouge">/etc/my.conf</code> add the following lines:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>log-bin       = master-bin
+log-bin-index = master-bin.index
+server-id      = 1
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">log-bin</code> directive tells mysql to store a binary log. This binary log is what makes replication easy and quick. We also have a <code class="highlighter-rouge">log-index</code>. The binary log tells the other server the events that are happening on the master server.</p>
+
+<p>You can watch the binary log file with the mysql prompt with <code class="highlighter-rouge">SHOW BINLOG EVENTS\G;</code>. However, to find out which binlog file is currently being written to you should enter <code class="highlighter-rouge">SHOW MASTER STATUS;</code> and then <code class="highlighter-rouge">SHOW BINLOG EVENTS IN 'master-bin.000002'\G;</code> (or whatever file was returned from the master status command.</p>
+
+<p>If you added the replication config lines above after creating the server, as opposed to when you first set the server up, you will need to restart the mysql server:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service mysql-server restart
+</code></pre></div></div>
+
+<p>Then you will need to login to the MySQL command prompt:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root
+</code></pre></div></div>
+
+<p>Next, it is good practise to create a user for replication that only has access rights for the IP range for the subnet where the slave server is.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE USER repl_user; 
+GRANT REPLICATION SLAVE ON *.*
+TO repl_user IDENTIFIED BY 'password';
+</code></pre></div></div>
+
+<p>This user will have access to retrieve the binary log from the master server.</p>
+
+<h3 id="configuring-the-mysql-slave-server">Configuring the MySQL slave Server</h3>
+
+<p>Again, we need a user that has certain privileges on the slave server.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GRANT REPLICATION, SLAVE, RELOAD, CREATE USER, SUPER ON *.* TO user@'1.2.3.%' WITH GRANT OPTION;
+</code></pre></div></div>
+
+<p>Next, you will have to log in to the slave mysql server and issue the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CHANGE MASTER TO MASTER_HOST = '1.2.3.4', MASTER_PORT = 3306, MASTER_USER = 'repl_user', MASTER_PASSWORD = 'password';
+START SLAVE;
+</code></pre></div></div>
+
+<p>Any changes for new databases on the master server will now be replicated on the slave server.</p>
+
+<h3 id="enabling-replication-on-an-existing-database">Enabling replication on an existing database</h3>
+
+<p>If you already have a database on the master server, that you also want to replicate, you will need to copy it over to the slave database.</p>
+
+<p>If the database is relatively small (i.e. less than 50MB), then the <code class="highlighter-rouge">mysqldump</code> command will work. Shutdown the database first to ensure data integrity.</p>
+
+<p><code class="highlighter-rouge">mysqldump -u root -p databasename &gt; file.sql</code></p>
+
+<p>If the dataset is large, then it will be better to create an archive of the files and then transfer that over to the slave machine and restart the server there. Firstly, you should shutdown the mysql server.</p>
+
+<p>Then, on the slave server, copy the files in the database directory (usually <code class="highlighter-rouge">/var/lib/mysql</code>). You can then tar that and then copy to the slave server and extract there. If there are large differences between the configuration files between the servers, then this might not work.</p>
+
+<h3 id="carry-out-the-backup">Carry out the backup</h3>
+<p>Now that we have a slave, we can take point in time back-ups by stopping the slave and pausing transactions (although transactions are still ongoing on the master server).</p>
+
+<ol>
+  <li>
+    <p>Shut down the server <code class="highlighter-rouge">sudo service mysql-server stop</code></p>
+  </li>
+  <li>
+    <p>Copy the data files to a secure off-site location (in this case, Amazon S3) <code class="highlighter-rouge">sudo aws s3 sync --delete /var/lib/mysql s3://bucket-name/</code></p>
+  </li>
+  <li>
+    <p>Restart the server <code class="highlighter-rouge">sudo service mysql-service start</code></p>
+  </li>
+</ol>
+
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -85,7 +241,7 @@
   
   <a href="/page3/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 4 of 27</span>
+  <span class="page_number ">Page: 4 of 28</span>
   
   <a href="/page5/" class="next">Next</a>
   

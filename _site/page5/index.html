@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 5 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 5 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/page4/" />
 <link rel="next" href="http://localhost:4000/page6/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page5/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page5/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,139 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Mar 13, 2018</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Aug 11, 2018</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2018/08/11/configure-autofs.html">
+          Configure Autofs on Arch Linux
+          
+
+        </a>
+      </h3><p>Autofs is a way of auto-mounting devices to a running system. Theses steps will walk through enabling it on an Archlinux system.</p>
+
+<h1 id="what-is-autofs">What is Autofs?</h1>
+<p>It mounts a filesystem that is not always connected (e.g. network or device). Once a connection is made to that device, then autofs will handle the mounting of that device. It can also handle unmounting of a device, if it becomes unavailable. <code class="highlighter-rouge">/etc/fstab</code> automatically tries to mount during boot - however, it won’t try to mount once a device is connected after boot. You may boot whilst you have no network access - this means that you won’t be able to mount that device. However, autofs will look after that, once you connect to the network (after boot).</p>
+
+<h1 id="install-the-package">Install the package</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S autofs
+</code></pre></div></div>
+
+<h1 id="configure-the-master-autofs">Configure the master autofs</h1>
+
+<p>In the file <code class="highlighter-rouge">/etc/autofs/auto.master</code> add:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/autofs		/etc/autofs/auto.misc
+</code></pre></div></div>
+
+<p>Each line in the file has three fields - the first two being mandatory, and the last being optional. The first is the mount-point - where will it get mounted. The second is the map-file that is a template. The last one is a time field.</p>
+
+<p>You can also pass the <code class="highlighter-rouge">--timeout=30</code> at the end of the file which means it will be unmounted after that time of not being used.</p>
+
+<h1 id="configure-the-automisc-file">Configure the <code class="highlighter-rouge">auto.misc</code> file</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usb     	-fstype=ntfs            :/dev/sdc2
+</code></pre></div></div>
+
+<p>Start the service to test:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start autofs.service
+</code></pre></div></div>
+
+<p>And then enable so that it will run at boot:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable autofs. service 
+</code></pre></div></div>
+
+<p>You will need to attempt to use the filesystem for it to mount</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /mnt/usb
+</code></pre></div></div>
+
+<p>and the disc should mount.</p>
+
+</li><li><span class="post-meta">Aug 4, 2018</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2018/08/04/working-with-terraform.html">
+          Working with Terraform
+          
+
+        </a>
+      </h3><p>Terraform is a cloud orchestration scripting language. This allows the capturing of cloud infrastructure. Instead of relying on your network and resources to be sat whilst you work on other projects, by using terraform, you can tear-down your infrastructure and then create it again from where you left of (saving money on the infrastructure that would be incurring a cost).</p>
+
+<p>Another advantage is that what you are creating is a resource for the project that is reproducible. You can show the team the work that you’ve completed and even also create documentation alongside, or within the resorce.</p>
+</li><li><span class="post-meta">Mar 18, 2018</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/emacs/2018/03/18/sync-google-calendar-with-org-agenda.html">
+          Sync Google Calendar With Org Agenda
+          
+
+        </a>
+      </h3><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/40931410022/in/datetaken/" title="screen"><img src="https://farm1.staticflickr.com/790/40931410022_e1823676da.jpg" width="500" height="316" alt="screen" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>I use <a href="https://orgmode.org">org-mode</a> an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my <a href="https://orgmode.org/manual/Agenda-commands.html">org-agenda</a>. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It’s pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.</p>
+
+<p>The package <a href="https://github.com/myuhe/org-gcal.el">org-gcal</a> provides two way syncing with Google Calendar (and has other documentation).</p>
+
+<p>This is how I did it.</p>
+
+<h2 id="install-org-cal">Install org-cal</h2>
+
+<p>Using elpa, I installed the package:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M-x package-list
+</code></pre></div></div>
+
+<p>Highlight the <code class="highlighter-rouge">org-gcal</code> package and install.</p>
+
+<h2 id="create-api-credentials">Create Api Credentials</h2>
+
+<p>Then, go to google and get credentials to access your calendar. You will need to go to the <a href="https://console.developers.google.com/cloud-resource-manager">google developers portal</a> where you may need to enable the developers’ api. You will need to find Api &amp; Services and then click on credentials. You will create some OAuth 2.0 client IDs credentials - one being the API key and the other being a secret. Make a note of these, or download the JSON file that Google provides.</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/26101808357/in/datetaken/" title="Screenshot-2018-3-23 Credentials - org-gcal"><img src="https://farm1.staticflickr.com/799/26101808357_5446e2c69d.jpg" width="500" height="229" alt="Screenshot-2018-3-23 Credentials - org-gcal" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Enable these credentials for Google Calendar.</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/40931425052/in/datetaken/" title="Screenshot-2018-3-23 APIs Services - org-gcal"><img src="https://farm1.staticflickr.com/818/40931425052_9051ec90df.jpg" width="500" height="241" alt="Screenshot-2018-3-23 APIs Services - org-gcal" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2 id="identify-calendar">Identify Calendar</h2>
+
+<p>Then, the README for org-cal tells you to find the link for your calendar. This didn’t work for me. Instead, I found the link in the url in the address bar of my browser (click on the image to see more detail):</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/40263945734" title="url"><img src="https://farm1.staticflickr.com/805/40263945734_3272338f4e_c.jpg" width="800" height="105" alt="url" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2 id="create-settings">Create settings</h2>
+
+<p>(require ‘org-gcal)
+   (setq org-gcal-client-id “your-id-foo.apps.googleusercontent.com”
+      org-gcal-client-secret “your-secret”
+      org-gcal-file-alist ‘((“your-mail@gmail.com” .  “~/schedule.org”)
+                            (“another-mail@gmail.com” .  “~/task.org”)))</p>
+
+<p>Copy that string in to your <code class="highlighter-rouge">~.emacs</code> file, substituting the proper parts (your org-gcal-client-id and secret and the files that you wish to create when you sync).</p>
+
+<p>Save the file and then execute <code class="highlighter-rouge">M-x load-file &lt;RET&gt;.emacs</code> to reload this file.</p>
+
+<h2 id="sync-and-org-agenda-file-to-front">Sync and org-agenda-file-to-front</h2>
+
+<p>Now you need to sync your calendar, which will create a new org file (as you specified in the settings.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M-x org-gcal-sync
+</code></pre></div></div>
+
+<p>Once that file is created open it <code class="highlighter-rouge">C-x C-f</code> &lt;/path/to/file&gt; <RET>` and then `M-x org-agenda-file-to-front`. This command will include the new file.</RET></p>
+
+<p>You can also create a hook to run <code class="highlighter-rouge">org-gcal-sync</code> when you open your agenda by placing this snippet in your <code class="highlighter-rouge">.emacs</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+</code></pre></div></div>
+
+</li><li><span class="post-meta">Mar 13, 2018</span>
       <h3>
         <a class="post-link" href="/sysadmin/2018/03/13/moving-boot-partition.html">
           Moving Boot Partition (EFI/EPS partition)
@@ -44,6 +170,61 @@
 
         </a>
       </h3><p><a href="https://gparted.org/docs/moving-space-between-partitions/C/figures/9823OS_14_03.png"> <img src="https://gparted.org/docs/moving-space-between-partitions/C/figures/9823OS_14_03.png" width="200" height="150" alt="Moving partitions can cause your system to not boot" /> </a></p>
+
+<p>If you’ve been using Linux for a few years, you’ll probably remember that 100MB for a /boot partition was no problem. However, that has changed. Whilst you don’t need a datacentre for a /boot partitions, you might want to install other kernels to help you tweak your system and yet not delete kernels that you are using.</p>
+
+<p>This article makes a few assumptions - you will be using systemd-boot to boot and you are familiar with resizing partitions, mounting them and moving files around.</p>
+
+<p>You will need to use gparted to resize a partition to free some space up. This is to create a new EFI partition. This is where the kernels have to live (if you are using systemd-boot) along with the efi files. Using gparted, you can make a partition somewhat smaller, especially if that partition isn’t completely full. With the free space you have, use gdisk to create a new EFI partition.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gdisk /dev/sdb
+</code></pre></div></div>
+
+<p>With gdisk, give that partition a file type of <code class="highlighter-rouge">ef00</code>.</p>
+
+<p>Your new partition will have a new letter - to save a reboot you can issue partprobe to pick up the new partition - in this case <code class="highlighter-rouge">/dev/sdb5</code>.</p>
+
+<p>Then once you’ve created the new partition, it will need a file system.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkfs.vfat -F32 /dev/sdb5
+</code></pre></div></div>
+
+<p>Mount that partition somewhere:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sdb5 /media/mountpoint 
+</code></pre></div></div>
+
+<p>Then, copy over all the files you have in your current boot partition.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp -R /boot/* /media/mountpoint/.
+</code></pre></div></div>
+
+<p>Then, run the bootctl command to install it. In my case, I will still using <code class="highlighter-rouge">gummiboot</code>, so I moved that directory out and then issued in the install command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bootctl --path=/media/mountpoint install
+</code></pre></div></div>
+
+<p>Then, you can change the filetype of your old EFI partition:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gdisk /dev/sdb1
+</code></pre></div></div>
+
+<p>Change the filetype to <code class="highlighter-rouge">8300</code> - this means it won’t be selected for boot.</p>
+
+<p>Ensure that the new boot partition is in your <code class="highlighter-rouge">/etc/fstab</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/sdb5 /boot 	 defaults 0 0
+</code></pre></div></div>
+
+<p>Time for reboot - have a live CD/DVD handy just in case.</p>
+
+<p>Once the system reboots, you can intall more kernels and have fun messing around withem.</p>
+
+<p>In my case, I had to copy a file in the loader directory in <code class="highlighter-rouge">/boot</code> partition to create a new conf file for my <code class="highlighter-rouge">linux-lts</code> kernel.</p>
+
+<p>** Further reading</p>
+
+<p>If you want to get this project underway, you will need more information than just this post - I can highly recommend the <a href="https://wiki.archlinux.org/index.php/Systemd-boot">the ArchLinux Wiki</a>.</p>
 </li><li><span class="post-meta">Feb 11, 2018</span>
       <h3>
         <a class="post-link" href="/cycling/2018/02/11/cycle-jaunt-around-bath.html">
@@ -52,30 +233,8 @@
 
         </a>
       </h3><p>Sunday involved a train ride to bath with a Brompton in fold, and then cycling around the Two Tunnels circular route. A quick stop at <a href="http://hopeandanchormidford.co.uk">The Hope and Anchor</a> pub to avoid the sleet and get a quick half-way coffee, is highly recommended.</p>
-</li><li><span class="post-meta">Jan 31, 2018</span>
-      <h3>
-        <a class="post-link" href="/cycling/2018/01/31/cycling.html">
-          Cycling on a Brompton
-          
 
-        </a>
-      </h3><p>So, I’ve just started cycling to work, when I need to on a Brompton. Here are the issues I’ve faced.</p>
-</li><li><span class="post-meta">Oct 3, 2017</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2017/10/03/AWS-how-to-automatically-launch-apache-with-your-site-content.html">
-          How to create an instance that pulls your website content automatically
-          
-
-        </a>
-      </h3><p>Amazon Web Services allows you to spin up instances very quickly. This how to will show you how to upload your content to a S3 bucket and then launch an instance that pulls that content in and starts Apache to serve that content.</p>
-</li><li><span class="post-meta">Sep 20, 2017</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2017/09/20/how-to-create-a-vpc.html">
-          AWS - How to Create A VPC
-          
-
-        </a>
-      </h3><p>AWS allows you to create your own virtual private cloud (or <a href="https://en.wikipedia.org/wiki/Virtual_private_cloud">VPC</a>). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups.</p>
+<p><a data-flickr-embed="true" href="https://secure.flickr.com/photos/kabads/albums/72157669458021059" title="Cycle Jaunt around Bath"><img src="https://farm5.staticflickr.com/4626/28426294529_b92230306f_z.jpg" width="640" height="640" alt="Cycle Jaunt around Bath" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -85,7 +244,7 @@
   
   <a href="/page4/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 5 of 27</span>
+  <span class="page_number ">Page: 5 of 28</span>
   
   <a href="/page6/" class="next">Next</a>
   

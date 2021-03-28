@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 2 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 2 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/" />
 <link rel="next" href="http://localhost:4000/page3/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page2/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page2/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,226 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Dec 31, 2019</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Mar 30, 2020</span>
+      <h3>
+        <a class="post-link" href="/cycling/2020/03/30/bikepacking-prep.html">
+          Bike-packing preparation
+          
+
+        </a>
+      </h3><p>Due to covid-19, we are all currently in lock-down. I was planning to go bike-packing this spring, but cannot get out. But that didn’t stop me from having some fun in the garden with a tarpauline:  <a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/49716142093/in/datetaken/" title="IMG_20200329_165257"><img src="https://live.staticflickr.com/65535/49716142093_74702e341f_n.jpg" width="320" height="240" alt="IMG_20200329_165257" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+</li><li><span class="post-meta">Mar 19, 2020</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2020/03/19/rsyslog-listening-to-socket.html">
+          Rsyslog configured to monitor journald /run/systemd/journal/syslog socket
+          
+
+        </a>
+      </h3><p>Rsyslog (aka syslog) can pull in logs from journald, via the socket (using imuxsock module) or a specific module that taps in to a socket that is journald runs (imjournal) with very little config. imjournal specialises in logging that is structured (e.g. logs that follow json structure) and then filtering or querying logs. As a result, imjournal is more expensive.  These modules are already loaded by default inrsyslog.conf file and do not need adding in any other configuration files.</p>
+
+<p>To use a socket (<code class="highlighter-rouge">imuxsock</code>) module instead of the <code class="highlighter-rouge">imjournal</code> module, turn off persistent logging in journald by removing the directory <code class="highlighter-rouge">/var/log/journal</code> and setting <code class="highlighter-rouge">Storage=auto</code> in <code class="highlighter-rouge">/etc/systemd/journal.conf</code>. Once you restart journald, it will not write logs to disk, but instead to a virtual file location in <code class="highlighter-rouge">/run/systemd/journal</code>. This runs the risk that we may lose some logs if they are not persisted. Therefore, we need to get rsysolg to moniter this socket (thereby writing them to disk and to papertrail at the same time).</p>
+
+<p>Rsyslog has two ways of pulling in journald logs. One is through a module called <code class="highlighter-rouge">imjournal</code> which is good as structuring log files. However, another more lightweight method is through creating a socket <code class="highlighter-rouge">/run/systemd/journal/syslog</code>. This socket is less expensive.</p>
+
+<p>To create this socket, you need to look at the systemd unit file for rsyslog.</p>
+
+<p>Two lines are usually commented out (with the character ‘;’).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+...
+;Requires=syslog.socket
+...
+[Install]
+WantedBy=multi-user.target
+;Alias=syslog.service
+</code></pre></div></div>
+
+<p>Remove the ; characters and restart syslog with <code class="highlighter-rouge">systemctl restart rsyslog</code> and the <code class="highlighter-rouge">/run/systemd/journal/syslog</code> file should be there.</p>
+
+<p>If you are coming from a default CentOS install, rsysolg will keep a position of where it is in the journal log. This can cause problems whilst configuring the socket. By deleting the state file, <code class="highlighter-rouge">/var/log/rsyslog/imjournal.state</code>, you will prevent these problems. Once you restart rsyslog, this file will be recreated with the new journal position (which is something we don’t need to worry about, but rsyslog may throw errors if you don’t force this ‘refresh’).</p>
+
+<p>Once you have a fresh state, you need to create a virtual file <code class="highlighter-rouge">/run/systemd/journal/syslog</code> - once this is in place, rsyslog is ready to pull logs from journald. To create this socket/file, you need to look at the systemd unit file for rsyslog <code class="highlighter-rouge">/lib/systemd/system/rsyslog.service</code>.</p>
+
+<p>Remove the comment ( ; ) characters and restart syslog with systemctl restart rsyslog and the /run/systemd/journal/syslog file should be there.</p>
+
+<p>Then a directive needs to be set for rsyslog to look at that socket, so this line should be included in rsyslog config (preferably /etc/rsyslog.d/##-journald.conf):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/rsyslog.d/48-journal.conf
+$SystemLogSocketName /run/systemd/journal/syslog
+</code></pre></div></div>
+
+<p>There is also a symlinked file held by systemd that lets rsyslog manage the /run/sytemd/journal/syslog socket. This file can be symlinked with <code class="highlighter-rouge">ln -s /lib/systemd/system/rsyslog.service /etc/systemd/system/syslog.service</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/systemd/system/syslog.socket
+
+[Unit]
+Description=System Logging Service
+Requires=syslog.socket
+Wants=network.target network-online.target
+After=network.target network-online.target
+Documentation=man:rsyslogd(8)
+Documentation=http://www.rsyslog.com/doc/
+
+[Service]
+Type=notify
+EnvironmentFile=-/etc/sysconfig/rsyslog
+ExecStart=/usr/sbin/rsyslogd -n $SYSLOGD_OPTIONS
+Restart=on-failure
+UMask=0066
+StandardOutput=null
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=syslog.service
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">/etc/rsyslog.conf</code> file should look like this (the change here is the <code class="highlighter-rouge">$OmitLocalLogging off</code> directive, which is usually on, but must be off for the rsyslog socket to work):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/rsyslog.conf
+$PreserveFQDN off
+
+#################
+#### MODULES ####
+#################
+$ModLoad imuxsock # provides support for local system logging - via logger command
+$ModLoad imklog # provides kernel logging support
+$ModLoad immark # provides --MARK-- message capability
+$ModLoad imjournal
+
+
+
+###########################
+#### GLOBAL DIRECTIVES ####
+###########################
+
+
+#
+# Use traditional timestamp format.
+# To enable high precision timestamps, comment out the following line.
+#
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+# Filter duplicated messages
+$RepeatedMsgReduction on
+
+#
+# Set temporary directory to buffer syslog queue
+#
+$WorkDirectory /var/lib/rsyslog
+
+#
+# Set the default permissions for all log files.
+#
+$FileOwner root
+$FileGroup root
+$FileCreateMode 0600
+$DirCreateMode 0755
+$Umask 0022
+
+#
+# Set other directives
+#
+$OmitLocalLogging off
+$IMJournalStateFile imjournal.state
+</code></pre></div></div>
+
+<p>The journald.conf file needs one change (without this change, most logs will be logged twice - once by rsyslog itself and then also by journald sending it to rsyslog:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/systemd/journald.conf
+...
+ForwardToSyslog=no
+...
+</code></pre></div></div>
+
+<p>After restarting both journald (<code class="highlighter-rouge">systemctl restart systemd-journald</code>) and rsyslog (<code class="highlighter-rouge">systemctl restart rsyslog</code>) you will be able to test both logs with <code class="highlighter-rouge">journalctl -f</code> and <code class="highlighter-rouge">tail -f /var/log/messages</code> - then issue the command <code class="highlighter-rouge">logger -p daemon.warn "This is only a test."</code>.</p>
+
+<p>This should be written to both logs at the same time.</p>
+
+</li><li><span class="post-meta">Jan 3, 2020</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2020/01/03/selinux-users-roles-types.html">
+          SELinux Users, Roles, and Types
+          
+
+        </a>
+      </h3><p>SELinux contexts follow the SELinux user:role:type:level syntax.</p>
+
+<h3 id="users">Users</h3>
+
+<p>Users can be seen with the command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage user -l
+</code></pre></div></div>
+
+<p>This will show the list of SELinux users, and is mapped to Linux users. If a Linux user is not listed then they are associated with the <code class="highlighter-rouge">__default__</code> SELinux user and inherit those rights.</p>
+
+<h3 id="roles">Roles</h3>
+
+<p>Role based access control is a go-between from the user to the domain. By assigning roles, a user can access particular domains. This determines which domains can be accessed by the SELinux user. The role dictates what domains (types, or contexts) it is possible to be in.</p>
+
+<p>To find out which domains (roles) a user is approved for:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>seinfo -ruser_r -x 
+</code></pre></div></div>
+
+<p>Users can switch roles if they want. However, they can only do this if their SELinux is allowed to be in that role. You can check if this is allowed with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage user -l
+</code></pre></div></div>
+
+<p>This will list a user and the roles that they are allowed to switch to. Obviously for this to work, the Linux user has to have the corresponding SELinux username when they issue <code class="highlighter-rouge">id -Z</code>.</p>
+
+<h3 id="type">Type</h3>
+
+<p>The type is an attribute of Type Enforcement. The type defines a domain for processes, and a type for files. SELinux policy rules define how types can access each other, whether it be a domain accessing type, or a domain accessing another domain. Usually types are defined by the suffix <code class="highlighter-rouge">_t</code>. Rather than have many many rules which identify the access between actor and object (e.g. user and file), SELinux has a label attached to each actor and object, which specifies whether the actor is allowed access to the object. The rule specifies if the actor has a label that allows access to the objects (with that label).</p>
+
+<h3 id="domains">Domains</h3>
+
+<p>In SELinux labels assigned to a process is also called a <code class="highlighter-rouge">domain</code>. An example of an SELinux domain is <code class="highlighter-rouge">system_u:system_r:named_t</code>, although that is often reduced to just the type-part, i.e. <code class="highlighter-rouge">named_t</code>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>This table represents the structure of a label:</p>
+
+<p><code class="highlighter-rouge">system_u:object_r:lib_t</code> associates with an actor <code class="highlighter-rouge">user_u:user_r:user_t</code> in the following way:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="highlighter-rouge">system_u</code></th>
+      <th>:</th>
+      <th><code class="highlighter-rouge">object_r</code></th>
+      <th>:</th>
+      <th><code class="highlighter-rouge">lib_t</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SELinux User</td>
+      <td>:</td>
+      <td>SELinux Role</td>
+      <td>:</td>
+      <td>SELinux Type</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">user_u</code></td>
+      <td>:</td>
+      <td><code class="highlighter-rouge">user_r</code></td>
+      <td>:</td>
+      <td><code class="highlighter-rouge">user_t</code></td>
+    </tr>
+  </tbody>
+</table>
+</li><li><span class="post-meta">Dec 31, 2019</span>
       <h3>
         <a class="post-link" href="/sysadmin/2019/12/31/selinux.html">
           SELinux Permissions
@@ -44,6 +257,338 @@
 
         </a>
       </h3><p>SELinux (Security Enhanced Linux) is a linux kernel security module that provides a mechanism for supporting access control policies. This can support the protection from tampering and bypassing threats that might be possible with certain applications. SELinux checks permissions after the usual operating system permissions (user, groups and read/write/execute policies). If the local permissions succeeds, then SELinux checks for permissions.</p>
+
+<p>A Linux kernel that uses SELinux enforces mandatory access control policies that confine user programs and system services, also including file and network resources. If a program or daemon becomes compromised in an SELinux kernel space, then it is confined and limits the damage that can be caused.</p>
+
+<p>SELinux users and roles do not have to be related to the actual system users and roles. For every current user or process, SELinux assigns a three string context consisting of username, role and domain (or type). This system is more flexible than normally required.</p>
+
+<p>SELinux contexts follow the SELinux user:role:type:level syntax. To read more about users, roles and types, please refer to</p>
+
+<h3 id="working-with-selinux-modes">Working with SELinux Modes</h3>
+<p>SELinux has three modes:</p>
+<ul>
+  <li>Enforcing: Rules are enforced and violations are logged</li>
+  <li>Permissive: No rule enforcement, violations logged</li>
+  <li>Disabled: SELinux is not operational and no logging is enabled</li>
+</ul>
+
+<p>To find out which mode the current system is in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sestatus
+</code></pre></div></div>
+
+<p>You can also find out the config with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/selinux/config
+</code></pre></div></div>
+
+<p>(or, whatever SELinux root directory was identified in the previous command).</p>
+
+<p>Changing any of the settings in the above file will need a restart.</p>
+
+<p>To see the SELinux status of any particular file, pass the <code class="highlighter-rouge">-Z</code> flag to <code class="highlighter-rouge">ls</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -Z somefile 
+</code></pre></div></div>
+
+<p>Type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setenforce 0
+</code></pre></div></div>
+
+<p>which will turn off the enforce, but a reboot means that this will be ignored and a reboot would be in enforced mode.</p>
+
+<p>To change mode over a reboot edit <code class="highlighter-rouge">/etc/selinux/config</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELINUX=permissive
+</code></pre></div></div>
+
+<p>Now, when you look at status, you will see that both config file and current mode are permissive.</p>
+
+<p><code class="highlighter-rouge">setenforce</code> can only be set with <code class="highlighter-rouge">enforced</code> or <code class="highlighter-rouge">permissive</code> on the command line.’ <code class="highlighter-rouge">disabled</code> is allowed in the configuration file.</p>
+
+<h3 id="controlling-user-access">Controlling User Access</h3>
+<p>By default, all users are equal. User restrictions are not implemented. All users run as the <code class="highlighter-rouge">unconfined_u</code> SELinux user, without intervention.</p>
+
+<p>To create a new Linux user login and map it to an SELinux user, you can use the <code class="highlighter-rouge">useradd</code> command with the <code class="highlighter-rouge">-Z</code> flag:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd use1 -Z user_u
+</code></pre></div></div>
+
+<p>This will create a new Linux system user with the SELinux system rights of <code class="highlighter-rouge">user_u</code>.</p>
+
+<h4 id="selinux-user-capabilities">SELinux User Capabilities</h4>
+
+<p>The admin user pretty much has all rights.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>X-Windows</th>
+      <th>su/sudo</th>
+      <th>Execute /tmp ~</th>
+      <th>Networking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sysadm_u</td>
+      <td>yes</td>
+      <td>both</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>staff_u</td>
+      <td>yes</td>
+      <td>sudo</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>user_u</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>guest_u</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>xguest_u</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>Firefox</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">staff_u</code> can do everything apart from <code class="highlighter-rouge">su</code> (but can <code class="highlighter-rouge">sudo</code>). <code class="highlighter-rouge">user_u</code> can do everything apart from root escalation rights. <code class="highlighter-rouge">guest_u</code> can do nothing. <code class="highlighter-rouge">xguest_u</code> can use Firefox as the only command process that uses networking.</p>
+
+<p>To see what user we are use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>id -Z
+</code></pre></div></div>
+
+<p>Usually, on a default install, a user is <code class="highlighter-rouge">unconfined_u</code>.</p>
+
+<p>To see the users for SELinux type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage user -l 
+</code></pre></div></div>
+
+<p>To list the changes that are still locally applied (not yet in the config):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage login -C -l 
+</code></pre></div></div>
+
+<p>Linux user accounts are mapped to SELinux users. We can use the <code class="highlighter-rouge">login</code> option to list out these mappings:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage login -l 
+</code></pre></div></div>
+
+<p>will give the output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Login Name           SELinux User         MLS/MCS Range        Service
+
+__default__          unconfined_u         s0-s0:c0.c1023       *
+root                 unconfined_u         s0-s0:c0.c1023       *
+system_u             system_u            s0-s0:c0.c1023       *
+</code></pre></div></div>
+
+<p>showing that <code class="highlighter-rouge">__default__</code> is <code class="highlighter-rouge">unconfined_u</code>. This means there are no restrictions in place to any new accounts that are added to this machine. It is a good idea to stop this behaviour and change the <code class="highlighter-rouge">__default__</code> to <code class="highlighter-rouge">user_u</code> privileges.</p>
+
+<p>Changing the default assignment will also affect all users previously assigned to it. To manage the assignment of an existing user with <code class="highlighter-rouge">semanage</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage login -m -s "user_u" -r s0 __default__
+</code></pre></div></div>
+
+<p>Now if you check your SELinux users, you will see that <code class="highlighter-rouge">__default__</code> is now assigned to the <code class="highlighter-rouge">user_u</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Login Name           SELinux User         MLS/MCS Range        Service
+
+__default__          user_u               s0                   *
+root                 unconfined_u          s0-s0:c0.c1023       *
+system_u             system_u             s0-s0:c0.c1023       *
+</code></pre></div></div>
+
+<p>NOTE: This will stop all users from gaining <code class="highlighter-rouge">su</code> and <code class="highlighter-rouge">sudo</code> access.</p>
+
+<p>To change this for a particular user:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage login -a -s unconfined_u lisa
+</code></pre></div></div>
+
+<p>This command means that lisa will now once again be able to gain root access.</p>
+
+<p>To list SELinux users we use the user option:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage user -l 
+</code></pre></div></div>
+
+<p>The task is to assign linux accounts to SELinux accounts. We can use the <code class="highlighter-rouge">-Z</code> option to useradd or modify the default assignment, which will affect new accounts.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd -Z guest_u bob
+</code></pre></div></div>
+
+<p>To change this later:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage login -a -s user_u bob
+</code></pre></div></div>
+
+<p>The two commands above firstly create a user bob and assign him to the guest_u user, and then the second command associates the username <code class="highlighter-rouge">bob</code> with the <code class="highlighter-rouge">user_u</code> SELinux user.</p>
+
+<h3 id="type-enforcement-rules">Type Enforcement Rules</h3>
+<p>A processes type (e.g. <code class="highlighter-rouge">httpd_t</code>) must have access to the objects type (e.g. <code class="highlighter-rouge">httpd_sys_content_t</code>). If this rule does not exist, then the process will not be able to access the files it needs (in this case the process httpd cannot access the html files that it needs to serve for requests).</p>
+
+<p>To find out how many allow rules there are issue:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>seinfo
+</code></pre></div></div>
+
+<p>To see a specific rule:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sesearch --allow -s httpd_t -t httpd_sys_content_t 
+</code></pre></div></div>
+
+<p>The processes for httpd are running as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps -Zp $(pgrep http)
+LABEL                             PID TTY      STAT   TIME COMMAND
+system_u:system_r:httpd_t:s0     1407 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1408 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1409 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1410 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1411 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     1412 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+</code></pre></div></div>
+
+<p>The files that are within the website for httpd to serve have the following SELinux attributes:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -Zd /var/www/html 
+drwxr-xr-x. root root system_u:object_r:httpd_sys_content_t:s0 /var/www/html
+</code></pre></div></div>
+
+<p>The specific rules for httpd are:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sesearch --allow -s httpd_t -t httpd_sys_content_t
+Found 29 semantic av rules:
+allow httpd_t httpd_sys_content_t : lnk_file { read getattr } ; 
+allow httpd_t httpd_sys_content_t : dir { ioctl read getattr lock search open } ; 
+allow httpd_t httpd_sys_content_t : file { ioctl read getattr lock map open } ; 
+allow httpd_t httpd_content_type : file { ioctl read getattr lock map open } ; 
+allow httpd_t httpd_content_type : dir { getattr search open } ; 
+allow httpd_t file_type : dir { getattr search open } ; 
+allow httpd_t file_type : filesystem getattr ; 
+allow daemon httpd_sys_content_t : dir { getattr search open } ; 
+allow httpd_t httpdcontent : file { ioctl read write create getattr setattr lock append unlink link rename open } ; 
+allow httpd_t httpdcontent : file { ioctl read getattr map execute execute_no_trans open } ; 
+allow httpd_t httpd_sys_content_t : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow domain file_type : lnk_file map ; 
+allow httpd_t httpd_content_type : lnk_file { read getattr } ; 
+allow domain file_type : file map ; 
+allow httpd_t httpd_content_type : file { ioctl read getattr lock open } ; 
+allow domain file_type : chr_file map ; 
+allow httpd_t httpd_content_type : dir { getattr search open } ; 
+allow httpd_t httpd_content_type : dir { getattr search open } ; 
+allow httpd_t httpd_content_type : dir { ioctl read getattr lock search open } ; 
+allow httpd_t httpd_content_type : dir { getattr search open } ; 
+allow domain file_type : blk_file map ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write create getattr setattr lock unlink link rename add_name remove_name reparent search rmdir open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
+allow httpd_t httpdcontent : lnk_file { ioctl read write create getattr setattr lock append unlink link rename } ;
+</code></pre></div></div>
+
+<p>What about changing the directory <code class="highlighter-rouge">/var/www/html</code> for the httpd server? This is where the <code class="highlighter-rouge">semanage-fcontext</code> command will come in.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage fcontext -a -t httpd_sys_content_t "/srvhttpd"
+restorecon -R -v /srvhttpd
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">restorecon</code> command is important as this will persistently set the directory across reboots.</p>
+
+<p>Configure httpd server to access a /srvhttpd directory. Then create the /srvhttpd directory:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -m 2750 /srvhttpd 
+chgrp apache /srvhttpd
+echo hello &gt; /srvhttpd/index.html 
+semanage fcontext -a -t httpd_sys_content_t /srvhttpd
+restorecon -R -v /srvhttpd
+</code></pre></div></div>
+
+<h3 id="working-with-booleans">Working with Booleans</h3>
+<p>Administrators can override SELinux enforced mode to get around problems. This can be a problem when you are trying to prevent opening up access. This can be prevented by requiring a reboot before a new mode is active. To do this you will need to set a boolean which prevents changing the mode without a reboot.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getsebool -a 
+</code></pre></div></div>
+
+<p>will show all the booleans that are in place for this runtime. The same can be achieved with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanage boolean -l | grep secure_mode_policyload
+</code></pre></div></div>
+
+<p>To change this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool secure_mode_policyload on 
+getsebool -a |grep policy
+
+The latter command confirms that the boolean is on. 
+If you want the boolean to take place over a reboot:
+
+setsebool -P secure_mode_policyload on
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">-P</code> sets this to be transient over a reboot.</p>
+
+<p>To find out which booleans are available on your system enter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>semanange boolean -l
+</code></pre></div></div>
+
+<p>To get more detailed descriptions of the booleans, install the package <code class="highlighter-rouge">selinux-policy-devel</code> package.</p>
+
+<p>By default, Apache is prevented from accessing any DB servers. The <code class="highlighter-rouge">httpd_can_network_connect_db</code> is off. To checkk this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getsebool httpd_can_network_connect_db
+</code></pre></div></div>
+
+<p>To temporarily enable this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool httpd_can_network_connect_db on 
+</code></pre></div></div>
+
+<p>This change is not persistent across reboots. To make a change that is persistent across reboots, use the <code class="highlighter-rouge">-P</code> flag:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool -P httpd_can_network_connect_db on 
+</code></pre></div></div>
+
+<h3 id="diagnosing-selinux-issues">Diagnosing SELinux Issues</h3>
+
+<p>You can pass <code class="highlighter-rouge">enforcing=0</code> on a grub command line (the line that loads the kernel) to change to permissive mode. This helps if there is difficulty in logging in. If necessary, this means that you can check the permissions of any files that may have changed.</p>
+
+<p>This may require a file to be created <code class="highlighter-rouge">/.autorelabel</code>, which will check through all the files and ensure that they are all relabeled according to the SELinux policies in place. Relabelling all the files can be time consuming and there is a quicker way by just relabelling the necessary files.</p>
+
+<p>If you find a question mark on <code class="highlighter-rouge">ls -Z file</code> then the file is unlabelled and cannot be verified by SELinux. To fix this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>restorecon -v filename 
+</code></pre></div></div>
+
+<p>This will bring the label to the file. The <code class="highlighter-rouge">restorecon</code> command is good for relabelling just one file, instead of having to go through the whole filesytem.</p>
+
+<h3 id="writing-custom-modules">Writing Custom Modules</h3>
+
 </li><li><span class="post-meta">Dec 30, 2019</span>
       <h3>
         <a class="post-link" href="/sysadmin/2019/12/30/setting-acl-linux-filesystem.html">
@@ -52,30 +597,45 @@
 
         </a>
       </h3><p>ACLs are a method for defining access to files and directories on a system. These can be set at the user level, group level, or via the effective rights mask.</p>
-</li><li><span class="post-meta">Nov 11, 2019</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2019/11/11/how-to-create-virtual-machines-qemu.html">
-          How to Create Virtual Machines With Qemu
-          
 
-        </a>
-      </h3><p>This post outlines the steps needed to create a qemu environment within a machine and install virtual machines in that environment.</p>
-</li><li><span class="post-meta">Aug 30, 2019</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2019/08/30/terraforming-loops.html">
-          Terraform and Loops - creating multiple resources
-          
+<p>The commands <code class="highlighter-rouge">getfacl</code> and <code class="highlighter-rouge">setfacl</code> are used to get and change ACL permissions respectively. If you are setting for a specific user then the text form of the attribute is <code class="highlighter-rouge">user:username:rwx</code>. If you want the permission to apply to the default user (or group) then you would use the text term <code class="highlighter-rouge">user::rwx</code></p>
 
-        </a>
-      </h3><p>Terraform is a great tool for creating infrastructure. It’s almost becoming the ‘de-facto’ standard. This post will outline how to create multiple resources with just one code block.</p>
-</li><li><span class="post-meta">Jul 28, 2019</span>
-      <h3>
-        <a class="post-link" href="/ruby/2019/07/28/arrays-with-ruby.html">
-          Ruby Arrays
-          
+<p>To check the status of any extended Access Control Lists:</p>
 
-        </a>
-      </h3><p>Ruby has extensive coverage for arrays (sometimes called lists if you are coming from a Python background). Arrays are for collecting information all in one place, or in a list. Arrays are sequential, which means that they don’t change order once set. Arrays are mutable (they can change items in the list).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getfacl filename
+</code></pre></div></div>
+
+<p>To update a file access control list, you would use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfacl -m u:lisa:r filename
+</code></pre></div></div>
+
+<p>This would give the user <code class="highlighter-rouge">lisa</code> read access to the file.</p>
+
+<p>Where a user is specified, this can also be done for a group:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfacl -m g:wheel:r filename
+</code></pre></div></div>
+
+<p>To remove access from a file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfacl -x filename
+</code></pre></div></div>
+
+<p>Note that this will remove all extended permissions from that file.</p>
+
+<p>To remove just one access control use the <code class="highlighter-rouge">-</code> character:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfacl -m u:lisa:r-x filename
+</code></pre></div></div>
+
+<p>By adding an <code class="highlighter-rouge">-R</code> flag, an ACL is applied recursively (i.e. to directories and files below the path specified).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfacl -R -m u:lisa:rwx directory_name
+</code></pre></div></div>
+
+<p>This will provide read, write and execute to the directory <code class="highlighter-rouge">directory_name</code> and any files within that directory.</p>
+
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -85,7 +645,7 @@
   
   <a href="/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 2 of 27</span>
+  <span class="page_number ">Page: 2 of 28</span>
   
   <a href="/page3/" class="next">Next</a>
   

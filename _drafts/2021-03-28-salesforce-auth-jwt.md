@@ -36,3 +36,18 @@ Generate a self-signed digital certificate from the server request (`.csr` file)
 
         openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
 
+## Create a Connected App in the Salesforce Org
+
+This connected app is the place where the SSL certificate is held and allows you to connect. Go to Setup, and type 'App' in the quick find box. Then click on 'App Manager' link. 
+
+Click the 'New Connected App' button in the right hand top corner. Give you app a name in the 'Connected App Name' field. You must provide an email address. 
+
+Under the 'API (Enable OAuth Settings)' click the checkbox for 'Enable OAuth Settings'. A dialogue box will appear. You need to add the settings 'Access and manage your data', 'Full Access', 'Perform Requests on your behalf at any time (refresh_token, offline_access)' and 'Provide access to your data via the Web (web)' in the Selected OAuth Scopes. If you need more permissions, add them (or create them in the first place.)
+
+Also click the 'Use Digital Signatures' checkbox. A 'Browse File' button will appear. Here you will need to upload your `server.crt` file that was created in the SSL stage. 
+
+In the 'Callback URL' enter `https://test.salesforce.com/oauth2/token`. 
+
+Click the save button. 
+
+[URL here for connected app screenshot]

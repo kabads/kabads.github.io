@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 7 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 7 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/page6/" />
 <link rel="next" href="http://localhost:4000/page8/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page7/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page7/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,114 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Nov 20, 2016</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Jun 10, 2017</span>
+      <h3>
+        <a class="post-link" href="/tech/2017/06/10/how-to-install-lineageos-wileyfox-swift.html">
+          How to install LineageOS on Wileyfox Swift
+          
+
+        </a>
+      </h3><p>With the demise of Cyanogenmod and CyanogenOS people who like to keep a cheaper phone up to date will have to familiarise themselves with <a href="http://lineageos.org">LineageOS</a>. This is the fork of the latest version where CyanogenMod left off. As the company shutdown, users are left with no updates. LineageOS will resolve this for you.</p>
+
+<p>It had been a while (8 months) since installing a new custom ROM, so I wasn’t so familiar with the TWRP recovery boot process. I had a couple of problems installing this - it seems that the latest image doesn’t work and neither does 3.0.1 - so had to go for 3.0.0. Download that to your computer, then make sure you have a working copy of <a href="https://developer.android.com/studio/command-line/adb.html">adb</a>. Then in the command line with your phone plugged in via USB with USB debugging switched on, type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb flash recovery twrp-3.0.0.img 
+</code></pre></div></div>
+
+<p>This booted and allowed me to update the files. From there it was very simple.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb push lineageos.zip /sdcard/
+</code></pre></div></div>
+
+<p>If you want to install Google Apps (go for open_gapps), push that zip file to in the same way:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb push open_gapps.zip /sdcard/ 
+</code></pre></div></div>
+
+<p>If root is required push the <a href="https://download.lineageos.org/extra">addonsu zip file</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb push addonsu.zip /sdcard/
+</code></pre></div></div>
+
+<p>and then run power off and reboot in to recovery mode. Once in recovery mode, you need to wipe the system and data partitions. Then, install the .zip files that you pushed earlier - firstly with the lineageos.zip, then gapps.zip and then as an optional the root zip.</p>
+
+<p>Once you reboot, you will have a new lineageos install and have to feed in any particular personal details or Google Accounts.</p>
+</li><li><span class="post-meta">May 6, 2017</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2017/05/06/A-cartoon-about-file-permissions.html">
+          A Cartoon About File Permissions
+          
+
+        </a>
+      </h3><p><img src="https://hit-comic.com/wp-content/uploads/2017/05/Strip-266-LowRes.jpg" alt="You're kidding me - I am root" /></p>
+
+</li><li><span class="post-meta">Dec 10, 2016</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2016/12/10/running-ec2-instance.html">
+          Running EC2 Instance
+          
+
+        </a>
+      </h3><p>Amazon have provided a pretty neat infrastructure with Amazon Web Services (AWS). By using this as a platform, you can quickly scale up and down provisioned resources. At times, you may experience peak demand, and AWS will allow you to respond with this. At other times, you can scale your resources down.</p>
+
+<p>The first step in learning about this platform, is running an EC2 instance. This is the ‘machine’ behind your service. It will hold CPU/RAM and storage resources. Depending on your requirements, you can choose different types of EC2 instances.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Uses</th>
+      <th>Offers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T2</td>
+      <td>Small use machine</td>
+      <td>with burstable performace</td>
+    </tr>
+    <tr>
+      <td>M4</td>
+      <td>Medium</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>D2</td>
+      <td>small</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@openvpnas2:~# ip route
+default via 11.0.1.1 dev eth0 
+11.0.1.0/24 dev eth0  proto kernel  scope link  src 11.0.1.189 
+11.0.1.0/24 dev as0t0  proto kernel  scope link  src 11.0.1.1
+
+root@openvpnas2:~# ip route
+default via 11.0.1.1 dev eth0 
+11.0.1.0/24 dev eth0  proto kernel  scope link  src 11.0.1.189 
+11.0.1.0/24 dev as0t0  proto kernel  scope link  src 11.0.1.1
+
+root@openvpnas2:/home/openvpnas# ps aux | grep openvpn
+root       897  0.0  5.0 286164 51428 ?        Sl   08:41   0:05 python -c from pyovpn.s    agent.sagent_entry import openvpnas ; openvpnas() --logfile=/var/log/openvpnas.log --pidfile=/var/run/openvpnas.pid
+openvpn+   963  0.0  4.1 171900 41712 ?        S    08:41   0:04 python -c from pyovpn.cserv.wserv_entry import start ; start() -no -u openvpn_as -g openvpn_as --pidfile /usr/local/openvpn_as/etc/tmp/wserv.pid -r epoll
+openvpn+  1065  0.0  0.5  26224  5860 ?        S    08:41   0:00 openvpn-openssl --errors-to-stderr --config stdin
+openvpn+  1079  0.0  0.0  24764   564 ?        S    08:41   0:00 openvpn-openssl --errors-to-stderr --config stdin
+root      2303  0.0  0.6  96932  6972 ?        Ss   10:55   0:00 sshd: openvpnas [priv]
+openvpn+  2306  0.0  0.4  45272  4584 ?        Ss   10:55   0:00 /lib/systemd/systemd --user
+openvpn+  2308  0.0  0.1  63208  1900 ?        S    10:55   0:00 (sd-pam)
+openvpn+  2321  0.0  0.3  96932  3204 ?        S    10:55   0:00 sshd: openvpnas@pts/0
+openvpn+  2322  0.0  0.4  21268  4968 pts/0    Ss   10:55   0:00 -bash
+root      2500  0.0  0.0  12944   972 pts/0    S+   11:22   0:00 grep --color=auto openvpn
+</code></pre></div></div>
+</li><li><span class="post-meta">Nov 20, 2016</span>
       <h3>
         <a class="post-link" href="/sysadmin/2016/11/20/finding-large-files-in-a-directory.html">
           Finding large files in a directory
@@ -44,6 +145,13 @@
 
         </a>
       </h3><p>I have directories that <a href="http://www.chiark.greenend.org.uk/~sgtatham/agedu/">agedu</a> shows as having large files. However, agedu doesn’t tell me what the names of the files are.</p>
+
+<p>A quick find will sort that</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -maxdepth 1 -type f -exec \/usr\/bin\/ls -al {} \; | awk '{print $5,$9}' | sort -nr &gt;  bigfiles.txt
+</code></pre></div></div>
+
+<p>Run this, and you will have a file called bigfiles.txt that has the size in bytes and the filename. This does not work recursively, with the flag -maxdepth 1 preventing that.</p>
 </li><li><span class="post-meta">Aug 25, 2016</span>
       <h3>
         <a class="post-link" href="/reading/2016/08/25/downloading-newspaper-using-calibre.html">
@@ -52,30 +160,22 @@
 
         </a>
       </h3><p>So, I have read a few pages which outline how to do this, but none seem to sum all of it. I’ve set up my Raspberry to download a newspaper and then deliver it daily to my Kindle. I paid for a subscription (in fact, I pay for more than one subscription) so I feel entitled to do this, as I’m supporting the journalists financially.</p>
-</li><li><span class="post-meta">Aug 12, 2016</span>
-      <h3>
-        <a class="post-link" href="/leisure/2016/08/12/cuba.html">
-          Cuba
-          
 
-        </a>
-      </h3><p>Having gone to one of the best destinations I’ve probably ever been to, I felt the need to document it in a more formal way. I was inspired by the Cuban culture and vibrant life to record some of the sights I’d seen.</p>
-</li><li><span class="post-meta">Jul 3, 2016</span>
-      <h3>
-        <a class="post-link" href="/cycling/2016/07/03/cycling-trying-a-climb.html">
-          Trying a climb
-          
+<p>Firstly, you will need to install <a href="https://calibre-ebook.com">Calibre</a>. My RaspberryPi doesn’t have an X server running and this made it trickier, as I don’t want a lot of bloat on this machine (it’s not hugely powerful). Calibre does pull in a load of libraries, but they will only use up space, not resources. Then you will need the newspaper .recipe file. This was the trickiest part. I didn’t know how other people were getting these recipes on their machine and they didn’t seem to mention. I know that when you run Calibre through the gui you can easily choose one of the recipes. However, I didn’t have that luxury. To get around this, I visited the <a href="https://github.com/kovidgoyal/calibre/tree/master/recipes">github repository for Calibre</a> and found the .recipe file I was looking for and posted that on to the RaspberryPi.</p>
 
-        </a>
-      </h3><p>This afternoon, I met up with a few friends at a local pub. It was great catching up with everyone, but what also great was that afterwards, I planned to cycle some 15km to one of the largest hills around. I wanted to see what it was like to climb roughly 150m up a hill. And find out, I did. I didn’t quite make it all the way to the top without stopping, but I got to the top with one break just near the top. Needless to say, I will be going back to see how I fare next time.</p>
-</li><li><span class="post-meta">Feb 20, 2016</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2016/02/20/using-sed.html">
-          Using sed
-          
+<p>Then I ran the command:</p>
 
-        </a>
-      </h3><p><em>sed</em> is a quick command line utility to change text within a file, or input stream. Typically, it is used within a pipe situation (i.e. using the character | on the command line). If you are not familiar with that command, you will need to research that before continuing.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ebook-convert ./PATH-TO-CALIBRE-RECIPES/newspaper.recipe newspaper.epub --output-profile=kindle
+</code></pre></div></div>
+
+<p>You can change the filenames so that it suits your particular situation. Once this is run, it will look at the recipe script and start downloading the files, and constructing the .epub file. If you want to read this on your Kindle, you will need to convert it to a .mobi file.</p>
+
+<p>Calibre will also allow you to email the file to your Kindle (this is one of the good features that Amazon have built in to the Kindle). If you have a Kobo or other e-reader, you can connect a cable and put it on your device. If you have a different way of uploading this file on to your device, please let me know in the comments below. It is possible to run Calibre as a web service, so you could browse this server from your e-reader (if it has a browser) and then download it that way.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/calibre-smtp from@email.com to@email.com "Sent from" -r smtp.gmail.com -u user@gmail.com -a newspaper.epub -p password -e TLS --port 587 
+</code></pre></div></div>
+
+<p>This command can be put in to a script file and then called from cron.</p>
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -85,7 +185,7 @@
   
   <a href="/page6/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 7 of 27</span>
+  <span class="page_number ">Page: 7 of 28</span>
   
   <a href="/page8/" class="next">Next</a>
   

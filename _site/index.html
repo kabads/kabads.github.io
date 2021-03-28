@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Kabads. Musings, mutterings and murmerings." />
 <link rel="next" href="http://localhost:4000/page2/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebSite","url":"http://localhost:4000/","name":"Kabads. Musings, mutterings and murmerings.","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebSite","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","name":"Kabads. Musings, mutterings and murmerings.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -29,20 +29,153 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Dec 22, 2020</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Mar 28, 2021</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2021/03/28/salesforce-auth-jwt.html">
+          JWT Authentication with Salesforce
+          
+
+        </a>
+      </h3><p><a href="https://www.saleforce.com">Salesforce</a>, for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: <a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm">https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm</a>. This sets out the following steps:</p>
+
+<p>1) Create an OpenSSL certificate
+2) Create an app within the Salesforce Org that you want to authenticate to
+3) Upload your SSL certificate to that Org
+4) Authenticate with that certificate for the first time (manually)
+5) Authenticate using the SSL private key</p>
+
+<h2 id="create-an-openssl-certificate">Create an OpenSSL certificate</h2>
+
+<p>You will need to have the command line tool <code class="highlighter-rouge">openssl</code> installed - this can be found (in a *nix based operating system) by typing <code class="highlighter-rouge">which openssl</code>. If the command line returns something other than an error, then you are set. If you get an error, you will need to install the package <code class="highlighter-rouge">openssl</code>.</p>
+
+<p>To create an SSL certificate you should use these following commands:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir jwt
+cd jwt
+</code></pre></div></div>
+
+<p>Generate a private key and store it in a file called <code class="highlighter-rouge">server.key</code>:
+    openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
+    openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key</p>
+
+<p>Generate a certificate signing request (<code class="highlighter-rouge">.csr</code> file):
+    openssl req -new -key server.key -out server.csr</p>
+
+<p>Generate a self-signed digital certificate from the server request (<code class="highlighter-rouge">.csr</code> file) and private key (<code class="highlighter-rouge">server.key</code>):
+        openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt</p>
+
+</li><li><span class="post-meta">Feb 1, 2021</span>
+      <h3>
+        <a class="post-link" href="/reading/2021/02/01/tiny-tiny-rss.html">
+          Tiny Tiny RSS
+          
+
+        </a>
+      </h3><p><a href="https://tt-rss.org">Tiny Tiny RSS</a> is a simple syndication application.  I’ve been using RSS syndication readers for a long time. I just don’t have time to scour the web to check if a website had added new content. I started with <a href="https://www.google.com/reader/about/">Google Reader</a> a long time ago (as did many of us), but was also sad that it went away. So, then I moved to <a href="https://newsblur.com/">Newsblur</a>. This suited me and helped me read my blog posts for another year or so. It also has (or had - I haven’t checked recently) an open source model. However, with the pricing it was offering, I didn’t need to host it myself as it was doing just a fine job, for the price that I paid. Then the price went up. For some reason, I felt that it was too much. I was probably hasty, but also ready for a change.</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/50889452698/in/dateposted/" title="rss"><img src="https://live.staticflickr.com/65535/50889452698_c0e227c6c9_n.jpg" width="300" height="150" alt="rss" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>I switched my feeds to <a href="https://theoldreader.com">The Old Reader</a>. This was an obvious attempt to recreate the experience with Google reader.</p>
+
+<p>Recently, I installed <a href="https://tt-rss.org">TinyTinyRss</a> on a raspberry pi. There was a package already, but it attempted to install Apache - but I was already running Nginx, so didn’t want this extra dependency - I therefore downloaded the source code, put it in a directory that was served via the webserver and everything worked instantly. I had already creaed a database and user/pass combination in mariadb, so the setup was simple. At this point, I imported an ~.ompl~ file that I already had. I then read about running the update script. I started a tmux terminal and issued the command ~/usr/bin/php /path/to/tt-rss/update.php –feeds –quiet~ and this runs automatically.</p>
+
+<p>You can add feeds using the following dialogue:</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/50891429801/in/dateposted/" title="ttrss3"><img src="https://live.staticflickr.com/65535/50891429801_00e949529a_n.jpg" width="320" height="291" alt="ttrss3" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>The output is really good to look at:</p>
+
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/50891546277/in/dateposted/" title="ttrss1"><img src="https://live.staticflickr.com/65535/50891546277_90a54ae621.jpg" width="500" height="229" alt="ttrss1" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>There is also an <a href="https://play.google.com/store/apps/details?id=org.fox.ttrss">app for your phone</a> to hook up to your server, so you can read your articles on the go.</p>
+
+</li><li><span class="post-meta">Jan 30, 2021</span>
+      <h3>
+        <a class="post-link" href="/2021/01/30/tt-rss.html">
+          Tt Rss
+          
+
+        </a>
+      </h3><hr />
+<p>layout: post
+title: “Migrating RSS reader to tt-rss”
+date: 2021-01-31
+draft: true
+categories:</p>
+<ul>
+  <li>reading</li>
+</ul>
+</li><li><span class="post-meta">Dec 22, 2020</span>
       <h3>
         <a class="post-link" href="/sysadmin/2020/12/22/verify-azure-storage-blob-automatically.html">
           Verify Azure Blob Storage Automatically
           
 
         </a>
-      </h3><h3 id="problem">Problem</h3>
+      </h3><p>This blog post outlines a problem I had whereby there were lots of files in Azure storage and I wanted to check that they had been uploaded correctly.</p>
+
+<h3 id="problem">Problem</h3>
+
+<p>You want to verify lots of files that have uploaded to Azure Blob Storage? Look no further. <a href="https://github.com/kabads/md5sum">https://github.com/kabads/md5sum</a>.</p>
+
+<p>So, I had to upload a lot of media assets for work in a hurry as a server was being shut down. We had Azure, and as these were static files, that seemed like a good solution. I think in total, there was roughly 200,000 files. I wanted to md5sum them at each part of the stage. I did that for the huge 5Gb zip file I was given and asked my colleague who provided it to me to do the same. It was good. I could do this on all my machines, but not once the zip file was unzipped.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>So, I wrote a script[0]. Doing the local verification was fairly easy.</p>
+
+<p>Doing the Azure solution was not so easy. Azure store the md5sum in a weird way and lots of people have written about this. Most of my research returned this kind of post. No one seemed to have my huge amount of files problem, but just had the problem whereby the md5sum format wasn’t the same. I tried reverse engineering the problem, but found it tricky. Then I hit upon gold-dust:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import binascii
+...
+remote_md5 = binascii.hexlify(b)
+</code></pre></div></div>
+
+<p>This turned the md5sum stored in Azure into something that could be compared (and was the same as the typical md5sum command that you would run locally.</p>
+
+<h4 id="how-to-handle-azure-blobs-individually-with-the-python-azure-sdk">How to handle Azure blobs individually with the Python Azure SDK</h4>
+
+<p>Get a BlobServiceClinent:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blob_service_client = BlobServiceClient.from_connection_string(connection_str)
+</code></pre></div></div>
+
+<p>The connection string is usually picked up from an environment variable that you have set up locally (and is provided nicely in the Azure console).</p>
+
+<p>Then, get a container client:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>container = blob_service_client.get_container_client(container=container_name)
+</code></pre></div></div>
+
+<p>Then, with the container, you can list all the blobs:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blob_list = container.list_blobs()
+</code></pre></div></div>
+
+<p>Once you have a list of blobs, you can iterate through them and then get a blob client:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for blob in blob_list:
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob)
+...
+</code></pre></div></div>
+
+<p>and then then the blob properties and the md5_properties:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = blob_client.get_blob_properties()
+b = a.content_settings.content_md5
+</code></pre></div></div>
+
+<p>Once  I had that I could use my <code class="highlighter-rouge">binascii.hexlify()</code> magic and everything would be great to write out to a file.</p>
+
+<p>This file only really solves my problem, but please feel free to run with it and make adaptions. I’m interested in any pull requests that improves it. It does need less ‘hard-coding’.</p>
+
+<p>[0] https://github.com/kabads/md5sum</p>
 </li><li><span class="post-meta">Apr 23, 2020</span>
       <h3>
         <a class="post-link" href="/2020/04/23/apache-rewrite-mod.html">
@@ -51,30 +184,119 @@
 
         </a>
       </h3><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/49800557653/in/datetaken/" title="Apache_HTTP_server_logo_(2016)"><img src="https://live.staticflickr.com/65535/49800557653_9ca139375d_n.jpg" width="320" height="122" align="left" style="padding:20px" alt="Apache_HTTP_server_logo_(2016)" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script> <code class="highlighter-rouge">mod_rewrite</code> is a powerful module that Apache can utilize. It is a way of rewriting URLs, modifying the request that Apache recieves. This could be a moved document, or enforcing SSL (rewriting the URL from http to https).</p>
-</li><li><span class="post-meta">Mar 30, 2020</span>
-      <h3>
-        <a class="post-link" href="/cycling/2020/03/30/bikepacking-prep.html">
-          Bike-packing preparation
-          
 
-        </a>
-      </h3><p>Due to covid-19, we are all currently on lock-down. I was planning to go bike-packing this spring, but cannot get out. But that didn’t stop me from having some fun in the garden with a tarpauline:  <a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/49716142093/in/datetaken/" title="IMG_20200329_165257"><img src="https://live.staticflickr.com/65535/49716142093_74702e341f_n.jpg" width="320" height="240" alt="IMG_20200329_165257" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-</li><li><span class="post-meta">Mar 19, 2020</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2020/03/19/rsyslog-listening-to-socket.html">
-          Rsyslog configured to monitor journald /run/systemd/journal/syslog socket
-          
+<p>This is a complex subject, which cannot be covered here, but for further information, refer to the <a href="https://httpd.apache.org/docs/current/mod/mod_rewrite.html">full documentation</a>.
+Rewrite rules can exist in a .htaccess file, or the main configuration file, or preferably a <code class="highlighter-rouge">&lt;Directory&gt;</code> stanza.
+<code class="highlighter-rouge">mod_rewrite</code> uses Regex (compatible with Perl) for its pattern matching engine. This is nearly unlimited in searching across a range of URLs.</p>
 
-        </a>
-      </h3><p>Rsyslog (aka syslog) can pull in logs from journald, via the socket (using imuxsock module) or a specific module that taps in to a socket that is journald runs (imjournal) with very little config. imjournal specialises in logging that is structured (e.g. logs that follow json structure) and then filtering or querying logs. As a result, imjournal is more expensive.  These modules are already loaded by default inrsyslog.conf file and do not need adding in any other configuration files.</p>
-</li><li><span class="post-meta">Jan 3, 2020</span>
-      <h3>
-        <a class="post-link" href="/sysadmin/2020/01/03/selinux-users-roles-types.html">
-          SELinux Users, Roles, and Types
-          
+<h3 id="enable-rewrite-engine">Enable Rewrite Engine</h3>
 
-        </a>
-      </h3><p>SELinux contexts follow the SELinux user:role:type:level syntax.</p>
+<p>To enable <code class="highlighter-rouge">mod_rewrite</code> you should include the following in you Apache Documentation:</p>
+
+<p><code class="highlighter-rouge">RewriteEngine on</code></p>
+
+<p>A restart of Apache will be required to load the engine.</p>
+
+<h3 id="declaring-a-rewrite-rule">Declaring a Rewrite Rule</h3>
+
+<p>To declare a rule you will have something similar to the code below:</p>
+
+<p><code class="highlighter-rouge">RewriteRule ^/old.html$ new.html [R]</code></p>
+
+<p>This will redirect a request that Apache receives for old.html page to new.html page. The <code class="highlighter-rouge">^</code> indicates that it must be the initial part of the request, and the <code class="highlighter-rouge">$</code> indicates that it is the end of the request. If <code class="highlighter-rouge">/subdir/old.html</code> is passed, it will fail this search pattern as <code class="highlighter-rouge">/subdir/</code> is at the beginning of the pattern. This is in line with Regular Expressions pattern matching.</p>
+
+<p>These rules can be embedded within a particular directory, using the <code class="highlighter-rouge">&lt;Directory</code> stanza:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Directory /var/www/html/subdirectory&gt;
+  RewriteEngine on
+  RewriteRule "^old.html$" "new.html"
+&lt;/Directory&gt;
+</code></pre></div></div>
+
+<p>The above rule only applies to the directory named <code class="highlighter-rouge">subddirectory</code>.</p>
+
+<h4 id="rewrite-flags">Rewrite Flags</h4>
+
+<p>At the end of each <code class="highlighter-rouge">RewriteRule</code> is a set of flags that determines what should be done - these are enclosed in a set of square brackets. One of the most common is <code class="highlighter-rouge">[R]</code> which is a redirect, carried out at the browser level (issued by the webserver).</p>
+
+<p>A full list of flags is documented at <a href="https://httpd.apache.org/docs/2.4/rewrite/flags.html\\P">https://httpd.apache.org/docs/2.4/rewrite/flags.html</a>.</p>
+
+<h4 id="regular-expressions-and-mod_rewrite">Regular Expressions and mod_rewrite</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Meaning</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.</td>
+      <td>Match any character</td>
+      <td>c.t matches cat</td>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td>Repeats the previous match one or more times</td>
+      <td>a+ a, aa, aaa</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>Repeats the previous match zero or more times</td>
+      <td>a* matches the same as a+ but will also match an empty string</td>
+    </tr>
+    <tr>
+      <td>?</td>
+      <td>Makes the match optional</td>
+      <td>colou?r will match color and colour</td>
+    </tr>
+    <tr>
+      <td>\</td>
+      <td>Escape the next character</td>
+      <td>. will match a . (dot) and not any single character as explained above</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>Called an anchor, matches the beginning of thes string</td>
+      <td>^a will match a string that begins with a</td>
+    </tr>
+    <tr>
+      <td>$</td>
+      <td>The other anchor that matches the end of a string</td>
+      <td>a$ will match a string that ends with a</td>
+    </tr>
+    <tr>
+      <td>( )</td>
+      <td>Groups several characters into a single unit, and captures a match for use in a backreference</td>
+      <td>(ab)+ matches abababab - the + applies to the group</td>
+    </tr>
+    <tr>
+      <td>[ ]</td>
+      <td>A character class - matches one of the characters</td>
+      <td>c[uoa]t matches cut, cot, cat</td>
+    </tr>
+    <tr>
+      <td>[^ ]</td>
+      <td>Negative character class - matches any character not specified</td>
+      <td>c[^/] matches cat or c=t but not c/t</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mod_rewrite-log-level-for--v24">mod_rewrite Log Level for &lt; v2.4</h3>
+
+<p>The <code class="highlighter-rouge">mod_rewrite</code> will write to the usual apache log files.</p>
+
+<p>For previous versions (pre Apache 2.4) the directive <code class="highlighter-rouge">RewriteLogLevel</code> will set the level of logging written, ranging in values from 0-9 with 0 being no logging and 0 being the most verbose. Logs will appear as <code class="highlighter-rouge">pass through</code> lines in the file.</p>
+
+<h3 id="mod_rewrite-log-level-for-v24">mod_rewrite Log Level for v2.4</h3>
+
+<p>With the current version of Apache (2.4), <code class="highlighter-rouge">mod_rewrite</code>, the older methods of controlling logging have now been replaced by a new per-module logging method:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LogLevel alert rewrite:trace3
+</code></pre></div></div>
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -84,7 +306,7 @@
   
   <span class="previous">Previous</span>
   
-  <span class="page_number ">Page: 1 of 27</span>
+  <span class="page_number ">Page: 1 of 28</span>
   
   <a href="/page2/" class="next">Next</a>
   

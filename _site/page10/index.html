@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 10 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 10 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/page9/" />
 <link rel="next" href="http://localhost:4000/page11/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page10/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page10/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,172 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Aug 8, 2015</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Aug 27, 2015</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2015/08/27/how-to-set-up-raid-drives-linux.html">
+          How to set-up RAID on Linux
+          
+
+        </a>
+      </h3><p><a href="https://en.wikipedia.org/wiki/RAID">RAID</a> disks offer particular advantages over ordinary single disk set up. Data redundancy is improved (consider it to be a continuous backup) and also significant performance can be seen with the correct configuration.</p>
+
+<p>There are different types of <a href="https://en.wikipedia.org/wiki/Standard_RAID_levels">RAID levels</a> and each level will need to be chosen on a use-case:</p>
+
+<ul>
+  <li>
+    <p>RAID 0: Uses only striping - this makes two disks appear like one larger disk. Provides a performance boost when accessing disks.</p>
+  </li>
+  <li>
+    <p>RAID 1: uses only mirroring - each disk has a duplicate. Ideal for data recovery. At least two disks are required.</p>
+  </li>
+  <li>
+    <p>RAID 5: uses rotating parity strip; a single drive failure will cause no loss of data, only a performance drop. Three disks are required.</p>
+  </li>
+  <li>
+    <p>RAID 6: has striped disks with dual parity; it can handle loss of two disks, and requires at least four disks.</p>
+  </li>
+  <li>
+    <p>RAID 10: is a mirrored and striped data set - requires at least 4 drives.</p>
+  </li>
+</ul>
+
+<p>Firstly, you should have at least two partitions that have been set to the file type ‘fd’, using fdisk.</p>
+
+<p>The command that helps us manage RAID drives is <strong><em>mdadm</em></strong> - ensure that it is intalled - the following command will do this on Ubuntu.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install mdadm
+</code></pre></div></div>
+
+<p>Then, set-up the array with the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mdadm --create /dev/md0 --level=1 --raid-disks=2 /dev/sdbX /dev/sdcX
+</code></pre></div></div>
+
+<p>You will need to change the level according to the RAID level that you chose from above, and the number of disks, if this is different from 2.
+Now is the time to create the filesystem:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkfs.ext3 /dev/md0
+</code></pre></div></div>
+
+<p>Obviously, you can choose the filesystem according to your taste.</p>
+
+<p>Next, /etc/mdadm.conf needs changing, which can be done with the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo bash -c "mdadm --detail --scan &gt;&gt; /etc/mdadm.conf"
+</code></pre></div></div>
+
+<p>Create a mount point:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /myraid
+</code></pre></div></div>
+
+<p>Then mount the drive to the point:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mount /dev/md0 /myraid
+</code></pre></div></div>
+
+<p>That will provide a drive with root permissions, which will need change if you require other users to use this drive.</p>
+
+</li><li><span class="post-meta">Aug 21, 2015</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2015/08/21/how-to-set-up-lvm-linux.html">
+          How to set-up LVM on Linux
+          
+
+        </a>
+      </h3><p><img src="https://farm1.staticflickr.com/606/20580819929_7109d8f28b_m.jpg" /></p>
+
+<p><strong>What are the advantages of <a href="https://en.wikipedia.org/wiki/Logical_volume_management">Logical Volume Management (LVM)</a>?</strong></p>
+
+<p>LVM treats your physical harddrives as ‘elastic’ storage - that is extents can be across disks allowing filesystems to be across many disks and/or partitions. This allows a lot of flexibility and can allow filesystems to shrink or grow easily.</p>
+
+<p>There is a small disadvantage when using LVM - there is an overhead when reading and writing to disk - which doesn’t normally happen when writing to a normal block disk.</p>
+
+<p>So, how do you set up LVM? I suggest you learn using a <a href="https://www.virtualbox.org/">virtual machine</a> - this post  will cover <a href="http://www.ubuntu.com/download/server">Ubuntu 14.04 server edition</a>.</p>
+
+<p>The server will need the package lvm2 installed</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install lvm2
+</code></pre></div></div>
+
+<p>Firstly, set up your partitions with type 8e - this will be done with fdisk - type ‘t’ and then choose the partition number and then type 8e - this is an LVM type partition. This needs to happen for all the partitions that will be included in the LVM device.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo fdisk /dev/sda
+</code></pre></div></div>
+
+<p>After creating the new partitions you will need to do one of a couple of things so that the kernel can see them - reboot or run partprobe. Without this, the kernel won’t see the newly created partitions and you will not be able to work on them further. It’s at this point that one usually creates a filesystem on these partitions. When setting up LVM, this is not yet the case.</p>
+
+<p>Then run these commands to create physical volumes:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pvcreate /dev/sda3
+Physical volume "/dev/sda3" successfully created
+
+$ sudo pvcreate /dev/sda4
+Physical volume "/dev/sda3" successfully created
+
+$ sudo pvdisplay will show you all the physical volumes that are available to LVM.
+</code></pre></div></div>
+
+<p>This command  will create a virtual group.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vgcreate mylvm /dev/sda3 /dev/sda4
+Volume group "mylvm" successfully created
+
+
+$ sudo vgdisplay
+</code></pre></div></div>
+
+<p>will show you the newly created volume group.</p>
+
+<p>Now, for the final key part - creating the logical volume:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo lvcreate --name myfilesystem --size 1G mylvm
+Logical volume "myfilesystem" created
+
+$ sudo lvdisplay
+</code></pre></div></div>
+
+<p>will show you the logical volume filesystem that has been created (although it doesn’t yet have a filesystem on it). The next step will do that.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkfs.ext3 /dev/mylvm/myfilesystem
+</code></pre></div></div>
+
+<p>Now this filesystem can be mounted like any other filesystem and written to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /mnt/lvmdrive
+$ sudo mount /dev/mylvm/myfilesystem /mnt/lvmdrive
+</code></pre></div></div>
+
+<p>Once you have sorted out permissions for this drive you will be able to write to it.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chmod -R 777 /mnt/lvmdrive
+</code></pre></div></div>
+
+</li><li><span class="post-meta">Aug 14, 2015</span>
+      <h3>
+        <a class="post-link" href="/2015/08/14/bring-your-own-device.html">
+          Bring your own device or RaspberryPi hardware in education
+          
+
+        </a>
+      </h3><p><strong><em>The problem?</em></strong> School’s are facing dwindling education budgets and yet increasing expectations for children’s attainment in their knowledge. They are expected to deliver a better educational experience for less money (per head). How could they possibly do this, knowing that even now they are challenged with their budgets?</p>
+
+<p>When people pick up new technology they usually have to learn how to use the device - this is included in new operating systems that are released. By forcing them to use a particular device in school, we may be putting some children at an disadvantage if they are already used to a different operating system at home. However, if the learning objective is to learn a new device, then this should be allowed (children shouldn’t become dependent on just one form of device).</p>
+
+<p><strong><em>The solution?</em></strong> By allowing children to bring their own device to school, you remove the barrier to the actual learning and allow everyone to develop the learning in the topic (not limited by the device they are learning).</p>
+
+<p>Some schools are allowing children to bring in a device as long as it is a particular device (e.g. Apple iPad). This is still not a great solution to the problem. Not as many children own a specific device - some may own an Android tablet. Some children may not have any device wherein the school loans them one - this again forces children to learn something that they may not be interested in (e.g. learning how to use an Apple device when there is a very small chance that they will ever own one in their childhood due to family economics). Schools that offer this as a solution should offer a range of devices - the technology market is now moving so quickly that to teach children a particular set of devices will limit their future education (they will need to be adaptable in their next education setting and eventually workplace).</p>
+
+<p>Moreover, schools that do allow children to bring in their own devices seem to have better attainment results. <a href="http://byodsandpit.weebly.com/uploads/1/1/3/0/11303946/byod_2013_literature_review.pdf">Research</a> shows that children do better in this situation - however, I would advocate more research in this area, especially within the UK.</p>
+
+<p>However, some schools would rather provide the hardware and not expect children’s parents to purchase new hardware - that’s understandable. In this case, schools can invest in low-cost hardware which allows them to deliver open lessons instead of closed lessons. <a href="https://www.raspberrypi.org">Raspberry Pi hardware</a> allows schools to provide very cheap hardware and allows children to experiment with different setups, instead of being forced to use particular hardware.</p>
+</li><li><span class="post-meta">Aug 8, 2015</span>
       <h3>
         <a class="post-link" href="/2015/08/08/nothing-hide-nothing-to-fear.html">
           TTIP - Nothing to hide, nothing to fear
@@ -44,6 +203,10 @@
 
         </a>
       </h3><p>So, not many people have heard about the <a href="https://en.wikipedia.org/wiki/Transatlantic_Trade_and_Investment_Partnership">Transatlantic Trade Investment Partnership</a> agreement -aka TTIP - and it isn’t receiving much coverage from the BBC or other news outlets.</p>
+
+<p>However, this cartoon shows pretty much what is going on.</p>
+
+<p><img src="https://3.bp.blogspot.com/-brWNpXWZ_mc/VbwQRaQY58I/AAAAAAACL0E/JUCuD85p8D4/s640/comma_bit_of_privacy_please___fiestoforo.jpeg" alt="A bit of privacy please" /></p>
 </li><li><span class="post-meta">Jul 30, 2015</span>
       <h3>
         <a class="post-link" href="/2015/07/30/balcony-view.html">
@@ -53,30 +216,6 @@
         </a>
       </h3><p>Our balcony view.
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/19963599668/in/datetaken-public/" title="P1040766"><img src="https://farm1.staticflickr.com/388/19963599668_a62bc7f8bd_k.jpg" width="2048" height="1536" alt="P1040766" /></a><script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-</li><li><span class="post-meta">Jul 29, 2015</span>
-      <h3>
-        <a class="post-link" href="/2015/07/29/Amazon-Prime-Music-Review.html">
-          Amazon Prime Music Review
-          
-
-        </a>
-      </h3><p>Amazon yesterday released the prime music service in the UK. This came at a particularly useful time for me as I’m currently not working and so have quite a bit of time to play with it. I have used spotify in the past, but not regularly as I don’t get as much time to listen to music as I would like.</p>
-</li><li><span class="post-meta">Jul 28, 2015</span>
-      <h3>
-        <a class="post-link" href="/2015/07/28/jekyll.html">
-          Jekyll
-          
-
-        </a>
-      </h3><p>I’ve made the switch from <a href="http://www.wordpress.org">Wordpress</a>, which has been a great open source project, to <a href="http://www.jekyllrb.com">Jekyll</a>. I switched host and found that my old wordpress system was just too slow. I wanted something fast. I wanted something geeky. My host charges me for the amount of processing power and I found that my prepaid amount was going down fast (and I am pretty much the only person who uses this site). So, I was being charged for writing something that not very many people were reading. They may possibly not be reading it because it took too long to load.</p>
-</li><li><span class="post-meta">Jul 28, 2015</span>
-      <h3>
-        <a class="post-link" href="/2015/07/28/bread.html">
-          Bread
-          
-
-        </a>
-      </h3><p>I’ve been baking bread for over 6 months now and have experimented with what works well. This is today’s effort.</p>
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -86,7 +225,7 @@
   
   <a href="/page9/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 10 of 27</span>
+  <span class="page_number ">Page: 10 of 28</span>
   
   <a href="/page11/" class="next">Next</a>
   

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Page 3 of 27 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
+<title>Page 3 of 28 for Kabads. Musings, mutterings and murmerings. | I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:locale" content="en_US" />
@@ -15,7 +15,7 @@
 <link rel="prev" href="http://localhost:4000/page2/" />
 <link rel="next" href="http://localhost:4000/page4/" />
 <script type="application/ld+json">
-{"headline":"Kabads. Musings, mutterings and murmerings.","@type":"WebPage","url":"http://localhost:4000/page3/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Kabads. Musings, mutterings and murmerings.","url":"http://localhost:4000/page3/","description":"I worked in education for 20 years and always had a hand in Technology. I create cloud automation solutions with Infrastructure as Code.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,13 +30,142 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p><a href="categories/cycling.html">Cycling</a> |&nbsp<a href="categories/education.html">Education</a> |&nbsp<a href="categories/emacs.html">Emacs</a> |&nbsp<a href="categories/exercise.html">Exercise</a> |&nbsp<a href="categories/politics.html">Politics</a> |&nbsp<a href="categories/reading.html">Reading</a> |&nbsp<a href="categories/ruby.html">Ruby</a> |&nbsp<a href="categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
-  <ul class="post-list"><li><span class="post-meta">Jul 18, 2019</span>
+        <div class="home"><p><a href="/categories/cycling.html">Cycling</a> |&nbsp<a href="/categories/education.html">Education</a> |&nbsp<a href="/categories/emacs.html">Emacs</a> |&nbsp<a href="/categories/exercise.html">Exercise</a> |&nbsp<a href="/categories/politics.html">Politics</a> |&nbsp<a href="/categories/reading.html">Reading</a> |&nbsp<a href="/categories/ruby.html">Ruby</a> |&nbsp<a href="/categories/sysadmin.html">Sysadmin</a> |&nbsp</p><h2 class="post-list-heading"></h2>
+  <ul class="post-list"><li><span class="post-meta">Nov 11, 2019</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2019/11/11/how-to-create-virtual-machines-qemu.html">
+          How to Create Virtual Machines With Qemu
+          
+
+        </a>
+      </h3><p>This post outlines the steps needed to create a qemu environment within a machine and install virtual machines in that environment.</p>
+
+<p>Software required:</p>
+<ul>
+  <li>qemu-kvm</li>
+  <li>libvirt</li>
+  <li>virt-install</li>
+  <li>virt-manager</li>
+</ul>
+
+<p>virt-manager is a graphical interface to the resources, and is optional according to whether you run a graphical interface.</p>
+
+<h2 id="networking">Networking</h2>
+<p>One of the important tasks before installing a virtual machine is to set up the virtual networking. This means that as the VM installs, it can work with the networking.</p>
+
+<p>Usually, libvirt comes with a default network bridge which starts when you start the libvirtd service. This appears as virbr0.</p>
+
+<p>To find out what is the name of the bridge, you can use a tool:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brctl show
+</code></pre></div></div>
+
+<h3 id="bridge-control">Bridge Control</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brctl show
+brctl addbr br0
+brctl stp br0 on
+</code></pre></div></div>
+
+<p>stp is to stop looping.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brctl delbr br0
+</code></pre></div></div>
+
+<p>will delete the bridge that we created.</p>
+
+<p>virsh net-define is the command needed to create a new virtual network. virsh net-autostart will autostart the virtual network interface at service start. virsh net-start will start the network interface. virsh net-edit will open up an editor that will let you edit an existing network interface.</p>
+
+<ul>
+  <li>KVM (Kernel Based Virtual Machine)</li>
+</ul>
+
+<p>Hypervisor - two types</p>
+
+</li><li><span class="post-meta">Aug 30, 2019</span>
+      <h3>
+        <a class="post-link" href="/sysadmin/2019/08/30/terraforming-loops.html">
+          Terraform and Loops - creating multiple resources
+          
+
+        </a>
+      </h3><p>Terraform is a great tool for creating infrastructure. It’s almost becoming the ‘de-facto’ standard. This post will outline how to create multiple resources with just one code block.</p>
+
+<p>The oldest form of looping through a Terraform code block is the <code class="highlighter-rouge">count</code> primitive. By defining this, the run of terraform will loop over that resource for the count that has been defined. However, when defining names, the count will need to be used to name the resoure, as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resource "aws_instance" "instance" { 
+  count  = 3 
+  name   = "web-${count.index}"
+  ami    = "ami-1234567" 
+}
+</code></pre></div></div>
+
+<p>This will create three ec2 instances, with names of <code class="highlighter-rouge">web-0</code>, <code class="highlighter-rouge">web-1</code> and <code class="highlighter-rouge">web-3</code>.</p>
+
+<p>Once you use count on a resource, it becomes a list of resources. So in this case <code class="highlighter-rouge">aws_instance.instance</code> is now a list of ec2 instances. If you want to refer to one of the instances then you must use the notation <code class="highlighter-rouge">aws_instance.instance[0]</code>.</p>
+
+<p>If you wish to refer to all resources in a list, then you will need to use the splat, as in: 
+    <code class="highlighter-rouge">aws_instance.instance[*].id</code></p>
+
+<p>Which will return all the ids of the instances created above.</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>If you remove items from a list, then the list will rename items. Imagine having instances and then removing the id to one of them. In a list of instances, if you delete the first one (element [0]) from the list variable, instead of deleting that resource, it will remain, but renamed under the second item in the list (element [1]).</p>
+</li><li><span class="post-meta">Jul 28, 2019</span>
+      <h3>
+        <a class="post-link" href="/ruby/2019/07/28/arrays-with-ruby.html">
+          Ruby Arrays
+          
+
+        </a>
+      </h3><p>Ruby has extensive coverage for arrays (sometimes called lists if you are coming from a Python background). Arrays are for collecting information all in one place, or in a list. Arrays are sequential, which means that they don’t change order once set. Arrays are mutable (they can change items in the list).</p>
+
+<h3 id="declaring-an-array">Declaring an Array</h3>
+
+<p>Here is an example of an array:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scores = [14, 12, 4, 20, 19]
+</code></pre></div></div>
+
+<p>These scores can be for a particular person in a particular test or activity.</p>
+
+<p>Items in the list are called like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>puts scores[4]
+</code></pre></div></div>
+
+<p>This will return the 5th element from the array, as the first element is numbered 0 (i.e. <code class="highlighter-rouge">scores[0]</code>)</p>
+
+<h3 id="adding-a-new-element-to-the-array">Adding a new element to the array</h3>
+
+<p>You may want to add another new item/variable to the array. To do this you append to the array:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scores.append(5)
+</code></pre></div></div>
+
+<p>This will add a new score to the array and returns the whole array.</p>
+
+<h3 id="delete-from-the-array">Delete from the array</h3>
+
+<p>There are at least two main ways that you can delete from an array. The first is to delete a particular item value from the array:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scores.delete(5)
+</code></pre></div></div>
+
+<p>will remove any item from the array that are equal to 5. The second is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scores.delete_at(0) 
+</code></pre></div></div>
+
+<p>which removes from the positional index in the array (0 being the first element).</p>
+
+</li><li><span class="post-meta">Jul 18, 2019</span>
       <h3>
         <a class="post-link" href="/ruby/2019/07/18/learning-ruby-case-statements.html">
           Case Statements in Ruby - Learning Ruby 3
@@ -44,6 +173,25 @@
 
         </a>
       </h3><p>If you are coming from using python, then you will be used to using a lot of <code class="highlighter-rouge">if...elif...else</code> statements to catch conditions in variables. Sometimes this can be tedious - in Ruby it is easier to use <code class="highlighter-rouge">case</code> statements.</p>
+
+<p>Let’s assume that you are checking for ages of people and want to classify them according to their age (it might be a sceranio of runners in a race and you want to find out who won each age range). Here you can use <code class="highlighter-rouge">when</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group = ""
+age = gets.chomp.to_i
+case age
+when 0..17
+  group = "Under 18s"
+when 18..25
+  group = "18s to 25s"
+when 26..30
+  group = "26s to 30"
+when 30..Float::INFINITY
+  group = "Over 30s"
+end
+puts group
+</code></pre></div></div>
+
+<p>This allows us to somewhat simplify the conditions that might come about from different ages.</p>
 </li><li><span class="post-meta">Jun 21, 2019</span>
       <h3>
         <a class="post-link" href="/ruby/2019/06/21/learning-ruby-part2.html">
@@ -52,30 +200,126 @@
 
         </a>
       </h3><p>Ruby has great string support. This post summarises the functions that are available.</p>
-</li><li><span class="post-meta">Jun 16, 2019</span>
-      <h3>
-        <a class="post-link" href="/ruby/2019/06/16/learning-ruby-part-1.html">
-          Learning Ruby - First Impressions
-          
 
-        </a>
-      </h3><p>Chef is used in my place of work, and so as a result I started learning <a href="https://www.ruby-lang.org">Ruby programming language</a>. <img src="https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg" width="180" height="156" alt="ruby-icon" /></p>
-</li><li><span class="post-meta">Jun 15, 2019</span>
-      <h3>
-        <a class="post-link" href="/2019/06/15/using-pycharm-for-devops.html">
-          Using Pycharm/RubyMine for Devops
-          
+<p>This is not designed to be a tutorial for others, but rather a record for myself in learning Ruby.</p>
 
-        </a>
-      </h3><p>Jetbrains offer a range of products that allow you to write programs, with their offering being more like an IDE, rather than a text editor.</p>
-</li><li><span class="post-meta">Jun 11, 2019</span>
-      <h3>
-        <a class="post-link" href="/2019/06/11/chernobyl-a-review.html">
-          Chernobyl - A Review
-          
+<h4 id="downcase">.downcase</h4>
 
-        </a>
-      </h3><p>Chernobyl has screened on Sky Atlantic over the last few weeks. It represents a dramatic representation of the disaster back in 1986, which for a lot of people, is still in living memory.</p>
+<p>This method turns any characters in a string to lowercase.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = "My String".downcase 
+</code></pre></div></div>
+
+<p>returns</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"my string"
+</code></pre></div></div>
+
+<h4 id="upcase">.upcase</h4>
+
+<p><code class="highlighter-rouge">.upcase</code> method does the opposite of downcase. It will change the case of any lowercase characters to uppercase.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"My String".upcase
+</code></pre></div></div>
+
+<p>returns</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"MY STRING"
+</code></pre></div></div>
+
+<h4 id="gsub">.gsub</h4>
+
+<p><code class="highlighter-rouge">.gsub</code> is a way of substituting text in one string for a different string.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Hello".gsub("ell", "orr")
+</code></pre></div></div>
+
+<p>returns</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Horro"
+</code></pre></div></div>
+
+<h3 id="string-interpolation">String Interpolation</h3>
+
+<p>This is potentially the most useful way of working with strings when outputting them.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first_name = "Foo"
+surname = "Bar"
+puts "Hello #{first_name} #{surname}
+</code></pre></div></div>
+
+<h3 id="string-methods">String Methods</h3>
+
+<p>There are a whole host of methods for strings. You can see them all with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"".methods
+</code></pre></div></div>
+
+<p>This will display all the methods that are available for a string. One of the most important ones is <code class="highlighter-rouge">.chomp</code>.</p>
+
+<p>Firstly, we will get a string with the command <code class="highlighter-rouge">gets</code> - this stands for get string.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>puts "What is your name?" 
+gets = name
+</code></pre></div></div>
+
+<p>Once you run this you will get a string with the name that you enter and a <code class="highlighter-rouge">\n</code> on the end - the newline character. This can be annoying, but <code class="highlighter-rouge">.chomp</code> will remove this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gets = name.chomp
+</code></pre></div></div>
+
+<p>This means that the string has the newline character removed.</p>
+
+<h4 id="count">.count</h4>
+
+<p>If you wish to count the amount of times a set of characters appear in a string, use the <code class="highlighter-rouge">.count</code> method.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"banana".count("a")
+</code></pre></div></div>
+
+<p>will return the number <code class="highlighter-rouge">3</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"banana".count("ba") 
+</code></pre></div></div>
+
+<p>will return <code class="highlighter-rouge">4</code>.</p>
+
+<h4 id="string-operations">String Operations</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ban" + "ana" 
+</code></pre></div></div>
+
+<p>will return <code class="highlighter-rouge">banana</code>.</p>
+
+<p>You cannot do the same thing with <code class="highlighter-rouge">-</code>.</p>
+
+<h4 id="converting-strings-to-integers">Converting Strings to Integers</h4>
+
+<p>Sometimes you will have a string such as <code class="highlighter-rouge">'1'</code>, but want to add this to an integer variable <code class="highlighter-rouge">2</code>. If you try this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = '1'
+b = 2 
+p a + b 
+</code></pre></div></div>
+
+<p>you will find that you will have a problem as the string does not add easily to the integer. You will see the error:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TypeError (no implicit conversion of Integer into String)
+</code></pre></div></div>
+
+<p>To get around this, you need to cast the <code class="highlighter-rouge">a</code> variable to an intger:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = '1'
+a.to_i
+</code></pre></div></div>
+
+<p>or to do this more succinctly:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = '1'.to_i
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">.to_i</code> converts the variable to an integer and the addition will work.</p>
+
 </li></ul>
 
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</></p></div>
@@ -85,7 +329,7 @@
   
   <a href="/page2/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 3 of 27</span>
+  <span class="page_number ">Page: 3 of 28</span>
   
   <a href="/page4/" class="next">Next</a>
   

@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="AWS - How to Create A VPC" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups." />
-<meta property="og:description" content="AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups." />
+<meta name="description" content="AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups. Network Access Control lists allow particular traffic in and outbound, but are stateless; that is, if you allow traffic in, it doesn’t necessarily mean that traffic will leave the network. This can cause problems for services that use ephemeral ports (e.g. SSH over port 22 - the incoming port is always port 22, but not always outbound on port 22)." />
+<meta property="og:description" content="AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups. Network Access Control lists allow particular traffic in and outbound, but are stateless; that is, if you allow traffic in, it doesn’t necessarily mean that traffic will leave the network. This can cause problems for services that use ephemeral ports (e.g. SSH over port 22 - the incoming port is always port 22, but not always outbound on port 22)." />
 <link rel="canonical" href="http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html" />
 <meta property="og:url" content="http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html" />
 <meta property="og:site_name" content="Kabads. Musings, mutterings and murmerings." />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-09-20T01:00:00+01:00" />
 <script type="application/ld+json">
-{"headline":"AWS - How to Create A VPC","@type":"BlogPosting","datePublished":"2017-09-20T01:00:00+01:00","dateModified":"2017-09-20T01:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html"},"url":"http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html","description":"AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"AWS - How to Create A VPC","dateModified":"2017-09-20T01:00:00+01:00","datePublished":"2017-09-20T01:00:00+01:00","url":"http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sysadmin/2017/09/20/how-to-create-a-vpc.html"},"description":"AWS allows you to create your own virtual private cloud (or VPC). This is a network within which your machines will communicate. You can control the level of access across your VPC through subnets, Network Access Control Lists and Security Groups. Network Access Control lists allow particular traffic in and outbound, but are stateless; that is, if you allow traffic in, it doesn’t necessarily mean that traffic will leave the network. This can cause problems for services that use ephemeral ports (e.g. SSH over port 22 - the incoming port is always port 22, but not always outbound on port 22).","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kabads. Musings, mutterings and murmerings." /></head>
 <body><header class="site-header" role="banner">
@@ -30,7 +30,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
