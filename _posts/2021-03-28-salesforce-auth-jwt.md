@@ -14,8 +14,11 @@ categories:
 
 
 1) Create an OpenSSL certificate
+ 
 2) Create an app within the Salesforce Org that you will authenticate to
+
 3) Manage Permissions for the Managed App
+
 4) Authenticate using the SSL private key 
 
 ## Create an OpenSSL certificate
