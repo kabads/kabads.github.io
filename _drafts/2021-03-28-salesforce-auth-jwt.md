@@ -9,13 +9,14 @@ categories:
 
 <img style='vertical-align:middle;' src='https://jwt.io/img/pic_logo.svg'>
 <div style='vertical-align:bottom; display:inline;'>
+
 [Salesforce](https://www.saleforce.com), for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: [https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm). This sets out the following steps: 
 </div>
 
 
 1) Create an OpenSSL certificate
-2) Create an app within the Salesforce Org that you want to authenticate to
-3) Upload your SSL certificate to that Org
+2) Create an app within the Salesforce Org that you will authenticate to
+3) Manage Permissions for the Managed App
 4) Authenticate using the SSL private key 
 
 ## Create an OpenSSL certificate
