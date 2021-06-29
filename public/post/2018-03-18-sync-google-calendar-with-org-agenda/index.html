@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sync Google Calendar With Org Agenda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Kabads. Musings, mutterings and murmerings." />
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/"><p class="navbar-brand">Kabads. Musings, mutterings and murmerings.</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+					
+					
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+					<img src="" />
+          <li class="sidebar-brand"><a href="/"><h1 class="brand">Kabads. Musings, mutterings and murmerings.</h1></a><h3></h3></li>
+          <hr />
+					
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title">Sync Google Calendar With Org Agenda</div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2018-03-18</small></p> <hr/>
+   <div class="post">
+     <p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>I use <a href="https://orgmode.org">org-mode</a> an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my <a href="https://orgmode.org/manual/Agenda-commands.html">org-agenda</a>. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It&rsquo;s pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.</p>
+<p>The package <a href="https://github.com/myuhe/org-gcal.el">org-gcal</a> provides two way syncing with Google Calendar (and has other documentation).</p>
+<p>This is how I did it.</p>
+<h2 id="install-org-cal">Install org-cal</h2>
+<p>Using elpa, I installed the package:</p>
+<pre><code>M-x package-list
+</code></pre>
+<p>Highlight the <code>org-gcal</code> package and install.</p>
+<h2 id="create-api-credentials">Create Api Credentials</h2>
+<p>Then, go to google and get credentials to access your calendar. You will need to go to the <a href="https://console.developers.google.com/cloud-resource-manager">google developers portal</a> where you may need to enable the developers' api. You will need to find Api &amp; Services and then click on credentials. You will create some OAuth 2.0 client IDs credentials - one being the API key and the other being a secret. Make a note of these, or download the JSON file that Google provides.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Enable these credentials for Google Calendar.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="identify-calendar">Identify Calendar</h2>
+<p>Then, the README for org-cal tells you to find the link for your calendar. This didn&rsquo;t work for me. Instead, I found the link in the url in the address bar of my browser (click on the image to see more detail):</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="create-settings">Create settings</h2>
+<p>(require &lsquo;org-gcal)
+(setq org-gcal-client-id &ldquo;your-id-foo.apps.googleusercontent.com&rdquo;
+org-gcal-client-secret &ldquo;your-secret&rdquo;
+org-gcal-file-alist &lsquo;((&ldquo;<a href="mailto:your-mail@gmail.com">your-mail@gmail.com</a>&rdquo; .  &ldquo;~/schedule.org&rdquo;)
+(&ldquo;<a href="mailto:another-mail@gmail.com">another-mail@gmail.com</a>&rdquo; .  &ldquo;~/task.org&rdquo;)))</p>
+<p>Copy that string in to your <code>~.emacs</code> file, substituting the proper parts (your org-gcal-client-id and secret and the files that you wish to create when you sync).</p>
+<p>Save the file and then execute <code>M-x load-file &lt;RET&gt;.emacs</code> to reload this file.</p>
+<h2 id="sync-and-org-agenda-file-to-front">Sync and org-agenda-file-to-front</h2>
+<p>Now you need to sync your calendar, which will create a new org file (as you specified in the settings.</p>
+<pre><code>M-x org-gcal-sync
+</code></pre>
+<p>Once that file is created open it <code>C-x C-f</code> &lt;/path/to/file&gt; <!-- raw HTML omitted --><code>and then</code>M-x org-agenda-file-to-front`. This command will include the new file.</p>
+<p>You can also create a hook to run <code>org-gcal-sync</code> when you open your agenda by placing this snippet in your <code>.emacs</code> file:</p>
+<pre><code>(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+</code></pre>
+
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+      &nbsp;<li class="previous"><a href="/post/2018-02-11-cycle-jaunt-around-bath/"> Cycle Jaunt Around Bath</a></li>
+      &nbsp;<li class="next"><a href="/2018/08/"> Working with Terraform</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+    </footer>
+ 
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/hc.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learning Ruby - First Impressions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Kabads. Musings, mutterings and murmerings." />
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/"><p class="navbar-brand">Kabads. Musings, mutterings and murmerings.</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+					
+					
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+					<img src="" />
+          <li class="sidebar-brand"><a href="/"><h1 class="brand">Kabads. Musings, mutterings and murmerings.</h1></a><h3></h3></li>
+          <hr />
+					
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title">Learning Ruby - First Impressions</div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-06-21</small></p> <hr/>
+   <div class="post">
+     <p>Chef is used in my place of work, and so as a result I started learning <a href="https://www.ruby-lang.org">Ruby programming language</a>. <!-- raw HTML omitted --></p>
+<p>I know some python (enough to get me by) but thought that knowing some Ruby would be a good development in my learning. This is an attempt an my first impressions of what is good for a beginner and what is not so good (from the perspective of someone coming from Python).</p>
+<h4 id="good-points">Good Points</h4>
+<p>Ruby is super easy to pick up and get going. Declaring methods and passing variables just works. Casting from one type of variabl to another just seems to happen seemlessly. Some beginners have this problem in Python, but Ruby removes all this worry from the developer and it <em>just works</em> (I&rsquo;m expecting Pythonistas to hate on me here, as it does work flawlessly in Python, but feels more complex to me). Also, the <a href="https://ruby-doc.org/core-2.6.3/Enumerable.html">.each</a> method is really nice. Being able to do this, just feels good:</p>
+<pre><code>array.each do |item|
+   item.do_some_stuff
+end
+</code></pre>
+<p>This makes sense and does read really well.</p>
+<p>I really like the string interpolation - again, from a beginner&rsquo;s perspective, this just works out of the box and makes sense:</p>
+<pre><code>name = &quot;Alfie Spoons&quot;
+puts &quot;Hello #{name}.&quot;
+</code></pre>
+<p>The way this works so intuitively, helped me realise that this was designed with the developer in mind.</p>
+<p>I usually try to write a few simple programs before I make a judgement - these usually include a command line calcultor (which takes two numbers and an operator and then checks them and goes through the obligatory operator check to work out which function/method needs to receive the two numbers). Another one is a &lsquo;guess the number&rsquo; game, where a random number is created andthen the user has to try and guess it with the fewest guesses (guesses being counted), whilst the only feedback is &ldquo;You guessed too high/low&rdquo;. For this I really liked the concept of:</p>
+<pre><code>win = false 
+until win do
+    ....
+end
+</code></pre>
+<p>Again, this feels intuitive. I know this can be done with a while, but the command until kind of makes sense.</p>
+<h4 id="quirks">Quirks</h4>
+<p>Not everything is that great - there is always a downside to a language. In this case it&rsquo;s blocks. Now, I&rsquo;m not sure if I understand code blocks at the moment, when compared to Python functions. I think they are similar to functions, and they work with the command yield (so they can be passed around), but they are not quite as intuitive as passing around a function in Python (where it really is that easy to pass a function in to code as though it&rsquo;s a variable.</p>
+<p>Also, when working with a virtual environment (the equivalent of venv in Python), it doesn&rsquo;t feel like you are in a new environment, when Python makes it clear that you have new environment variables. This is what made me give up on the blogging platform <a href="https://www.jekyllrb.com">Jekyll</a> as installing it became a pain with its dependencies that would mess up other applications that I used. However, since <a href="https://bundler.io">bundler</a> has been developed and introduced, it&rsquo;s easier now to run different commands with a bundle of depenedencies.</p>
+
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+      &nbsp;<li class="previous"><a href="/post/2019-06-10-chernobyl-a-review/"> Chernobyl - A Review</a></li>
+      &nbsp;<li class="next"><a href="/post/2019-12-30-setting-acl-linux-filesystem/"> Setting Filesystem ACLs on Linux</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+    </footer>
+ 
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/hc.js"></script>
+</body>
+
+</html>
+
