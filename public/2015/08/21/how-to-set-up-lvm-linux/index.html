@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How to set-up LVM on Linux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Kabads. Musings, mutterings and murmerings." />
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/"><p class="navbar-brand">Kabads. Musings, mutterings and murmerings.</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+					
+					
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+					<img src="" />
+          <li class="sidebar-brand"><a href="/"><h1 class="brand">Kabads. Musings, mutterings and murmerings.</h1></a><h3></h3></li>
+          <hr />
+					
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title">How to set-up LVM on Linux</div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2015-08-21</small></p> <hr/>
+   <div class="post">
+     <!-- raw HTML omitted -->
+<p><strong>What are the advantages of <a href="https://en.wikipedia.org/wiki/Logical_volume_management">Logical Volume Management (LVM)</a>?</strong></p>
+<p>LVM treats your physical harddrives as &lsquo;elastic&rsquo; storage - that is extents can be across disks allowing filesystems to be across many disks and/or partitions. This allows a lot of flexibility and can allow filesystems to shrink or grow easily.</p>
+<p>There is a small disadvantage when using LVM - there is an overhead when reading and writing to disk - which doesn&rsquo;t normally happen when writing to a normal block disk.</p>
+<p>So, how do you set up LVM? I suggest you learn using a <a href="https://www.virtualbox.org/">virtual machine</a> - this post  will cover <a href="http://www.ubuntu.com/download/server">Ubuntu 14.04 server edition</a>.</p>
+<p>The server will need the package lvm2 installed</p>
+<pre><code>$ sudo apt-get install lvm2
+</code></pre>
+<p>Firstly, set up your partitions with type 8e - this will be done with fdisk - type &rsquo;t' and then choose the partition number and then type 8e - this is an LVM type partition. This needs to happen for all the partitions that will be included in the LVM device.</p>
+<pre><code>$ sudo fdisk /dev/sda
+</code></pre>
+<p>After creating the new partitions you will need to do one of a couple of things so that the kernel can see them - reboot or run partprobe. Without this, the kernel won&rsquo;t see the newly created partitions and you will not be able to work on them further. It&rsquo;s at this point that one usually creates a filesystem on these partitions. When setting up LVM, this is not yet the case.</p>
+<p>Then run these commands to create physical volumes:</p>
+<pre><code>$ sudo pvcreate /dev/sda3
+Physical volume &quot;/dev/sda3&quot; successfully created
+
+$ sudo pvcreate /dev/sda4
+Physical volume &quot;/dev/sda3&quot; successfully created
+
+$ sudo pvdisplay
+</code></pre>
+<p>will show you all the physical volumes that are available to LVM.</p>
+<p>This command  will create a virtual group.</p>
+<pre><code>$ sudo vgcreate mylvm /dev/sda3 /dev/sda4
+Volume group &quot;mylvm&quot; successfully created
+
+
+$ sudo vgdisplay
+</code></pre>
+<p>will show you the newly created volume group.</p>
+<p>Now, for the final key part - creating the logical volume:</p>
+<pre><code>$ sudo lvcreate --name myfilesystem --size 1G mylvm
+Logical volume &quot;myfilesystem&quot; created
+
+$ sudo lvdisplay
+</code></pre>
+<p>will show you the logical volume filesystem that has been created (although it doesn&rsquo;t yet have a filesystem on it). The next step will do that.</p>
+<pre><code>$ sudo mkfs.ext3 /dev/mylvm/myfilesystem
+</code></pre>
+<p>Now this filesystem can be mounted like any other filesystem and written to:</p>
+<pre><code>$ sudo mkdir /mnt/lvmdrive
+$ sudo mount /dev/mylvm/myfilesystem /mnt/lvmdrive
+</code></pre>
+<p>Once you have sorted out permissions for this drive you will be able to write to it.</p>
+<pre><code>$ chmod -R 777 /mnt/lvmdrive
+</code></pre>
+
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+      &nbsp;<li class="previous"><a href="/2015/08/14/bring-your-own-device/"> Bring your own device or RaspberryPi hardware in education</a></li>
+      &nbsp;<li class="next"><a href="/2015/08/27/how-to-set-up-raid-drives-linux/"> How to set-up RAID on Linux</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+    </footer>
+ 
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/hc.js"></script>
+</body>
+
+</html>
+

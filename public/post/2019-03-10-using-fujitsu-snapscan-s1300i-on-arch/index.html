@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Setting Up Fujitsu Snapscan S1300i on Arch Linux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Kabads. Musings, mutterings and murmerings." />
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/"><p class="navbar-brand">Kabads. Musings, mutterings and murmerings.</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+					
+					
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+					<img src="" />
+          <li class="sidebar-brand"><a href="/"><h1 class="brand">Kabads. Musings, mutterings and murmerings.</h1></a><h3></h3></li>
+          <hr />
+					
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title">Setting Up Fujitsu Snapscan S1300i on Arch Linux</div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-03-10</small></p> <hr/>
+   <div class="post">
+     <p>I have bought a Fujitsu Snapscan S1301i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I&rsquo;m pleased with it, but the initial thought when I got it home was, &lsquo;how am I going to get it working with Arch Linux?&rsquo;</p>
+<p>Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.nal - which is only available from installing the file on a windows machine. If you wish to download it, you can from this <a href="https://drive.google.com/open?id=1X7fUpu6cM4ow_D9QqAKVvHIGVWOmhvK7">GDrive link</a> - put that file in the directory /usr/share/sane/epjitsu (on Arch Linux).</p>
+<p>Now, edit the /etc/sane.d/epjitsu.conf file - you need to include the settings found at <a href="http://www.sane-project.org/cgi-bin/driver.pl?manu=fujitsu&amp;model=scansnap&amp;bus=any&amp;v=&amp;p=">http://www.sane-project.org/cgi-bin/driver.pl?manu=fujitsu&amp;model=scansnap&amp;bus=any&amp;v=&amp;p=</a> 0x04c5/0x128d -</p>
+<pre><code># Fujitsu S1300i
+firmware /usr/share/sane/epjitsu/1300i_0D12.nal
+usb 0x04c5 0x128d
+</code></pre>
+<p>Once you&rsquo;ve done this, you may need to test the config with superuser rights (sudo gscan2pdf).</p>
+<p>Running gscan2pdf will present you with a choice of scanners - for some reason gscan2pdf picks up my in built camera, which I change to the Fujitsu. To scan duplex you will need to change the settings to standard_tab &gt; scan source_dropdown= ADF- Duplex.</p>
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+      &nbsp;<li class="previous"><a href="/post/2018-08-27-setting-up-mysql-replication/"> Setting Up MySQL Replication as a back-up solution</a></li>
+      &nbsp;<li class="next"><a href="/post/2019-06-10-chernobyl-a-review/"> Chernobyl - A Review</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+    </footer>
+ 
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/hc.js"></script>
+</body>
+
+</html>
+

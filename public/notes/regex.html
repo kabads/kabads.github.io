@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-28 Sat 08:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regex</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Adam C" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Regex</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga7f524d">1. Deep Dive</a></li>
+<li><a href="#orgcd79335">2. The Basic Set</a>
+<ul>
+<li><a href="#org45a4421">2.1. The Wildcard Symbol</a></li>
+<li><a href="#org192eba3">2.2. Wildcard Asterisk Combo</a></li>
+<li><a href="#orgd307fa2">2.3. Representing Whitespaces</a></li>
+<li><a href="#org00d1c6b">2.4. Character Classes</a></li>
+<li><a href="#org5af27c5">2.5. Character Classes With Ranges</a></li>
+<li><a href="#orgea894b9">2.6. Escaping with Backslash</a></li>
+<li><a href="#orgf3b87f8">2.7. Anchors</a></li>
+</ul>
+</li>
+<li><a href="#orga48e45c">3. The Extended Set</a>
+<ul>
+<li><a href="#orgb3276f5">3.1. Curly Braces Repeater</a></li>
+<li><a href="#orgcfc4ba5">3.2. Single Ended Curly Braces Repeater</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga7f524d" class="outline-2">
+<h2 id="orga7f524d"><span class="section-number-2">1</span> Deep Dive</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sample String:
+</p>
+<pre class="example">
+fooaaaabar
+fooabar
+foobar
+fooaabar
+fooxxxbar
+fooxbar
+</pre>
+
+<p>
+We want to match the first four - so if it has an 'x' in it, we don't want. If it has an 'a' or not, we can accept it. 
+</p>
+
+<p>
+We want to accept 'foo | any number of 'a's (or not) | bar'. 
+</p>
+
+<p>
+<code>*</code> is the first symbol.  <code>a*</code> means accept 0 or more occurences of the letter 'a'. 
+</p>
+
+<p>
+<code>fooa*bar</code> is the solution. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd79335" class="outline-2">
+<h2 id="orgcd79335"><span class="section-number-2">2</span> The Basic Set</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org45a4421" class="outline-3">
+<h3 id="org45a4421"><span class="section-number-3">2.1</span> The Wildcard Symbol</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+fooabar
+fooxbar
+baryfoo
+foobar
+fooxybar
+foocbar
+</pre>
+
+<p>
+We want to match 1, 2 and 6. 
+</p>
+
+<p>
+The letter between foo and bar is unpredictable. But the frequency is the same (one letter in between). 
+</p>
+
+<p>
+The solution is <code>'foo.bar'</code>. The <code>.</code> symbol can allow any one character. 
+</p>
+
+<p>
+<code>grep 'foo.bar' regex.sample1</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org192eba3" class="outline-3">
+<h3 id="org192eba3"><span class="section-number-3">2.2</span> Wildcard Asterisk Combo</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+foobar
+barfoo
+fooabcbar
+boobxcbar
+barcbyfoo
+foozbar
+barafoo
+barabfoo
+</pre>
+
+<p>
+We want to accept 1, 3, 4 and 6. This means any number of any letters.
+</p>
+
+<p>
+<code>.*</code> is zero or more occurrences of any letters. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd307fa2" class="outline-3">
+<h3 id="orgd307fa2"><span class="section-number-3">2.3</span> Representing Whitespaces</h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">
+fooxxxbar
+foo bar
+fooxbar
+fooxxbar
+foo bar
+foo    bar
+foobar
+fooyyybar
+</pre>
+
+<p>
+We want to accept anything that has any number of spaces and 0 spaces, but nothing else. 
+</p>
+
+<p>
+<code>\s</code> represents one whitespace. 
+</p>
+
+<p>
+<code>\s*</code> represents zero or more occurences of spaces.
+</p>
+
+<pre class="example">
+grep 'foo\s*bar' regex.sample3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org00d1c6b" class="outline-3">
+<h3 id="org00d1c6b"><span class="section-number-3">2.4</span> Character Classes</h3>
+<div class="outline-text-3" id="text-2-4">
+<pre class="example">
+foo
+moo
+coo
+doo
+poo
+loo
+boo
+hoo
+</pre>
+
+<p>
+We want to accept foo, coo and loo. 
+</p>
+
+<p>
+We can create a character class with: <code>[charsherer]</code>. It is only one character position. It is not a wildcard. 
+</p>
+
+<p>
+<code>grep '[fcl]oo' regex.sample4</code>
+</p>
+
+<p>
+Now we want to exclude moo, and hoo. 
+</p>
+
+<p>
+<code>grep '[fcdplb]oo' regex.sample4</code> is the solution. As m and h are not included in the class, they are excluded. 
+</p>
+
+<p>
+However, if there are too many characters in the class, it becomes unmanageable. 
+</p>
+
+<p>
+So, how can we exclude 'm' and 'h'?
+</p>
+
+<p>
+<code>grep '[^mh]oo' regex.sample4</code> is the solution. The <code>^</code> denotes anything other than these characters. 
+</p>
+
+<p>
+Now we are excluding characters. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5af27c5" class="outline-3">
+<h3 id="org5af27c5"><span class="section-number-3">2.5</span> Character Classes With Ranges</h3>
+<div class="outline-text-3" id="text-2-5">
+<pre class="example">
+joo
+boo
+koo
+loo
+woo
+moo 
+zoo
+coo
+</pre>
+
+<p>
+We want all the characters that are between k-m (inclusive). 
+</p>
+
+<p>
+<code>grep '[j-m]oo' regex.sample5</code>
+</p>
+
+<p>
+We want from j-z. 
+</p>
+
+<p>
+<code>grep '[j-z]oo' regex.sample5</code>
+</p>
+
+<p>
+Now the list is: 
+</p>
+<pre class="example">
+joo
+boo
+Koo
+Loo
+woo
+moo
+zoo
+coo
+</pre>
+
+<p>
+We want joo, Koo, Loo, moo, zoo. 
+</p>
+
+<p>
+Solution:
+~grep '[j-mJ-Mz]oo' regex.sample6
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea894b9" class="outline-3">
+<h3 id="orgea894b9"><span class="section-number-3">2.6</span> Escaping with Backslash</h3>
+<div class="outline-text-3" id="text-2-6">
+<pre class="example">
+xxx.yy
+xx.yyyy
+x.y
+xy
+xxyy
+yyxx
+yx
+yxxx
+</pre>
+
+<p>
+We want xxx.yy, xx.yyyy, x.yy. They all have the full-stop in common. 
+</p>
+
+<p>
+How do we reference the full-stop without it being seen as a wildcard? 
+</p>
+
+<p>
+There are special characters that mean something in regx ^, $, ., [, (, ), \. 
+</p>
+
+<p>
+When we backslash a character, we escape the character after it and it is passed to be a normal (literal) character.
+</p>
+
+<p>
+Solution:
+<code>grep 'x*\.y*' regex.sample</code>
+</p>
+
+<pre class="example">
+x#y
+x:y
+x.y
+x&amp;y
+x%y
+</pre>
+
+<p>
+We want to accept x#y, x:y and x.y. 
+</p>
+
+<p>
+If a '.' is inside <code>[ ]</code>, it does'nt need to be escaped. 
+</p>
+
+<p>
+Solution:
+</p>
+
+<p>
+<code>grep 'x[#:.]y' regex.sample</code>
+</p>
+
+<pre class="example">
+x#y
+x:y
+x^y 
+x&amp;y
+x%y
+</pre>
+
+<p>
+We want to find x#y, x:y, and x<sup>y</sup>. 
+</p>
+
+<p>
+Solution:
+<code>grep 'x[#:\^]y' regex.sample</code>
+</p>
+
+<pre class="example">
+x#y
+x\y
+x^y
+x&amp;y
+x%y
+</pre>
+
+<p>
+We want to find x#, x\y, x<sup>y</sup>. 
+</p>
+
+<p>
+Solution:
+<code>grep 'x[#\\\^]y' regex.sample</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf3b87f8" class="outline-3">
+<h3 id="orgf3b87f8"><span class="section-number-3">2.7</span> Anchors</h3>
+<div class="outline-text-3" id="text-2-7">
+<pre class="example">
+foo bar baz
+bar foo baz
+baz foo bar
+bar baz foo
+foo baz bar
+baz bar foo 
+</pre>
+
+<p>
+This is a combination of three words in different order. 
+</p>
+
+<p>
+We want to search for foo bar baz, and foo baz bar.
+</p>
+
+<p>
+foo | bar baz
+foo | baz bar
+</p>
+
+<p>
+foo is a fixed string. The latter part is variable. <code>.*</code> will not work here as some of the other entries will also be included. 
+</p>
+
+<p>
+Only the strings that begin with foo will qualify. This brings us to the new character <code>^</code> which means that something at the beginning of the line - and nowhere else. Caret is also a negation symbol, if it is in the square brackets [^ ]. This means negation. If outside, it is interpreted as the place holder for the beginning of the line.
+</p>
+
+<p>
+<code>grep '^foo.*' regex.sample</code>
+</p>
+
+<p>
+Next example: 
+</p>
+
+<pre class="example">
+foo bar baz
+bar foo baz
+baz foo bar
+bar baz foo
+foo baz bar
+baz bar foo 
+</pre>
+
+<p>
+We want to accept 'baz foo bar' and 'foo baz bar'. They both end in bar. This brings in the '$' character. This is the placeholder for the end of the line. 
+</p>
+
+<p>
+Solution:
+</p>
+
+<p>
+<code>grep .*bar$' regex.sample</code>
+</p>
+
+<p>
+Next example. 
+</p>
+
+<pre class="example">
+foo
+foo bar
+baz foo
+foo bar baz
+baz bar foo
+</pre>
+
+<p>
+I only want to accept only 'foo'. We can combine the anchors for this:
+</p>
+
+<p>
+Solution:
+<code>grep '^foo$' regex.sample</code>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga48e45c" class="outline-2">
+<h2 id="orga48e45c"><span class="section-number-2">3</span> The Extended Set</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The extended set comes with more symbols:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Symbol</td>
+<td class="org-left">What does it represent?</td>
+</tr>
+
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">One or more occurrences of the character that precedes this + symbol</td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">Zero or one occurence of the character that precedes this question mark</td>
+</tr>
+
+<tr>
+<td class="org-left">pat1❘pat2</td>
+<td class="org-left">Matches either the pattern pat1 or the pattern pat2</td>
+</tr>
+
+<tr>
+<td class="org-left">( )</td>
+<td class="org-left">Divides patterns into groups</td>
+</tr>
+
+<tr>
+<td class="org-left">{m}</td>
+<td class="org-left">Exactly 'm' occurences of whatever precedes</td>
+</tr>
+
+<tr>
+<td class="org-left">{m,n}</td>
+<td class="org-left">At least m and n occurences of whatever precedes. Only one of m, n is mandatory. Other can be left blank</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-orgb3276f5" class="outline-3">
+<h3 id="orgb3276f5"><span class="section-number-3">3.1</span> Curly Braces Repeater</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+834
+519
+4874
+5
+89
+45687
+25
+645
+</pre>
+
+<p>
+We want to select 834, 519, 645. These are all three digit numbers. That is the pattern. 
+</p>
+
+<p>
+This is how it could be represented:
+</p>
+<pre class="example">
+^[0-9][0-9][0-9]$
+</pre>
+<p>
+This is duplication though. What if it were 8 numbers. This doesn't scale. 
+</p>
+
+<p>
+Solution: 
+</p>
+<pre class="example">
+grep '^[0-9]{3}$' regex.sample
+</pre>
+
+<p>
+Note that we have to have the anchors as some of these numbers are more than 3 digits, which means they would still match. The anchors prevent this. 
+</p>
+
+<p>
+Next example:
+</p>
+<pre class="example">
+lion
+tiger
+leopard
+fox
+kangaroo
+bat
+mouse
+cuckoo
+deer
+</pre>
+
+<p>
+We want lion, tiger, mouse, cuckoo, deer. We have 4, 5 and 6 letter words.
+</p>
+
+<p>
+This could be represented as this:
+</p>
+<pre class="example">
+^[a-z]{4}$
+^[a-z]{5}$
+^[a-z]{6}$
+</pre>
+
+<p>
+Again, this does not scale, so we can represent a range of occurrences:
+</p>
+<pre class="example">
+^[a-z]{4,6}$
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcfc4ba5" class="outline-3">
+<h3 id="orgcfc4ba5"><span class="section-number-3">3.2</span> Single Ended Curly Braces Repeater</h3>
+<div class="outline-text-3" id="text-3-2">
+<pre class="example">
+ha
+hahahahaha
+hahaha
+hahahaha
+haha
+
+hahahahahaha
+hahahahahahahaha
+hahahahahahahahaha
+</pre>
+
+<p>
+We want to accept, hahahahaha, hahahahahaha, hahahahahahahaha and hahahahahahahahaha.
+</p>
+
+<p>
+This is a range of repetitions from 4 to 9. 
+</p>
+
+<p>
+Solution: 
+</p>
+<pre class="example">
+grep '(ha){4,}' regex.sample
+</pre>
+
+<p>
+The lack of the second digit after 4 means that this can go on infinitely to match (i.e. more than 9 occurrences). 
+</p>
+
+<p>
+Next example:
+</p>
+<pre class="example">
+ha
+haha
+hahahahaha
+hahahaha
+hahaha
+hahahahahahaha
+hahahahahaha
+</pre>
+
+<p>
+I want to search for ha and haha only. 
+</p>
+
+<p>
+We have used the parenthesis to create a group of characters. 
+</p>
+
+<p>
+We can negate the repetition statement. 
+</p>
+
+<p>
+Solution: 
+</p>
+<pre class="example">
+grep '^(ha){,2}$' regex.sample
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adam C</p>
+<p class="date">Created: 2020-11-28 Sat 08:40</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
