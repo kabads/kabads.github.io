@@ -2,7 +2,7 @@
 categories:
 - ruby
 date: "2019-07-29T00:00:00Z"
-draft: true
+status: publish
 title: Ruby Arrays
 ---
  

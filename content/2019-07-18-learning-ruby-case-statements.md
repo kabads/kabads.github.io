@@ -2,7 +2,7 @@
 categories:
 - ruby
 date: "2019-07-18T00:00:00Z"
-draft: true
+status: publish
 title: Case Statements in Ruby - Learning Ruby 3
 ---
 If you are coming from using python, then you will be used to using a lot of ```if...elif...else``` statements to catch conditions in variables. Sometimes this can be tedious - in Ruby it is easier to use ```case``` statements. 

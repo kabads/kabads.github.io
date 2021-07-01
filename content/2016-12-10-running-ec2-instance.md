@@ -2,7 +2,7 @@
 categories:
 - sysadmin
 date: "2016-12-10T00:00:00Z"
-draft: true
+status: publish
 title: Running EC2 Instance
 url: /2016/12/10/running-ec2-instance/
 ---

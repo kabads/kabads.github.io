@@ -1,7 +1,7 @@
 ---
 categories: sysadmin
 date: "2019-11-11T13:52:22Z"
-draft: true
+status: publish
 title: How to Create Virtual Machines With Qemu
 ---
 

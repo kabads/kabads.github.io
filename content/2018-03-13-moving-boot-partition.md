@@ -2,7 +2,7 @@
 categories:
 - sysadmin
 date: "2018-03-13T19:42:17Z"
-draft: true
+status: publish
 title: Moving Boot Partition (EFI/EPS partition)
 ---
 {{< rawhtml >}}

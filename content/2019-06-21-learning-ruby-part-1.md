@@ -1,5 +1,6 @@
 ---
-categories: ruby
+categories: 
+- ruby
 date: "2019-06-21T00:00:00Z"
 title: Learning Ruby - First Impressions
 ---

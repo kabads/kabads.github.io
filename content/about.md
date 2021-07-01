@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2012-06-28T21:37:55+01:00
-draft: true
+status: publish
 ---
 
 

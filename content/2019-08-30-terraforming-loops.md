@@ -2,7 +2,7 @@
 categories:
 - sysadmin
 date: "2019-08-30T00:00:00Z"
-draft: true
+status: publish
 title: Terraform and Loops - creating multiple resources
 ---
 Terraform is a great tool for creating infrastructure. It's almost becoming the 'de-facto' standard. This post will outline how to create multiple resources with just one code block. 
