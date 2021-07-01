@@ -3,7 +3,11 @@ date: "2020-04-21T14:05:00Z"
 title: Apache Rewrite Mod
 ---
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/49800557653/in/datetaken/" title="Apache_HTTP_server_logo_(2016)"><img src="https://live.staticflickr.com/65535/49800557653_9ca139375d_n.jpg" width="320" height="122" align="left" style="padding:20px" alt="Apache_HTTP_server_logo_(2016)"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script> `mod_rewrite` is a powerful module that Apache can utilize. It is a way of rewriting URLs, modifying the request that Apache recieves. This could be a moved document, or enforcing SSL (rewriting the URL from http to https).
+{{< rawhtml >}}
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/kabads/49800557653/in/datetaken/" title="Apache_HTTP_server_logo_(2016)"><img src="https://live.staticflickr.com/65535/49800557653_9ca139375d_n.jpg" width="320" height="122" align="left" style="padding:20px" alt="Apache_HTTP_server_logo_(2016)"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script> 
+{{< /rawhtml >}}
+
+`mod_rewrite` is a powerful module that Apache can utilize. It is a way of rewriting URLs, modifying the request that Apache recieves. This could be a moved document, or enforcing SSL (rewriting the URL from http to https).
 
 This is a complex subject, which cannot be covered here, but for further information, refer to the [full documentation](https://httpd.apache.org/docs/current/mod/mod_rewrite.html).
 Rewrite rules can exist in a .htaccess file, or the main configuration file, or preferably a `<Directory>` stanza.

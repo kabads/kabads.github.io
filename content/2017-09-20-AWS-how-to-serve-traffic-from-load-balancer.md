@@ -24,8 +24,9 @@ For high availability, it is a good idea to place your next elastic load balance
 
 You should have three subnets as this image shows.
 
-
+{{< rawhtml >}}
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/KFrjH"><a href="//imgur.com/KFrjH"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{{< /rawhtml >}}
 
 Next you need to create an Internet Gateway and attach it to the public subnet. This is what makes the load balancer  world accessible. Click on Internet Gateway, then create an internet gateway, with a name tag. Then, attach it to the VPC that you have created (only one Internet Gateway can be attached to a VPC). Click the Attach to VPC button and then choose the new VPC that you created earlier. This means you will be able to access the EC2 instance for the time being.
 
@@ -49,11 +50,15 @@ Check using the public ip address of the EC2 instance. You'll notice that this w
 
 Let's fix that by creating a new route table. The new route table must only have a route that allows the local traffic (i.e. no 0.0.0.0/0). Then go to the private subnet and then change the route for the subnet to the new route table that doesn't have a public route.
 
+{{< rawhtml >}}
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/CzkdB"><a href="//imgur.com/CzkdB"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{{< /rawhtml >}}
 
 You can test if your load balancer is still forwarding the traffic by clicking on load balancer link, selecting the active load balancer and then using the DNS information
 
+{{< rawhtml >}}
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/mPIkP"><a href="//imgur.com/mPIkP"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{{< /rawhtml >}}
 
 Copy and paste that link into your browser. You should be forwarded to the HTTP welcome page that the private EC2 instance is server.
 

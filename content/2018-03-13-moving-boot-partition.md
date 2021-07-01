@@ -5,8 +5,9 @@ date: "2018-03-13T19:42:17Z"
 draft: true
 title: Moving Boot Partition (EFI/EPS partition)
 ---
-
+{{< rawhtml >}}
 <a href="https://gparted.org/docs/moving-space-between-partitions/C/figures/9823OS_14_03.png"> <img src="https://gparted.org/docs/moving-space-between-partitions/C/figures/9823OS_14_03.png" width="200" height="150" alt="Moving partitions can cause your system to not boot" /> </a>
+{{< /rawhtml >}}
 
 If you've been using Linux for a few years, you'll probably remember that 100MB for a /boot partition was no problem. However, that has changed. Whilst you don't need a datacentre for a /boot partitions, you might want to install other kernels to help you tweak your system and yet not delete kernels that you are using.
 
