@@ -9,3 +9,5 @@ params:
   - fadeIn: true
   - params.share:
     - facebook: true
+permalinks:
+  /: /:year/:month/:day/:title/
