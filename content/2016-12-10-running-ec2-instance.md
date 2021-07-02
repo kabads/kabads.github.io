@@ -17,7 +17,7 @@ Name  | Uses              | Offers
 ------|-------------------|--------------------------  
  T2   | Small use machine | with burstable performace 
  M4   | Medium            |                          
- D2   | small 		  |
+ D2   | small 		        |
 
     root@openvpnas2:~# ip route
     default via 11.0.1.1 dev eth0 

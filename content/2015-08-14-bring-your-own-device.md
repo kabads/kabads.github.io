@@ -1,5 +1,7 @@
 ---
 date: "2015-08-14T00:00:00Z"
+categories:
+- education
 tag: education
 title: Bring your own device or RaspberryPi hardware in education
 url: /2015/08/14/bring-your-own-device/

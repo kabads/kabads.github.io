@@ -6,7 +6,9 @@ title: How to set-up LVM on Linux
 url: /2015/08/21/how-to-set-up-lvm-linux/
 ---
 
+{{< rawhtml >}}
 <img src="https://farm1.staticflickr.com/606/20580819929_7109d8f28b_m.jpg">
+{{< /rawhtml >}}
 
 **What are the advantages of [Logical Volume Management (LVM)](https://en.wikipedia.org/wiki/Logical_volume_management)?**
 
