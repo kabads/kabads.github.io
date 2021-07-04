@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>exercise on Kabads. Musings, mutterings and murmerings.</title>
-    <link>/categories/exercise/</link>
-    <description>Recent content in exercise on Kabads. Musings, mutterings and murmerings.</description>
+    <title>exercise on Kabads</title>
+    <link>//home.monkeez.org/hugo/categories/exercise.html</link>
+    <description>Recent content in exercise on Kabads</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/exercise/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="//home.monkeez.org/hugo/categories/exercise/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TADS walk Swindon to Goring</title>
-      <link>/2017/07/02/Swindon-to-Goring-Walk/</link>
+      <link>//home.monkeez.org/hugo/2017/07/02/Swindon-to-Goring-Walk/</link>
       <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/07/02/Swindon-to-Goring-Walk/</guid>
+      <guid>//home.monkeez.org/hugo/2017/07/02/Swindon-to-Goring-Walk/</guid>
       <description>TADS - Teresa, Adam, Dave and Shep walking. We have been walking for about 2 years now, all around the South East. This was our longest walk by far in two days. Swindon to Goring.
 The walk started out with us meeting at Swindon having lunch. There seemed to be quite a lot going on in the town with Canadian flags and guys at the train station with Ice Hockey sticks.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>/2015/06/30/TADS-walk-around-Bramley/</link>
+      <title>Ran over 600km</title>
+      <link>//home.monkeez.org/hugo/2015/07/23/Ran-over-600km.html</link>
+      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//home.monkeez.org/hugo/2015/07/23/Ran-over-600km.html</guid>
+      <description>So, I&amp;rsquo;ve set myself a target of running 1000km this year. I realised a couple of months ago that I&amp;rsquo;ve run quite a lot this year. I got to June and had run more than any other year before. So, the idea is to keep running and get to 1000km (621 miles) by December.
+ </description>
+    </item>
+    
+    <item>
+      <title>TADS Walk around Bramley</title>
+      <link>//home.monkeez.org/hugo/2015/06/30/TADS-walk-around-Bramley/</link>
       <pubDate>Tue, 30 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/2015/06/30/TADS-walk-around-Bramley/</guid>
-      <description>Went for a walk with Teresa, Adam, Dave and Shep (TADS) around the village of Bramley, and Silchester. Saw some deer on the way.</description>
+      <guid>//home.monkeez.org/hugo/2015/06/30/TADS-walk-around-Bramley/</guid>
+      <description>Went for a walk with Teresa, Adam, Dave and Shep (TADS) around the village of Bramley, and Silchester. Saw some deer on the way.
+ </description>
     </item>
     
   </channel>

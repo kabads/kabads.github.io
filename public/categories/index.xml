@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Kabads. Musings, mutterings and murmerings.</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on Kabads. Musings, mutterings and murmerings.</description>
+    <title>Categories on Kabads</title>
+    <link>//home.monkeez.org/hugo/categories.html</link>
+    <description>Recent content in Categories on Kabads</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="//home.monkeez.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>reading</title>
-      <link>/categories/reading/</link>
-      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      <title>sysadmin</title>
+      <link>//home.monkeez.org/hugo/categories/sysadmin.html</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/categories/reading/</guid>
+      <guid>//home.monkeez.org/hugo/categories/sysadmin.html</guid>
       <description></description>
     </item>
     
     <item>
-      <title>sysadmin</title>
-      <link>/categories/sysadmin/</link>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      <title>reading</title>
+      <link>//home.monkeez.org/hugo/categories/reading.html</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>/categories/sysadmin/</guid>
+      <guid>//home.monkeez.org/hugo/categories/reading.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>cycling</title>
-      <link>/categories/cycling/</link>
+      <link>//home.monkeez.org/hugo/categories/cycling.html</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/cycling/</guid>
+      <guid>//home.monkeez.org/hugo/categories/cycling.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>ruby</title>
-      <link>/categories/ruby/</link>
-      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
+      <link>//home.monkeez.org/hugo/categories/ruby.html</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/ruby/</guid>
+      <guid>//home.monkeez.org/hugo/categories/ruby.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>emacs</title>
-      <link>/categories/emacs/</link>
+      <link>//home.monkeez.org/hugo/categories/emacs.html</link>
       <pubDate>Sun, 18 Mar 2018 13:02:55 +0000</pubDate>
       
-      <guid>/categories/emacs/</guid>
+      <guid>//home.monkeez.org/hugo/categories/emacs.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>exercise</title>
-      <link>/categories/exercise/</link>
+      <link>//home.monkeez.org/hugo/categories/exercise.html</link>
       <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/categories/exercise/</guid>
+      <guid>//home.monkeez.org/hugo/categories/exercise.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>/categories/tech/</link>
+      <link>//home.monkeez.org/hugo/categories/tech.html</link>
       <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/categories/tech/</guid>
+      <guid>//home.monkeez.org/hugo/categories/tech.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>leisure</title>
-      <link>/categories/leisure/</link>
+      <link>//home.monkeez.org/hugo/categories/leisure.html</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/categories/leisure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>politics</title>
-      <link>/categories/politics/</link>
-      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/politics/</guid>
+      <guid>//home.monkeez.org/hugo/categories/leisure.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>education</title>
-      <link>/categories/education/</link>
-      <pubDate>Mon, 02 Apr 2012 10:37:32 +0000</pubDate>
+      <link>//home.monkeez.org/hugo/categories/education.html</link>
+      <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>/categories/education/</guid>
+      <guid>//home.monkeez.org/hugo/categories/education.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>politics</title>
+      <link>//home.monkeez.org/hugo/categories/politics.html</link>
+      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//home.monkeez.org/hugo/categories/politics.html</guid>
       <description></description>
     </item>
     

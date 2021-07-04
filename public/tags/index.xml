@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Kabads. Musings, mutterings and murmerings.</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Kabads. Musings, mutterings and murmerings.</description>
+    <title>Tags on Kabads</title>
+    <link>//home.monkeez.org/hugo/tags.html</link>
+    <description>Recent content in Tags on Kabads</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 21 Mar 2012 18:50:34 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 21 Mar 2012 18:50:34 +0000</lastBuildDate><atom:link href="//home.monkeez.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ict</title>
-      <link>/tags/ict/</link>
+      <link>//home.monkeez.org/hugo/tags/ict.html</link>
       <pubDate>Wed, 21 Mar 2012 18:50:34 +0000</pubDate>
       
-      <guid>/tags/ict/</guid>
+      <guid>//home.monkeez.org/hugo/tags/ict.html</guid>
       <description></description>
     </item>
     

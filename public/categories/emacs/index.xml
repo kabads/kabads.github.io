@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>emacs on Kabads. Musings, mutterings and murmerings.</title>
-    <link>/categories/emacs/</link>
-    <description>Recent content in emacs on Kabads. Musings, mutterings and murmerings.</description>
+    <title>emacs on Kabads</title>
+    <link>//home.monkeez.org/hugo/categories/emacs.html</link>
+    <description>Recent content in emacs on Kabads</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 18 Mar 2018 13:02:55 +0000</lastBuildDate><atom:link href="/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 18 Mar 2018 13:02:55 +0000</lastBuildDate><atom:link href="//home.monkeez.org/hugo/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sync Google Calendar With Org Agenda</title>
-      <link>/2018-03-18-sync-google-calendar-with-org-agenda/</link>
+      <link>//home.monkeez.org/hugo/2018/03/18/Sync-Google-Calendar-With-Org-Agenda.html</link>
       <pubDate>Sun, 18 Mar 2018 13:02:55 +0000</pubDate>
       
-      <guid>/2018-03-18-sync-google-calendar-with-org-agenda/</guid>
-      <description>I use org-mode an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my org-agenda. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It&amp;rsquo;s pretty much what drives my working day.</description>
+      <guid>//home.monkeez.org/hugo/2018/03/18/Sync-Google-Calendar-With-Org-Agenda.html</guid>
+      <description>I use org-mode an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my org-agenda. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view.</description>
     </item>
     
   </channel>

@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ruby on Kabads. Musings, mutterings and murmerings.</title>
-    <link>/categories/ruby/</link>
-    <description>Recent content in ruby on Kabads. Musings, mutterings and murmerings.</description>
+    <title>ruby on Kabads</title>
+    <link>//home.monkeez.org/hugo/categories/ruby.html</link>
+    <description>Recent content in ruby on Kabads</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="//home.monkeez.org/hugo/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby Arrays</title>
+      <link>//home.monkeez.org/hugo/draft/2019-07-29-arrays-with-ruby.html</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>//home.monkeez.org/hugo/draft/2019-07-29-arrays-with-ruby.html</guid>
+      <description>Ruby has extensive coverage for arrays (sometimes called lists if you are coming from a Python background). Arrays are for collecting information all in one place, or in a list. Arrays are sequential, which means that they don&amp;rsquo;t change order once set. Arrays are mutable (they can change items in the list).
+Declaring an Array Here is an example of an array:
+scores = [14, 12, 4, 20, 19]  These scores can be for a particular person in a particular test or activity.</description>
+    </item>
+    
+    <item>
+      <title>Case Statements in Ruby - Learning Ruby 3</title>
+      <link>//home.monkeez.org/hugo/2019/07/18/Case-Statements-in-Ruby-Learning-Ruby-3.html</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>//home.monkeez.org/hugo/2019/07/18/Case-Statements-in-Ruby-Learning-Ruby-3.html</guid>
+      <description>If you are coming from using python, then you will be used to using a lot of if...elif...else statements to catch conditions in variables. Sometimes this can be tedious - in Ruby it is easier to use case statements.
+Let&amp;rsquo;s assume that you are checking for ages of people and want to classify them according to their age (it might be a sceranio of runners in a race and you want to find out who won each age range).</description>
+    </item>
+    
+    <item>
+      <title>Strings in Ruby - Learning Ruby 2</title>
+      <link>//home.monkeez.org/hugo/2019/07/12/Strings-in-Ruby-Learning-Ruby-2.html</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>//home.monkeez.org/hugo/2019/07/12/Strings-in-Ruby-Learning-Ruby-2.html</guid>
+      <description>Ruby has great string support. This post summarises the functions that are available.
+This is not designed to be a tutorial for others, but rather a record for myself in learning Ruby.
+.downcase This method turns any characters in a string to lowercase.
+a = &amp;quot;My String&amp;quot;.downcase  returns
+&amp;quot;my string&amp;quot;  .upcase .upcase method does the opposite of downcase. It will change the case of any lowercase characters to uppercase.</description>
+    </item>
+    
     <item>
       <title>Learning Ruby - First Impressions</title>
-      <link>/2019-06-21-learning-ruby-part-1/</link>
+      <link>//home.monkeez.org/hugo/2019/06/21/Learning-Ruby-First-Impressions.html</link>
       <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019-06-21-learning-ruby-part-1/</guid>
+      <guid>//home.monkeez.org/hugo/2019/06/21/Learning-Ruby-First-Impressions.html</guid>
       <description>Chef is used in my place of work, and so as a result I started learning Ruby programming language. I know some python (enough to get me by) but thought that knowing some Ruby would be a good development in my learning. This is an attempt an my first impressions of what is good for a beginner and what is not so good (from the perspective of someone coming from Python).</description>
     </item>
     
