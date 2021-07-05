@@ -1,0 +1,94 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Rsyslog configured to monitor journald /run/systemd/journal/syslog socket</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../../../../../about>About</a></li><hr><p><a href=../../../../../../../categories/sysadmin>Sysadmin</a> |
+<a href=../../../../../../../categories/reading>Reading</a> |
+<a href=../../../../../../../categories/cycling>Cycling</a> |
+<a href=../../../../../../../categories/ruby>Ruby</a> |
+<a href=../../../../../../../categories/emacs>Emacs</a> |
+<a href=../../../../../../../categories/exercise>Exercise</a> |
+<a href=../../../../../../../categories/tech>Tech</a> |
+<a href=../../../../../../../categories/education>Education</a> |
+<a href=../../../../../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>Rsyslog configured to monitor journald /run/systemd/journal/syslog socket</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2020-03-19</small></p><hr><div class=post><p>Rsyslog (aka syslog) can pull in logs from journald, via the socket (using imuxsock module) or a specific module that taps in to a socket that is journald runs (imjournal) with very little config. imjournal specialises in logging that is structured (e.g. logs that follow json structure) and then filtering or querying logs. As a result, imjournal is more expensive. These modules are already loaded by default inrsyslog.conf file and do not need adding in any other configuration files.</p><p>To use a socket (<code>imuxsock</code>) module instead of the <code>imjournal</code> module, turn off persistent logging in journald by removing the directory <code>/var/log/journal</code> and setting <code>Storage=auto</code> in <code>/etc/systemd/journal.conf</code>. Once you restart journald, it will not write logs to disk, but instead to a virtual file location in <code>/run/systemd/journal</code>. This runs the risk that we may lose some logs if they are not persisted. Therefore, we need to get rsysolg to moniter this socket (thereby writing them to disk and to papertrail at the same time).</p><p>Rsyslog has two ways of pulling in journald logs. One is through a module called <code>imjournal</code> which is good as structuring log files. However, another more lightweight method is through creating a socket <code>/run/systemd/journal/syslog</code>. This socket is less expensive.</p><p>To create this socket, you need to look at the systemd unit file for rsyslog.</p><p>Two lines are usually commented out (with the character &lsquo;;').</p><pre><code>[Unit]
+...
+;Requires=syslog.socket
+...
+[Install]
+WantedBy=multi-user.target
+;Alias=syslog.service
+</code></pre><p>Remove the ; characters and restart syslog with <code>systemctl restart rsyslog</code> and the <code>/run/systemd/journal/syslog</code> file should be there.</p><p>If you are coming from a default CentOS install, rsysolg will keep a position of where it is in the journal log. This can cause problems whilst configuring the socket. By deleting the state file, <code>/var/log/rsyslog/imjournal.state</code>, you will prevent these problems. Once you restart rsyslog, this file will be recreated with the new journal position (which is something we don’t need to worry about, but rsyslog may throw errors if you don’t force this ‘refresh’).</p><p>Once you have a fresh state, you need to create a virtual file <code>/run/systemd/journal/syslog</code> - once this is in place, rsyslog is ready to pull logs from journald. To create this socket/file, you need to look at the systemd unit file for rsyslog <code>/lib/systemd/system/rsyslog.service</code>.</p><p>Remove the comment ( ; ) characters and restart syslog with systemctl restart rsyslog and the /run/systemd/journal/syslog file should be there.</p><p>Then a directive needs to be set for rsyslog to look at that socket, so this line should be included in rsyslog config (preferably /etc/rsyslog.d/##-journald.conf):</p><pre><code># /etc/rsyslog.d/48-journal.conf
+$SystemLogSocketName /run/systemd/journal/syslog
+</code></pre><p>There is also a symlinked file held by systemd that lets rsyslog manage the /run/sytemd/journal/syslog socket. This file can be symlinked with <code>ln -s /lib/systemd/system/rsyslog.service /etc/systemd/system/syslog.service</code>.</p><pre><code># /etc/systemd/system/syslog.socket
+
+[Unit]
+Description=System Logging Service
+Requires=syslog.socket
+Wants=network.target network-online.target
+After=network.target network-online.target
+Documentation=man:rsyslogd(8)
+Documentation=http://www.rsyslog.com/doc/
+
+[Service]
+Type=notify
+EnvironmentFile=-/etc/sysconfig/rsyslog
+ExecStart=/usr/sbin/rsyslogd -n $SYSLOGD_OPTIONS
+Restart=on-failure
+UMask=0066
+StandardOutput=null
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=syslog.service
+</code></pre><p>The <code>/etc/rsyslog.conf</code> file should look like this (the change here is the <code>$OmitLocalLogging off</code> directive, which is usually on, but must be off for the rsyslog socket to work):</p><pre><code># /etc/rsyslog.conf
+$PreserveFQDN off
+
+#################
+#### MODULES ####
+#################
+$ModLoad imuxsock # provides support for local system logging - via logger command
+$ModLoad imklog # provides kernel logging support
+$ModLoad immark # provides --MARK-- message capability
+$ModLoad imjournal
+
+
+
+###########################
+#### GLOBAL DIRECTIVES ####
+###########################
+
+
+#
+# Use traditional timestamp format.
+# To enable high precision timestamps, comment out the following line.
+#
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+# Filter duplicated messages
+$RepeatedMsgReduction on
+
+#
+# Set temporary directory to buffer syslog queue
+#
+$WorkDirectory /var/lib/rsyslog
+
+#
+# Set the default permissions for all log files.
+#
+$FileOwner root
+$FileGroup root
+$FileCreateMode 0600
+$DirCreateMode 0755
+$Umask 0022
+
+#
+# Set other directives
+#
+$OmitLocalLogging off
+$IMJournalStateFile imjournal.state
+</code></pre><p>The journald.conf file needs one change (without this change, most logs will be logged twice - once by rsyslog itself and then also by journald sending it to rsyslog:</p><pre><code># /etc/systemd/journald.conf
+...
+ForwardToSyslog=no
+...
+</code></pre><p>After restarting both journald (<code>systemctl restart systemd-journald</code>) and rsyslog (<code>systemctl restart rsyslog</code>) you will be able to test both logs with <code>journalctl -f</code> and <code>tail -f /var/log/messages</code> - then issue the command <code>logger -p daemon.warn "This is only a test."</code>.</p><p>This should be written to both logs at the same time.</p></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2020/01/03/SELinux-Users-Roles-and-Types.html>SELinux Users, Roles, and Types</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2020/03/30/Bike-packing-preparation.html>Bike-packing preparation</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>

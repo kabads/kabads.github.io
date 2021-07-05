@@ -1,0 +1,35 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>How to set-up LVM on Linux</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../../about>About</a></li><hr><p><a href=../../../../categories/sysadmin>Sysadmin</a> |
+<a href=../../../../categories/reading>Reading</a> |
+<a href=../../../../categories/cycling>Cycling</a> |
+<a href=../../../../categories/ruby>Ruby</a> |
+<a href=../../../../categories/emacs>Emacs</a> |
+<a href=../../../../categories/exercise>Exercise</a> |
+<a href=../../../../categories/tech>Tech</a> |
+<a href=../../../../categories/education>Education</a> |
+<a href=../../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>How to set-up LVM on Linux</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2015-08-21</small></p><hr><div class=post><img src=https://farm1.staticflickr.com/606/20580819929_7109d8f28b_m.jpg><p><strong>What are the advantages of <a href=https://en.wikipedia.org/wiki/Logical_volume_management>Logical Volume Management (LVM)</a>?</strong></p><p>LVM treats your physical harddrives as &lsquo;elastic&rsquo; storage - that is extents can be across disks allowing filesystems to be across many disks and/or partitions. This allows a lot of flexibility and can allow filesystems to shrink or grow easily.</p><p>There is a small disadvantage when using LVM - there is an overhead when reading and writing to disk - which doesn&rsquo;t normally happen when writing to a normal block disk.</p><p>So, how do you set up LVM? I suggest you learn using a <a href=https://www.virtualbox.org/>virtual machine</a> - this post will cover <a href=http://www.ubuntu.com/download/server>Ubuntu 14.04 server edition</a>.</p><p>The server will need the package lvm2 installed</p><pre><code>$ sudo apt-get install lvm2
+</code></pre><p>Firstly, set up your partitions with type 8e - this will be done with fdisk - type &rsquo;t' and then choose the partition number and then type 8e - this is an LVM type partition. This needs to happen for all the partitions that will be included in the LVM device.</p><pre><code>$ sudo fdisk /dev/sda
+</code></pre><p>After creating the new partitions you will need to do one of a couple of things so that the kernel can see them - reboot or run partprobe. Without this, the kernel won&rsquo;t see the newly created partitions and you will not be able to work on them further. It&rsquo;s at this point that one usually creates a filesystem on these partitions. When setting up LVM, this is not yet the case.</p><p>Then run these commands to create physical volumes:</p><pre><code>$ sudo pvcreate /dev/sda3
+Physical volume &quot;/dev/sda3&quot; successfully created
+
+$ sudo pvcreate /dev/sda4
+Physical volume &quot;/dev/sda3&quot; successfully created
+
+$ sudo pvdisplay
+</code></pre><p>will show you all the physical volumes that are available to LVM.</p><p>This command will create a virtual group.</p><pre><code>$ sudo vgcreate mylvm /dev/sda3 /dev/sda4
+Volume group &quot;mylvm&quot; successfully created
+
+
+$ sudo vgdisplay
+</code></pre><p>will show you the newly created volume group.</p><p>Now, for the final key part - creating the logical volume:</p><pre><code>$ sudo lvcreate --name myfilesystem --size 1G mylvm
+Logical volume &quot;myfilesystem&quot; created
+
+$ sudo lvdisplay
+</code></pre><p>will show you the logical volume filesystem that has been created (although it doesn&rsquo;t yet have a filesystem on it). The next step will do that.</p><pre><code>$ sudo mkfs.ext3 /dev/mylvm/myfilesystem
+</code></pre><p>Now this filesystem can be mounted like any other filesystem and written to:</p><pre><code>$ sudo mkdir /mnt/lvmdrive
+$ sudo mount /dev/mylvm/myfilesystem /mnt/lvmdrive
+</code></pre><p>Once you have sorted out permissions for this drive you will be able to write to it.</p><pre><code>$ chmod -R 777 /mnt/lvmdrive
+</code></pre></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2015/08/14/bring-your-own-device/>Bring your own device or RaspberryPi hardware in education</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2015/08/27/how-to-set-up-raid-drives-linux/>How to set-up RAID on Linux</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
