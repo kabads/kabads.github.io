@@ -1,4 +1,4 @@
-baseURL: "//localhost:1313"
+baseURL: "//kabads.monkeez.org"
 disablePathToLower: true
 languageCode: en-gb
 title: Kabads
