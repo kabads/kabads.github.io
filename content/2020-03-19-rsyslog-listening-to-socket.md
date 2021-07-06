@@ -4,7 +4,7 @@ categories:
 date: "2020-03-19T00:00:00Z"
 title: Rsyslog configured to monitor journald /run/systemd/journal/syslog socket
 ---
-Rsyslog (aka syslog) can pull in logs from journald, via the socket (using imuxsock module) or a specific module that taps in to a socket that is journald runs (imjournal) with very little config. imjournal specialises in logging that is structured (e.g. logs that follow json structure) and then filtering or querying logs. As a result, imjournal is more expensive.  These modules are already loaded by default inrsyslog.conf file and do not need adding in any other configuration files.
+Rsyslog (aka syslog) can pull in logs from journald, via the socket (using imuxsock module) or a specific module that taps in to a socket that is journald runs (imjournal) with very little config. imjournal specialises in logging that is structured (e.g. logs that follow json structure) and then filtering or querying logs. As a result, imjournal is more expensive.  These modules are already loaded by default in rsyslog.conf file and do not need adding in any other configuration files.
 
 To use a socket (```imuxsock```) module instead of the ```imjournal``` module, turn off persistent logging in journald by removing the directory ```/var/log/journal``` and setting ```Storage=auto``` in ```/etc/systemd/journal.conf```. Once you restart journald, it will not write logs to disk, but instead to a virtual file location in ```/run/systemd/journal```. This runs the risk that we may lose some logs if they are not persisted. Therefore, we need to get rsysolg to moniter this socket (thereby writing them to disk and to papertrail at the same time).
 
