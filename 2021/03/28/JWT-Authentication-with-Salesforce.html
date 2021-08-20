@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>JWT Authentication with Salesforce</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>JWT Authentication with Salesforce</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../about>About</a></li><hr><p><a href=../../../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../categories/sysadmin>Sysadmin</a> |
 <a href=../../../categories/reading>Reading</a> |
 <a href=../../../categories/cycling>Cycling</a> |
 <a href=../../../categories/ruby>Ruby</a> |
@@ -9,14 +47,93 @@
 <a href=../../../categories/exercise>Exercise</a> |
 <a href=../../../categories/tech>Tech</a> |
 <a href=../../../categories/education>Education</a> |
-<a href=../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>JWT Authentication with Salesforce</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2021-03-28</small></p><hr><div class=post><img src=https://jwt.io/img/pic_logo.svg alt="JWT Logo"><p><a href=https://www.saleforce.com>Salesforce</a>, for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: <a href=https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm>https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm</a>. This sets out the following steps:</p><ol><li><p>Create an OpenSSL certificate</p></li><li><p>Create an app within the Salesforce Org that you will authenticate to</p></li><li><p>Manage Permissions for the Managed App</p></li><li><p>Authenticate using the SSL private key</p></li></ol><h2 id=create-an-openssl-certificate>Create an OpenSSL certificate</h2><p>You will need to have the command line tool <code>openssl</code> installed - this can be found (in a *nix based operating system) by typing <code>which openssl</code>. If the command line returns something other than an error, then you are set. If you get an error, you will need to install the package <code>openssl</code>.</p><p>To create an SSL certificate you should use these following commands:</p><pre><code>mkdir jwt
+<a href=../../../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>JWT Authentication with Salesforce</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2021-03-28</small></p> <hr>
+<div class=post>
+<img src=https://jwt.io/img/pic_logo.svg alt="JWT Logo">
+<p><a href=https://www.saleforce.com>Salesforce</a>, for those of you who might have been living under a rock, is a customer relationship management tool. I work with developers who develop code for salesforce. We follow the usual CI/CD route, but have been dependent on 3rd party tools to authenticate to a Salesforce Org. This is OK, but not ideal, so I set about authenticating to Salesforce with JWT. The official documentation is here: <a href=https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm>https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm</a>. This sets out the following steps:</p>
+<ol>
+<li>
+<p>Create an OpenSSL certificate</p>
+</li>
+<li>
+<p>Create an app within the Salesforce Org that you will authenticate to</p>
+</li>
+<li>
+<p>Manage Permissions for the Managed App</p>
+</li>
+<li>
+<p>Authenticate using the SSL private key</p>
+</li>
+</ol>
+<h2 id=create-an-openssl-certificate>Create an OpenSSL certificate</h2>
+<p>You will need to have the command line tool <code>openssl</code> installed - this can be found (in a *nix based operating system) by typing <code>which openssl</code>. If the command line returns something other than an error, then you are set. If you get an error, you will need to install the package <code>openssl</code>.</p>
+<p>To create an SSL certificate you should use these following commands:</p>
+<pre><code>mkdir jwt
 cd jwt
-</code></pre><p>Generate a private key and store it in a file called <code>server.key</code>:</p><pre><code>openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
+</code></pre>
+<p>Generate a private key and store it in a file called <code>server.key</code>:</p>
+<pre><code>openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
 openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key
-</code></pre><p>Generate a certificate signing request (<code>.csr</code> file):</p><pre><code>openssl req -new -key server.key -out server.csr
-</code></pre><p>Generate a self-signed digital certificate from the server request (<code>.csr</code> file) and private key (<code>server.key</code>):</p><pre><code>    openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
-</code></pre><h2 id=connected-app-in-the-salesforce-org>Connected App in the Salesforce Org</h2><h3 id=create-a-connected-app>Create a Connected App</h3><p>This connected app is the place where the SSL certificate is held and allows you to connect. Go to Setup, and type &lsquo;App&rsquo; in the quick find box. Then click on &lsquo;App Manager&rsquo; link.</p><p>Click the &lsquo;New Connected App&rsquo; button in the right hand top corner. Give you app a name in the &lsquo;Connected App Name&rsquo; field. You must provide an email address.</p><p>Under the &lsquo;API (Enable OAuth Settings)&rsquo; click the checkbox for &lsquo;Enable OAuth Settings&rsquo;. A dialogue box will appear. You need to add the settings &lsquo;Access and manage your data&rsquo;, &lsquo;Full Access&rsquo;, &lsquo;Perform Requests on your behalf at any time (refresh_token, offline_access)&rsquo; and &lsquo;Provide access to your data via the Web (web)&rsquo; in the Selected OAuth Scopes. If you need more permissions, add them (or create them in the first place.)</p><p>Also click the &lsquo;Use Digital Signatures&rsquo; checkbox. A &lsquo;Browse File&rsquo; button will appear. Here you will need to upload your <code>server.crt</code> file that was created in the SSL stage.</p><p>In the &lsquo;Callback URL&rsquo; enter <code>https://test.salesforce.com/oauth2/token</code>. If you have a production org that you are connecting to, the <code>test</code> part should be replaced with <code>login</code>.</p><p>Click the save button.</p><p>You will see, on the newly created app page' a <code>Consumer Key</code> - this is often called the <code>client_id</code> in the JWT specification. You will need this later on, so make a note of it.</p><p></p><h3 id=manage-profiles-and-permission-sets-for-the-connected-app>Manage Profiles and Permission Sets for the Connected App</h3><p>The page will load, with your changes saved, but you still need to add information to this app to allow JWT to authenticate.</p><p>Click &lsquo;Manage&rsquo; at the top of the connected app, then &lsquo;Edit Policies&rsquo;.</p><p>In the &lsquo;OAuth Policies&rsquo; section, choose &lsquo;Admin approved users are pre-authorized&rsquo;. A dialogue warning box will appear. Accept the warning. Click save at the bottom of the page.</p><p></p><p>Scroll down and click &lsquo;Manage Profiles&rsquo;. Choose a profile that suits the needs of your connection. Then, click on &lsquo;Manage Permission Sets&rsquo; and choose a permission set to use with this profile (or create one if necessary).</p><h2 id=authenticate-using-the-ssl-private-key>Authenticate using the SSL private key</h2><p>Now that you have the app ready to accept connections, you need to authenticate initially using a browser, or an API tool like Postman or Advanced Rest Client. For simplicity, we are going to use the browser.</p><p>Then, type in the command line</p><pre><code>sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ \ 
+</code></pre>
+<p>Generate a certificate signing request (<code>.csr</code> file):</p>
+<pre><code>openssl req -new -key server.key -out server.csr
+</code></pre>
+<p>Generate a self-signed digital certificate from the server request (<code>.csr</code> file) and private key (<code>server.key</code>):</p>
+<pre><code>    openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+</code></pre>
+<h2 id=connected-app-in-the-salesforce-org>Connected App in the Salesforce Org</h2>
+<h3 id=create-a-connected-app>Create a Connected App</h3>
+<p>This connected app is the place where the SSL certificate is held and allows you to connect. Go to Setup, and type &lsquo;App&rsquo; in the quick find box. Then click on &lsquo;App Manager&rsquo; link.</p>
+<p>Click the &lsquo;New Connected App&rsquo; button in the right hand top corner. Give you app a name in the &lsquo;Connected App Name&rsquo; field. You must provide an email address.</p>
+<p>Under the &lsquo;API (Enable OAuth Settings)&rsquo; click the checkbox for &lsquo;Enable OAuth Settings&rsquo;. A dialogue box will appear. You need to add the settings &lsquo;Access and manage your data&rsquo;, &lsquo;Full Access&rsquo;, &lsquo;Perform Requests on your behalf at any time (refresh_token, offline_access)&rsquo; and &lsquo;Provide access to your data via the Web (web)&rsquo; in the Selected OAuth Scopes. If you need more permissions, add them (or create them in the first place.)</p>
+<p>Also click the &lsquo;Use Digital Signatures&rsquo; checkbox. A &lsquo;Browse File&rsquo; button will appear. Here you will need to upload your <code>server.crt</code> file that was created in the SSL stage.</p>
+<p>In the &lsquo;Callback URL&rsquo; enter <code>https://test.salesforce.com/oauth2/token</code>. If you have a production org that you are connecting to, the <code>test</code> part should be replaced with <code>login</code>.</p>
+<p>Click the save button.</p>
+<p>You will see, on the newly created app page' a <code>Consumer Key</code> - this is often called the <code>client_id</code> in the JWT specification. You will need this later on, so make a note of it.</p>
+<p></p>
+<h3 id=manage-profiles-and-permission-sets-for-the-connected-app>Manage Profiles and Permission Sets for the Connected App</h3>
+<p>The page will load, with your changes saved, but you still need to add information to this app to allow JWT to authenticate.</p>
+<p>Click &lsquo;Manage&rsquo; at the top of the connected app, then &lsquo;Edit Policies&rsquo;.</p>
+<p>In the &lsquo;OAuth Policies&rsquo; section, choose &lsquo;Admin approved users are pre-authorized&rsquo;. A dialogue warning box will appear. Accept the warning. Click save at the bottom of the page.</p>
+<p></p>
+<p>Scroll down and click &lsquo;Manage Profiles&rsquo;. Choose a profile that suits the needs of your connection. Then, click on &lsquo;Manage Permission Sets&rsquo; and choose a permission set to use with this profile (or create one if necessary).</p>
+<h2 id=authenticate-using-the-ssl-private-key>Authenticate using the SSL private key</h2>
+<p>Now that you have the app ready to accept connections, you need to authenticate initially using a browser, or an API tool like Postman or Advanced Rest Client. For simplicity, we are going to use the browser.</p>
+<p>Then, type in the command line</p>
+<pre><code>sfdx auth:jwt:grant --clientid=3MVG9SHET737DDSDB4lkkcuR.z3NkG98GEIq5h9hcF.YBNJ.PkDOEDE66785AODEDEa78TvyzcJ \ 
 --jwtkeyfile=./server.key \
 -u your-user@orgname-dedod.com
-</code></pre><p>You will then be authenticated to your organisation and will be able to type in commands. This method allows for CI/CD pipelines to authenticate themselves.</p></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2021/01/30/Tiny-Tiny-RSS.html>Tiny Tiny RSS</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+</code></pre>
+<p>You will then be authenticated to your organisation and will be able to type in commands. This method allows for CI/CD pipelines to authenticate themselves.</p>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2021/01/30/Tiny-Tiny-RSS.html> Tiny Tiny RSS</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2021/08/20/Test-Driven-Development.html> Test Driven Development</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>

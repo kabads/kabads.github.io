@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>Strings in Ruby - Learning Ruby 2</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Strings in Ruby - Learning Ruby 2</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../about>About</a></li><hr><p><a href=../../../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../categories/sysadmin>Sysadmin</a> |
 <a href=../../../categories/reading>Reading</a> |
 <a href=../../../categories/cycling>Cycling</a> |
 <a href=../../../categories/ruby>Ruby</a> |
@@ -9,28 +47,109 @@
 <a href=../../../categories/exercise>Exercise</a> |
 <a href=../../../categories/tech>Tech</a> |
 <a href=../../../categories/education>Education</a> |
-<a href=../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>Strings in Ruby - Learning Ruby 2</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-07-12</small></p><hr><div class=post><p>Ruby has great string support. This post summarises the functions that are available.</p><p>This is not designed to be a tutorial for others, but rather a record for myself in learning Ruby.</p><h4 id=downcase>.downcase</h4><p>This method turns any characters in a string to lowercase.</p><pre><code>a = &quot;My String&quot;.downcase 
-</code></pre><p>returns</p><pre><code>&quot;my string&quot;
-</code></pre><h4 id=upcase>.upcase</h4><p><code>.upcase</code> method does the opposite of downcase. It will change the case of any lowercase characters to uppercase.</p><pre><code>&quot;My String&quot;.upcase
-</code></pre><p>returns</p><pre><code>&quot;MY STRING&quot;
-</code></pre><h4 id=gsub>.gsub</h4><p><code>.gsub</code> is a way of substituting text in one string for a different string.</p><pre><code>&quot;Hello&quot;.gsub(&quot;ell&quot;, &quot;orr&quot;)
-</code></pre><p>returns</p><pre><code>&quot;Horro&quot;
-</code></pre><h3 id=string-interpolation>String Interpolation</h3><p>This is potentially the most useful way of working with strings when outputting them.</p><pre><code>first_name = &quot;Foo&quot;
+<a href=../../../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>Strings in Ruby - Learning Ruby 2</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-07-12</small></p> <hr>
+<div class=post>
+<p>Ruby has great string support. This post summarises the functions that are available.</p>
+<p>This is not designed to be a tutorial for others, but rather a record for myself in learning Ruby.</p>
+<h4 id=downcase>.downcase</h4>
+<p>This method turns any characters in a string to lowercase.</p>
+<pre><code>a = &quot;My String&quot;.downcase 
+</code></pre>
+<p>returns</p>
+<pre><code>&quot;my string&quot;
+</code></pre>
+<h4 id=upcase>.upcase</h4>
+<p><code>.upcase</code> method does the opposite of downcase. It will change the case of any lowercase characters to uppercase.</p>
+<pre><code>&quot;My String&quot;.upcase
+</code></pre>
+<p>returns</p>
+<pre><code>&quot;MY STRING&quot;
+</code></pre>
+<h4 id=gsub>.gsub</h4>
+<p><code>.gsub</code> is a way of substituting text in one string for a different string.</p>
+<pre><code>&quot;Hello&quot;.gsub(&quot;ell&quot;, &quot;orr&quot;)
+</code></pre>
+<p>returns</p>
+<pre><code>&quot;Horro&quot;
+</code></pre>
+<h3 id=string-interpolation>String Interpolation</h3>
+<p>This is potentially the most useful way of working with strings when outputting them.</p>
+<pre><code>first_name = &quot;Foo&quot;
 surname = &quot;Bar&quot;
 puts &quot;Hello #{first_name} #{surname}
-</code></pre><h3 id=string-methods>String Methods</h3><p>There are a whole host of methods for strings. You can see them all with:</p><pre><code>&quot;&quot;.methods
-</code></pre><p>This will display all the methods that are available for a string. One of the most important ones is <code>.chomp</code>.</p><p>Firstly, we will get a string with the command <code>gets</code> - this stands for get string.</p><pre><code>puts &quot;What is your name?&quot; 
+</code></pre>
+<h3 id=string-methods>String Methods</h3>
+<p>There are a whole host of methods for strings. You can see them all with:</p>
+<pre><code>&quot;&quot;.methods
+</code></pre>
+<p>This will display all the methods that are available for a string. One of the most important ones is <code>.chomp</code>.</p>
+<p>Firstly, we will get a string with the command <code>gets</code> - this stands for get string.</p>
+<pre><code>puts &quot;What is your name?&quot; 
 gets = name
-</code></pre><p>Once you run this you will get a string with the name that you enter and a <code>\n</code> on the end - the newline character. This can be annoying, but <code>.chomp</code> will remove this:</p><pre><code>gets = name.chomp
-</code></pre><p>This means that the string has the newline character removed.</p><h4 id=count>.count</h4><p>If you wish to count the amount of times a set of characters appear in a string, use the <code>.count</code> method.</p><pre><code>&quot;banana&quot;.count(&quot;a&quot;)
-</code></pre><p>will return the number <code>3</code>.</p><pre><code>&quot;banana&quot;.count(&quot;ba&quot;) 
-</code></pre><p>will return <code>4</code>.</p><h4 id=string-operations>String Operations</h4><pre><code>&quot;ban&quot; + &quot;ana&quot; 
-</code></pre><p>will return <code>banana</code>.</p><p>You cannot do the same thing with <code>-</code>.</p><h4 id=converting-strings-to-integers>Converting Strings to Integers</h4><p>Sometimes you will have a string such as <code>'1'</code>, but want to add this to an integer variable <code>2</code>. If you try this:</p><pre><code>a = '1'
+</code></pre>
+<p>Once you run this you will get a string with the name that you enter and a <code>\n</code> on the end - the newline character. This can be annoying, but <code>.chomp</code> will remove this:</p>
+<pre><code>gets = name.chomp
+</code></pre>
+<p>This means that the string has the newline character removed.</p>
+<h4 id=count>.count</h4>
+<p>If you wish to count the amount of times a set of characters appear in a string, use the <code>.count</code> method.</p>
+<pre><code>&quot;banana&quot;.count(&quot;a&quot;)
+</code></pre>
+<p>will return the number <code>3</code>.</p>
+<pre><code>&quot;banana&quot;.count(&quot;ba&quot;) 
+</code></pre>
+<p>will return <code>4</code>.</p>
+<h4 id=string-operations>String Operations</h4>
+<pre><code>&quot;ban&quot; + &quot;ana&quot; 
+</code></pre>
+<p>will return <code>banana</code>.</p>
+<p>You cannot do the same thing with <code>-</code>.</p>
+<h4 id=converting-strings-to-integers>Converting Strings to Integers</h4>
+<p>Sometimes you will have a string such as <code>'1'</code>, but want to add this to an integer variable <code>2</code>. If you try this:</p>
+<pre><code>a = '1'
 b = 2 
 p a + b 
-</code></pre><p>you will find that you will have a problem as the string does not add easily to the integer. You will see the error:</p><pre><code>TypeError (no implicit conversion of Integer into String)
-</code></pre><p>To get around this, you need to cast the <code>a</code> variable to an intger:</p><pre><code>a = '1'
+</code></pre>
+<p>you will find that you will have a problem as the string does not add easily to the integer. You will see the error:</p>
+<pre><code>TypeError (no implicit conversion of Integer into String)
+</code></pre>
+<p>To get around this, you need to cast the <code>a</code> variable to an intger:</p>
+<pre><code>a = '1'
 a.to_i
-</code></pre><p>or to do this more succinctly:</p><pre><code>a = '1'.to_i
-</code></pre><p>The <code>.to_i</code> converts the variable to an integer and the addition will work.</p></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2019/06/21/Learning-Ruby-First-Impressions.html>Learning Ruby - First Impressions</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2019/07/18/Case-Statements-in-Ruby-Learning-Ruby-3.html>Case Statements in Ruby - Learning Ruby 3</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+</code></pre>
+<p>or to do this more succinctly:</p>
+<pre><code>a = '1'.to_i
+</code></pre>
+<p>The <code>.to_i</code> converts the variable to an integer and the addition will work.</p>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2019/06/21/Learning-Ruby-First-Impressions.html> Learning Ruby - First Impressions</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2019/07/18/Case-Statements-in-Ruby-Learning-Ruby-3.html> Case Statements in Ruby - Learning Ruby 3</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>

@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>Apache Rewrite Mod</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Apache Rewrite Mod</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../about>About</a></li><hr><p><a href=../../../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../categories/sysadmin>Sysadmin</a> |
 <a href=../../../categories/reading>Reading</a> |
 <a href=../../../categories/cycling>Cycling</a> |
 <a href=../../../categories/ruby>Ruby</a> |
@@ -9,12 +47,129 @@
 <a href=../../../categories/exercise>Exercise</a> |
 <a href=../../../categories/tech>Tech</a> |
 <a href=../../../categories/education>Education</a> |
-<a href=../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>Apache Rewrite Mod</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2020-04-21</small></p><hr><div class=post><a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/49800557653/in/datetaken/ title=Apache_HTTP_server_logo_(2016)><img src=https://live.staticflickr.com/65535/49800557653_9ca139375d_n.jpg width=320 height=122 align=left style=padding:20px alt=Apache_HTTP_server_logo_(2016)></a><script async src=//embedr.flickr.com/assets/client-code.js></script><p><code>mod_rewrite</code> is a powerful module that Apache can utilize. It is a way of rewriting URLs, modifying the request that Apache recieves. This could be a moved document, or enforcing SSL (rewriting the URL from http to https).</p><p>This is a complex subject, which cannot be covered here, but for further information, refer to the <a href=https://httpd.apache.org/docs/current/mod/mod_rewrite.html>full documentation</a>.
+<a href=../../../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>Apache Rewrite Mod</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2020-04-21</small></p> <hr>
+<div class=post>
+<a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/49800557653/in/datetaken/ title=Apache_HTTP_server_logo_(2016)><img src=https://live.staticflickr.com/65535/49800557653_9ca139375d_n.jpg width=320 height=122 align=left style=padding:20px alt=Apache_HTTP_server_logo_(2016)></a><script async src=//embedr.flickr.com/assets/client-code.js></script>
+<p><code>mod_rewrite</code> is a powerful module that Apache can utilize. It is a way of rewriting URLs, modifying the request that Apache recieves. This could be a moved document, or enforcing SSL (rewriting the URL from http to https).</p>
+<p>This is a complex subject, which cannot be covered here, but for further information, refer to the <a href=https://httpd.apache.org/docs/current/mod/mod_rewrite.html>full documentation</a>.
 Rewrite rules can exist in a .htaccess file, or the main configuration file, or preferably a <code>&lt;Directory></code> stanza.
-<code>mod_rewrite</code> uses Regex (compatible with Perl) for its pattern matching engine. This is nearly unlimited in searching across a range of URLs.</p><h3 id=enable-rewrite-engine>Enable Rewrite Engine</h3><p>To enable <code>mod_rewrite</code> you should include the following in you Apache Documentation:</p><p><code>RewriteEngine on</code></p><p>A restart of Apache will be required to load the engine.</p><h3 id=declaring-a-rewrite-rule>Declaring a Rewrite Rule</h3><p>To declare a rule you will have something similar to the code below:</p><p><code>RewriteRule ^/old.html$ new.html [R]</code></p><p>This will redirect a request that Apache receives for old.html page to new.html page. The <code>^</code> indicates that it must be the initial part of the request, and the <code>$</code> indicates that it is the end of the request. If <code>/subdir/old.html</code> is passed, it will fail this search pattern as <code>/subdir/</code> is at the beginning of the pattern. This is in line with Regular Expressions pattern matching.</p><p>These rules can be embedded within a particular directory, using the <code>&lt;Directory</code> stanza:</p><pre><code>&lt;Directory /var/www/html/subdirectory&gt;
+<code>mod_rewrite</code> uses Regex (compatible with Perl) for its pattern matching engine. This is nearly unlimited in searching across a range of URLs.</p>
+<h3 id=enable-rewrite-engine>Enable Rewrite Engine</h3>
+<p>To enable <code>mod_rewrite</code> you should include the following in you Apache Documentation:</p>
+<p><code>RewriteEngine on</code></p>
+<p>A restart of Apache will be required to load the engine.</p>
+<h3 id=declaring-a-rewrite-rule>Declaring a Rewrite Rule</h3>
+<p>To declare a rule you will have something similar to the code below:</p>
+<p><code>RewriteRule ^/old.html$ new.html [R]</code></p>
+<p>This will redirect a request that Apache receives for old.html page to new.html page. The <code>^</code> indicates that it must be the initial part of the request, and the <code>$</code> indicates that it is the end of the request. If <code>/subdir/old.html</code> is passed, it will fail this search pattern as <code>/subdir/</code> is at the beginning of the pattern. This is in line with Regular Expressions pattern matching.</p>
+<p>These rules can be embedded within a particular directory, using the <code>&lt;Directory</code> stanza:</p>
+<pre><code>&lt;Directory /var/www/html/subdirectory&gt;
   RewriteEngine on
   RewriteRule &quot;^old.html$&quot; &quot;new.html&quot;
 &lt;/Directory&gt;
-</code></pre><p>The above rule only applies to the directory named <code>subddirectory</code>.</p><h4 id=rewrite-flags>Rewrite Flags</h4><p>At the end of each <code>RewriteRule</code> is a set of flags that determines what should be done - these are enclosed in a set of square brackets. One of the most common is <code>[R]</code> which is a redirect, carried out at the browser level (issued by the webserver).</p><p>A full list of flags is documented at <a href=https://httpd.apache.org/docs/2.4/rewrite/flags.html%5CP>https://httpd.apache.org/docs/2.4/rewrite/flags.html</a>.</p><h4 id=regular-expressions-and-mod_rewrite>Regular Expressions and mod_rewrite</h4><table><thead><tr><th>Character</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>.</td><td>Match any character</td><td>c.t matches cat</td></tr><tr><td>+</td><td>Repeats the previous match one or more times</td><td>a+ a, aa, aaa</td></tr><tr><td>*</td><td>Repeats the previous match zero or more times</td><td>a* matches the same as a+ but will also match an empty string</td></tr><tr><td>?</td><td>Makes the match optional</td><td>colou?r will match color and colour</td></tr><tr><td>\</td><td>Escape the next character</td><td>. will match a . (dot) and not any single character as explained above</td></tr><tr><td>^</td><td>Called an anchor, matches the beginning of thes string</td><td>^a will match a string that begins with a</td></tr><tr><td>$</td><td>The other anchor that matches the end of a string</td><td>a$ will match a string that ends with a</td></tr><tr><td>( )</td><td>Groups several characters into a single unit, and captures a match for use in a backreference</td><td>(ab)+ matches abababab - the + applies to the group</td></tr><tr><td>[ ]</td><td>A character class - matches one of the characters</td><td>c[uoa]t matches cut, cot, cat</td></tr><tr><td>[^ ]</td><td>Negative character class - matches any character not specified</td><td>c[^/] matches cat or c=t but not c/t</td></tr></tbody></table><h3 id=mod_rewrite-log-level-for--v24>mod_rewrite Log Level for &lt; v2.4</h3><p>The <code>mod_rewrite</code> will write to the usual apache log files.</p><p>For previous versions (pre Apache 2.4) the directive <code>RewriteLogLevel</code> will set the level of logging written, ranging in values from 0-9 with 0 being no logging and 0 being the most verbose. Logs will appear as <code>pass through</code> lines in the file.</p><h3 id=mod_rewrite-log-level-for-v24>mod_rewrite Log Level for v2.4</h3><p>With the current version of Apache (2.4), <code>mod_rewrite</code>, the older methods of controlling logging have now been replaced by a new per-module logging method:</p><pre><code>LogLevel alert rewrite:trace3
-</code></pre></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2020/03/30/Bike-packing-preparation.html>Bike-packing preparation</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2020/12/22/Verify-Azure-Blob-Storage-Automatically.html>Verify Azure Blob Storage Automatically</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+</code></pre>
+<p>The above rule only applies to the directory named <code>subddirectory</code>.</p>
+<h4 id=rewrite-flags>Rewrite Flags</h4>
+<p>At the end of each <code>RewriteRule</code> is a set of flags that determines what should be done - these are enclosed in a set of square brackets. One of the most common is <code>[R]</code> which is a redirect, carried out at the browser level (issued by the webserver).</p>
+<p>A full list of flags is documented at <a href=https://httpd.apache.org/docs/2.4/rewrite/flags.html%5CP>https://httpd.apache.org/docs/2.4/rewrite/flags.html</a>.</p>
+<h4 id=regular-expressions-and-mod_rewrite>Regular Expressions and mod_rewrite</h4>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Match any character</td>
+<td>c.t matches cat</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Repeats the previous match one or more times</td>
+<td>a+ a, aa, aaa</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Repeats the previous match zero or more times</td>
+<td>a* matches the same as a+ but will also match an empty string</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Makes the match optional</td>
+<td>colou?r will match color and colour</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Escape the next character</td>
+<td>. will match a . (dot) and not any single character as explained above</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Called an anchor, matches the beginning of thes string</td>
+<td>^a will match a string that begins with a</td>
+</tr>
+<tr>
+<td>$</td>
+<td>The other anchor that matches the end of a string</td>
+<td>a$ will match a string that ends with a</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>Groups several characters into a single unit, and captures a match for use in a backreference</td>
+<td>(ab)+ matches abababab - the + applies to the group</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>A character class - matches one of the characters</td>
+<td>c[uoa]t matches cut, cot, cat</td>
+</tr>
+<tr>
+<td>[^ ]</td>
+<td>Negative character class - matches any character not specified</td>
+<td>c[^/] matches cat or c=t but not c/t</td>
+</tr>
+</tbody>
+</table>
+<h3 id=mod_rewrite-log-level-for--v24>mod_rewrite Log Level for &lt; v2.4</h3>
+<p>The <code>mod_rewrite</code> will write to the usual apache log files.</p>
+<p>For previous versions (pre Apache 2.4) the directive <code>RewriteLogLevel</code> will set the level of logging written, ranging in values from 0-9 with 0 being no logging and 0 being the most verbose. Logs will appear as <code>pass through</code> lines in the file.</p>
+<h3 id=mod_rewrite-log-level-for-v24>mod_rewrite Log Level for v2.4</h3>
+<p>With the current version of Apache (2.4), <code>mod_rewrite</code>, the older methods of controlling logging have now been replaced by a new per-module logging method:</p>
+<pre><code>LogLevel alert rewrite:trace3
+</code></pre>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2020/03/30/Bike-packing-preparation.html> Bike-packing preparation</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2020/12/22/Verify-Azure-Blob-Storage-Automatically.html> Verify Azure Blob Storage Automatically</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>

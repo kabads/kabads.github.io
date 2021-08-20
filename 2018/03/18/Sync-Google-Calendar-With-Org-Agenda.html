@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>Sync Google Calendar With Org Agenda</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Sync Google Calendar With Org Agenda</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../about>About</a></li><hr><p><a href=../../../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../categories/sysadmin>Sysadmin</a> |
 <a href=../../../categories/reading>Reading</a> |
 <a href=../../../categories/cycling>Cycling</a> |
 <a href=../../../categories/ruby>Ruby</a> |
@@ -9,12 +47,70 @@
 <a href=../../../categories/exercise>Exercise</a> |
 <a href=../../../categories/tech>Tech</a> |
 <a href=../../../categories/education>Education</a> |
-<a href=../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>Sync Google Calendar With Org Agenda</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2018-03-18</small></p><hr><div class=post><a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40931410022/in/datetaken/ title=screen><img src=https://farm1.staticflickr.com/790/40931410022_e1823676da.jpg width=500 height=316 alt=screen></a><script async src=//embedr.flickr.com/assets/client-code.js></script><p>I use <a href=https://orgmode.org>org-mode</a> an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my <a href=https://orgmode.org/manual/Agenda-commands.html>org-agenda</a>. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It&rsquo;s pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.</p><p>The package <a href=https://github.com/myuhe/org-gcal.el>org-gcal</a> provides two way syncing with Google Calendar (and has other documentation).</p><p>This is how I did it.</p><h2 id=install-org-cal>Install org-cal</h2><p>Using elpa, I installed the package:</p><pre><code>M-x package-list
-</code></pre><p>Highlight the <code>org-gcal</code> package and install.</p><h2 id=create-api-credentials>Create Api Credentials</h2><p>Then, go to google and get credentials to access your calendar. You will need to go to the <a href=https://console.developers.google.com/cloud-resource-manager>google developers portal</a> where you may need to enable the developers' api. You will need to find Api & Services and then click on credentials. You will create some OAuth 2.0 client IDs credentials - one being the API key and the other being a secret. Make a note of these, or download the JSON file that Google provides.</p><a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/26101808357/in/datetaken/ title="Screenshot-2018-3-23 Credentials - org-gcal"><img src=https://farm1.staticflickr.com/799/26101808357_5446e2c69d.jpg width=500 height=229 alt="Screenshot-2018-3-23 Credentials - org-gcal"></a><script async src=//embedr.flickr.com/assets/client-code.js></script><p>Enable these credentials for Google Calendar.</p><a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40931425052/in/datetaken/ title="Screenshot-2018-3-23 APIs Services - org-gcal"><img src=https://farm1.staticflickr.com/818/40931425052_9051ec90df.jpg width=500 height=241 alt="Screenshot-2018-3-23 APIs Services - org-gcal"></a><script async src=//embedr.flickr.com/assets/client-code.js></script><h2 id=identify-calendar>Identify Calendar</h2><p>Then, the README for org-cal tells you to find the link for your calendar. This didn&rsquo;t work for me. Instead, I found the link in the url in the address bar of my browser (click on the image to see more detail):</p><a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40263945734 title=url><img src=https://farm1.staticflickr.com/805/40263945734_3272338f4e_c.jpg width=800 height=105 alt=url></a><script async src=//embedr.flickr.com/assets/client-code.js></script><h2 id=create-settings>Create settings</h2><p>(require &lsquo;org-gcal)
+<a href=../../../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>Sync Google Calendar With Org Agenda</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2018-03-18</small></p> <hr>
+<div class=post>
+<a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40931410022/in/datetaken/ title=screen><img src=https://farm1.staticflickr.com/790/40931410022_e1823676da.jpg width=500 height=316 alt=screen></a><script async src=//embedr.flickr.com/assets/client-code.js></script>
+<p>I use <a href=https://orgmode.org>org-mode</a> an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my <a href=https://orgmode.org/manual/Agenda-commands.html>org-agenda</a>. Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It&rsquo;s pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.</p>
+<p>The package <a href=https://github.com/myuhe/org-gcal.el>org-gcal</a> provides two way syncing with Google Calendar (and has other documentation).</p>
+<p>This is how I did it.</p>
+<h2 id=install-org-cal>Install org-cal</h2>
+<p>Using elpa, I installed the package:</p>
+<pre><code>M-x package-list
+</code></pre>
+<p>Highlight the <code>org-gcal</code> package and install.</p>
+<h2 id=create-api-credentials>Create Api Credentials</h2>
+<p>Then, go to google and get credentials to access your calendar. You will need to go to the <a href=https://console.developers.google.com/cloud-resource-manager>google developers portal</a> where you may need to enable the developers' api. You will need to find Api & Services and then click on credentials. You will create some OAuth 2.0 client IDs credentials - one being the API key and the other being a secret. Make a note of these, or download the JSON file that Google provides.</p>
+<a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/26101808357/in/datetaken/ title="Screenshot-2018-3-23 Credentials - org-gcal"><img src=https://farm1.staticflickr.com/799/26101808357_5446e2c69d.jpg width=500 height=229 alt="Screenshot-2018-3-23 Credentials - org-gcal"></a><script async src=//embedr.flickr.com/assets/client-code.js></script>
+<p>Enable these credentials for Google Calendar.</p>
+<a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40931425052/in/datetaken/ title="Screenshot-2018-3-23 APIs Services - org-gcal"><img src=https://farm1.staticflickr.com/818/40931425052_9051ec90df.jpg width=500 height=241 alt="Screenshot-2018-3-23 APIs Services - org-gcal"></a><script async src=//embedr.flickr.com/assets/client-code.js></script>
+<h2 id=identify-calendar>Identify Calendar</h2>
+<p>Then, the README for org-cal tells you to find the link for your calendar. This didn&rsquo;t work for me. Instead, I found the link in the url in the address bar of my browser (click on the image to see more detail):</p>
+<a data-flickr-embed=true href=https://www.flickr.com/photos/kabads/40263945734 title=url><img src=https://farm1.staticflickr.com/805/40263945734_3272338f4e_c.jpg width=800 height=105 alt=url></a><script async src=//embedr.flickr.com/assets/client-code.js></script>
+<h2 id=create-settings>Create settings</h2>
+<p>(require &lsquo;org-gcal)
 (setq org-gcal-client-id &ldquo;your-id-foo.apps.googleusercontent.com&rdquo;
 org-gcal-client-secret &ldquo;your-secret&rdquo;
 org-gcal-file-alist &lsquo;((&ldquo;<a href=mailto:your-mail@gmail.com>your-mail@gmail.com</a>&rdquo; . &ldquo;~/schedule.org&rdquo;)
-(&ldquo;<a href=mailto:another-mail@gmail.com>another-mail@gmail.com</a>&rdquo; . &ldquo;~/task.org&rdquo;)))</p><p>Copy that string in to your <code>~.emacs</code> file, substituting the proper parts (your org-gcal-client-id and secret and the files that you wish to create when you sync).</p><p>Save the file and then execute <code>M-x load-file &lt;RET>.emacs</code> to reload this file.</p><h2 id=sync-and-org-agenda-file-to-front>Sync and org-agenda-file-to-front</h2><p>Now you need to sync your calendar, which will create a new org file (as you specified in the settings.</p><pre><code>M-x org-gcal-sync
-</code></pre><p>Once that file is created open it <code>C-x C-f</code> &lt;/path/to/file> <code>and then</code>M-x org-agenda-file-to-front`. This command will include the new file.</p><p>You can also create a hook to run <code>org-gcal-sync</code> when you open your agenda by placing this snippet in your <code>.emacs</code> file:</p><pre><code>(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
-</code></pre></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2018/03/13/Moving-Boot-Partition-EFI/EPS-partition.html>Moving Boot Partition (EFI/EPS partition)</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2018/08/>Working with Terraform</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+(&ldquo;<a href=mailto:another-mail@gmail.com>another-mail@gmail.com</a>&rdquo; . &ldquo;~/task.org&rdquo;)))</p>
+<p>Copy that string in to your <code>~.emacs</code> file, substituting the proper parts (your org-gcal-client-id and secret and the files that you wish to create when you sync).</p>
+<p>Save the file and then execute <code>M-x load-file &lt;RET>.emacs</code> to reload this file.</p>
+<h2 id=sync-and-org-agenda-file-to-front>Sync and org-agenda-file-to-front</h2>
+<p>Now you need to sync your calendar, which will create a new org file (as you specified in the settings.</p>
+<pre><code>M-x org-gcal-sync
+</code></pre>
+<p>Once that file is created open it <code>C-x C-f</code> &lt;/path/to/file> <code>and then</code>M-x org-agenda-file-to-front`. This command will include the new file.</p>
+<p>You can also create a hook to run <code>org-gcal-sync</code> when you open your agenda by placing this snippet in your <code>.emacs</code> file:</p>
+<pre><code>(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+</code></pre>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2018/03/13/Moving-Boot-Partition-EFI/EPS-partition.html> Moving Boot Partition (EFI/EPS partition)</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2018/08/> Working with Terraform</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>

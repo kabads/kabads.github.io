@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>Wordpress to Jekyll</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Wordpress to Jekyll</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../../../../about>About</a></li><hr><p><a href=../../../../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../../categories/sysadmin>Sysadmin</a> |
 <a href=../../../../categories/reading>Reading</a> |
 <a href=../../../../categories/cycling>Cycling</a> |
 <a href=../../../../categories/ruby>Ruby</a> |
@@ -9,5 +47,40 @@
 <a href=../../../../categories/exercise>Exercise</a> |
 <a href=../../../../categories/tech>Tech</a> |
 <a href=../../../../categories/education>Education</a> |
-<a href=../../../../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>Wordpress to Jekyll</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2015-07-28</small></p><hr><div class=post><p>I&rsquo;ve made the switch from <a href=http://www.wordpress.org>Wordpress</a>, which has been a great open source project, to <a href=http://www.jekyllrb.com>Jekyll</a>. I switched host and found that my old wordpress system was just too slow. I wanted something fast. I wanted something geeky. My host charges me for the amount of processing power and I found that my prepaid amount was going down fast (and I am pretty much the only person who uses this site). So, I was being charged for writing something that not very many people were reading. They may possibly not be reading it because it took too long to load.</p><p>In comes Jekyll. This is a completely different way of doing something - Jekyll powers the websites on <a href=http://www.github.com>Github</a>. All the work is (usually) done on a different machine than the web server. So, all the links that need creating, all the grunt CPU intensive work, is done somewhere else. Then, clean html files are uploaded to the web server which load lightning fast. Because these are just text files you can upload them to a versioning control system, like github.</p><p>Overall, it&rsquo;s great to get back to basic web development - everything feels clean and I&rsquo;m more in touch with the content that I&rsquo;m writing. Perhaps it will mean that I will want to write more (as I don&rsquo;t have to wait for the wordpress instance to load up), but instead open my favourite text editor. It will be interesting to watch.</p></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2015/07/25/ban-encryption/>Ban encryption?</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2015/07/28/bread/>Baking bread</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+<a href=../../../../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>Wordpress to Jekyll</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2015-07-28</small></p> <hr>
+<div class=post>
+<p>I&rsquo;ve made the switch from <a href=http://www.wordpress.org>Wordpress</a>, which has been a great open source project, to <a href=http://www.jekyllrb.com>Jekyll</a>. I switched host and found that my old wordpress system was just too slow. I wanted something fast. I wanted something geeky. My host charges me for the amount of processing power and I found that my prepaid amount was going down fast (and I am pretty much the only person who uses this site). So, I was being charged for writing something that not very many people were reading. They may possibly not be reading it because it took too long to load.</p>
+<p>In comes Jekyll. This is a completely different way of doing something - Jekyll powers the websites on <a href=http://www.github.com>Github</a>. All the work is (usually) done on a different machine than the web server. So, all the links that need creating, all the grunt CPU intensive work, is done somewhere else. Then, clean html files are uploaded to the web server which load lightning fast. Because these are just text files you can upload them to a versioning control system, like github.</p>
+<p>Overall, it&rsquo;s great to get back to basic web development - everything feels clean and I&rsquo;m more in touch with the content that I&rsquo;m writing. Perhaps it will mean that I will want to write more (as I don&rsquo;t have to wait for the wordpress instance to load up), but instead open my favourite text editor. It will be interesting to watch.</p>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2015/07/25/ban-encryption/> Ban encryption?</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2015/07/28/bread/> Baking bread</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>

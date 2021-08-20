@@ -1,7 +1,45 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>SELinux Permissions</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.85.0"><link href rel=alternate type=application/rss+xml title=Kabads><link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet><link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet><link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet><script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script></head><body><div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove</div><div id=wrapper><div class="navbar navbar-default" role=navigation><div class=container><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>SELinux Permissions</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.87.0">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
 <span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
-<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"></ul></div></div></div><div id=sidebar-wrapper><ul class=sidebar-nav><img src><li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li><hr><li class=sidebar-brand><a href=../about>About</a></li><hr><p><a href=../categories/sysadmin>Sysadmin</a> |
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../about>About</a> </li>
+<hr>
+<p>
+<a href=../categories/sysadmin>Sysadmin</a> |
 <a href=../categories/reading>Reading</a> |
 <a href=../categories/cycling>Cycling</a> |
 <a href=../categories/ruby>Ruby</a> |
@@ -9,40 +47,124 @@
 <a href=../categories/exercise>Exercise</a> |
 <a href=../categories/tech>Tech</a> |
 <a href=../categories/education>Education</a> |
-<a href=../categories/politics>Politics</a></p><hr><p>To contact, PM me via twitter:</p><p><a href=https://twitter.com/kabads>Kabads</a></p><hr><div id=social-wrapper></div></ul></div><div class=container><div id=article><div class=article-title>SELinux Permissions</div><p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-12-30</small></p><hr><div class=post><p>SELinux (Security Enhanced Linux) is a linux kernel security module that provides a mechanism for supporting access control policies. This can support the protection from tampering and bypassing threats that might be possible with certain applications. SELinux checks permissions after the usual operating system permissions (user, groups and read/write/execute policies). If the local permissions succeeds, then SELinux checks for permissions.</p><p>A Linux kernel that uses SELinux enforces mandatory access control policies that confine user programs and system services, also including file and network resources. If a program or daemon becomes compromised in an SELinux kernel space, then it is confined and limits the damage that can be caused.</p><p>SELinux users and roles do not have to be related to the actual system users and roles. For every current user or process, SELinux assigns a three string context consisting of username, role and domain (or type). This system is more flexible than normally required.</p><p>SELinux contexts follow the SELinux user:role:type:level syntax. To read more about users, roles and types, please refer to</p><h3 id=working-with-selinux-modes>Working with SELinux Modes</h3><p>SELinux has three modes:</p><ul><li>Enforcing: Rules are enforced and violations are logged</li><li>Permissive: No rule enforcement, violations logged</li><li>Disabled: SELinux is not operational and no logging is enabled</li></ul><p>To find out which mode the current system is in:</p><pre><code>sestatus
-</code></pre><p>You can also find out the config with:</p><pre><code>cat /etc/selinux/config
-</code></pre><p>(or, whatever SELinux root directory was identified in the previous command).</p><p>Changing any of the settings in the above file will need a restart.</p><p>To see the SELinux status of any particular file, pass the <code>-Z</code> flag to <code>ls</code>:</p><pre><code>ls -Z somefile 
-</code></pre><p>Type:</p><pre><code>setenforce 0
-</code></pre><p>which will turn off the enforce, but a reboot means that this will be ignored and a reboot would be in enforced mode.</p><p>To change mode over a reboot edit <code>/etc/selinux/config</code>:</p><pre><code>SELINUX=permissive
-</code></pre><p>Now, when you look at status, you will see that both config file and current mode are permissive.</p><p><code>setenforce</code> can only be set with <code>enforced</code> or <code>permissive</code> on the command line.' <code>disabled</code> is allowed in the configuration file.</p><h3 id=controlling-user-access>Controlling User Access</h3><p>By default, all users are equal. User restrictions are not implemented. All users run as the <code>unconfined_u</code> SELinux user, without intervention.</p><p>To create a new Linux user login and map it to an SELinux user, you can use the <code>useradd</code> command with the <code>-Z</code> flag:</p><pre><code>useradd use1 -Z user_u
-</code></pre><p>This will create a new Linux system user with the SELinux system rights of <code>user_u</code>.</p><h4 id=selinux-user-capabilities>SELinux User Capabilities</h4><p>The admin user pretty much has all rights.</p><p>| User | X-Windows | su/sudo | Execute /tmp ~ | Networking |
+<a href=../categories/politics>Politics</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>SELinux Permissions</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2019-12-30</small></p> <hr>
+<div class=post>
+<p>SELinux (Security Enhanced Linux) is a linux kernel security module that provides a mechanism for supporting access control policies. This can support the protection from tampering and bypassing threats that might be possible with certain applications. SELinux checks permissions after the usual operating system permissions (user, groups and read/write/execute policies). If the local permissions succeeds, then SELinux checks for permissions.</p>
+<p>A Linux kernel that uses SELinux enforces mandatory access control policies that confine user programs and system services, also including file and network resources. If a program or daemon becomes compromised in an SELinux kernel space, then it is confined and limits the damage that can be caused.</p>
+<p>SELinux users and roles do not have to be related to the actual system users and roles. For every current user or process, SELinux assigns a three string context consisting of username, role and domain (or type). This system is more flexible than normally required.</p>
+<p>SELinux contexts follow the SELinux user:role:type:level syntax. To read more about users, roles and types, please refer to</p>
+<h3 id=working-with-selinux-modes>Working with SELinux Modes</h3>
+<p>SELinux has three modes:</p>
+<ul>
+<li>Enforcing: Rules are enforced and violations are logged</li>
+<li>Permissive: No rule enforcement, violations logged</li>
+<li>Disabled: SELinux is not operational and no logging is enabled</li>
+</ul>
+<p>To find out which mode the current system is in:</p>
+<pre><code>sestatus
+</code></pre>
+<p>You can also find out the config with:</p>
+<pre><code>cat /etc/selinux/config
+</code></pre>
+<p>(or, whatever SELinux root directory was identified in the previous command).</p>
+<p>Changing any of the settings in the above file will need a restart.</p>
+<p>To see the SELinux status of any particular file, pass the <code>-Z</code> flag to <code>ls</code>:</p>
+<pre><code>ls -Z somefile 
+</code></pre>
+<p>Type:</p>
+<pre><code>setenforce 0
+</code></pre>
+<p>which will turn off the enforce, but a reboot means that this will be ignored and a reboot would be in enforced mode.</p>
+<p>To change mode over a reboot edit <code>/etc/selinux/config</code>:</p>
+<pre><code>SELINUX=permissive
+</code></pre>
+<p>Now, when you look at status, you will see that both config file and current mode are permissive.</p>
+<p><code>setenforce</code> can only be set with <code>enforced</code> or <code>permissive</code> on the command line.' <code>disabled</code> is allowed in the configuration file.</p>
+<h3 id=controlling-user-access>Controlling User Access</h3>
+<p>By default, all users are equal. User restrictions are not implemented. All users run as the <code>unconfined_u</code> SELinux user, without intervention.</p>
+<p>To create a new Linux user login and map it to an SELinux user, you can use the <code>useradd</code> command with the <code>-Z</code> flag:</p>
+<pre><code>useradd use1 -Z user_u
+</code></pre>
+<p>This will create a new Linux system user with the SELinux system rights of <code>user_u</code>.</p>
+<h4 id=selinux-user-capabilities>SELinux User Capabilities</h4>
+<p>The admin user pretty much has all rights.</p>
+<p>| User | X-Windows | su/sudo | Execute /tmp ~ | Networking |
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
 | sysadm_u | yes | both | yes | yes |
 | staff_u | yes | sudo | yes | yes |
 | user_u | yes | no | yes | yes |
 | guest_u | no | no | no | no |
-| xguest_u | yes | no | no | Firefox |</p><p><code>staff_u</code> can do everything apart from <code>su</code> (but can <code>sudo</code>). <code>user_u</code> can do everything apart from root escalation rights. <code>guest_u</code> can do nothing. <code>xguest_u</code> can use Firefox as the only command process that uses networking.</p><p>To see what user we are use:</p><pre><code>id -Z
-</code></pre><p>Usually, on a default install, a user is <code>unconfined_u</code>.</p><p>To see the users for SELinux type:</p><pre><code>semanage user -l 
-</code></pre><p>To list the changes that are still locally applied (not yet in the config):</p><pre><code>semanage login -C -l 
-</code></pre><p>Linux user accounts are mapped to SELinux users. We can use the <code>login</code> option to list out these mappings:</p><pre><code>semanage login -l 
-</code></pre><p>will give the output:</p><pre><code>Login Name           SELinux User         MLS/MCS Range        Service
+| xguest_u | yes | no | no | Firefox |</p>
+<p><code>staff_u</code> can do everything apart from <code>su</code> (but can <code>sudo</code>). <code>user_u</code> can do everything apart from root escalation rights. <code>guest_u</code> can do nothing. <code>xguest_u</code> can use Firefox as the only command process that uses networking.</p>
+<p>To see what user we are use:</p>
+<pre><code>id -Z
+</code></pre>
+<p>Usually, on a default install, a user is <code>unconfined_u</code>.</p>
+<p>To see the users for SELinux type:</p>
+<pre><code>semanage user -l 
+</code></pre>
+<p>To list the changes that are still locally applied (not yet in the config):</p>
+<pre><code>semanage login -C -l 
+</code></pre>
+<p>Linux user accounts are mapped to SELinux users. We can use the <code>login</code> option to list out these mappings:</p>
+<pre><code>semanage login -l 
+</code></pre>
+<p>will give the output:</p>
+<pre><code>Login Name           SELinux User         MLS/MCS Range        Service
 
 __default__          unconfined_u         s0-s0:c0.c1023       *
 root                 unconfined_u         s0-s0:c0.c1023       *
 system_u             system_u            s0-s0:c0.c1023       *
-</code></pre><p>showing that <code>__default__</code> is <code>unconfined_u</code>. This means there are no restrictions in place to any new accounts that are added to this machine. It is a good idea to stop this behaviour and change the <code>__default__</code> to <code>user_u</code> privileges.</p><p>Changing the default assignment will also affect all users previously assigned to it. To manage the assignment of an existing user with <code>semanage</code>.</p><pre><code>semanage login -m -s &quot;user_u&quot; -r s0 __default__
-</code></pre><p>Now if you check your SELinux users, you will see that <code>__default__</code> is now assigned to the <code>user_u</code>:</p><pre><code>Login Name           SELinux User         MLS/MCS Range        Service
+</code></pre>
+<p>showing that <code>__default__</code> is <code>unconfined_u</code>. This means there are no restrictions in place to any new accounts that are added to this machine. It is a good idea to stop this behaviour and change the <code>__default__</code> to <code>user_u</code> privileges.</p>
+<p>Changing the default assignment will also affect all users previously assigned to it. To manage the assignment of an existing user with <code>semanage</code>.</p>
+<pre><code>semanage login -m -s &quot;user_u&quot; -r s0 __default__
+</code></pre>
+<p>Now if you check your SELinux users, you will see that <code>__default__</code> is now assigned to the <code>user_u</code>:</p>
+<pre><code>Login Name           SELinux User         MLS/MCS Range        Service
 
 __default__          user_u               s0                   *
 root                 unconfined_u          s0-s0:c0.c1023       *
 system_u             system_u             s0-s0:c0.c1023       *
-</code></pre><p>NOTE: This will stop all users from gaining <code>su</code> and <code>sudo</code> access.</p><p>To change this for a particular user:</p><pre><code>semanage login -a -s unconfined_u lisa
-</code></pre><p>This command means that lisa will now once again be able to gain root access.</p><p>To list SELinux users we use the user option:</p><pre><code>semanage user -l 
-</code></pre><p>The task is to assign linux accounts to SELinux accounts. We can use the <code>-Z</code> option to useradd or modify the default assignment, which will affect new accounts.</p><pre><code>useradd -Z guest_u bob
-</code></pre><p>To change this later:</p><pre><code>semanage login -a -s user_u bob
-</code></pre><p>The two commands above firstly create a user bob and assign him to the guest_u user, and then the second command associates the username <code>bob</code> with the <code>user_u</code> SELinux user.</p><h3 id=type-enforcement-rules>Type Enforcement Rules</h3><p>A processes type (e.g. <code>httpd_t</code>) must have access to the objects type (e.g. <code>httpd_sys_content_t</code>). If this rule does not exist, then the process will not be able to access the files it needs (in this case the process httpd cannot access the html files that it needs to serve for requests).</p><p>To find out how many allow rules there are issue:</p><pre><code>seinfo
-</code></pre><p>To see a specific rule:</p><pre><code>sesearch --allow -s httpd_t -t httpd_sys_content_t 
-</code></pre><p>The processes for httpd are running as follows:</p><pre><code>ps -Zp $(pgrep http)
+</code></pre>
+<p>NOTE: This will stop all users from gaining <code>su</code> and <code>sudo</code> access.</p>
+<p>To change this for a particular user:</p>
+<pre><code>semanage login -a -s unconfined_u lisa
+</code></pre>
+<p>This command means that lisa will now once again be able to gain root access.</p>
+<p>To list SELinux users we use the user option:</p>
+<pre><code>semanage user -l 
+</code></pre>
+<p>The task is to assign linux accounts to SELinux accounts. We can use the <code>-Z</code> option to useradd or modify the default assignment, which will affect new accounts.</p>
+<pre><code>useradd -Z guest_u bob
+</code></pre>
+<p>To change this later:</p>
+<pre><code>semanage login -a -s user_u bob
+</code></pre>
+<p>The two commands above firstly create a user bob and assign him to the guest_u user, and then the second command associates the username <code>bob</code> with the <code>user_u</code> SELinux user.</p>
+<h3 id=type-enforcement-rules>Type Enforcement Rules</h3>
+<p>A processes type (e.g. <code>httpd_t</code>) must have access to the objects type (e.g. <code>httpd_sys_content_t</code>). If this rule does not exist, then the process will not be able to access the files it needs (in this case the process httpd cannot access the html files that it needs to serve for requests).</p>
+<p>To find out how many allow rules there are issue:</p>
+<pre><code>seinfo
+</code></pre>
+<p>To see a specific rule:</p>
+<pre><code>sesearch --allow -s httpd_t -t httpd_sys_content_t 
+</code></pre>
+<p>The processes for httpd are running as follows:</p>
+<pre><code>ps -Zp $(pgrep http)
 LABEL                             PID TTY      STAT   TIME COMMAND
 system_u:system_r:httpd_t:s0     1407 ?        Ss     0:00 /usr/sbin/httpd -DFOREGROUND
 system_u:system_r:httpd_t:s0     1408 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
@@ -50,9 +172,13 @@ system_u:system_r:httpd_t:s0     1409 ?        S      0:00 /usr/sbin/httpd -DFOR
 system_u:system_r:httpd_t:s0     1410 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
 system_u:system_r:httpd_t:s0     1411 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
 system_u:system_r:httpd_t:s0     1412 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
-</code></pre><p>The files that are within the website for httpd to serve have the following SELinux attributes:</p><pre><code>ls -Zd /var/www/html 
+</code></pre>
+<p>The files that are within the website for httpd to serve have the following SELinux attributes:</p>
+<pre><code>ls -Zd /var/www/html 
 drwxr-xr-x. root root system_u:object_r:httpd_sys_content_t:s0 /var/www/html
-</code></pre><p>The specific rules for httpd are:</p><pre><code>sesearch --allow -s httpd_t -t httpd_sys_content_t
+</code></pre>
+<p>The specific rules for httpd are:</p>
+<pre><code>sesearch --allow -s httpd_t -t httpd_sys_content_t
 Found 29 semantic av rules:
 allow httpd_t httpd_sys_content_t : lnk_file { read getattr } ; 
 allow httpd_t httpd_sys_content_t : dir { ioctl read getattr lock search open } ; 
@@ -83,26 +209,73 @@ allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove
 allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
 allow httpd_t httpdcontent : dir { ioctl read write getattr lock add_name remove_name search open } ; 
 allow httpd_t httpdcontent : lnk_file { ioctl read write create getattr setattr lock append unlink link rename } ;
-</code></pre><p>What about changing the directory <code>/var/www/html</code> for the httpd server? This is where the <code>semanage-fcontext</code> command will come in.</p><pre><code>semanage fcontext -a -t httpd_sys_content_t &quot;/srvhttpd&quot;
+</code></pre>
+<p>What about changing the directory <code>/var/www/html</code> for the httpd server? This is where the <code>semanage-fcontext</code> command will come in.</p>
+<pre><code>semanage fcontext -a -t httpd_sys_content_t &quot;/srvhttpd&quot;
 restorecon -R -v /srvhttpd
-</code></pre><p>The <code>restorecon</code> command is important as this will persistently set the directory across reboots.</p><p>Configure httpd server to access a /srvhttpd directory. Then create the /srvhttpd directory:</p><pre><code>mkdir -m 2750 /srvhttpd 
+</code></pre>
+<p>The <code>restorecon</code> command is important as this will persistently set the directory across reboots.</p>
+<p>Configure httpd server to access a /srvhttpd directory. Then create the /srvhttpd directory:</p>
+<pre><code>mkdir -m 2750 /srvhttpd 
 chgrp apache /srvhttpd
 echo hello &gt; /srvhttpd/index.html 
 semanage fcontext -a -t httpd_sys_content_t /srvhttpd
 restorecon -R -v /srvhttpd
-</code></pre><h3 id=working-with-booleans>Working with Booleans</h3><p>Administrators can override SELinux enforced mode to get around problems. This can be a problem when you are trying to prevent opening up access. This can be prevented by requiring a reboot before a new mode is active. To do this you will need to set a boolean which prevents changing the mode without a reboot.</p><pre><code>getsebool -a 
-</code></pre><p>will show all the booleans that are in place for this runtime. The same can be achieved with:</p><pre><code>semanage boolean -l | grep secure_mode_policyload
-</code></pre><p>To change this:</p><pre><code>setsebool secure_mode_policyload on 
+</code></pre>
+<h3 id=working-with-booleans>Working with Booleans</h3>
+<p>Administrators can override SELinux enforced mode to get around problems. This can be a problem when you are trying to prevent opening up access. This can be prevented by requiring a reboot before a new mode is active. To do this you will need to set a boolean which prevents changing the mode without a reboot.</p>
+<pre><code>getsebool -a 
+</code></pre>
+<p>will show all the booleans that are in place for this runtime. The same can be achieved with:</p>
+<pre><code>semanage boolean -l | grep secure_mode_policyload
+</code></pre>
+<p>To change this:</p>
+<pre><code>setsebool secure_mode_policyload on 
 getsebool -a |grep policy
 
 The latter command confirms that the boolean is on. 
 If you want the boolean to take place over a reboot:
 
 setsebool -P secure_mode_policyload on
-</code></pre><p>The <code>-P</code> sets this to be transient over a reboot.</p><p>To find out which booleans are available on your system enter:</p><pre><code>semanange boolean -l
-</code></pre><p>To get more detailed descriptions of the booleans, install the package <code>selinux-policy-devel</code> package.</p><p>By default, Apache is prevented from accessing any DB servers. The <code>httpd_can_network_connect_db</code> is off. To checkk this:</p><pre><code>getsebool httpd_can_network_connect_db
-</code></pre><p>To temporarily enable this:</p><pre><code>setsebool httpd_can_network_connect_db on 
-</code></pre><p>This change is not persistent across reboots. To make a change that is persistent across reboots, use the <code>-P</code> flag:</p><pre><code>setsebool -P httpd_can_network_connect_db on 
-</code></pre><h3 id=diagnosing-selinux-issues>Diagnosing SELinux Issues</h3><p>You can pass <code>enforcing=0</code> on a grub command line (the line that loads the kernel) to change to permissive mode. This helps if there is difficulty in logging in. If necessary, this means that you can check the permissions of any files that may have changed.</p><p>This may require a file to be created <code>/.autorelabel</code>, which will check through all the files and ensure that they are all relabeled according to the SELinux policies in place. Relabelling all the files can be time consuming and there is a quicker way by just relabelling the necessary files.</p><p>If you find a question mark on <code>ls -Z file</code> then the file is unlabelled and cannot be verified by SELinux. To fix this:</p><pre><code>restorecon -v filename 
-</code></pre><p>This will bring the label to the file. The <code>restorecon</code> command is good for relabelling just one file, instead of having to go through the whole filesytem.</p><h3 id=writing-custom-modules>Writing Custom Modules</h3></div></div><a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
-<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script><ul class=pager>&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2019/12/30/Setting-Filesystem-ACLs-on-Linux.html>Setting Filesystem ACLs on Linux</a></li>&nbsp;<li class=next><a href=https://kabads.monkeez.org/2020/01/03/SELinux-Users-Roles-and-Types.html>SELinux Users, Roles, and Types</a></li></ul></ul></div><footer><p class="text-muted credit">&copy; 2021. All rights reserved.</p></footer><script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.min.js></script><script src=https://kabads.monkeez.org/js/bootstrap.js></script><script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script></body></html>
+</code></pre>
+<p>The <code>-P</code> sets this to be transient over a reboot.</p>
+<p>To find out which booleans are available on your system enter:</p>
+<pre><code>semanange boolean -l
+</code></pre>
+<p>To get more detailed descriptions of the booleans, install the package <code>selinux-policy-devel</code> package.</p>
+<p>By default, Apache is prevented from accessing any DB servers. The <code>httpd_can_network_connect_db</code> is off. To checkk this:</p>
+<pre><code>getsebool httpd_can_network_connect_db
+</code></pre>
+<p>To temporarily enable this:</p>
+<pre><code>setsebool httpd_can_network_connect_db on 
+</code></pre>
+<p>This change is not persistent across reboots. To make a change that is persistent across reboots, use the <code>-P</code> flag:</p>
+<pre><code>setsebool -P httpd_can_network_connect_db on 
+</code></pre>
+<h3 id=diagnosing-selinux-issues>Diagnosing SELinux Issues</h3>
+<p>You can pass <code>enforcing=0</code> on a grub command line (the line that loads the kernel) to change to permissive mode. This helps if there is difficulty in logging in. If necessary, this means that you can check the permissions of any files that may have changed.</p>
+<p>This may require a file to be created <code>/.autorelabel</code>, which will check through all the files and ensure that they are all relabeled according to the SELinux policies in place. Relabelling all the files can be time consuming and there is a quicker way by just relabelling the necessary files.</p>
+<p>If you find a question mark on <code>ls -Z file</code> then the file is unlabelled and cannot be verified by SELinux. To fix this:</p>
+<pre><code>restorecon -v filename 
+</code></pre>
+<p>This will bring the label to the file. The <code>restorecon</code> command is good for relabelling just one file, instead of having to go through the whole filesytem.</p>
+<h3 id=writing-custom-modules>Writing Custom Modules</h3>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2019/12/30/Setting-Filesystem-ACLs-on-Linux.html> Setting Filesystem ACLs on Linux</a></li>
+&nbsp;<li class=next><a href=https://kabads.monkeez.org/2020/01/03/SELinux-Users-Roles-and-Types.html> SELinux Users, Roles, and Types</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>
