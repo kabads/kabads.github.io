@@ -4,7 +4,7 @@
 <title>Test Driven Development</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content>
-<meta name=generator content="Hugo 0.88.1">
+<meta name=generator content="Hugo 0.89.2">
 <link href rel=alternate type=application/rss+xml title=Kabads>
 <link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
 <link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
@@ -87,7 +87,7 @@ def test_add():
 <p>My project file structure is thus:</p>
 <pre><code>project/
      | 
-     |- src
+	 |- src
      |
      |- tests
 </code></pre>
@@ -95,7 +95,7 @@ def test_add():
 <p>The initial problem that needs to be solved is that the test needs to import the add module. To help with this, we need to add <code>__init__.py</code> files to the <code>src</code> and <code>tests</code> directory. So this is how the file structure looks now:</p>
 <pre><code>project/
      | 
-     |- src
+	 |- src
      |    |- __init__.py
      |- tests
           |- test_add.py
@@ -109,7 +109,7 @@ setup(name=&quot;add&quot;, packages=find_packages())
 <p>This file needs to be at the project level:</p>
 <pre><code>project/
      |- setup.py
-     |- src
+	 |- src
      |    |- __init__.py
      |- tests
           |- test_add.py
