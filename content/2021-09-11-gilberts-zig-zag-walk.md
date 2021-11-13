@@ -3,6 +3,7 @@ title: Gilbert White's Zig-Zag Walk
 date: "2021-09-11T16:44:00Z"
 categories:
 - walking
+- exercise
 ---
 
 We went for a walk around Selborne, the home of [Gilbert White](https://en.wikipedia.org/wiki/Gilbert_White), who some claim was the first English Naturalist. 
