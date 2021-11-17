@@ -35,7 +35,7 @@ Start the service to test:
 
 And then enable so that it will run at boot:
 
-    sudo systemctl enable autofs. service 
+    sudo systemctl enable autofs.service 
 
 You will need to attempt to use the filesystem for it to mount
 
