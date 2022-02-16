@@ -4,7 +4,7 @@
 <title>SELinux Users, Roles, and Types</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content>
-<meta name=generator content="Hugo 0.89.3">
+<meta name=generator content="Hugo 0.92.2">
 <link href rel=alternate type=application/rss+xml title=Kabads>
 <link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
 <link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
@@ -40,6 +40,7 @@
 <hr>
 <p>
 <a href=../../../categories/sysadmin>Sysadmin</a> |
+<a href=../../../categories/devops>DevOps</a> |
 <a href=../../../categories/reading>Reading</a> |
 <a href=../../../categories/cycling>Cycling</a> |
 <a href=../../../categories/ruby>Ruby</a> |
@@ -66,14 +67,17 @@
 <p>SELinux contexts follow the SELinux user:role:type:level syntax.</p>
 <h3 id=users>Users</h3>
 <p>Users can be seen with the command:</p>
-<pre tabindex=0><code>semanage user -l</code></pre>
+<pre><code>semanage user -l
+</code></pre>
 <p>This will show the list of SELinux users, and is mapped to Linux users. If a Linux user is not listed then they are associated with the <code>__default__</code> SELinux user and inherit those rights.</p>
 <h3 id=roles>Roles</h3>
 <p>Role based access control is a go-between from the user to the domain. By assigning roles, a user can access particular domains. This determines which domains can be accessed by the SELinux user. The role dictates what domains (types, or contexts) it is possible to be in.</p>
 <p>To find out which domains (roles) a user is approved for:</p>
-<pre tabindex=0><code>seinfo -ruser_r -x </code></pre>
+<pre><code>seinfo -ruser_r -x 
+</code></pre>
 <p>Users can switch roles if they want. However, they can only do this if their SELinux is allowed to be in that role. You can check if this is allowed with:</p>
-<pre tabindex=0><code>semanage user -l</code></pre>
+<pre><code>semanage user -l
+</code></pre>
 <p>This will list a user and the roles that they are allowed to switch to. Obviously for this to work, the Linux user has to have the corresponding SELinux username when they issue <code>id -Z</code>.</p>
 <h3 id=type>Type</h3>
 <p>The type is an attribute of Type Enforcement. The type defines a domain for processes, and a type for files. SELinux policy rules define how types can access each other, whether it be a domain accessing type, or a domain accessing another domain. Usually types are defined by the suffix <code>_t</code>. Rather than have many many rules which identify the access between actor and object (e.g. user and file), SELinux has a label attached to each actor and object, which specifies whether the actor is allowed access to the object. The rule specifies if the actor has a label that allows access to the objects (with that label).</p>
@@ -82,7 +86,8 @@
 <h3 id=conclusion>Conclusion</h3>
 <p>This table represents the structure of a label:</p>
 <p><code>system_u:object_r:lib_t</code> associates with an actor <code>user_u:user_r:user_t</code> in the following way:</p>
-<table class=table>
+<p>{.table}</p>
+<table>
 <thead>
 <tr>
 <th><code>system_u</code></th>
@@ -97,9 +102,9 @@
 <td>SELinux Type</td>
 </tr>
 <tr>
-<td>----------------</td>
-<td>---------------</td>
-<td>-------------</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;&mdash;-</td>
 </tr>
 <tr>
 <td><code>user_u</code></td>
@@ -119,7 +124,7 @@
 </ul>
 </div>
 <footer>
-<p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+<p class="text-muted credit">&copy; 2022. All rights reserved. </p>
 </footer>
 <script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
 <script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>

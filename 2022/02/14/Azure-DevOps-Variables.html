@@ -1,0 +1,125 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Azure DevOps Variables</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.92.2">
+<link href rel=alternate type=application/rss+xml title=Kabads>
+<link href=https://kabads.monkeez.org/css/bootstrap.min.css rel=stylesheet>
+<link href=https://kabads.monkeez.org/css/hc.css rel=stylesheet>
+<link href=//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css rel=stylesheet>
+<script type=text/javascript>var owa_baseUrl='https://home.monkeez.org/owa/',owa_cmds=owa_cmds||[];owa_cmds.push(['setDebug',!0]),owa_cmds.push(['setSiteId','e96cc79fe81df249b3191b2c920fa8f7']),owa_cmds.push(['trackPageView']),owa_cmds.push(['trackClicks']),function(){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,owa_baseUrl='https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl,a.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js',b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}()</script>
+</head>
+<body>
+<div class=nav-toggle><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+<div id=wrapper>
+<div class="navbar navbar-default" role=navigation>
+<div class=container>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a href=https://kabads.monkeez.org/><p class=navbar-brand>Kabads</p></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</div>
+<div id=sidebar-wrapper>
+<ul class=sidebar-nav>
+<img src>
+<li class=sidebar-brand><a href=https://kabads.monkeez.org/><h1 class=brand>Kabads</h1></a><h3></h3></li>
+<hr>
+<li class=sidebar-brand><a href=../../../about>About</a> </li>
+<hr>
+<p>
+<a href=../../../categories/sysadmin>Sysadmin</a> |
+<a href=../../../categories/devops>DevOps</a> |
+<a href=../../../categories/reading>Reading</a> |
+<a href=../../../categories/cycling>Cycling</a> |
+<a href=../../../categories/ruby>Ruby</a> |
+<a href=../../../categories/emacs>Emacs</a> |
+<a href=../../../categories/exercise>Exercise</a> |
+<a href=../../../categories/tech>Tech</a> |
+<a href=../../../categories/education>Education</a> |
+<a href=../../../categories/politics>Politics</a> |
+<a href=../../../categories/walking>Walking</a>
+</p>
+<hr>
+<p>To contact, PM me via twitter:</p>
+<p><a href=https://twitter.com/kabads>Kabads</a></p>
+<hr>
+<div id=social-wrapper>
+</div>
+</ul>
+</div>
+<div class=container>
+<div id=article>
+<div class=article-title>Azure DevOps Variables</div>
+<p class=meta><small>&nbsp;<i class="fa fa-calendar-o"></i> 2022-02-14</small></p> <hr>
+<div class=post>
+<p>Azure DevOps has a funny kind of virtualization. When you run your pipelines, the jobs can be on different hosts. This creates a head-scratching moment for people like me who have been working on linux bare-metal for quite a while and thinking that variables are just inherited. In fact, in other pipelines, we have a problem where variables leak all over the place and overwrite each other. We have bash scripts that do this.</p>
+<p>So the problem statement is thus: we have a login process that is used in lots of places. This login process returns an <code>ACCESS_TOKEN</code>. This access token help with API calls. The ideal is that we don&rsquo;t copy this ACCESS_TOKEN code in to all the pipelines, but instead create a template that returns the <code>ACCESS_TOKEN</code>. However, the problem with this on Azure DevOps is that each job may be processed on a different agent. It seems that there is a pool of agents whereby you can run jobs in parallel, if needed. This document describes it far better than I am here: (<a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/runs?view=azure-devops)">https://docs.microsoft.com/en-us/azure/devops/pipelines/process/runs?view=azure-devops)</a>.</p>
+<h3 id=variables-between-tasks>Variables Between Tasks</h3>
+<p>This means you need to think carefully about how to pass variables from one step to another. Passing variables between steps in the same job is by far the easiest thing to do.</p>
+<p>Consider this code:</p>
+<pre><code>steps:
+- task: Bash@3
+displayName: Get access token, sandbox ID, then refresh
+name: GetToken
+inputs:
+  targetType: inline
+  workingDirectory: $(System.DefaultWorkingDirectory)
+  script: |
+    # Let's set the access token
+    ACCESS_TOKEN=$(sfdx force:org:display -u ${{ parameters.sf_user }} --json | jq '.result.accessToken' | sed 's/\&quot;//g')
+    echo &quot;##vso[task.setvariable variable=ACCESS_TOKEN; isOutput=true]$ACCESS_TOKEN&quot; 
+</code></pre>
+<p>The last line:</p>
+<pre><code>echo &quot;##vso[task.setvariable variable=ACCESS_TOKEN; isOutput=true]$ACCESS_TOKEN&quot;
+</code></pre>
+<p>of this task is the one that will make it available to other tasks in the same job.</p>
+<p>This is where the weirdness begins (for me). In a traditional environment, $ACCESS_TOKEN will be available to any other processes after this one. However, in Azure DevOps, $ACCESS_TOKEN was on a different Azure DevOps agent, and therefore is lost. The <code>echo "##vso[task.setvariable</code> makes this variable available to any subsequent tasks afterwards. Therefore, you can call this variable in another <code>task</code> with the following code:</p>
+<pre><code>  - task: Bash@3
+  displayName: Check Variables exists and run Python script create_user.py
+  inputs:
+    targetType: inline
+    workingDirectory: $(System.DefaultWorkingDirectory)
+    script: |
+      if [ -n $(ACCESS_TOKEN) ]; then echo &quot;ACCESS_TOKEN is set. &quot;; else echo &quot;ACCESS_TOKEN is not set.&quot;; fi
+</code></pre>
+<p>Note the parentheses.</p>
+<h3 id=variables-from-variable-groups>Variables from Variable Groups</h3>
+<p>If you are used to Classic Pipelines, the variables become implicitly available via <code>$(myvar)</code>. However, this variable is really a template, and not a bash variable. If you need your bash environment to use this variable in a traditional sense you will find problems. For example, the following code will not work (on Azure DevOps yaml pipeline).</p>
+<pre><code>echo $(ACCESS_TOKEN)
+python run_code.py
+</code></pre>
+<p>where <code>run_code.py</code> has the following script:</p>
+<pre><code>import os
+token = (os.environ.get(&quot;ACCESS_TOKEN))
+</code></pre>
+<p><code>token</code> will remain <code>NULL</code>. To get around this problem, in the bash call, you should have <code>export ACCESS_TOKEN=$(ACCESS_TOKEN)</code> and then the above python code will work. The ACCESS_TOKEN assignment is a traditional bash one, and one that will get around a lot of other environment problems you may find in other scripts.</p>
+</div>
+</div>
+<a href=https://twitter.com/share class=twitter-share-button data-size=small data-count=none>Tweet</a>
+<script>!function(a,c,d){var b,e=a.getElementsByTagName(c)[0],f=/^http:/.test(a.location)?'http':'https';a.getElementById(d)||(b=a.createElement(c),b.id=d,b.src=f+'://platform.twitter.com/widgets.js',e.parentNode.insertBefore(b,e))}(document,'script','twitter-wjs')</script>
+<ul class=pager>
+&nbsp;<li class=previous><a href=https://kabads.monkeez.org/2021/09/11/Gilbert-Whites-Zig-Zag-Walk.html> Gilbert White's Zig-Zag Walk</a></li>
+</ul>
+</ul>
+</div>
+<footer>
+<p class="text-muted credit">&copy; 2022. All rights reserved. </p>
+</footer>
+<script src=https://kabads.monkeez.org/js/jquery-1.10.2.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.min.js></script>
+<script src=https://kabads.monkeez.org/js/bootstrap.js></script>
+<script type=text/javascript src=https://kabads.monkeez.org/js/hc.js></script>
+</body>
+</html>
