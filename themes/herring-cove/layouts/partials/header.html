@@ -5,8 +5,7 @@
   <title>{{ .Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ .Description }}">
-  {{ .Hugo.Generator }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  
   <link href="{{ .Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ .Site.BaseURL }}/css/hc.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -92,7 +91,7 @@
           <hr />
           <p>To contact, PM me via twitter:</p>
           <p><a href="https://twitter.com/kabads">Kabads</a></p> 
-
+          <a rel="me" href="https://mastodon.sdf.org/@kabads">Mastodon</a>
           <hr />
           <div id="social-wrapper">
            {{ with .Site.Params.twitter }}<li> <a href="{{.}}"><i class="fa fa-twitter-square"></i> @twitter</a></li>{{end}}
