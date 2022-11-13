@@ -2,7 +2,6 @@
 layout: post
 title: Using Mastodon Instead of Twitter 
 date: 2022-11-12
-draft: true
 categories:
 - tech
 ---
