@@ -13,7 +13,7 @@
   <ul class="pagination justify-content-center pagination-lg">
     <!-- First page. -->
     {{ if ne $paginator.PageNumber 1 }}
-        <a class="page_link" href="{{ $paginator.First.URL }}">
+        <a class="pagination-link" href="{{ $paginator.First.URL }}">
       First
         </a>
     {{ end }}
@@ -23,7 +23,7 @@
     <!-- Previous page. -->
     {{ if $paginator.HasPrev }}
  
-        <a class="page_link" href="{{ $paginator.Prev.URL }}" rel="next">
+        <a class="pagination-link" href="{{ $paginator.Prev.URL }}" rel="next">
           ←
         </a>
 
@@ -75,7 +75,7 @@
     <!-- Last page. -->
     &nbsp;  &nbsp;  &nbsp;
     {{ if ne $paginator.PageNumber $paginator.TotalPages }}
-      <a class="page-link" href="{{ $paginator.Last.URL }}">
+      <a class="pagination-link" href="{{ $paginator.Last.URL }}">
   Last
       </a>
     {{ end }}
