@@ -4,7 +4,7 @@
     <ul>
       {{ if .Params.categories }}
         <ul>
-          <a class="pagelinks" href="{{ .RelPermalink | urlize }}">{{ .Title }}</a> 
+            <a class="pagelinks" href="{{ .RelPermalink | urlize }}">{{ .Title }}</a> {{ .Params.Date.Format "2 Jan 2006" }}
         </ul>
       {{end}}
     </ul>
