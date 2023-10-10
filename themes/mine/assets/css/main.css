@@ -1,0 +1,67 @@
+body {
+  color: #222;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 1rem;
+  max-width: 768px;
+  background-color: rgb(3, 2, 2);
+}
+
+header {
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+footer {
+  border-top: 1px solid #222;
+  margin-top: 1rem;
+}
+
+time {
+  color:rgb(231, 255, 255);
+}
+
+li, ul, p {
+  color: rgb(146, 146, 145);
+}
+
+code {
+  color: rgb(3, 151, 10);
+  background-color: #222;
+}
+
+a.pagelinks {
+  color: rgb(146, 146, 145);
+}
+
+a.masthead {
+  color:rgb(32, 192, 0);
+  text-decoration: none;
+}
+
+a.categories {
+  color: rgb(209, 242, 255);
+  border-bottom: 0.5px dotted;
+  text-decoration: none;
+}
+
+.page-link {
+  color:rgb(176, 255, 180);
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 0.5px dotted;
+  text-decoration: none;
+}
+
+h1, h3, h2 {
+  color:rgb(209, 242, 255)
+}
+
+.pagination-link {
+  color:rgb(3, 151, 10);
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 0.5px;
+  text-decoration: none;
+}
+

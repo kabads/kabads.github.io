@@ -1,0 +1,9 @@
+
+
+<div id="article">
+    <h1>{{.Title}}</h1>
+<ul>
+  {{ range .Data.Pages   }}
+    <li><span><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4></time></span></span></li>
+    {{ end }}
+</ul>

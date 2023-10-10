@@ -1,0 +1,31 @@
+
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "partials/header.html"}}
+    <meta charset="utf-8">
+    <link href="{{ .Site.BaseURL }}css/main.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ .Description }}">
+</head>
+<body>
+    <div id="article">
+        {{partial "categories/categories_list.html" }}        
+        <ul> 
+            {{ range .Paginator.Pages }}
+            <ul>
+                <span>
+                    
+                        <a class="page-link" href="{{ .RelPermalink }}">{{ .Title }}</a> &nbsp; &nbsp;
+                        <time>{{ .Date.Format "Jan 2, 2006" }}</h4></time>
+                                    </span>
+            </ul>
+            {{ end }}
+        </ul>
+    {{partial "pagination.html" .}}  
+    {{ template "partials/footer.html" }}
+
+    {{ with .OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}  
+</body>
+</html>

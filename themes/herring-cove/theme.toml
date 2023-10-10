@@ -12,3 +12,7 @@ min_version = 0.20
 [original]
     author =  "arnp"
     repo = "http://www.github.com/arnp/herring-cove"
+
+[params]
+   showRSSButton = true
+   fadeIn = true

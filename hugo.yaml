@@ -1,0 +1,18 @@
+
+disablePathToLower: true
+languageCode: en-gb
+title: Kabads
+paginate: 10
+taxonomies:
+  category: categories
+theme: mine
+  # params:
+  #   - showRSSButton: true
+  #   - fadeIn: true
+  #   - params.share:
+  #     - facebook: true
+permalinks:
+  /: /:year/:month/:day/:title/
+relativeURLs: true
+uglyURLs: true
+baseURL: "https://kabads.monkeez.org"
