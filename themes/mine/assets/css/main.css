@@ -65,3 +65,8 @@ h1, h3, h2 {
   text-decoration: none;
 }
 
+a {
+    color: rgb(210, 210, 210);
+    border-bottom: 0.5px dotted;
+    text-decoration: none;
+}
