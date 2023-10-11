@@ -16,3 +16,15 @@ permalinks:
 relativeURLs: true
 uglyURLs: true
 baseURL: "https://kabads.monkeez.org"
+
+Params:
+  giscus:
+    repo = "kabads/kabads.github.io"
+    repoId = "MDEwOlJlcG9zaXRvcnkxNDMzODM1MDU="
+    category = "General"
+    categoryID = "DIC_kwDOCIvb0c4CaCRG"
+    mapping = "title"
+    reactions = true
+    inputPosition = "bottom"
+    theme = "dark"
+

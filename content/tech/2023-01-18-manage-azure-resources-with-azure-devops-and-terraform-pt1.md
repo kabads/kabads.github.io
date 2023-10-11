@@ -4,6 +4,7 @@ title: Managing Azure Resources with Azure DevOps and Terraform - pt. 1
 date: 2023-01-18
 categories:
 - tech
+giscus: true
 ---
 
 This post will show you how to create a simple Azure DevOps pipeline that can use the Azure CLI command within a Microsoft hosted agents on Azure DevOps. 

@@ -4,7 +4,7 @@ body {
   line-height: 1.5;
   margin: 1rem;
   max-width: 768px;
-  background-color: rgb(3, 2, 2);
+  background-color: rgb(37, 37, 37);
 }
 
 header {
@@ -22,7 +22,7 @@ time {
 }
 
 li, ul, p {
-  color: rgb(146, 146, 145);
+  color: rgb(209, 209, 209);
 }
 
 code {
