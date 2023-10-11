@@ -7,6 +7,13 @@ body {
   background-color: rgb(37, 37, 37);
 }
 
+
+a {
+    color: rgb(140, 240, 140);
+    border-bottom: 0.5px dotted;
+    text-decoration: none;
+}
+
 header {
   border-bottom: 1px solid #222;
   margin-bottom: 1rem;
@@ -69,8 +76,3 @@ h1, h3, h2 {
   text-decoration: none;
 }
 
-a {
-    color: rgb(210, 210, 210);
-    border-bottom: 0.5px dotted;
-    text-decoration: none;
-}
