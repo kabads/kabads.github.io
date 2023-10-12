@@ -1,4 +1,4 @@
-<ul>
+<div class="content"><ul>
     {{ range $taxonomy, $terms := site.Taxonomies }}
         <ul>
           {{ range $term, $weightedPages := $terms }}
@@ -9,4 +9,4 @@
         </ul>
     {{ end }}
   </ul>
-
+</div>
