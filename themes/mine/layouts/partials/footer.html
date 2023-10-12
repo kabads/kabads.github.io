@@ -1,4 +1,6 @@
 <div class="footer-indent">
     <p>Copyright 2010-{{ now.Year }}. (c) A Cripps - All rights reserved.</p>
-    {{ partial "giscus.html" }}
+</div>
+<div class="footer-indent">
+    {{ if .IsPage }} {{ partial "giscus.html" }} {{ end }}
 </div>
