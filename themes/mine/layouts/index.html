@@ -25,7 +25,6 @@
         </ul>
     {{partial "pagination.html" .}}  
     {{ template "partials/footer.html" }}
-
     {{ with .OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}  
 </body>
 </html>
