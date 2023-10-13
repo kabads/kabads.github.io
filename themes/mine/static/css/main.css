@@ -76,3 +76,11 @@ h1, h3, h2 {
   text-decoration: none;
 }
 
+.category-header {
+  margin-left: 4em;
+}
+
+
+.content {
+  margin-left: 10em;
+}
