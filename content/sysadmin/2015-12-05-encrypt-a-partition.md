@@ -6,7 +6,7 @@ title: Encrypt a partition on Linux
 url: /2015/12/05/encrypt-a-partition/
 ---
 
-An encrypted partition can add a layer of security to your system. When initialized, it will ask for the passphrase which, if unavailable, will not allow proper mounting. This renders the information on the drive as unreadable.
+An encrypted partition can add a layer of security to your system. When initialized, it will ask for the passphrase which, if unavailable, will not allow proper mounting. <!--more-->This renders the information on the drive as unreadable.
 
 Most systems use the [Linux Unified Key Setup](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup) (LUKS for short) format for encryption and this can be a standard install for most distribution.
 

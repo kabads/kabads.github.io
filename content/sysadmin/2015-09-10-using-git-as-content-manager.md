@@ -4,7 +4,7 @@ title: Using Git as a content manager system
 url: /2015/09/10/using-git-as-content-manager/
 ---
 
-Not familiar with [git](https://git-scm.com)? Start with an [online book](https://git-scm.com/book/en/v1/Getting-Started) or [Version Control with Git](https://git-scm.com/book/en/v1/Getting-Started).
+Not familiar with [git](https://git-scm.com)? Start with an [online book](https://git-scm.com/book/en/v1/Getting-Started) or [Version Control with Git](https://git-scm.com/book/en/v1/Getting-Started).<!--more-->
 
 [Git](https://git-scm.com/) is an open sourced source control software system. It allows coders to manage large projects remotely and on their own machine. Each contributor will hold their own version of the code on their machine and can manipulate that however they wish. Eventually, they can push back their contributions to a remote repository.
 

@@ -6,7 +6,7 @@ title: How and why you should be using 2 factor authentication
 url: /2015/10/31/how-and-why-2-factor-authentication/
 ---
 
-[Two factor authentication](https://en.wikipedia.org/wiki/Two-factor_authentication) provides another layer of security to any sign in for services you use. By enabling 2 factor authentication, you are using another layer of security when signing in. However, this extra layer of security is a physical one, not necessarily digital. The 2 factor authentication requires a particular object which cannot be replicated. This can be the form of a USB key or a mobile phone. Banks have used this before with card readers which produce a particular code. Without the card reader and card you cannot produce a code. 
+[Two factor authentication](https://en.wikipedia.org/wiki/Two-factor_authentication) provides another layer of security to any sign in for services you use. By enabling 2 factor authentication, you are using another layer of security when signing in. <!--more-->However, this extra layer of security is a physical one, not necessarily digital. The 2 factor authentication requires a particular object which cannot be replicated. This can be the form of a USB key or a mobile phone. Banks have used this before with card readers which produce a particular code. Without the card reader and card you cannot produce a code. 
 
 
 {{< rawhtml >}}
