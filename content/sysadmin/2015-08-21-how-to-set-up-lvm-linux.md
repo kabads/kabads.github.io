@@ -6,11 +6,12 @@ title: How to set-up LVM on Linux
 url: /2015/08/21/how-to-set-up-lvm-linux/
 ---
 
+What are the advantages of [Logical Volume Management (LVM)](https://en.wikipedia.org/wiki/Logical_volume_management)?<!--more-->
+
 {{< rawhtml >}}
 <img src="https://farm1.staticflickr.com/606/20580819929_7109d8f28b_m.jpg">
 {{< /rawhtml >}}
 
-**What are the advantages of [Logical Volume Management (LVM)](https://en.wikipedia.org/wiki/Logical_volume_management)?**
 
 LVM treats your physical harddrives as 'elastic' storage - that is extents can be across disks allowing filesystems to be across many disks and/or partitions. This allows a lot of flexibility and can allow filesystems to shrink or grow easily. 
 
