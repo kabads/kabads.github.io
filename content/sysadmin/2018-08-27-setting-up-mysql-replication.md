@@ -4,7 +4,7 @@ categories:
 date: "2018-08-27T12:32:30Z"
 title: Setting Up MySQL Replication as a back-up solution
 ---
-MySQL replication is a good thing to have. It provides greater resilience and removes a single point of failure. By following these steps, you will create a replica of a master server, acting as a permanent backup in the case of a DR scenario.  
+MySQL replication is a good thing to have. It provides greater resilience and removes a single point of failure. By following these steps, you will create a replica of a master server, acting as a permanent backup in the case of a DR scenario.<!--more-->
 
 ### Introduction
 

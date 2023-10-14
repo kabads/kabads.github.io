@@ -6,7 +6,7 @@ title: AWS - How to Serve Traffic from a Load Balancer
 url: /2017/09/20/AWS-how-to-serve-traffic-from-load-balancer/
 ---
 
-[Amazon Web Services](http://aws.amazon.com) (AWS) allows you to serve private network traffic from behind a public load balancer. This offers extra security benefits as it detects DDOS traffic and other exploits and offers a layer of protection.
+[Amazon Web Services](http://aws.amazon.com) (AWS) allows you to serve private network traffic from behind a public load balancer. This offers extra security benefits as it detects DDOS traffic and other exploits and offers a layer of protection.<!--more-->
 
 There are some things you should know before you start this tutorial. You should know:
 

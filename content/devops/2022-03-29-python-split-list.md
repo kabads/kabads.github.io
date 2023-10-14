@@ -7,7 +7,7 @@ categories:
 ---
 
 So, you end up with a big list, that has a lot of entries, and you want to split them in to smaller lists. 
-
+<!--more-->
 My niece called me recently. She is doing her MA in Neuropsychology and has a set of readings from her research, where she wants to get a median for every minute. That means, she wants to split all her readings into smaller list, containing 60 entries. 
 
 Assuming that I've already split all her ~800,000 entries into a big list with:

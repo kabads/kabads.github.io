@@ -8,7 +8,7 @@ giscus: true
 ---
 
 This post will show you how to create a simple Azure DevOps pipeline that can use the Azure CLI command within a Microsoft hosted agents on Azure DevOps. 
-
+<!--more-->
 It contains two main parts:
 
  - Setting up Authentication for Azure 

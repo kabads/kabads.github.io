@@ -6,7 +6,7 @@ status: publish
 title: Strings in Ruby - Learning Ruby 2
 ---
 
-Ruby has great string support. This post summarises the functions that are available.
+Ruby has great string support. This post summarises the functions that are available.<!--more-->
 
 This is not designed to be a tutorial for others, but rather a record for myself in learning Ruby. 
 

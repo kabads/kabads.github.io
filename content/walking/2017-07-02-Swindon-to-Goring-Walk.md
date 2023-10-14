@@ -6,7 +6,7 @@ title: TADS walk Swindon to Goring
 url: /2017/07/02/Swindon-to-Goring-Walk/
 ---
 
-TADS - Teresa, Adam, Dave and Shep walking. We have been walking for about 2 years now, all around the South East. This was our longest walk by far in two days. Swindon to Goring.
+TADS - Teresa, Adam, Dave and Shep walking. We have been walking for about 2 years now, all around the South East. This was our longest walk by far in two days. Swindon to Goring.<!--more-->
 
 The walk started out with us meeting at Swindon having lunch. There seemed to be quite a lot going on in the town with Canadian flags and guys at the train station with Ice Hockey sticks.
 

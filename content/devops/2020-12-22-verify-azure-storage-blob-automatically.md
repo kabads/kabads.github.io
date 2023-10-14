@@ -5,7 +5,7 @@ date: "2020-12-22T00:00:00Z"
 title: Verify Azure Blob Storage Automatically
 ---
 
-This blog post outlines a problem I had whereby there were lots of files in Azure storage and I wanted to check that they had been uploaded correctly. 
+This blog post outlines a problem I had whereby there were lots of files in Azure storage and I wanted to check that they had been uploaded correctly.<!--more-->
 
 ### Problem
 

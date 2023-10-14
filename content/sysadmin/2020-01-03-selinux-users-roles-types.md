@@ -5,7 +5,7 @@ date: "2020-01-03T00:00:00Z"
 title: SELinux Users, Roles, and Types
 markup: mmark
 ---
-SELinux contexts follow the SELinux user:role:type:level syntax.
+SELinux contexts follow the SELinux user:role:type:level syntax.<!--more-->
 
 ### Users
 

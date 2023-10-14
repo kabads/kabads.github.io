@@ -6,12 +6,13 @@ date: "2018-03-18T13:02:55Z"
 draft: false
 title: Sync Google Calendar With Org Agenda
 ---
+I use [org-mode](https://orgmode.org) an awful lot - it helps me manage my tasks and code all in one place.<!--more-->
 
 {{< rawhtml >}}
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/kabads/40931410022/in/datetaken/" title="screen"><img src="https://farm1.staticflickr.com/790/40931410022_e1823676da.jpg" width="500" height="316" alt="screen"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 {{< /rawhtml >}}
 
-I use [org-mode](https://orgmode.org) an awful lot - it helps me manage my tasks and code all in one place. However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my [org-agenda](https://orgmode.org/manual/Agenda-commands.html). Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It's pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.
+ However, the organisation that I work for have just migrated over to Google Suite and manage meetings extensively using Google Calendar. I really wanted my Google Calendar to sync with my [org-agenda](https://orgmode.org/manual/Agenda-commands.html). Org-agenda is a tool that pulls in any scheduled activities from all your files in to one dynamic view. It's pretty much what drives my working day. Having meetings arranged with colleagues in my org-agenda will help me schedule my day.
 
 The package [org-gcal](https://github.com/myuhe/org-gcal.el) provides two way syncing with Google Calendar (and has other documentation).
 

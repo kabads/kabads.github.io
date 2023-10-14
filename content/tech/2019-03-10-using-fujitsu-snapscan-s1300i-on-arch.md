@@ -4,7 +4,7 @@ categories:
 date: "2019-03-10T18:15:30Z"
 title: Setting Up Fujitsu Snapscan S1300i on Arch Linux
 ---
-I have bought a Fujitsu Snapscan S1301i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. So far, I'm pleased with it, but the initial thought when I got it home was, 'how am I going to get it working with Arch Linux?' <!--more-->
+I have bought a Fujitsu Snapscan S1301i scanner - mainly because it is duplex - it saves a lot of time and will scan directly to Evernote. <!--more-->So far, I'm pleased with it, but the initial thought when I got it home was, 'how am I going to get it working with Arch Linux?' <!--more-->
 
 Fujitsu Scansnap 1300i is supported by Sane, but does require a little bit of tinkering. You need the file 1300i_0D12.nal - which is only available from installing the file on a windows machine. If you wish to download it, you can from this [GDrive link](https://drive.google.com/open?id=1X7fUpu6cM4ow_D9QqAKVvHIGVWOmhvK7) - put that file in the directory /usr/share/sane/epjitsu (on Arch Linux).
 

@@ -5,7 +5,7 @@ date: "2022-02-14T15:00:00Z"
 title: Azure DevOps Variables
 ---
 
-Azure DevOps has a funny kind of virtualization. When you run your pipelines, the jobs can be on different hosts. This creates a head-scratching moment for people like me who have been working on linux bare-metal for quite a while and thinking that variables are just inherited. In fact, in other pipelines, we have a problem where variables leak all over the place and overwrite each other. We have bash scripts that do this.
+Azure DevOps has a funny kind of virtualization. When you run your pipelines, the jobs can be on different hosts. This creates a head-scratching moment for people like me who have been working on linux bare-metal for quite a while and thinking that variables are just inherited. <!--more-->In fact, in other pipelines, we have a problem where variables leak all over the place and overwrite each other. We have bash scripts that do this.
 
 So the problem statement is thus: we have a login process that is used in lots of places. This login process returns an `ACCESS_TOKEN`. This access token help with API calls. The ideal is that we don't copy this ACCESS_TOKEN code in to all the pipelines, but instead create a template that returns the `ACCESS_TOKEN`. However, the problem with this on Azure DevOps is that each job may be processed on a different agent. It seems that there is a pool of agents whereby you can run jobs in parallel, if needed. This document describes it far better than I am here: (https://docs.microsoft.com/en-us/azure/devops/pipelines/process/runs?view=azure-devops).
 

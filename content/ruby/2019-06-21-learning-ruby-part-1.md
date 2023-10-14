@@ -4,7 +4,7 @@ categories:
 date: "2019-06-21T00:00:00Z"
 title: Learning Ruby - First Impressions
 ---
-Chef is used in my place of work, and so as a result I started learning [Ruby programming language](https://www.ruby-lang.org). <img src="https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg" width="180" height="156" alt="ruby-icon">
+Chef is used in my place of work, and so as a result I started learning [Ruby programming language](https://www.ruby-lang.org). <!--more--><img src="https://live.staticflickr.com/65535/48072657641_7545908162_m.jpg" width="180" height="156" alt="ruby-icon">
 
 I know some python (enough to get me by) but thought that knowing some Ruby would be a good development in my learning. This is an attempt an my first impressions of what is good for a beginner and what is not so good (from the perspective of someone coming from Python).
 

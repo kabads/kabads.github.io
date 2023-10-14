@@ -6,7 +6,7 @@ title: Finding large files in a directory
 url: /2016/11/20/finding-large-files-in-a-directory/
 ---
 
-I have directories that [agedu](http://www.chiark.greenend.org.uk/~sgtatham/agedu/) shows as having large files. However, agedu doesn't tell me what the names of the files are.
+I have directories that [agedu](http://www.chiark.greenend.org.uk/~sgtatham/agedu/) shows as having large files. However, agedu doesn't tell me what the names of the files are.<!--more-->
 
 A quick find will sort that
 

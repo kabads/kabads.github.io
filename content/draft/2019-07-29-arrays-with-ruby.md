@@ -5,9 +5,8 @@ date: "2019-07-29T00:00:00Z"
 status: publish
 title: Ruby Arrays
 ---
- 
 
-Ruby has extensive coverage for arrays (sometimes called lists if you are coming from a Python background). Arrays are for collecting information all in one place, or in a list. Arrays are sequential, which means that they don't change order once set. Arrays are mutable (they can change items in the list). 
+Ruby has extensive coverage for arrays (sometimes called lists if you are coming from a Python background). <!--more-->Arrays are for collecting information all in one place, or in a list. Arrays are sequential, which means that they don't change order once set. Arrays are mutable (they can change items in the list). 
 
 ### Declaring an Array
 

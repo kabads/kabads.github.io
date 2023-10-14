@@ -7,7 +7,7 @@ categories:
 ---
 
 This document will outline how to use an Amazon Web Services (AWS) CodePipeline to push a static html website from a code repository to an S3 bucket. 
-
+<!--more-->
 Prerequisites: 
  - AWS account
  - S3 bucket configured to host static html files

@@ -5,7 +5,7 @@ status: publish
 title: How to Create Virtual Machines With Qemu
 ---
 
-This post outlines the steps needed to create a qemu environment within a machine and install virtual machines in that environment.
+This post outlines the steps needed to create a qemu environment within a machine and install virtual machines in that environment.<!--more-->
 
 Software required:
 - qemu-kvm

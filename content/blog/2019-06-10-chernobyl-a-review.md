@@ -4,7 +4,7 @@ date: "2019-06-10T18:52:22Z"
 title: Chernobyl - A Review
 ---
 
-Chernobyl has screened on Sky Atlantic over the last few weeks. It represents a dramatic representation of the disaster back in 1986, which for a lot of people, is still in living memory.  
+Chernobyl has screened on Sky Atlantic over the last few weeks. It represents a dramatic representation of the disaster back in 1986, which for a lot of people, is still in living memory.<!--more-->
 
 The people who staffed the reactor experienced an explosion during a test around 1:25am. They didn't expect this to happen. The whole incident led to an explosion that devastated the surrounding areas with radioactive contamination. This acts as the backdrop for the drama written by Craig Mazin. The plot unfolds from a wide range of angles, from those who live nearby, to miners who are trucked in to stop the radiation leaking in to the ground under the reactor. Each story is driven with a personal narrative, and the desperation of the situation soon unfolds.
 

@@ -5,7 +5,7 @@ date: "2019-08-30T00:00:00Z"
 status: publish
 title: Terraform and Loops - creating multiple resources
 ---
-Terraform is a great tool for creating infrastructure. It's almost becoming the 'de-facto' standard. This post will outline how to create multiple resources with just one code block. 
+Terraform is a great tool for creating infrastructure. <!--more-->It's almost becoming the 'de-facto' standard. This post will outline how to create multiple resources with just one code block. 
 
 The oldest form of looping through a Terraform code block is the ```count``` primitive. By defining this, the run of terraform will loop over that resource for the count that has been defined. However, when defining names, the count will need to be used to name the resoure, as follows:
 

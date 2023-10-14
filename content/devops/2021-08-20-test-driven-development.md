@@ -5,7 +5,7 @@ categories:
 - devops
 ---
 
-So, I started learning [Golang](https://golang.org) recently, and decided that [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/) was a good way to go. However, there was a great 'buy-one-get-one-free' with this resource - it also taught me some of the benefits of Test Driven Development (TDD). There are four steps to TDD:
+So, I started learning [Golang](https://golang.org) recently, and decided that [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/) was a good way to go.<!--more--> However, there was a great 'buy-one-get-one-free' with this resource - it also taught me some of the benefits of Test Driven Development (TDD). There are four steps to TDD:
 
 - Write the test
 - Write a minimal amount of code for the test to recognise the code (e.g. write the function and just return - the test should still fail)

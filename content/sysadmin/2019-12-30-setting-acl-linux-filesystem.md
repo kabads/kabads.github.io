@@ -5,7 +5,7 @@ date: "2019-12-30T00:00:00Z"
 title: Setting Filesystem ACLs on Linux
 ---
 
-ACLs are a method for defining access to files and directories on a system. These can be set at the user level, group level, or via the effective rights mask.
+ACLs are a method for defining access to files and directories on a system. <!--more-->These can be set at the user level, group level, or via the effective rights mask.
 
 The commands ```getfacl``` and ```setfacl``` are used to get and change ACL permissions respectively. If you are setting for a specific user then the text form of the attribute is ```user:username:rwx```. If you want the permission to apply to the default user (or group) then you would use the text term ```user::rwx```
 
