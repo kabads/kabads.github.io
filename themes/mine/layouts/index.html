@@ -18,8 +18,9 @@
                 <span>
                     
                         <a class="page-link" href="{{ .RelPermalink }}">{{ .Title }}</a> &nbsp; &nbsp;
-                        <time>{{ .Date.Format "Jan 2, 2006" }}</h4></time>
-                                    </span>
+                        <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                </span>
+                {{ .Summary }}
             </ul>
             {{ end }}
         </ul>
