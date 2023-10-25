@@ -11,21 +11,20 @@
 </head>
 <body>
     <div id="article">
-        {{partial "categories/categories_list.html" }}        
-        <ul> 
+        {{partial "categories/categories_list.html" }} 
+        <ul>
             {{ range .Paginator.Pages }}
             <ul>
                 <span>
-                    
-                        <a class="page-link" href="{{ .RelPermalink }}">{{ .Title }}</a> &nbsp; &nbsp;
+                    </h3><a class="page-link" href="{{ .RelPermalink }}">{{ .Title }}</a> &nbsp; &nbsp;</h3>
                         <time>{{ .Date.Format "Jan 2, 2006" }}</time>
                 </span>
                 {{ .Summary }}
             </ul>
             {{ end }}
         </ul>
-    {{partial "pagination.html" .}}  
+    {{partial "pagination.html" .}}
     {{ template "partials/footer.html" }}
-    {{ with .OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}  
+    {{ with .OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
 </body>
 </html>
