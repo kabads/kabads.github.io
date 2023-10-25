@@ -6,7 +6,7 @@ title: Setting up a firewall on Linux Ubuntu 14.04
 url: /2015/12/24/setting-up-firewall/
 ---
 
-This post walks throug the steps needed to set up a firewall on Ubuntu 14.04. Note that 14.04 is now end of life. 
+This post walks throug the steps needed to set up a firewall on Ubuntu 14.04. Note that 14.04 is now end of life.<!--more-->
 
 ## Uses
 Firewalls allow only particular access to particular network ports and paths. You can remove access to a port or a specific IP address or a range of IP addresses.

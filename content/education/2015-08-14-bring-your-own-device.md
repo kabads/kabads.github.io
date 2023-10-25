@@ -7,7 +7,7 @@ title: Bring your own device or RaspberryPi hardware in education
 url: /2015/08/14/bring-your-own-device/
 ---
 
-**_The problem?_** School's are facing dwindling education budgets and yet increasing expectations for children's attainment in their knowledge. They are expected to deliver a better educational experience for less money (per head). How could they possibly do this, knowing that even now they are challenged with their budgets?
+**_The problem?_** School's are facing dwindling education budgets and yet increasing expectations for children's attainment in their knowledge. <!--more-->They are expected to deliver a better educational experience for less money (per head). How could they possibly do this, knowing that even now they are challenged with their budgets?
 
 When people pick up new technology they usually have to learn how to use the device - this is included in new operating systems that are released. By forcing them to use a particular device in school, we may be putting some children at an disadvantage if they are already used to a different operating system at home. However, if the learning objective is to learn a new device, then this should be allowed (children shouldn't become dependent on just one form of device).
 

@@ -6,7 +6,7 @@ title: Bash find command
 url: /2016/01/24/bash-find-command/
 ---
 
-I've been using the find command simply since I can remember, but I've never really got to see the true power of this command. Combined with the -exec flag this command can throw up a lot of different uses. -exec allows you to work with other bash commands and operate on them.
+I've been using the find command simply since I can remember, but I've never really got to see the true power of this command. <!--more-->Combined with the -exec flag this command can throw up a lot of different uses. -exec allows you to work with other bash commands and operate on them.
 
 A basic use would look like this:
 

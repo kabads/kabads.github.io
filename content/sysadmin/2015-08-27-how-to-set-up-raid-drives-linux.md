@@ -6,7 +6,7 @@ title: How to set-up RAID on Linux
 url: /2015/08/27/how-to-set-up-raid-drives-linux/
 ---
 
-[RAID](https://en.wikipedia.org/wiki/RAID) disks offer particular advantages over ordinary single disk set up. Data redundancy is improved (consider it to be a continuous backup) and also significant performance can be seen with the correct configuration.
+[RAID](https://en.wikipedia.org/wiki/RAID) disks offer particular advantages over ordinary single disk set up. Data redundancy is improved (consider it to be a continuous backup) and also significant performance can be seen with the correct configuration.<!--more-->
 
 There are different types of [RAID levels](https://en.wikipedia.org/wiki/Standard_RAID_levels) and each level will need to be chosen on a use-case:
 

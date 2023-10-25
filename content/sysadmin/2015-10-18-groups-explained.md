@@ -6,7 +6,7 @@ title: Linux group explained
 url: /2015/10/18/groups-explained/
 ---
 
-Users on a linux system belong to at least one group. Groups allow a systems administrator to create parts of the filesystem where a group of users can share files. They also allow a group of users to access particular commands or resources on the system, that other users might not be able to access.
+Users on a linux system belong to at least one group. Groups allow a systems administrator to create parts of the filesystem where a group of users can share files. <!--more-->They also allow a group of users to access particular commands or resources on the system, that other users might not be able to access.
 
 Groups are defined in the **/etc/group** file, which is only root writeable.
 

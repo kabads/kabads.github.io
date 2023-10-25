@@ -6,7 +6,7 @@ title: How to enable disk quotas for users
 url: /2015/12/22/how-to-enable-disk-quotas-linux/
 ---
 
-Linux allows setting quotas on a filesystem. This will prevent users from using more diskspace than they are allowed. This can also be used to manage group allowances to enforce the allowance for a collection of users. Stopping users from filling up a diskspace can be an important on a shared system as filling up a physical disk drive can bring a system down, or make it unstable.
+Linux allows setting quotas on a filesystem. This will prevent users from using more diskspace than they are allowed. <!--more-->This can also be used to manage group allowances to enforce the allowance for a collection of users. Stopping users from filling up a diskspace can be an important on a shared system as filling up a physical disk drive can bring a system down, or make it unstable.
 
 
 # Steps
