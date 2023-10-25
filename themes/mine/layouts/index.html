@@ -3,25 +3,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Kabads</title>
     {{ template "partials/header.html"}}
     <meta charset="utf-8">
     <link href="/css/main.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Description }}">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MVH3HR5R');</script>
-    <!-- End Google Tag Manager -->
+<!-- Start Open Web Analytics Tracker -->
+<script type="text/javascript">
+    //<![CDATA[
+    var owa_baseUrl = 'https://home.monkeez.org/owa/';
+    var owa_cmds = owa_cmds || [];
+    owa_cmds.push(['setDebug', true]);
+    owa_cmds.push(['setSiteId', 'e96cc79fe81df249b3191b2c920fa8f7']);
+    owa_cmds.push(['trackPageView']);
+    owa_cmds.push(['trackClicks']);
+    
+    (function() {
+        var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+        owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+        _owa.src = owa_baseUrl + 'modules/base/dist/owa.tracker.js';
+        var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+    }());
+    //]]>
+    </script>
+    <!-- End Open Web Analytics Code -->
+    
+            
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVH3HR5R"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="article">
         {{partial "categories/categories_list.html" }}        
         <ul> 
