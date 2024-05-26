@@ -4,7 +4,6 @@ title: Recursion in Python
 date: 2024-05-26
 categories:
 - python
-draft: true
 ---
 
 So, I've started the [100 days of code](https://www.100daysofcode.com) again. This is an attempt to keep the brain ticking over and keep coding fun. There are certain things I do at work, that really aren't always that taxing. But they are necessary. 
