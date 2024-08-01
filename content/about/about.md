@@ -6,7 +6,7 @@ url: about
 categories:
 - about
 ---
-I have been working in education for some time, always with a focus on technology.
+I had been working in education for some time, always with a focus on technology.
 
 I now work in Tech, deploying services (mainly databases) in the cloud. This involves work on Terraform) and scripting languages (ruby and python).
 
