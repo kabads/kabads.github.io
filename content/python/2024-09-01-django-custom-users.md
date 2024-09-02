@@ -25,7 +25,7 @@ $ django-admin startproject myproject
 
 ## Custom user model
 
-I went for the method of creating a new app in my project to manage users - called accounts:
+I went for the method of creating a new app in my project to manage users - called ```accounts```:
 
 ```bash
 $ python manage.py startapp accounts
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 ]
 ```
 
-### Custom user model
 
 > **WARNING**: At this point, you may be tempted to create your superuser (```python manage.py createsuperuser```), but you'll get an error because Django doesn't know about your custom user model yet. Hold off that and create your custom user model first.
 
@@ -98,7 +97,6 @@ Ensure you have the following line in your `settings.py` file:
 # settings.py
 AUTH_USER_MODEL = 'accounts.CustomUser'
 ```
-
 
 ## Create Views for the custom user model
 
@@ -166,11 +164,27 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 
-# Register the custom user model with the admin site
+```
+
+## Create the Migrations
+
+Now we have the models, we need to create a migration to initialize the database. Run the following commands:
+
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+
+
+## Register the custom user model with the admin site
+```python
+# accounts/admin.py
 admin.site.register(CustomUser, CustomUserAdmin)
 ```
 
 > **NOTE**: Now you can create the superuser. If you did this before, you will have an error.
+
 
 ```bash
 $ python manage.py createsuperuser
