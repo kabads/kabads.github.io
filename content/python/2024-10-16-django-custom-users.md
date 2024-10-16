@@ -15,6 +15,10 @@ Basically there will be several steps to follow:
  - Update the admin confiruration
  - Create the migration and apply
 
+
+The files for this blog post can be found here: [https://github.com/kabads/django-custom-user-example](https://github.com/kabads/django-custom-user-example).
+
+
 ## Optional: Create a new Django project
 
 If you don't have a Django project yet, you can create one with the following command:
