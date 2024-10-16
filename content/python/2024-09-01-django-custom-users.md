@@ -23,6 +23,10 @@ If you don't have a Django project yet, you can create one with the following co
 $ django-admin startproject myproject
 ```
 
+```bash
+$ cd myproject
+```
+
 ## Custom user model
 
 I went for the method of creating a new app in my project to manage users - called ```accounts```:
@@ -31,12 +35,12 @@ I went for the method of creating a new app in my project to manage users - call
 $ python manage.py startapp accounts
 ```
 
-Then I added the app to the `INSTALLED_APPS` list in the `settings.py` file:
+Then I added the app to the `INSTALLED_APPS` list in the `myproject/settings.py` file:
 
 ```python
 INSTALLED_APPS = [
     ...
-    'accounts',
+    "accounts",
 ]
 ```
 
@@ -91,7 +95,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 ### Update settings.py
 
-Ensure you have the following line in your `settings.py` file:
+Ensure you have the following line in your `myproject/settings.py` file:
 
 ```python
 # settings.py
@@ -139,8 +143,10 @@ def home(request):
     return render(request, 'home.html')
 ```
 
-## Update the admin configuration
+## Update the admin configuration in accounts/admin.py
 ```python
+# accounts/admin.py
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
