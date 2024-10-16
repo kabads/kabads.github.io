@@ -53,6 +53,7 @@ To create a custom user model, you need to create a new model that inherits from
 # accounts/models.py
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -83,7 +84,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
+    date_joined = models.DateTimeField(default=timezone.now)
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -143,7 +144,7 @@ def home(request):
     return render(request, 'home.html')
 ```
 
-## Update the admin configuration in accounts/admin.py
+## Update the admin configuration in accounts/admin.py and register the custom user model
 ```python
 # accounts/admin.py
 
@@ -170,6 +171,7 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 
+admin.site.register(CustomUser, CustomUserAdmin)
 ```
 
 ## Create the Migrations
@@ -181,43 +183,7 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
-
-
-## Register the custom user model with the admin site
-```python
-# accounts/admin.py
-from django.contrib import admin
-
-# Register your models here.
-
-from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
-
-class CustomUserAdmin(UserAdmin):
-    # Define the fields to be used in displaying the User model.
-    list_display = ('email', 'first_name', 'last_name', 'is_staff', 'is_active')
-    list_filter = ('is_staff', 'is_active')
-    fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name')}),
-        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_superuser', 'groups', 'user_permissions')}),
-        ('Important dates', {'fields': ('last_login', 'date_joined')}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'first_name', 'last_name', 'password1', 'password2', 'is_staff', 'is_active'),
-        }),
-    )
-    search_fields = ('email', 'first_name', 'last_name')
-    ordering = ('email',)
-
-# Register the custom user model with the admin site
-admin.site.register(CustomUser, CustomUserAdmin)
-```
-
 > **NOTE**: Now you can create the superuser. If you did this before, you will have an error.
-
 
 ```bash
 $ python manage.py createsuperuser
