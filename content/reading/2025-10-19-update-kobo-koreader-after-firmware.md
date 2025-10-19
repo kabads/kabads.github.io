@@ -1,7 +1,7 @@
 ---
 categories:
 - reading
-date: "2026-10-19T00:00:00Z"
+date: "2025-10-19T00:00:00Z"
 title: Updating KFMon after Kobo Firmware Update
 ---
 
