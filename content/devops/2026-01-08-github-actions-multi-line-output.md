@@ -19,10 +19,8 @@ Bash has the traditional `EOF` [delimiter](https://www.man7.org/linux/man-pages/
       echo "EOF"
     } >> "$GITHUB_OUTPUT"
 ```
-```
 
 In this case the variable will have the name `message`. 
-```
 
 However, a common gotcha arises when the multi-line content comes from a file or command. GitHub's parser is very strict, but the community have found this to be not so well [documented](https://github.com/github/docs/issues/21529).  The closing delimiter must be on its own line, with no extra spaces, and must follow a newline that isn't swallowed by the file content. This means that if your file doesn't end with a newline, or the shell appends the closing delimiter immediately after the last line of content, GitHub will throw the error:
 
