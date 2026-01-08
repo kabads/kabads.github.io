@@ -8,7 +8,7 @@ categories:
 
 When building GitHub Actions it's common to want to output multi-line text from a composite action or step. GitHub Actions provides the `$GITHUB_OUTPUT` [environment file](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) mechanism to pass outputs between steps. The syntax is simple, if you are familiar with a Linux shell: `echo "test=hello" >> "$GITHUB_OUTPUT"`. This will set a variable from that job-step called `test` with the value `hello`  and can be called from another step using the syntax `${{ steps.<jobid>.outputs.test }}`. This deals with single line outputs well, but what about multis-line outputs? That can be more complex.
 
-Bash has the traditional `EOF` [delimiter](https://www.man7.org/linux/man-pages/man3/EOF.3const.html) for dealing with this, but it can be complex, especially when it's not your machine (i.e. a GitHub hosted runner). Usually the syntax is syntax is straightforward: you write the output name followed by `<<DELIMITER`, then the value, and finally then delimetirer again. For example:
+Bash has the traditional `EOF` [delimiter](https://www.man7.org/linux/man-pages/man3/EOF.3const.html) for dealing with this, but it can be complex, especially when it's not your machine (i.e. a GitHub hosted runner). Usually the syntax is straightforward: you write the output name followed by `<<DELIMITER`, then the value, and finally then delimetirer again. For example:
 
 ```bash
     {
