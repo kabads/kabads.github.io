@@ -16,7 +16,7 @@ Bash has the traditional `EOF` [delimiter](https://www.man7.org/linux/man-pages/
       echo "Line 1"
       echo "Line 2"
       echo "Line 3"
-      echo "EOM"
+      echo "EOF"
     } >> "$GITHUB_OUTPUT"
 ```
 ```
@@ -34,14 +34,14 @@ However, a common gotcha arises when the multi-line content comes from a file or
     {
       echo "commits<<EOF"
       cat some-file.txt
-      echo "EOM"
+      echo "EOF"
     } >> "$GITHUB_OUTPUT"
 
 The solution is simple and reliable: ensure a newline between the file content and closing delimeter. Using `printf '\n'` guarantees this:
 
     {
-      echo "commits<<EOM"
+      echo "commits<<EOF"
       cat commits.txt
       printf '\n'
-      echo "EOM"
+      echo "EOF"
     } >> "$GITHUB_OUTPUT"
