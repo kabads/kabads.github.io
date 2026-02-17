@@ -10,7 +10,7 @@ After a firmware update on a kobo device, to launch KOReader, you will need to u
 Plugin your Kobo device via USB and mount the filesystem.
 
 Download the latest OCP (One Click Install Package) for KFMon.
-(<https://www.mobileread.com/forums/showthread.php?t=314220)[https://www.mobileread.com/forums/showthread.php?t=314220>]
+[https://www.mobileread.com/forums/showthread.php?t=314220](https://www.mobileread.com/forums/showthread.php?t=314220)
 
 This will have a filename such as kfm_nix_install.zip.
 
