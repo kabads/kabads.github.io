@@ -2,7 +2,8 @@
 disablePathToLower: true
 languageCode: en-gb
 title: Kabads
-paginate: 10
+pagination:
+  pagerSize: 10
 taxonomies:
   category: categories
 theme: mine
