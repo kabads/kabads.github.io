@@ -1,3 +1,12 @@
+---
+layout: post
+title: Battleships in Go: learning log
+date: 2026-05-24
+categories:
+- tech
+giscus: true
+---
+
 # Learning Log
 
 I have been learning more [Go](https://go.dev) over the past week or so. I decided a good project would be a battleship game, but I prefer games where there is quite a bit of automation (this one was wholly automated). Basically, we create a grid, and somewhere in the grid is a single ship (x, y coordinates). The goal is to find that. The first strategy was randomly finding it. This was amazingly inefficient, so the next strategy was to provide min/max concept, whereby after an incorrect search, we provide how far away we are from the correct coordinates.
