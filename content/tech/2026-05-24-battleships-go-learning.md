@@ -11,7 +11,7 @@ giscus: true
 
 I have been learning more [Go](https://go.dev) over the past week or so. I decided a good project would be a battleship game, but I prefer games where there is quite a bit of automation (this one was wholly automated). Basically, we create a grid, and somewhere in the grid is a single ship (x, y coordinates). The goal is to find that. The first strategy was randomly finding it. This was amazingly inefficient, so the next strategy was to provide min/max concept, whereby after an incorrect search, we provide how far away we are from the correct coordinates.
 
-The next improvement after providing min / max, was to choose a random coordinate within this range. This was more efficient, but not the best method. The next iteration was to find the midpoint of the range - this meant that we reduced the range by 50% every time. Another efficiency saving.
+The next improvement after providing min / max, was to choose a set of random coordinates within this range. This was more efficient, but not the best method. The next iteration was to find the midpoint of the range - this meant that we reduced the range by 50% every time. Another efficiency saving.
 
 Then I decided to run many games. Until this point, I had only been running one battleship game, but comparing the two search strategies (random and midpoint). With random searches, you will get a high variance of results. To reduce the variance, we can run many games, and then get an average of these results.
 
@@ -43,8 +43,6 @@ The `setUpBoard()` function was renamed to `newBoard()` to make it more idiomati
 
 ## panic: invalid argument to IntN
 
-`rand.IntN` panics if passed a value of `0` or less. This happens when a search window collapses — `xmax - xmin` becomes zero or negative. The root cause is usually incorrect window-narrowing logic that grows the window instead of shrinking it, or shrinks it past the target.
-
 I rarely started to get a panic with `rand.IntN(n)` calls. This is because `xmin - xmax` was giving zero. You cannot pass this in to the random function as it will panic. This was caused by the window narrowing logic being incorrect, and the window expanding rather than contracting. I fixed this by ensuring that when the target is above/right of the guess, I raise the lower bound (`xmin = xguess + 1`), and when the target is below/left of the guess, I lower the upper bound (`xmax = xguess`). This is nothing to do with Go itself, but I wanted to recognise this logic for the future.
 
 ---
@@ -61,7 +59,7 @@ When the signed delta (`diff = target - guess`) comes back from a missed guess:
 
 ## Exclusive bounds and the +1 rule
 
-I noticed that the search didn't exit. This was a problem, as the program was stuck in a loop. This was cause by the logic for the diff - I was always searching in the same bounds. I needed to make the bound exclusive.
+I noticed that the search occasionally didn't exit. This was a problem, as the program was stuck in a loop. This was cause by the logic for the diff - I was always searching in the same bounds. I needed to make the bound exclusive.
 
 When `diff > 0`, setting `xmin = xguess` (without `+1`) means the new lower bound still includes the current guess - a coordinate already known to be wrong. Using `xmin = xguess + 1` makes the bound exclusive, ensuring the search never wastes a guess on a coordinate already ruled out.
 
