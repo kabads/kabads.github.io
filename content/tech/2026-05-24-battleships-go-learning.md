@@ -8,7 +8,7 @@ Then I decided to run many games. Until this point, I had only been running one 
 
 Below are the learning points that I found during this fun project. I find writing about them consolidates my learning.
 
-The final code for this exercise can be found here [http://dev:3000/adam/battleships](http://dev:3000/adam/battleships).
+The final code for this exercise can be found here [https://github.com/kabads/battleships-go](https://github.com/kabads/battleships-go).
 
 ---
 
