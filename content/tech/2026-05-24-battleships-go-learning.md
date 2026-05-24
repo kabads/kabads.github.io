@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Battleships in Go: learning log
+title: Battleships in Go - learning log
 date: 2026-05-24
 categories:
 - tech
