@@ -1,14 +1,20 @@
 # Learning Log
 
-A record of concepts and lessons learned while building this project.
+I have been learning more [Go](https://go.dev) over the past week or so. I decided a good project would be a battleship game, but I prefer games where there is quite a bit of automation (this one was wholly automated). Basically, we create a grid, and somewhere in the grid is a single ship (x, y coordinates). The goal is to find that. The first strategy was randomly finding it. This was amazingly inefficient, so the next strategy was to provide min/max concept, whereby after an incorrect search, we provide how far away we are from the correct coordinates.
+
+The next improvement after providing min / max, was to choose a random coordinate within this range. This was more efficient, but not the best method. The next iteration was to find the midpoint of the range - this meant that we reduced the range by 50% every time. Another efficiency saving.
+
+Then I decided to run many games. Until this point, I had only been running one battleship game, but comparing the two search strategies (random and midpoint). With random searches, you will get a high variance of results. To reduce the variance, we can run many games, and then get an average of these results.
+
+Below are the learning points that I found during this fun project. I find writing about them consolidates my learning.
+
+The final code for this exercise can be found here [http://dev:3000/adam/battleships](http://dev:3000/adam/battleships).
 
 ---
 
 ## Architecture: capturing state in a struct
 
-**Question:** The search algorithm needs the target coordinates for comparison, but the board is `[][]int` which means scanning the whole grid to find it. Should a struct hold this?
-
-**Answer:** Yes. The board and its answer are logically one thing. A struct keeps them together and avoids re-scanning on every guess:
+Initially I stored the grid as a `[][]int` type. This was a good starting point, but later on, I also wanted to store the solve (coordinates of the ship that we are searching for). I could brute-force the search again to get the difference to update the min / max values. However, that was very inefficient, as I already had that information. The best way to manage this was to create a struct that held that information as well as the grid:
 
 ```go
 type Board struct {
@@ -18,13 +24,19 @@ type Board struct {
 }
 ```
 
-`setUpBoard` returns `*Board` instead of `[][]int`, storing the target coordinates at construction time. The search function can then accept the actual answer directly instead of searching for it.
+This meant that the board is now a struct of values and the search function can accept this.
+
+I had a function called `setUpBoard()` that accepted `[][]int` but this changed to be a pointer to a type `*Board`. This meant the board was passed around to each function, and now with the target coordinates.  
+
+The `setUpBoard()` function was renamed to `newBoard()` to make it more idiomatic. In Go, constructors are typically named `New<Type>` or `new<Type>`, and they return a pointer to the new struct. This is a common pattern in Go for creating and initializing complex types.
 
 ---
 
 ## panic: invalid argument to IntN
 
 `rand.IntN` panics if passed a value of `0` or less. This happens when a search window collapses — `xmax - xmin` becomes zero or negative. The root cause is usually incorrect window-narrowing logic that grows the window instead of shrinking it, or shrinks it past the target.
+
+I rarely started to get a panic with `rand.IntN(n)` calls. This is because `xmin - xmax` was giving zero. You cannot pass this in to the random function as it will panic. This was caused by the window narrowing logic being incorrect, and the window expanding rather than contracting. I fixed this by ensuring that when the target is above/right of the guess, I raise the lower bound (`xmin = xguess + 1`), and when the target is below/left of the guess, I lower the upper bound (`xmax = xguess`). This is nothing to do with Go itself, but I wanted to recognise this logic for the future.
 
 ---
 
@@ -36,19 +48,21 @@ When the signed delta (`diff = target - guess`) comes back from a missed guess:
 - `diff < 0` means the target is **below/left** of the guess → lower the **upper** bound: `xmax = xguess`
 - `diff == 0` means the guess is already on the correct coordinate in that axis → **don't adjust** that bound at all
 
-Getting these backwards causes the window to expand rather than contract, eventually producing negative window sizes and a panic.
-
 ---
 
 ## Exclusive bounds and the +1 rule
 
-When `diff > 0`, setting `xmin = xguess` (without `+1`) means the new lower bound still includes the current guess — a coordinate already known to be wrong. Using `xmin = xguess + 1` makes the bound exclusive, ensuring the search never wastes a guess on a coordinate already ruled out.
+I noticed that the search didn't exit. This was a problem, as the program was stuck in a loop. This was cause by the logic for the diff - I was always searching in the same bounds. I needed to make the bound exclusive.
 
-Both axes must use the same convention (both exclusive) or the window can get stuck. An asymmetric implementation — where one axis uses exclusive bounds and the other doesn't — can cause infinite loops.
+When `diff > 0`, setting `xmin = xguess` (without `+1`) means the new lower bound still includes the current guess - a coordinate already known to be wrong. Using `xmin = xguess + 1` makes the bound exclusive, ensuring the search never wastes a guess on a coordinate already ruled out.
+
+Both axes must use the same convention (both exclusive) or the window can get stuck. An asymmetric implementation - where one axis uses exclusive bounds and the other doesn't was causing infinite loops.
 
 ---
 
 ## rand.IntN range and shifting
+
+So, I had the `min / max` and now I could use that to search a smaller portion of the slice. However, I did not want to search from the beginning of the slice again, so I had to add the xmin to start the search. This meant that we only used the correct part of the slice. Simples!
 
 `rand.IntN(n)` returns a value in `[0, n)`. To get a random value within a window `[xmin, xmax)`:
 
@@ -56,7 +70,7 @@ Both axes must use the same convention (both exclusive) or the window can get st
 xguess = rand.IntN(xmax-xmin) + xmin
 ```
 
-Without `+ xmin`, you always guess from the origin regardless of where the window is.
+Without `+ xmin`, you always guess from the origin of the slice (index 0) regardless of where the window is.
 
 ---
 
@@ -80,17 +94,20 @@ The averages are similar, but midpoint wins on **consistency** — it has no unl
 
 ## Efficiency comparison formula
 
-```
-efficiency = (randomGuesses - midpointGuesses) / randomGuesses * 100
-```
-
-This expresses how many fewer guesses midpoint needed as a percentage of random's total. Watch out for `NaN`: if `randomGuesses == 0` (the first guess was correct), this divides by zero. Go's float arithmetic returns `NaN` rather than panicking, so it must be guarded explicitly:
+I found one rare case, whereby the first game would guess correctly. This meant that the number of guesses was 0. This led to a divide by zero, which caused an error to be printed (the program still ran, I just saw the `NaN` value printed). To fix this, I had to add a guard for the case where `randomGuesses == 0`:
 
 ```go
 if randomGuesses == 0 {
     return 100.0
 }
+
 ```
+
+```
+efficiency = (randomGuesses - midpointGuesses) / randomGuesses * 100
+```
+
+This expresses how many fewer guesses midpoint needed as a percentage of random's total. Watch out for `NaN`: if `randomGuesses == 0` (the first guess was correct), this divides by zero. Go's float arithmetic returns `NaN` rather than panicking, so it must be guarded explicitly
 
 ---
 
@@ -120,7 +137,8 @@ for range games {
 ```
 
 Key points:
-- `go func()` spawns a goroutine — a lightweight concurrent function
+
+- `go func()` spawns a goroutine - a lightweight concurrent function
 - `chan float64` is a channel that carries float values between goroutines
 - The buffer size (`games`) lets all goroutines send without blocking, even before main starts reading
 - Main reads from the channel exactly as many times as there are goroutines, then averages
@@ -182,7 +200,7 @@ The tradeoff is added complexity — the function signature is harder to read at
 
 ## Pass by value in Go
 
-Go passes integers by value, not by reference. A function that takes `min, max int` and modifies them only modifies its own local copies — the caller's variables are unchanged. To propagate changes back, either return the new values (idiomatic) or pass pointers. Multiple return values are the preferred Go approach:
+Go passes integers by value, not by reference. A function that takes `min, max int` and modifies them only modifies its own local copies - the caller's variables are unchanged. To propagate changes back, either return the new values (idiomatic) or pass pointers. Multiple return values are the preferred Go approach:
 
 ```go
 func narrowWindow(...) (int, int, int, int) {
